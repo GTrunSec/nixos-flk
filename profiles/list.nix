@@ -2,4 +2,5 @@
   ./core
   ./ssh
   ./virt
+  ./graphical
 ]

@@ -30,6 +30,7 @@ in
       utillinux
       whois
       zsh
+      zstd
     ];
 
     shellInit = ''
