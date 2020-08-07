@@ -5,4 +5,5 @@
   ./graphical
   ./fonts
   ./code
+  ./applications
 ]

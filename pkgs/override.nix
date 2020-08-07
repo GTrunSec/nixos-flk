@@ -4,4 +4,8 @@
 # installed by the user elsewhere in the configuration.
 pkgs:
 with pkgs;
-[ ]
+[
+  signal-desktop
+  polar-bookshelf
+  brave
+]

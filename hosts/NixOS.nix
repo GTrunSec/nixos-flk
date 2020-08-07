@@ -5,6 +5,7 @@
               ../profiles/graphical/nvidia.nix
               ../profiles/ssh
               ../profiles/code
+              ../profiles/applications
             ];
 
   boot.loader.systemd-boot.enable = true;
