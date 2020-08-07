@@ -1,4 +1,3 @@
-
 { lib, pkgs, ... }:
 let
   inherit (builtins) readFile;
@@ -86,10 +85,13 @@ in
 
     displayManager.sddm = {
       enable = true;
+      autoLogin = {
+        enable = true;
+        user = "gtrun";
+      };
     };
-    videoDrivers = [ "nvidia" "intel"];
 
-
+    
     windowManager = {
       i3 = {
         package = pkgs.i3-gaps;
@@ -100,12 +102,6 @@ in
     displayManager.defaultSession = "none+i3";
     desktopManager.xterm.enable = false;
 
-  };
-
-  systemd.services.nvidia-control-devices = {
-    wantedBy = [
-      "multi-user.target"
-    ];
   };
 
   nixpkgs.config = {

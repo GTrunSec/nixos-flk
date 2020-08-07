@@ -2,6 +2,7 @@
   ### root password is empty by default ###
   imports = [ ../users/nixos ../users/root ./hardware-configuration.nix
               ../profiles/graphical
+              ../profiles/graphical/nvidia.nix
               ../profiles/fonts
               ../profiles/ssh
             ];
