@@ -32,6 +32,7 @@ in
       whois
       zsh
       zstd
+      kitty
     ];
 
     shellInit = ''

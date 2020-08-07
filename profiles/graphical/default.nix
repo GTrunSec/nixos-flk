@@ -29,11 +29,12 @@ in
           gtk-icon-theme-name=Papirus
           gtk-theme-name=Adapta
           gtk-cursor-theme-name=Adwaita
+          gtk-cursor-theme-size=128
         '';
         mode = "444";
       };
     };
-
+    
     sessionVariables = {
       # Theme settings
       QT_QPA_PLATFORMTHEME = "gtk2";
@@ -43,6 +44,7 @@ in
           gtk = ''
             gtk-icon-theme-name="Papirus"
             gtk-cursor-theme-name="Adwaita"
+            gtk-cursor-theme-size ="128"
           '';
         in
           [
@@ -73,6 +75,10 @@ in
       zathura
     ];
   };
+
+
+  #xsession.pointerCursor.size = 128;
+
   services.xserver = {
     enable = true;
 
