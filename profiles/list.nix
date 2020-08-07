@@ -4,4 +4,5 @@
   ./virt
   ./graphical
   ./fonts
+  ./code
 ]
