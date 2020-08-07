@@ -1,5 +1,5 @@
 {
-  description = "A highly structured configuration database.";
+  description = "User:GTrunSec - A highly structured configuration database.";
 
   inputs =
     {
@@ -85,8 +85,8 @@
           profilesAttrs;
 
       templates.flk.path = ./.;
-      templates.flk.description = "flk template";
-
+      templates.flk.description = "https://github.com/GTrunSec/nixos-flk";
+      templates.flk.base.description = "https://github.com/nrdxp/nixflk";
       defaultTemplate = self.templates.flk;
     };
 }
