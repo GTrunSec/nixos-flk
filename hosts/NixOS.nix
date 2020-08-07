@@ -1,6 +1,6 @@
 {
   ### root password is empty by default ###
-  imports = [ ../users/nixos ../users/root ./hardware-configuration.nix
+  imports = [ ../users/nixos ../users/root ./hardware/NixOS-hardware-configuration.nix
               ../profiles/graphical
               ../profiles/graphical/nvidia.nix
               ../profiles/ssh
@@ -15,6 +15,5 @@
 
   networking.networkmanager.enable = true;
   # Define your hostname.
-  #fileSystems."/" = { device = "/dev/disk/by-label/nixos"; };
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 }
