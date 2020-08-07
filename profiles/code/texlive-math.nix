@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   environment.systemPackages = with pkgs; [
     (texmacs.override {chineseFonts = true; extraFonts = true;})
@@ -18,7 +17,6 @@
         ctex
         xecjk
         fontspec euenc;
-
       }
     )
   ];

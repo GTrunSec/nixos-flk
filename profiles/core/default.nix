@@ -33,7 +33,18 @@ in
       whois
       zsh
       zstd
-      kitty
+      unzip
+      zip
+      pciutils    # lspci
+      psmisc      # pkill, killall, pstree, fuser
+      goldendict
+      enpass
+      nix-index
+      #remote
+      rxvt_unicode.terminfo
+      ncurses.dev # infocmp/tic/etc
+      mpv
+      desktop-file-utils
     ];
 
     shellInit = ''

@@ -4,6 +4,7 @@ let
 in
 {
   imports = [ ./texlive-math.nix
+              ./go.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode
