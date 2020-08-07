@@ -162,6 +162,4 @@ in
 
   services.sshd.enable = true;
 
-  # ssd trimming
-  services.fstrim.enable = true;
 }

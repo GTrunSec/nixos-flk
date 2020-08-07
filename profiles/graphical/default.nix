@@ -85,10 +85,11 @@ in
 
     displayManager.sddm = {
       enable = true;
-      autoLogin = {
-        enable = true;
-        user = "gtrun";
-      };
+    };
+
+    displayManager.autoLogin = {
+      enable = true;
+      user = "gtrun";
     };
 
     

@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # graph
+     ditaa
+     graphviz
     (texmacs.override {chineseFonts = true; extraFonts = true;})
     ( texlive.combine # latex + packages
       { inherit (texlive)

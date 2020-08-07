@@ -1,6 +1,8 @@
 { pkgs, ... }: 
 let
   customVscode = (import ./vscode.nix { inherit pkgs; });
+  customJulia = (import ./julia.nix {inherit pkgs;});
+
 in
 {
   imports = [ ./texlive-math.nix
@@ -8,5 +10,6 @@ in
             ];
   environment.systemPackages = with pkgs; [
     customVscode
+    customJulia
   ];
 }

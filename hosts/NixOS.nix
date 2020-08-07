@@ -9,6 +9,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  ## ssd
   services.fstrim.enable = true;
 
   networking.networkmanager.enable = true;
