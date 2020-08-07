@@ -5,6 +5,7 @@ let
   inherit (config.hardware) pulseaudio;
 in
 {
+
   sound.enable = true;
 
   programs.sway = {

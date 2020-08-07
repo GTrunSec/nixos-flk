@@ -2,6 +2,8 @@
   ### root password is empty by default ###
   imports = [ ../users/nixos ../users/root ./hardware-configuration.nix
               ../profiles/graphical
+              ../profiles/fonts
+              ../profiles/ssh
             ];
 
   boot.loader.systemd-boot.enable = true;

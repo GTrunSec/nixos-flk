@@ -1,10 +1,9 @@
+
 { lib, pkgs, ... }:
 let
   inherit (builtins) readFile;
 in
 {
-  imports = [ ./sway ];
-
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
@@ -83,6 +82,18 @@ in
       enable = true;
     };
     videoDrivers = [ "nvidia" "intel"];
+
+
+    windowManager = {
+      i3 = {
+        package = pkgs.i3-gaps;
+        enable = true;
+      };
+    };
+
+    displayManager.defaultSession = "none+i3";
+    desktopManager.xterm.enable = false;
+
   };
 
   systemd.services.nvidia-control-devices = {
@@ -90,4 +101,15 @@ in
       "multi-user.target"
     ];
   };
+
+  nixpkgs.config = {
+    pulseaudio = true;
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+        githubSupport = true;
+	    };
+		};
+	};
+
 }

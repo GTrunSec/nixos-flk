@@ -3,4 +3,5 @@
   ./ssh
   ./virt
   ./graphical
+  ./fonts
 ]
