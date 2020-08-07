@@ -7,7 +7,8 @@ in
 
   nix.systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 
-  imports = [ ../../local/locale.nix ];
+  imports = [ ../../local/locale.nix
+            ];
 
   environment = {
 

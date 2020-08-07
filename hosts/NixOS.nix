@@ -1,9 +1,12 @@
 {
   ### root password is empty by default ###
-  imports = [ ../users/nixos ../users/root ./hardware-configuration.nix];
+  imports = [ ../users/nixos ../users/root ./hardware-configuration.nix
+              ../profiles/graphical
+            ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  services.fstrim.enable = true;
 
   networking.networkmanager.enable = true;
 
