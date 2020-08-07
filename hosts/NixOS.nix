@@ -3,7 +3,6 @@
   imports = [ ../users/nixos ../users/root ./hardware-configuration.nix
               ../profiles/graphical
               ../profiles/graphical/nvidia.nix
-              ../profiles/fonts
               ../profiles/ssh
             ];
 
@@ -12,7 +11,7 @@
   services.fstrim.enable = true;
 
   networking.networkmanager.enable = true;
-
+  # Define your hostname.
   #fileSystems."/" = { device = "/dev/disk/by-label/nixos"; };
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 }

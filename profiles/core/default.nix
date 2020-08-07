@@ -7,7 +7,8 @@ in
 
   nix.systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 
-  imports = [ ../../local/locale.nix
+  imports = [ ../../profiles/fonts
+              ../../local/locale.nix
             ];
 
   environment = {
@@ -150,4 +151,6 @@ in
 
   services.sshd.enable = true;
 
+  # ssd trimming
+  services.fstrim.enable = true;
 }
