@@ -16,6 +16,7 @@
     golint
     #for nix
     go2nix
+    vgo2nix
   ];
   environment.variables = { GOROOT = [ "${pkgs.go.out}/share/go" ]; };
 }

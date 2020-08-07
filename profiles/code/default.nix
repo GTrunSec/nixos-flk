@@ -7,6 +7,8 @@ in
 {
   imports = [ ./texlive-math.nix
               ./go.nix
+              ./lib-dep.nix
+              ./c++.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode

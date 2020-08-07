@@ -3,7 +3,7 @@ let
   inherit (builtins) readFile;
 in
 {
-
+  imports = [ ./i3.nix ];
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
   hardware.pulseaudio.enable = true;
@@ -58,6 +58,7 @@ in
       dzen2
       feh
       ffmpeg-full
+      gsettings-desktop-schemas
       gnome3.adwaita-icon-theme
       gnome3.networkmanagerapplet
       gnome-themes-extra
@@ -75,9 +76,6 @@ in
     ];
   };
 
-
-  #xsession.pointerCursor.size = 128;
-
   services.xserver = {
     enable = true;
 
@@ -91,28 +89,6 @@ in
       enable = true;
       user = "gtrun";
     };
-
-    
-    windowManager = {
-      i3 = {
-        package = pkgs.i3-gaps;
-        enable = true;
-      };
-    };
-
-    displayManager.defaultSession = "none+i3";
-    desktopManager.xterm.enable = false;
-
   };
-
-  nixpkgs.config = {
-    pulseaudio = true;
-    packageOverrides = pkgs: rec {
-      polybar = pkgs.polybar.override {
-        i3Support = true;
-        githubSupport = true;
-	    };
-		};
-	};
 
 }

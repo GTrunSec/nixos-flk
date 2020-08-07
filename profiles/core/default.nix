@@ -30,6 +30,9 @@ in
       nmap
       ripgrep
       utillinux
+      lsof
+      lm_sensors
+      compton
       whois
       zsh
       zstd

@@ -8,4 +8,5 @@ with pkgs;
   signal-desktop
   polar-bookshelf
   brave
+  ccls
 ]
