@@ -17,6 +17,8 @@
     #browwser    
     brave
 
+    #book
+    polar-bookshelf
     #git manager  UI
     gitkraken
     gitAndTools.delta
