@@ -15,5 +15,6 @@
 	                             source-han-sans-traditional-chinese
                                material-icons
                                weather-icons
+                               iosevka
 	];
 }

@@ -1,13 +1,18 @@
 { pkgs, ... }:
-
 {
   environment.systemPackages = with pkgs; [
     feh
     rofi
+    (polybar.override {
+      i3Support = true;
+      githubSupport = true;
+      pulseSupport = true;
+      mpdSupport = true;
+      alsaSupport = true;
+	  })
   ];
 
   services.xserver = {
-
     windowManager = {
       i3 = {
         package = pkgs.i3-gaps;
@@ -18,14 +23,4 @@
     displayManager.defaultSession = "none+i3";
     desktopManager.xterm.enable = false;
   };
-
-  nixpkgs.config = {
-    pulseaudio = true;
-    packageOverrides = pkgs: rec {
-      polybar = pkgs.polybar.override {
-        i3Support = true;
-        githubSupport = true;
-	    };
-		};
-	};
 }
