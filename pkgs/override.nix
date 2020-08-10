@@ -9,4 +9,5 @@ with pkgs;
   polar-bookshelf
   brave
   ccls
+  discord
 ]
