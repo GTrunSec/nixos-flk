@@ -5,6 +5,5 @@
       screenfetch
       exa
       spectacle
-      deepin-screenshot
   ];
 }
