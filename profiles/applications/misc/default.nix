@@ -23,13 +23,6 @@
         # TMSU lets you tags your files and then access them through a nifty virtual filesystem from any other application.
         tmsu
 
-        #browwser
-        brave
-
-        #book
-        polar-bookshelf
-        #git manager  UI
-        gitkraken
         gitAndTools.delta
         ##
         sshfs

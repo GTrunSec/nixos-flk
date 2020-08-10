@@ -10,6 +10,7 @@ in
               ./lib-dep.nix
               ./c++.nix
               ./node.nix
+              ./r.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode
