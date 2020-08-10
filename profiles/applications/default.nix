@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./chat ./misc ];
+  imports = [ ./chat ./misc ./img ];
   environment.systemPackages = with pkgs; [
-
   ];
 }

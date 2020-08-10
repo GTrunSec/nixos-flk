@@ -4,5 +4,7 @@
       gimp
       screenfetch
       exa
+      spectacle
+      deepin-screenshot
   ];
 }
