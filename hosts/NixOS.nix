@@ -3,8 +3,10 @@
   imports = [ ../users/nixos ../users/root ./hardware/NixOS-hardware-configuration.nix
               ../profiles/graphical
               ../profiles/graphical/nvidia.nix
+              ../profiles/devices
               ../profiles/ssh
               ../profiles/code
+              ../profiles/virt
               ../profiles/applications
             ];
 

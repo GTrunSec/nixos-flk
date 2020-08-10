@@ -6,4 +6,5 @@
   ./fonts
   ./code
   ./applications
+  ./devices
 ]

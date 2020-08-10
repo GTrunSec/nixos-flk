@@ -1,0 +1,5 @@
+{ pkgs, ... }:
+
+{
+  imports = [ ./buletooth.nix ];
+}

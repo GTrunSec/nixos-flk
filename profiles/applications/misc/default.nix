@@ -1,9 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
     imports = [ ./mpd.nix ];
+
     environment.systemPackages = with pkgs; [
-            goldendict
-            #downloader
-            motrix
+        goldendict
+        #downloader
+        motrix
+        #VPN
+        shadowsocks-qt5
         # manager password
         gopass
         enpass
