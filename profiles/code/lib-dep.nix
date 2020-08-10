@@ -25,6 +25,7 @@ in
     lxqt.qtermwidget
     libvterm
     libtool
+    scrot
     # TCLAP - Templatized Command Line Argument Parser
     tclap
     autojump
