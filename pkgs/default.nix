@@ -11,4 +11,8 @@ in
   motrix = prev.callPackage ./appimage/Motrix.nix {};
   shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix {};
   zeek = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/zeek" { KafkaPlugin = true; PostgresqlPlugin = true; Http2Plugin = true; SpicyPlugin = true;};
+
+  #go packages
+  horcrux = prev.callPackage ./go/horcrux {};
+  govet = prev.callPackage ./go/govet {};
 }

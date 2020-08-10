@@ -5,6 +5,8 @@
   environment.systemPackages = with pkgs; [
     tcpreplay
     suricata
+    #home
+    adguardhome
   ];
 
   services.zeek = {
