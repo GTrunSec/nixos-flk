@@ -13,5 +13,9 @@ in
   environment.systemPackages = with pkgs; [
     customVscode
     customJulia
+    gnumake
+    cmake
+    nodePackages.mermaid-cli
+    nodePackages.javascript-typescript-langserver
   ];
 }
