@@ -9,11 +9,13 @@ in
               ./go.nix
               ./lib-dep.nix
               ./c++.nix
+              ./node.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode
     customJulia
     gnumake
     cmake
+    rnix-lsp
   ];
 }

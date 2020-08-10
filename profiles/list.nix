@@ -7,4 +7,6 @@
   ./code
   ./applications
   ./devices
+  ./nsm
+  ./data
 ]

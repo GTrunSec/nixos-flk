@@ -25,13 +25,15 @@ in
     lxqt.qtermwidget
     libvterm
     libtool
-    nodePackages.mermaid-cli
-    nodePackages.javascript-typescript-langserver
     # TCLAP - Templatized Command Line Argument Parser
     tclap
-
+    autojump
     hunspell
     #search eng
     xapian
+    ncat
+    ag
+    bat
+
   ];
 }

@@ -8,6 +8,8 @@
               ../profiles/code
               ../profiles/virt
               ../profiles/applications
+              ../profiles/nsm
+              ../profiles/data
             ];
 
   boot.loader.systemd-boot.enable = true;

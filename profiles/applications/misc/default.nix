@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
-    imports = [ ./mpd.nix ];
+    imports = [ ./mpd.nix ./dropbox.nix ];
 
     environment.systemPackages = with pkgs; [
         goldendict
         #downloader
+        aria2
         motrix
         #VPN
         shadowsocks-qt5
@@ -30,5 +31,14 @@
         #git manager  UI
         gitkraken
         gitAndTools.delta
+        ##
+        sshfs
+        wakatime
+        #
+        xclip
+        screenfetch
+        urxvt_perls
+
+
     ];
 }

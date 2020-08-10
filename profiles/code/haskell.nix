@@ -10,6 +10,7 @@
         haskellPackages.zlib
         #haskellPackages.stack
         haskellPackages.stylish-haskell
-  ];
+        ghc
+    ];
 
 }
