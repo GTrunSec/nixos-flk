@@ -1,7 +1,9 @@
 { pkgs, ... }: {
     imports = [ ./mpd.nix ];
     environment.systemPackages = with pkgs; [
-        goldendict
+            goldendict
+            #downloader
+            motrix
         # manager password
         gopass
         enpass

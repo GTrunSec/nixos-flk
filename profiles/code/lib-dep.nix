@@ -25,7 +25,8 @@ in
     lxqt.qtermwidget
     libvterm
     libtool
-
+    nodePackages.mermaid-cli
+    nodePackages.javascript-typescript-langserver
     # TCLAP - Templatized Command Line Argument Parser
     tclap
 

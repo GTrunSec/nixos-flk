@@ -15,7 +15,5 @@ in
     customJulia
     gnumake
     cmake
-    nodePackages.mermaid-cli
-    nodePackages.javascript-typescript-langserver
   ];
 }
