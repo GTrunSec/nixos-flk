@@ -34,7 +34,5 @@ in
     xapian
     ncat
     ag
-    bat
-
   ];
 }
