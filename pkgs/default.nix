@@ -15,4 +15,5 @@ in
   #go packages
   horcrux = prev.callPackage ./go/horcrux {};
   govet = prev.callPackage ./go/govet {};
+  got = prev.callPackage ./go/got {};
 }

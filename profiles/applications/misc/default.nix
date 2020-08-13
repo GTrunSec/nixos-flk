@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
         goldendict
         #downloader
+        got
         aria2
         motrix
         #VPN
