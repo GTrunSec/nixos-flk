@@ -4,6 +4,7 @@
                 nodePackages.mermaid-cli
                 nodePackages.javascript-typescript-langserver
                 nodejs
+                yarn
         ];
 
 }

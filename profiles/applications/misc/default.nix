@@ -18,6 +18,7 @@
         youtube-dl
         cmus
         mpc_cli
+        nuclear
         #tools
         tree
         desktop-file-utils
