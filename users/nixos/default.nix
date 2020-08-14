@@ -1,7 +1,8 @@
+{ config, pkgs, lib, ... }:
 {
   users.users.gtrun = {
     home = "/home/gtrun";
-    password = "nixos";
+    password = config.password.user;
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "pulse" "sound" "libvirtd"
                     "video"

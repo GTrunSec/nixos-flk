@@ -1,4 +1,4 @@
-# recommend using `hashedPassword`
+{ lib, config, ...}:
 {
-  users.users.root.password = "";
+  users.users.root.password = config.password.root;
 }

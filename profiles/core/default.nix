@@ -45,6 +45,9 @@ in
       rxvt_unicode.terminfo
       ncurses.dev # infocmp/tic/etc
       niv
+      #password
+      pwgen
+      git-crypt
     ];
 
     shellInit = ''

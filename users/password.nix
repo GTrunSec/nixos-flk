@@ -1,12 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    pwgen
-    git-crypt
-  ];
-  
-  lib.options.password = with lib; {
+  options.password = with lib; {
     ##pwgen -yB 24
     user = mkOption {
       type = types.str;
