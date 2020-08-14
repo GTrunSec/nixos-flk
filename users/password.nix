@@ -1,0 +1,23 @@
+{ config, lib, pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    pwgen
+    git-crypt
+  ];
+  
+  lib.options.password = with lib; {
+    ##pwgen -yB 24
+    user = mkOption {
+      type = types.str;
+      default = (builtins.fromJSON (builtins.readFile ./password.json)).user.normal;
+      description = "the password for user";
+    };
+
+    root = mkOption {
+      type = types.str;
+      default = (builtins.fromJSON (builtins.readFile ./password.json)).user.root;
+      description = "the password for user";
+    };
+  };
+}

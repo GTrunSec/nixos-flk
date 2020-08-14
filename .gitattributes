@@ -1,1 +1,1 @@
-secrets/* filter=git-crypt diff=git-crypt
+users/password.json filter=git-crypt diff=git-crypt
