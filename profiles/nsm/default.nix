@@ -7,6 +7,7 @@
     suricata
     #home
     adguardhome
+    sudo-pair
   ];
 
   services.zeek = {

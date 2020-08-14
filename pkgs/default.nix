@@ -16,4 +16,7 @@ in
   horcrux = prev.callPackage ./go/horcrux {};
   govet = prev.callPackage ./go/govet {};
   got = prev.callPackage ./go/got {};
+
+  #rust
+  sudo-pair = prev.callPackage ./rust/sudo_pair {};
 }

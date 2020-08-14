@@ -11,6 +11,7 @@ in
               ./c++.nix
               ./node.nix
               ./r.nix
+              ./rust.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode
