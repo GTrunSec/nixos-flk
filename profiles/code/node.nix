@@ -6,6 +6,7 @@
                 nodePackages.javascript-typescript-langserver
                 nodejs
                 yarn
+                nodePackages.typescript
         ];
 
 }

@@ -13,6 +13,13 @@
               ../profiles/data
             ];
 
+  networking.firewall = {
+    # 8888 -> Jupyterlab
+    allowedTCPPorts = [ 8888 ];
+    allowedUDPPorts = [ 8888 ];
+  };
+
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   ## ssd
