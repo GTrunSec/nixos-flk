@@ -3,8 +3,8 @@
 
   inputs =
     {
-      master.url = "nixpkgs/102fa5492c071f634b9c741e137551c2d93216e2";
-      nixos.url = "nixpkgs/102fa5492c071f634b9c741e137551c2d93216e2";
+      master.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
+      nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
       home.url = "github:rycee/home-manager/bqv-flakes";
     };
 
