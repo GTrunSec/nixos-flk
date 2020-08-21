@@ -12,6 +12,7 @@ in
               ./node.nix
               ./r.nix
               ./rust.nix
+              ./haskell.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode

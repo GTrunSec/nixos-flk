@@ -15,6 +15,17 @@
   #virtualisation.vmware.host.enable = true;
   users.extraUsers.myuser.extraGroups = ["vboxusers"];
   # you'll need to add your user to 'libvirtd' group to use virt-manager
-  environment.systemPackages = with pkgs; [ virt-manager ];
   boot.kernelModules = [ "kvm-intel" ];
-  }
+
+
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    virt-manager
+    docker_compose
+  ];
+
+}
