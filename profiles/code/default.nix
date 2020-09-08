@@ -13,6 +13,7 @@ in
               ./r.nix
               ./rust.nix
               ./haskell.nix
+              ./python.nix
             ];
   environment.systemPackages = with pkgs; [
     customVscode

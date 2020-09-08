@@ -19,6 +19,7 @@ in
 {
     environment.systemPackages = with pkgs; [
         # emacs python
+        python-with-emacs-packages
         #emacs eaf
         qt5.qtbase
         lxqt.qtermwidget
