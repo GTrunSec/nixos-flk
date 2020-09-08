@@ -2,6 +2,20 @@
 
 let
   my-python-packages = (pkgs.python37.withPackages (ps: with ps;[
+    #emacs-eaf
+    shapely
+    dbus-python
+    qrcode
+    pyqt5
+    pymupdf
+    xlib
+    grip
+    pyinotify
+    pyqtwebengine
+    markdown
+    feedparser
+
+    ###
     pytest
     numpy
     #orgparse
