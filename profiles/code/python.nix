@@ -26,7 +26,6 @@ let
     sqlalchemy
     pandas
     #voila
-    python-language-server
     pygments
     #orgbabelhelper
     jupyter
@@ -37,5 +36,6 @@ in
   environment.systemPackages = with pkgs; [
     my-python-packages
     wakatime
+    nodePackages.pyright
   ];
 }
