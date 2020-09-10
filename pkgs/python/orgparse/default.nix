@@ -12,7 +12,8 @@ python3Packages.buildPythonPackage rec {
     sha256 = "0qng9aa8xbip99vm2d7lxls6j1msbpfdg692girlband66p3zz1y";
   };  
 
-  propagatedBuildInputs = with python3Packages; [ setuptools ];
+  propagatedBuildInputs = with python3Packages; [ setuptools
+                                                ];
   doCheck = false;
   
   meta = with stdenv.lib; {
