@@ -27,11 +27,11 @@ let
       inherit pname version;
       sha256 = "01fyd7xjf1rnmm37iqa47dp7qzpl1g7cxqq64rxxzsy08lz1p1xi";
     };
-    doCheck = false;
 
+    doCheck = false;
     propagatedBuildInputs = with python3Packages; [ sqlalchemy
-                                                     
-    ];
+                                                    setuptools_scm
+                                                  ];
   };
 
   urlextract = python3Packages.buildPythonPackage rec {
@@ -44,12 +44,12 @@ let
     doCheck = false;
 
     propagatedBuildInputs = with python3Packages; [ appdirs
-                                                     dnspython
-                                                     uritools
-                                                     idna
-                                                     filelock
+                                                    dnspython
+                                                    uritools
+                                                    idna
+                                                    filelock
 
-    ];
+                                                  ];
   };
 
 in
@@ -66,11 +66,12 @@ python3Packages.buildPythonPackage rec {
 
   doCheck = false;
   propagatedBuildInputs = with python3Packages; [ pytest
-                                                   appdirs
-                                                   python_magic
-                                                   hug
-                                                   tzlocal
-                                                   cachew
-                                                   urlextract
-                                                 ];
+                                                  appdirs
+                                                  python_magic
+                                                  hug
+                                                  tzlocal
+                                                  cachew
+                                                  urlextract
+                                                  
+                                                ];
 }

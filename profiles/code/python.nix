@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 let
   my-python-packages = (pkgs.python37.withPackages (ps: with ps;[
     #emacs-eaf
@@ -30,6 +29,7 @@ let
     #orgbabelhelper
     jupyter
     jupyterlab
+
   ])).override (args: { ignoreCollisions = true;});
 in
 {
@@ -37,5 +37,7 @@ in
     my-python-packages
     wakatime
     nodePackages.pyright
+    promnesia
+    orgparse
   ];
 }
