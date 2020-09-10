@@ -16,7 +16,10 @@ in
   horcrux = prev.callPackage ./go/horcrux {};
   govet = prev.callPackage ./go/govet {};
   got = prev.callPackage ./go/got {};
+
   #python
+  promnesia =  prev.callPackage ./python/promnesia {python3Packages = prev.python37Packages;};
+  orgparse=  prev.callPackage ./python/orgparse {python3Packages = prev.python37Packages;};
   #rust
   sudo-pair = prev.callPackage ./rust/sudo_pair {};
 }
