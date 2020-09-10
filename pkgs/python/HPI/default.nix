@@ -15,7 +15,12 @@ python3Packages.buildPythonPackage rec {
   propagatedBuildInputs = with python3Packages; [ pandas
                                                   appdirs
                                                   more-itertools
+                                                  mypy
                                                 ];
+
+  makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
+
+
   doCheck = false;
   
   meta = with stdenv.lib; {
