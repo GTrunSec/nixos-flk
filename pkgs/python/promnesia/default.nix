@@ -8,6 +8,7 @@ with python3.pkgs;
 
 let
   orgparse = python3Packages.callPackage ../orgparse {inherit python3Packages;};
+  hpi = python3Packages.callPackage ../HPI {inherit python3Packages;};
   hug = python3Packages.buildPythonPackage rec {
     pname = "hug";
     version = "2.6.1";
@@ -73,6 +74,11 @@ python3Packages.buildPythonPackage rec {
                                                   cachew
                                                   urlextract
                                                   orgparse
+                                                  logzero
+                                                  markdown
+                                                  lxml
+                                                  beautifulsoup4
+                                                  hpi
                                                 ];
 
 }

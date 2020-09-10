@@ -20,6 +20,7 @@ in
   #python
   promnesia =  prev.callPackage ./python/promnesia {python3Packages = prev.python37Packages;};
   orgparse=  prev.callPackage ./python/orgparse {python3Packages = prev.python37Packages;};
+  hpi =  prev.callPackage ./python/HPI {python3Packages = prev.python37Packages;};
   #rust
   sudo-pair = prev.callPackage ./rust/sudo_pair {};
 }
