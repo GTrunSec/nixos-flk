@@ -9,6 +9,19 @@ with python3.pkgs;
 let
   orgparse = python3Packages.callPackage ../orgparse {inherit python3Packages;};
   hpi = python3Packages.callPackage ../HPI {inherit python3Packages;};
+
+  mistletoe = python3Packages.buildPythonPackage rec {
+    pname = "mistletoe";
+    version = "0.7.2";
+    src = python3Packages.fetchPypi {
+      inherit pname version;
+      sha256 = "18z6hqfnfjqnrcgfgl5pkj9ggf9yx0yyy94azcn1qf7hqn6g3l14";
+    };
+    doCheck = false;
+    nativeBuildInputs = with python3Packages; [  ];
+    propagatedBuildInputs = with python3Packages; [  ];
+  };
+
   hug = python3Packages.buildPythonPackage rec {
     pname = "hug";
     version = "2.6.1";
@@ -66,6 +79,7 @@ python3Packages.buildPythonPackage rec {
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
   doCheck = false;
+
   propagatedBuildInputs = with python3Packages; [ pytest
                                                   appdirs
                                                   python_magic
@@ -79,6 +93,7 @@ python3Packages.buildPythonPackage rec {
                                                   lxml
                                                   beautifulsoup4
                                                   hpi
+                                                  mistletoe
                                                 ];
 
 }
