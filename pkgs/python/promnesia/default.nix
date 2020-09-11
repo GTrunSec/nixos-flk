@@ -3,6 +3,7 @@
 , python3
 , fetchFromGitHub
 , callPackage
+, git
 }:
 with python3.pkgs;
 
@@ -71,15 +72,19 @@ python3Packages.buildPythonPackage rec {
   pname = "promnesia";
   version = "0.11.20200605";
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "1nh9vjxb8hzabwkyp0nx350jyrkg9dryw3gdlg88n6g2bajis9zv";
-  };  
+  src = fetchFromGitHub {
+    owner = "karlicoss";
+    repo = pname;
+    rev = "1ef741c9f3ee0b193dc0e41ac9c7250fff566dbe";
+    sha256 = "sha256-AdXASU3AZcVUJOGH0Nl0wmf29joC7q74knQvcsb4hgM=";
+  };
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
+  SETUPTOOLS_SCM_PRETEND_VERSION = version;
+  
   doCheck = false;
-
+  nativeBuildInputs = [git];
   propagatedBuildInputs = with python3Packages; [ pytest
                                                   appdirs
                                                   python_magic
