@@ -73,6 +73,7 @@ in
       stdmanpages
       xsel
       zathura
+      xdotool
     ];
   };
 
