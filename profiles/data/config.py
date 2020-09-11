@@ -17,7 +17,7 @@ SOURCES = [
         # just some arbitrary directory with html files
         '/home/gtrun/Dropbox/org-notes',
 
-        name='org-nodes',
+        name='org-notes',
 
         ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.py', '*.csv', '*.json', '*.org.organice-bak' ],
     ),
