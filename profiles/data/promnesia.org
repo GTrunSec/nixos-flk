@@ -1,0 +1,79 @@
+#+TITLE: test promnesia
+#+AUTHOR: GTrunSec
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 11 September 2020
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en cn
+#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
+#+hugo_publishdate: (0 5)
+#+hugo_auto_set_lastmod: t
+#+HUGO_categories:
+#+HUGO_tags:
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
+#+begin_src sh :async t :exports both :results output
+systemctl --user start promnesia.service
+systemctl --user status promnesia.service
+#+end_src
+
+#+RESULTS:
+#+begin_example
+● promnesia.service - promnesia Daemon
+     Loaded: loaded (/nix/store/mnm0v2dszsz2wsbnn27qa9mgp1pwz9jk-unit-promnesia.service/promnesia.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2020-09-11 02:06:51 PDT; 2min 19s ago
+   Main PID: 21278 (python3)
+     CGroup: /user.slice/user-1000.slice/user@1000.service/promnesia.service
+             └─21278 python3 -m hug -p 13131 -f /nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py
+
+Sep 11 02:06:51 NixOS systemd[1269]: Started promnesia Daemon.
+Sep 11 02:06:52 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:52,111 promnesia server.py:305] Running server: ['python3', '-m', 'hug', '-p', '13131', '-f', '/nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py']
+Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:129] url: https://github.com/ShuguangSun/ess-r-insert-obj
+Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:132] normalised url: github.com/ShuguangSun/ess-r-insert-obj
+Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:105] Reloading DB: PathWithMtime(path=PosixPath('/home/gtrun/.local/share/promnesia/promnesia.sqlite'), mtime=1599815211.6604288)
+Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,667 promnesia server.py:138] query: SELECT visits.norm_url, visits.orig_url, visits.dt, visits.locator_title, visits.locator_href, visits.src, visits.context, visits.duration
+Sep 11 02:06:57 NixOS promnesia[21278]:     FROM visits
+Sep 11 02:06:57 NixOS promnesia[21278]:     WHERE visits.norm_url = ? OR visits.context IS NOT NULL AND (visits.norm_url LIKE ? || '%' ESCAPE '/')
+Sep 11 02:06:57 NixOS promnesia[21278]: [DEBUG   2020-09-11 02:06:57,670 promnesia server.py:143] got 1 visits from db
+Sep 11 02:06:57 NixOS promnesia[21278]: [DEBUG   2020-09-11 02:06:57,670 promnesia server.py:154] responding with 1 visits
+#+end_example
+
+
+#+begin_src sh :async t :exports both :results output
+systemctl --user start promnesia-watcher.path
+systemctl --user status promnesia-watcher.path
+#+end_src
+
+#+RESULTS:
+: ● promnesia-watcher.path
+:      Loaded: loaded (/nix/store/dfrhwawh0a0wd20qycmf1p01qc2fqlb9-unit-promnesia-watcher.path/promnesia-watcher.path; enabled; vendor preset: enabled)
+:      Active: active (waiting) since Fri 2020-09-11 02:09:58 PDT; 5ms ago
+:    Triggers: ● promnesia-restarter.service
+:
+: Sep 11 02:09:58 NixOS systemd[1269]: Started promnesia-watcher.path.
+
+#+begin_src sh :async t :exports both :results output
+systemctl --user start promnesia-watcher.path
+systemctl --user status promnesia-watcher.path
+#+end_src
+
+#+begin_src sh :async t :exports both :results output
+systemctl --user start promnesia-restarter.service
+systemctl --user status promnesia-restarter.service
+#+end_src
+
+#+RESULTS:
+#+begin_example
+● promnesia-restarter.service
+     Loaded: loaded (/nix/store/9ndizhwbpcwfa88v0h9ldqkm7rbf8q5v-unit-promnesia-restarter.service/promnesia-restarter.service; static; vendor preset: enabled)
+     Active: inactive (dead) since Fri 2020-09-11 02:14:15 PDT; 6ms ago
+TriggeredBy: ● promnesia-watcher.path
+    Process: 26262 ExecStart=/nix/store/rqxj5qsm49cplnrl3vmg0ix1mj0hzb78-unit-script-promnesia-restarter-start/bin/promnesia-restarter-start (code=exited, status=0/SUCCESS)
+   Main PID: 26262 (code=exited, status=0/SUCCESS)
+
+Sep 11 02:14:13 NixOS systemd[1269]: Starting promnesia-restarter.service...
+Sep 11 02:14:15 NixOS systemd[1269]: promnesia-restarter.service: Succeeded.
+Sep 11 02:14:15 NixOS systemd[1269]: Finished promnesia-restarter.service.
+#+end_example

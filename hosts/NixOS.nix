@@ -28,4 +28,5 @@
   networking.networkmanager.enable = true;
   # Define your hostname.
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+
 }
