@@ -3,7 +3,6 @@
 , python3
 , fetchFromGitHub
 , callPackage
-, git
 }:
 with python3.pkgs;
 
@@ -84,7 +83,7 @@ python3Packages.buildPythonPackage rec {
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
   
   doCheck = false;
-  nativeBuildInputs = [git];
+
   propagatedBuildInputs = with python3Packages; [ pytest
                                                   appdirs
                                                   python_magic
