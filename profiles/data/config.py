@@ -15,7 +15,7 @@ SOURCES = [
     Source(
         auto.index,
         # just some arbitrary directory with html files
-        '/home/gtrun/Dropbox/org-notes',
+        '~/Dropbox/org-notes',
 
         name='org-notes',
 
@@ -25,9 +25,19 @@ SOURCES = [
     Source(
         auto.index,
         # just some arbitrary directory with html files
-        '/home/gtrun/.config/nixpkgs/dotfiles/doom-emacs',
+        '~/.config/nixpkgs/dotfiles/doom-emacs',
 
         name='doom-emacs',
+
+        ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc' ],
+    ),
+
+    Source(
+        auto.index,
+        # just some arbitrary directory with html files
+        '~/Documents/braindump-blog/content-org',
+
+        name='my-braindump',
 
         ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc' ],
     ),
