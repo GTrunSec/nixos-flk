@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   services.promnesia = {
     enable = true;

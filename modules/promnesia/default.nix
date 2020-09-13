@@ -51,8 +51,6 @@ in
     environment.systemPackages = [ cfg.package ];
     systemd.user.services.promnesia = {
       description = "promnesia Daemon";
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
       preStart = ''
       ${pkgs.bash}/bin/bash ${PreShell}
         '';
@@ -60,8 +58,10 @@ in
         ExecStart = mkIf cfg.enable ''
         ${cfg.package}/bin/promnesia serve  
         '';
+        Restart = "always";
       };
-    };
+    } // optionalAttrs cfg.enable { wantedBy = [ "default.target" ]; };
+
     systemd.user.paths.promnesia-watcher = {
       wantedBy = [ "promnesia.service" ];
       pathConfig = {
@@ -71,6 +71,7 @@ in
     };
     systemd.user.services.promnesia-restarter = {
       serviceConfig.Type = "oneshot";
+      wantedBy = [ "promnesia.service" ];
       script = ''
       systemctl --user restart promnesia.service
          '';

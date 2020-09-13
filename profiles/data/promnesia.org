@@ -22,22 +22,24 @@ systemctl --user status promnesia.service
 #+RESULTS:
 #+begin_example
 ● promnesia.service - promnesia Daemon
-     Loaded: loaded (/nix/store/mnm0v2dszsz2wsbnn27qa9mgp1pwz9jk-unit-promnesia.service/promnesia.service; enabled; vendor preset: enabled)
-     Active: active (running) since Fri 2020-09-11 02:06:51 PDT; 2min 19s ago
-   Main PID: 21278 (python3)
+     Loaded: loaded (/nix/store/xksd2yj543858bjvs92ryy7gg6q1g9y3-unit-promnesia.service/promnesia.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2020-09-12 18:34:44 PDT; 9ms ago
+    Process: 29971 ExecStartPre=/nix/store/n81yhbq57fsk7v85w99xhrfisplax54a-unit-script-promnesia-pre-start/bin/promnesia-pre-start (code=exited, status=0/SUCCESS)
+   Main PID: 30102 (.promnesia-wrap)
      CGroup: /user.slice/user-1000.slice/user@1000.service/promnesia.service
-             └─21278 python3 -m hug -p 13131 -f /nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py
+             └─30102 /nix/store/9hdzs3g6rb76grwzlsbxyxwxg2n0fl4a-python3-3.7.8/bin/python3.7 /nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/bin/.promnesia-wrapped serve
 
-Sep 11 02:06:51 NixOS systemd[1269]: Started promnesia Daemon.
-Sep 11 02:06:52 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:52,111 promnesia server.py:305] Running server: ['python3', '-m', 'hug', '-p', '13131', '-f', '/nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py']
-Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:129] url: https://github.com/ShuguangSun/ess-r-insert-obj
-Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:132] normalised url: github.com/ShuguangSun/ess-r-insert-obj
-Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,660 promnesia server.py:105] Reloading DB: PathWithMtime(path=PosixPath('/home/gtrun/.local/share/promnesia/promnesia.sqlite'), mtime=1599815211.6604288)
-Sep 11 02:06:57 NixOS promnesia[21278]: [INFO    2020-09-11 02:06:57,667 promnesia server.py:138] query: SELECT visits.norm_url, visits.orig_url, visits.dt, visits.locator_title, visits.locator_href, visits.src, visits.context, visits.duration
-Sep 11 02:06:57 NixOS promnesia[21278]:     FROM visits
-Sep 11 02:06:57 NixOS promnesia[21278]:     WHERE visits.norm_url = ? OR visits.context IS NOT NULL AND (visits.norm_url LIKE ? || '%' ESCAPE '/')
-Sep 11 02:06:57 NixOS promnesia[21278]: [DEBUG   2020-09-11 02:06:57,670 promnesia server.py:143] got 1 visits from db
-Sep 11 02:06:57 NixOS promnesia[21278]: [DEBUG   2020-09-11 02:06:57,670 promnesia server.py:154] responding with 1 visits
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/compile.el: user ignore rules
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/nix.el: user ignore rules
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/update.el: user ignore rules
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,649 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/snippets/org-mode/config.el: user ignore rules
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,788 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/xah-fly_diagram.png: user ignore rules
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,789 promnesia auto.py:328] file type suppressed: /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/config_diagram.svg
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,844 promnesia auto.py:328] file type suppressed: /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/config_diagram.pdf
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [INFO    2020-09-12 18:34:43,848 promnesia common.py:443] extracting via promnesia.sources.auto:index ('/home/gtrun/.config/nixpkgs/dotfiles/doom-emacs',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc']} ...: got 81 visits
+Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [INFO    2020-09-12 18:34:43,985 promnesia dump.py:51] saved database to /home/gtrun/.local/share/promnesia/promnesia.sqlite
+Sep 12 18:34:44 NixOS systemd[1254]: Started promnesia Daemon.
+Sep 12 18:34:44 NixOS promnesia[30102]: [INFO    2020-09-12 18:34:44,423 promnesia server.py:305] Running server: ['python3', '-m', 'hug', '-p', '13131', '-f', '/nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py']
 #+end_example
 
 
@@ -48,16 +50,13 @@ systemctl --user status promnesia-watcher.path
 
 #+RESULTS:
 : ● promnesia-watcher.path
-:      Loaded: loaded (/nix/store/dfrhwawh0a0wd20qycmf1p01qc2fqlb9-unit-promnesia-watcher.path/promnesia-watcher.path; enabled; vendor preset: enabled)
-:      Active: active (waiting) since Fri 2020-09-11 02:09:58 PDT; 5ms ago
+:      Loaded: loaded (/nix/store/ilak6xpvc5pg0kbf8ixpcir478z40jwg-unit-promnesia-watcher.path/promnesia-watcher.path; enabled; vendor preset: enabled)
+:      Active: active (waiting) since Sat 2020-09-12 18:34:41 PDT; 1min 23s ago
 :    Triggers: ● promnesia-restarter.service
 :
-: Sep 11 02:09:58 NixOS systemd[1269]: Started promnesia-watcher.path.
+: Sep 12 18:34:41 NixOS systemd[1254]: Started promnesia-watcher.path.
 
-#+begin_src sh :async t :exports both :results output
-systemctl --user start promnesia-watcher.path
-systemctl --user status promnesia-watcher.path
-#+end_src
+
 
 #+begin_src sh :async t :exports both :results output
 systemctl --user start promnesia-restarter.service
@@ -68,12 +67,12 @@ systemctl --user status promnesia-restarter.service
 #+begin_example
 ● promnesia-restarter.service
      Loaded: loaded (/nix/store/9ndizhwbpcwfa88v0h9ldqkm7rbf8q5v-unit-promnesia-restarter.service/promnesia-restarter.service; static; vendor preset: enabled)
-     Active: inactive (dead) since Fri 2020-09-11 02:14:15 PDT; 6ms ago
+     Active: inactive (dead) since Sat 2020-09-12 18:36:29 PDT; 6ms ago
 TriggeredBy: ● promnesia-watcher.path
-    Process: 26262 ExecStart=/nix/store/rqxj5qsm49cplnrl3vmg0ix1mj0hzb78-unit-script-promnesia-restarter-start/bin/promnesia-restarter-start (code=exited, status=0/SUCCESS)
-   Main PID: 26262 (code=exited, status=0/SUCCESS)
+    Process: 31438 ExecStart=/nix/store/rqxj5qsm49cplnrl3vmg0ix1mj0hzb78-unit-script-promnesia-restarter-start/bin/promnesia-restarter-start (code=exited, status=0/SUCCESS)
+   Main PID: 31438 (code=exited, status=0/SUCCESS)
 
-Sep 11 02:14:13 NixOS systemd[1269]: Starting promnesia-restarter.service...
-Sep 11 02:14:15 NixOS systemd[1269]: promnesia-restarter.service: Succeeded.
-Sep 11 02:14:15 NixOS systemd[1269]: Finished promnesia-restarter.service.
+Sep 12 18:36:27 NixOS systemd[1254]: Starting promnesia-restarter.service...
+Sep 12 18:36:29 NixOS systemd[1254]: promnesia-restarter.service: Succeeded.
+Sep 12 18:36:29 NixOS systemd[1254]: Finished promnesia-restarter.service.
 #+end_example
