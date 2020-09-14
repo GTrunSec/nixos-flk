@@ -1,4 +1,3 @@
 [
   ./ids/zeek
-  ./promnesia
 ]
