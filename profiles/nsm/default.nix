@@ -8,6 +8,7 @@
     #home
     adguardhome
     sudo-pair
+    btest
   ];
 
   services.zeek = {
