@@ -1,7 +1,4 @@
 #!/usr/bin/env python3.7
-
-#!/usr/bin/env python3
-
 from promnesia import Source
 from promnesia.sources import auto
 from promnesia.sources import guess
@@ -35,7 +32,7 @@ SOURCES = [
     Source(
         auto.index,
         # just some arbitrary directory with html files
-        '~/Documents/braindump-blog/content-org',
+        '~/Dropbox/org-notes/braindump',
 
         name='my-braindump',
 
@@ -53,7 +50,7 @@ CACHE_DIR = '/tmp/promnesia_cache/'
 FILTERS = [
     'mail.google.com',
     '192.168.0.',
-    '10.220.170.'
+    '10.220.170.',
     # you can use regexes too!
     'redditmedia.com.*.(jpg|png|gif)',
 ]
