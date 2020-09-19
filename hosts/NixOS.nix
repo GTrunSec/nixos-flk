@@ -14,9 +14,9 @@
             ];
 
   networking.firewall = {
-    # 8888 -> Jupyterlab
-    allowedTCPPorts = [ 8888 ];
-    allowedUDPPorts = [ 8888 ];
+    # 8888 -> Jupyterlab 8889 -> JuliaPluto
+    allowedTCPPorts = [ 8888 8889];
+    allowedUDPPorts = [ 8888 8889];
   };
 
 
