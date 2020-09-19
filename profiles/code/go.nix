@@ -24,6 +24,7 @@
                                                  gosec
                                                  gotests
                                                  gotty
+                                                 hugo
                                             ];
     environment.variables = { GOROOT = [ "${pkgs.go.out}/share/go" ]; };
 }
