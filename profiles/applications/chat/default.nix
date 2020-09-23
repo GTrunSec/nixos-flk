@@ -13,5 +13,6 @@
     signal-desktop
     keybase
     keybase-gui
+    slack
   ];
 }
