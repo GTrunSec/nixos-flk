@@ -4,11 +4,12 @@
   inputs =
     {
       master.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
+      unstable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
       home.url = "github:rycee/home-manager/bqv-flakes";
     };
 
-  outputs = inputs@{ self, home, nixos, master }:
+  outputs = inputs@{ self, home, nixos, master, unstable }:
     let
       inherit (builtins) attrNames attrValues readDir;
       inherit (nixos) lib;
@@ -29,6 +30,7 @@
       pkgset = {
         osPkgs = pkgImport nixos;
         pkgs = pkgImport master;
+        unstable = pkgImport unstable;
       };
 
     in

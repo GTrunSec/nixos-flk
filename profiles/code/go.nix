@@ -25,6 +25,7 @@
                                                  gotests
                                                  gotty
                                                  hugo
+                                                 go-bindata
                                             ];
     environment.variables = { GOROOT = [ "${pkgs.go.out}/share/go" ]; };
 }

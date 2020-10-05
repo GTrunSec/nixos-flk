@@ -67,7 +67,23 @@
       "inputs": {
         "home": "home",
         "master": "master",
-        "nixos": "nixos"
+        "nixos": "nixos",
+        "unstable": "unstable"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1601252555,
+        "narHash": "sha256-4PrnTqMQn9D24gD52KDrnG2NymfPkeqKWAFXOAyD9E0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "684d5d27136f154775c95005dcce2d32943c7c9e",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "684d5d27136f154775c95005dcce2d32943c7c9e",
+        "type": "indirect"
       }
     }
   },
