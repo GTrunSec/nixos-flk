@@ -16,6 +16,6 @@ jobs:
     # Configure Nix to enable flakes
     - run: echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
     # replace password.json to (Non-crypt)example.json
-    - run bash ./users/password-ci.sh
+    - run: sh ./users/password-ci.sh
     # nix-build to zeekCurrent (--dry-run just check syntax without build it)
     - run: nix flake check
