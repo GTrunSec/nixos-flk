@@ -23,7 +23,9 @@
       pkgImport = pkgs:
         import pkgs {
           inherit system;
-          overlays = attrValues self.overlays;
+          overlays = attrValues self.overlays
+                     ++ [ (import ./pkgs/my-node-packages)
+                        ] ;
           config = { allowUnfree = true; };
         };
 
@@ -88,7 +90,6 @@
 
       templates.flk.path = ./.;
       templates.flk.description = "https://github.com/GTrunSec/nixos-flk";
-      templates.flk.base.description = "https://github.com/nrdxp/nixflk";
       defaultTemplate = self.templates.flk;
     };
 }

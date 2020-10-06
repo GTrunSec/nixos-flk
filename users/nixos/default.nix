@@ -2,7 +2,7 @@
 {
   users.users.gtrun = {
     home = "/home/gtrun";
-    password = config.password.user;
+    #password = config.password.user;
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "pulse" "sound" "libvirtd"
                     "video"

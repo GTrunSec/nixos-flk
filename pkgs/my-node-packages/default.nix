@@ -1,17 +1,17 @@
-self: super:
+final: prev:
 
-let packages = super.callPackage ./plugins.nix { };
+let packages = prev.callPackage ./plugins.nix { };
 in {
-  nodePackages = super.nodePackages // packages // {
+  nodePackages = prev.nodePackages // packages // {
     # https://github.com/NixOS/nixpkgs/issues/60057#issuecomment-505781308
     mermaid-cli = packages."@mermaid-js/mermaid-cli".overrideAttrs (oldAttrs: {
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ])
-        ++ [ super.makeWrapper super.which ];
+        ++ [ prev.makeWrapper prev.which ];
 
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 1;
 
-      nixpkgsChromePuppeteerConfig = super.writeText "puppeteerConfig.json" ''
-        { "executablePath": "${super.chromium}/bin/chromium" }
+      nixpkgsChromePuppeteerConfig = prev.writeText "puppeteerConfig.json" ''
+        { "executablePath": "${prev.chromium}/bin/chromium" }
       '';
 
       postInstall = (oldAttrs.postInstall or "") + ''
