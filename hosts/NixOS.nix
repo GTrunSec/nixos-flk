@@ -1,6 +1,6 @@
 {
   ### root password is empty by default ###
-  imports = [ ../users/nixos ../users/root ./hardware/NixOS-hardware-configuration.nix ../users/password.nix
+  imports = [ ../users/nixos ../users/root ./hardware/NixOS-hardware-configuration.nix
               ../local/input.nix
               ../profiles/graphical
               ../profiles/graphical/nvidia.nix

@@ -2,7 +2,7 @@
 {
   users.users.gtrun = {
     home = "/home/gtrun";
-    #password = config.password.user;
+    password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.normal;
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "pulse" "sound" "libvirtd"
                     "video"

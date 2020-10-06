@@ -1,4 +1,4 @@
 { lib, config, ...}:
 {
-  users.users.root.password = config.password.root;
+  users.users.root.password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.root;
 }
