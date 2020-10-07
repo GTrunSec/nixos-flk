@@ -74,6 +74,7 @@ in
       xsel
       zathura
       xdotool
+      xorg.xwininfo
     ];
   };
 
