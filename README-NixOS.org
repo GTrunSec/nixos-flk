@@ -277,7 +277,226 @@ in
 #+end_src
 ** locale
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/local/locale.nix"
+{ ... }: {
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "America/Los_Angeles";
+}
+#+end_src
 
+* pkgs
+** default
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/default.nix"
+final: prev:
+let
+  nixpkgs-hardenedlinux = prev.fetchgit {
+    url = "https://github.com/hardenedlinux/nixpkgs-hardenedlinux";
+    rev = "826b291257c7fdd9bb9460ef844396c8ed927955";
+    sha256 = "sha256-VebFgB49NoA6C+lm2DfLGd0gCDLVNqNPCWJ0JgDT1rU=";
+  };
+in
+{
+
+  nuclear = prev.callPackage ./appimage/nuclear.nix {};
+  motrix = prev.callPackage ./appimage/Motrix.nix {};
+  shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix {};
+  #FIXME: spicy plugin BUG
+  hardenedlinux-zeek = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/zeek" { KafkaPlugin = true; PostgresqlPlugin = true; Http2Plugin = true;};
+  btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
+
+  #go packages
+  horcrux = prev.callPackage ./go/horcrux {};
+  govet = prev.callPackage ./go/govet {};
+  got = prev.callPackage ./go/got {};
+
+  #python
+  promnesia =  prev.callPackage ./python/promnesia {python3Packages = prev.python37Packages;};
+  orgparse=  prev.callPackage ./python/orgparse {python3Packages = prev.python37Packages;};
+  hpi =  prev.callPackage ./python/HPI {python3Packages = prev.python37Packages;};
+  #rust
+  sudo-pair = prev.callPackage ./rust/sudo_pair {};
+}
+#+end_src
+
+** appimage
+*** build image
+
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/appimage/build-appimage.nix"
+{ pkgs }:
+{
+#{ fetchurl, runCommand }: {
+  buildAppImage = { name, url, sha256, icon, categories }:
+  let
+    image = pkgs.fetchurl {
+      inherit url sha256;
+      executable = true;
+    };
+  in
+    pkgs.runCommand name {} ''
+      binDir="$out/bin"
+      mkdir -p $binDir
+      cat > ''${binDir}/${name} <<EOF
+      #!${pkgs.stdenv.shell}
+      ${pkgs.appimage-run}/bin/appimage-run ${image}
+      EOF
+      chmod +x ''${binDir}/${name}
+      mkdir -p $out/share/applications
+      cat > $out/share/applications/${name}.desktop <<EOF
+      [Desktop Entry]
+      Type=Application
+      Exec=$out/bin/${name}
+      Terminal=false
+      Name=${name}
+      Categories=${categories};
+      Icon=${icon}
+      EOF
+    '';
+}
+#+end_src
+*** Motrix
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/appimage/Motrix.nix"
+{ pkgs }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; });
+  let
+    version = "1.5.15";
+  in
+buildAppImage {
+    name = "motrix";
+    url    = "https://github.com/agalwood/Motrix/releases/download/v${version}/Motrix-${version}.AppImage";
+    sha256 = "sha256-/M/x+EFxz+9o/z5gLCoL4UZFnKBdMMT9bZ4ffZF1SyI=";
+    icon   = fetchurl {
+      url    = https://raw.githubusercontent.com/agalwood/Motrix/master/static/512x512.png;
+      sha256 = "sha256-aGBccae981kL3tpfQx4oVXlPNdLRKM6iNGqjY6yAt4Q=";
+    };
+    categories = "download manager";
+}
+#+end_src
+*** nuclear
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/appimage/nuclear.nix"
+{ pkgs }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; });
+buildAppImage {
+  name   = "Nuclear";
+  url    = https://github.com/nukeop/nuclear/releases/download/v0.6.3/nuclear-fca030.AppImage;
+  sha256 = "sha256-SKPbLmO8CmJrbYtex66cY4rVXJQCgTrwu9F9FkDN17I=";
+  icon   = fetchurl {
+    url    = https://raw.githubusercontent.com/nukeop/nuclear/master/packages/app/resources/media/1024x1024.png;
+    sha256 = "sha256-ROsh8UMDGJXW7kngGTfk7dJv8dVrl5FttaQ3k3nDFUA=";
+  };
+  categories = "AudioVideo";
+}
+#+end_src
+
+*** shadowsocks-qt5
+
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/appimage/shadowsocks-qt5.nix"
+{ pkgs }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; });
+  let
+    version = "3.0.1";
+  in
+buildAppImage {
+    name = "shadowsocks-qt5";
+    url    = "https://github.com/shadowsocks/shadowsocks-qt5/releases/download/v${version}/Shadowsocks-Qt5-${version}-x86_64.AppImage";
+    sha256 = "sha256-5Nhe794JwpsyOTUU6K0YWOT2dk3GuNTaAlU5UhP5O0E=";
+    icon   = fetchurl {
+      url    = https://raw.githubusercontent.com/shadowsocks/shadowsocks-qt5/master/src/icons/shadowsocks-qt5.png;
+      sha256 = "sha256-xRgO0n2t3RMDgzKXUBvVEFJ94GxMtBRo/ewKZ2Dxd/o=";
+    };
+    categories = "VPN client";
+
+}
+#+end_src
+
+** go
+- got [[file:pkgs/go/got/]]
+- govet [[file:pkgs/go/govet]]
+- horcrux file:pkgs/go/horcrux
+** python
+- HPI [[file:pkgs/python/HPI/]]
+- orgparse [[file:pkgs/python/orgparse/]]
+- promnesia [[file:pkgs/python/promnesia/]]
+** rust
+- sudo_pair [[file:pkgs/rust/sudo_pair/]]
+** Node packages
+- my-node-packages file:pkgs/my-node-packages/
+  #+begin_src json :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/my-node-packages/packages.json"
+[
+  "typescript-language-server",
+  "tslint",
+  "maildev",
+  "@mermaid-js/mermaid-cli"
+]
+  #+end_src
+
+* Overlays
+** polar-bookshelf
+
+- [[https://github.com/burtonator/polar-bookshelf/releases][Releases · burtonator/polar-bookshelf]]
+
+  #+begin_src conf :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/polar-bookshelf.nix"
+let version = "1.100.13";
+in
+final: prev: {
+  polar-bookshelf = prev.polar-bookshelf.overrideAttrs (o: {
+    inherit version;
+    src = prev.fetchurl {
+      url = "https://github.com/burtonator/polar-bookshelf/releases/download/v${version}/polar-bookshelf-${version}-amd64.deb";
+      sha256 = "0i60np4akhvzqpspg5k2mz8q4ccmz19j43x1sisbdw7iml1a1rsd";
+    };
+  });
+}
+  #+end_src
+** discord
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/discord.nix"
+let version = "0.0.12";
+in
+final: prev: {
+  discord = prev.discord.overrideAttrs (o: {
+    inherit version;
+    src = prev.fetchurl {
+      url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
+      sha256 = "sha256-aPLNPDl7XFSxWwjw2HPhTladoCSxLC5WWF+hyxDbP2M=";
+    };
+  });
+}
+#+end_src
+** brave
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/brave.nix"
+let version = "1.12.108";
+in
+final: prev: {
+  brave = prev.brave.overrideAttrs (o: {
+    inherit version;
+    src = prev.fetchurl {
+      url = "https://github.com/brave/brave-browser/releases/download/v${version}/brave-browser_${version}_amd64.deb";
+      sha256 = "sha256-4SFNjYfDEwbIQAW7QMygpFQzjoJS6033LyOUfUj6osg=";
+    };
+  });
+}
+#+end_src
+** signal-desktop
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/signal-desktop.nix"
+let version = "1.34.5";
+in
+final: prev: {
+  signal-desktop = prev.signal-desktop.overrideAttrs (o: {
+    inherit version;
+    src = prev.fetchurl {
+      url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_${version}_amd64.deb";
+      sha256 = "sha256-4VHErF8VdLtnGtKXHn9gdh2KnO4uAkNycnpHN7OeFuk=";
+    };
+  });
+}
+#+end_src
+** ccls
+#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/ccls.nix"
+final: prev: {
+  ccls = prev.ccls.overrideAttrs (o: {
+    src = prev.fetchFromGitHub{
+      owner = "MaskRay";
+      repo = "ccls";
+      rev = "bd609e89a29c508c8c763db2ecfad50e207391b3";
+      sha256 = "18ik5rzzbwn43dd0ri518i5vzsa5ix81fpcv7gd1s6zdv3nf9bl0";
+    };
+  });
+}
 #+end_src
 
 * modules
@@ -561,11 +780,6 @@ in
 }
 #+end_src
 
-* pkgs
-** go
-- got [[file:pkgs/go/got/]]
-- govet [[file:pkgs/go/govet]]
-
 * Flake
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/flake.nix"
 {
@@ -662,80 +876,6 @@ in
       templates.flk.description = "https://github.com/GTrunSec/nixos-flk";
       defaultTemplate = self.templates.flk;
     };
-}
-#+end_src
-
-* Overlays
-** polar-bookshelf
-
-- [[https://github.com/burtonator/polar-bookshelf/releases][Releases · burtonator/polar-bookshelf]]
-
-  #+begin_src conf :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/polar-bookshelf.nix"
-let version = "1.100.13";
-in
-final: prev: {
-  polar-bookshelf = prev.polar-bookshelf.overrideAttrs (o: {
-    inherit version;
-    src = prev.fetchurl {
-      url = "https://github.com/burtonator/polar-bookshelf/releases/download/v${version}/polar-bookshelf-${version}-amd64.deb";
-      sha256 = "0i60np4akhvzqpspg5k2mz8q4ccmz19j43x1sisbdw7iml1a1rsd";
-    };
-  });
-}
-  #+end_src
-** discord
-#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/discord.nix"
-let version = "0.0.12";
-in
-final: prev: {
-  discord = prev.discord.overrideAttrs (o: {
-    inherit version;
-    src = prev.fetchurl {
-      url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
-      sha256 = "sha256-aPLNPDl7XFSxWwjw2HPhTladoCSxLC5WWF+hyxDbP2M=";
-    };
-  });
-}
-#+end_src
-** brave
-#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/brave.nix"
-let version = "1.12.108";
-in
-final: prev: {
-  brave = prev.brave.overrideAttrs (o: {
-    inherit version;
-    src = prev.fetchurl {
-      url = "https://github.com/brave/brave-browser/releases/download/v${version}/brave-browser_${version}_amd64.deb";
-      sha256 = "sha256-4SFNjYfDEwbIQAW7QMygpFQzjoJS6033LyOUfUj6osg=";
-    };
-  });
-}
-#+end_src
-** signal-desktop
-#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/signal-desktop.nix"
-let version = "1.34.5";
-in
-final: prev: {
-  signal-desktop = prev.signal-desktop.overrideAttrs (o: {
-    inherit version;
-    src = prev.fetchurl {
-      url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_${version}_amd64.deb";
-      sha256 = "sha256-4VHErF8VdLtnGtKXHn9gdh2KnO4uAkNycnpHN7OeFuk=";
-    };
-  });
-}
-#+end_src
-** ccls
-#+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/overlays/ccls.nix"
-final: prev: {
-  ccls = prev.ccls.overrideAttrs (o: {
-    src = prev.fetchFromGitHub{
-      owner = "MaskRay";
-      repo = "ccls";
-      rev = "bd609e89a29c508c8c763db2ecfad50e207391b3";
-      sha256 = "18ik5rzzbwn43dd0ri518i5vzsa5ix81fpcv7gd1s6zdv3nf9bl0";
-    };
-  });
 }
 #+end_src
 
