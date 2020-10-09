@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./ghcide-nix.nix ];
+  imports = [ ./ghcide-nix.nix
+              ./ros.nix
+            ];
 }
