@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  my-python-packages = (pkgs.python37.withPackages (ps: with ps;[
+  my-python-packages = (pkgs.python3.withPackages (ps: with ps;[
     #emacs-eaf
     shapely
     dbus-python
@@ -29,7 +29,7 @@ let
     #orgbabelhelper
     jupyter
     jupyterlab
-
+    voila
   ])).override (args: { ignoreCollisions = true;});
 in
 {

@@ -7,9 +7,10 @@
       unstable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
       home.url = "github:rycee/home-manager/bqv-flakes";
+      nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux/master";
     };
 
-  outputs = inputs@{ self, home, nixos, master, unstable }:
+  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux }:
     let
       inherit (builtins) attrNames attrValues readDir;
       inherit (nixos) lib;
@@ -25,7 +26,8 @@
           inherit system;
           overlays = attrValues self.overlays
                      ++ [ (import ./pkgs/my-node-packages)
-                        ] ;
+                          (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
+                        ];
           config = { allowUnfree = true; };
         };
 
