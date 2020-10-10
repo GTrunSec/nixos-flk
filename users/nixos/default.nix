@@ -15,5 +15,4 @@
     ];
   };
   services.lorri.enable = true;
-  services.emacs.enable = true;
 }
