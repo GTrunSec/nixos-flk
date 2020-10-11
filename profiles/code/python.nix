@@ -29,8 +29,7 @@ let
     #orgbabelhelper
     jupyter
     jupyterlab
-    voila
-  ])).override (args: { ignoreCollisions = true;});
+    ])).override (args: { ignoreCollisions = true;});
 in
 {
   environment.systemPackages = with pkgs; [
