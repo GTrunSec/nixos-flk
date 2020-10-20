@@ -418,10 +418,11 @@ buildAppImage {
 - my-node-packages file:pkgs/my-node-packages/
   #+begin_src json :exports both :tangle "~/.config/nixpkgs/nixos-flk/pkgs/my-node-packages/packages.json"
 [
-  "typescript-language-server",
-  "tslint",
-  "maildev",
-  "@mermaid-js/mermaid-cli"
+    "typescript-language-server",
+    "tslint",
+    "maildev",
+    "@mermaid-js/mermaid-cli",
+    "mathjax-node-cli"
 ]
   #+end_src
 
