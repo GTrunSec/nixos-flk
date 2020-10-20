@@ -18,7 +18,7 @@ final: prev: {
 
     mv usr/share/* $out/share/
 
-    ln -s $out/share/polar-bookshelf/polar-desktop-app.bin $out/bin/polar-desktop-app
+    ln -s $out/share/polar-bookshelf/polar-desktop-app $out/bin/polar-desktop-app
 
     substituteInPlace $out/share/applications/polar-desktop-app.desktop \
       --replace "/opt/Polar/polar-desktop-app" "$out/bin/polar-desktop-app"
