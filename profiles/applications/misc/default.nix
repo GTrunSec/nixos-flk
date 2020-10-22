@@ -13,6 +13,7 @@
         # manager password
         gopass
         enpass
+        onepassword
         #media
         mpv
         youtube-dl
