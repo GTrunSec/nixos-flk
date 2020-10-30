@@ -1,4 +1,4 @@
-#+TITLE: README NixOS 
+#+TITLE: README NixOS
 
 * Configuration
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/configuration.nix"
@@ -78,7 +78,6 @@ in
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
 #+end_src
-
 
 * hosts
 ** default.nix
@@ -161,7 +160,6 @@ in
 hosts
 #+end_src
 
-
 **  NixOS
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/hosts/NixOS.nix"
 {
@@ -184,7 +182,6 @@ hosts
     allowedTCPPorts = [ 8888 8889];
     allowedUDPPorts = [ 8888 8889];
   };
-
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -646,7 +643,6 @@ in {
       type = types.bool;
     };
 
-
     interface = mkOption {
       description = "Zeek listen address.";
       default = "eth0";
@@ -798,6 +794,12 @@ in
 }
 #+end_src
 
+** xkeysnail
+- [[https://github.com/mooz/xkeysnail/][mooz/xkeysnail: Yet another keyboard remapping tool for X environment]]
+
+- [[https://github.com/Claude-Ray/dotfiles/blob/master/.config/systemd/user/xkeysnail.service][dotfiles/xkeysnail.service at master · Claude-Ray/dotfiles]]
+
+  - [[https://emacs-china.org/t/xkeysnail/12155/13][虽然有人推过了, 再来推荐一波 xkeysnail, 功能更完善了一点 - 闲聊灌水 - Emacs China]]
 * Flake
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/flake.nix"
 {
@@ -922,8 +924,6 @@ in
   };
 }
   #+end_src
-
-
 
 - ros.nix
   #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/cachix/ros.nix"
