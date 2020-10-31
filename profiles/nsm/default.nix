@@ -9,7 +9,14 @@
     adguardhome
     sudo-pair
     btest
+    brim
   ];
+
+  services.dbus = {
+    enable = true;
+  };
+
+  programs.dconf.enable = true; #for brim to dfconf service
 
   services.zeek = {
     enable = true;
