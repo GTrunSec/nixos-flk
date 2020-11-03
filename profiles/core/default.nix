@@ -48,6 +48,7 @@ in
       #password
       pwgen
       git-crypt
+      wget
     ];
 
     shellInit = ''

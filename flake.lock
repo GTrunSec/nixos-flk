@@ -176,12 +176,80 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1597710717,
+        "narHash": "sha256-3vAocE54PK1uU/HwZWL1rs4vRoNhPnRZNB4TTx6D1Zw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
+        "type": "indirect"
+      }
+    },
+    "photoprism": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1604273426,
+        "narHash": "sha256-Ra57ch8xemZQiu8O11Hygp0dhi4XFaRs+MEFGMTrRqc=",
+        "owner": "photoprism",
+        "repo": "photoprism",
+        "rev": "b540e4ec0352b62a96ccc357ee405af8e3d289d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "photoprism",
+        "repo": "photoprism",
+        "type": "github"
+      }
+    },
+    "photoprism-flake": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4",
+        "photoprism": "photoprism",
+        "ranz2nix": "ranz2nix"
+      },
+      "locked": {
+        "lastModified": 1604371678,
+        "narHash": "sha256-qpp92eiQvn7dx/BYXqsb5k5kqjlu0Wr4Jw7tygFdskA=",
+        "owner": "GTrunSec",
+        "repo": "photoprism-flake",
+        "rev": "686138be58f3e54849a5a1947a3debdfd8bbd09a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GTrunSec",
+        "repo": "photoprism-flake",
+        "type": "github"
+      }
+    },
+    "ranz2nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1594668772,
+        "narHash": "sha256-JE7lk0rDP5itZqWOwjuv8N18xLbGc6XL/0u9rMnhXUk=",
+        "owner": "andir",
+        "repo": "ranz2nix",
+        "rev": "637276c3110716d2a798e737fe62e54b37190d50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andir",
+        "repo": "ranz2nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home": "home",
         "master": "master",
         "nixos": "nixos",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
+        "photoprism-flake": "photoprism-flake",
         "unstable": "unstable"
       }
     },

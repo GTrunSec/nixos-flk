@@ -8,9 +8,10 @@
       nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
       home.url = "github:rycee/home-manager/bqv-flakes";
       nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux/master";
+      photoprism-flake.url = "github:GTrunSec/photoprism-flake";
     };
 
-  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux }:
+  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake }:
     let
       inherit (builtins) attrNames attrValues readDir;
       inherit (nixos) lib;
