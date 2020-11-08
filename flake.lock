@@ -150,11 +150,11 @@
         "ranz2nix": "ranz2nix"
       },
       "locked": {
-        "lastModified": 1604371678,
-        "narHash": "sha256-qpp92eiQvn7dx/BYXqsb5k5kqjlu0Wr4Jw7tygFdskA=",
+        "lastModified": 1604815984,
+        "narHash": "sha256-z2s+sgjmbV937cyKZDkrWEsLne12RwJ4QiG81xNFZDQ=",
         "owner": "GTrunSec",
         "repo": "photoprism-flake",
-        "rev": "686138be58f3e54849a5a1947a3debdfd8bbd09a",
+        "rev": "94e8b29710e8bcb95a170764c015c80f2efb8ccf",
         "type": "github"
       },
       "original": {

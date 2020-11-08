@@ -9,6 +9,7 @@
       home.url = "github:rycee/home-manager/bqv-flakes";
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake.url = "github:GTrunSec/photoprism-flake";
+      #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
       nuclear-flake.url = "github:GTrunSec/nuclear-music-flake";
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
     };
