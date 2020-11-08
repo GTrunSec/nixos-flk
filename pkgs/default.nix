@@ -1,20 +1,26 @@
 final: prev:
 let
-  nixpkgs-hardenedlinux = prev.fetchgit {
-    url = "https://github.com/hardenedlinux/nixpkgs-hardenedlinux";
-    rev = "826b291257c7fdd9bb9460ef844396c8ed927955";
-    sha256 = "sha256-VebFgB49NoA6C+lm2DfLGd0gCDLVNqNPCWJ0JgDT1rU=";
-  };
+  importJSON = file: builtins.fromJSON (builtins.readFile file);
+  flakeLock = importJSON ../flake.lock;
+  loadInput = { locked, ... }:
+    assert locked.type == "github";
+    builtins.fetchTarball {
+      url = "https://github.com/${locked.owner}/${locked.repo}/archive/${locked.rev}.tar.gz";
+      sha256 = locked.narHash;
+    };
+
+  nixpkgs-hardenedlinux = loadInput flakeLock.nodes.nixpkgs-hardenedlinux;
+  zeek-nix = loadInput flakeLock.nodes.zeek-nix;
 in
 {
   brim = prev.callPackage ./brim {};
 
   onepassword = prev.callPackage ./appimage/1password.nix {};
-  nuclear = prev.callPackage ./appimage/nuclear.nix {};
+  #nuclear = prev.callPackage ./appimage/nuclear.nix {};
   motrix = prev.callPackage ./appimage/Motrix.nix {};
   shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix {};
   #FIXME: spicy plugin BUG
-  hardenedlinux-zeek = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/zeek" { KafkaPlugin = true; PostgresqlPlugin = true; Http2Plugin = true;};
+  hardenedlinux-zeek = prev.callPackage "${zeek-nix}/nix" { KafkaPlugin = true; PostgresqlPlugin = true; Http2Plugin = true;};
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
 
   #go packages

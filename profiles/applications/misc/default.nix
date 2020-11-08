@@ -20,13 +20,12 @@
                 youtube-dl
                 cmus
                 mpc_cli
-                nuclear
                 #tools
                 tree
                 desktop-file-utils
                 # TMSU lets you tags your files and then access them through a nifty virtual filesystem from any other application.
                 tmsu
-
+                nuclear
                 gitAndTools.delta
                 ##
                 sshfs

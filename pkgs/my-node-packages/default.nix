@@ -18,5 +18,6 @@ in {
         wrapProgram $out/bin/mmdc --add-flags "-p $nixpkgsChromePuppeteerConfig"
       '';
     });
+
   };
 }

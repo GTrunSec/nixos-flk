@@ -7,11 +7,13 @@
       unstable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
       home.url = "github:rycee/home-manager/bqv-flakes";
-      nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux/master";
+      nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake.url = "github:GTrunSec/photoprism-flake";
+      nuclear-flake.url = "github:GTrunSec/nuclear-music-flake";
+      zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
     };
 
-  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake }:
+  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake, nuclear-flake, zeek-nix}:
     let
       inherit (builtins) attrNames attrValues readDir;
       inherit (nixos) lib;
@@ -28,6 +30,7 @@
           overlays = attrValues self.overlays
                      ++ [ (import ./pkgs/my-node-packages)
                           (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
+                          nuclear-flake.overlay
                         ];
           config = { allowUnfree = true; };
         };
@@ -51,7 +54,7 @@
         inherit pkgs;
       };
 
-      overlay = import ./pkgs;
+      overlay = (import ./pkgs);
 
       overlays =
         let
@@ -63,8 +66,9 @@
 
       packages."${system}" =
         let
-          packages = self.overlay osPkgs osPkgs;
+          packages = self.overlay osPkgs osPkgs ;
           overlays = lib.filterAttrs (n: v: n != "pkgs") self.overlays;
+
           overlayPkgs =
             genAttrs
               (attrNames overlays)
