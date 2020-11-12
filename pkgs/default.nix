@@ -13,8 +13,6 @@ let
   zeek-nix = loadInput flakeLock.nodes.zeek-nix;
 in
 {
-  brim = prev.callPackage ./brim {};
-
   onepassword = prev.callPackage ./appimage/1password.nix {};
   #nuclear = prev.callPackage ./appimage/nuclear.nix {};
   motrix = prev.callPackage ./appimage/Motrix.nix {};

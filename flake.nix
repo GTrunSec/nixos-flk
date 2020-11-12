@@ -11,10 +11,12 @@
       photoprism-flake.url = "github:GTrunSec/photoprism-flake";
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
       nuclear-flake.url = "github:GTrunSec/nuclear-music-flake";
+      brim-flake.url = "github:hardenedlinux/brim-flake";
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
     };
 
-  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake, nuclear-flake, zeek-nix}:
+  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake, nuclear-flake
+                   , zeek-nix, brim-flake}:
     let
       inherit (builtins) attrNames attrValues readDir;
       inherit (nixos) lib;
@@ -31,7 +33,7 @@
           overlays = attrValues self.overlays
                      ++ [ (import ./pkgs/my-node-packages)
                           (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
-                          nuclear-flake.overlay
+                          nuclear-flake.overlay brim-flake.overlay
                         ];
           config = { allowUnfree = true; };
         };
