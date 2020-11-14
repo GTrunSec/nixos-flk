@@ -26,6 +26,6 @@ stdenv.mkDerivation rec {
     description = "NotDeft note manager for Emacs";
     homepage = https://github.com/hasu/notdeft;
     license = licenses.bsd3;
-    platforms = with platforms; linux;
+    platforms = with platforms; all;
   };
 }
