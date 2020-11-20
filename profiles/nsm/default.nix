@@ -18,6 +18,13 @@
 
   programs.dconf.enable = true; #for brim to dfconf service
 
+  services.elasticsearch = {
+    enable = true;
+    package = pkgs.elasticsearch7;
+    extraConf = ''
+    '';
+  };
+
   services.zeek = {
     enable = true;
     standalone = true;
