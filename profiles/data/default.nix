@@ -1,10 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./promnesia.nix];
+  imports = [ ./promnesia.nix
+              ./miniflux.nix
+            ];
   services.redis = {
     enable = true;
   };
+
   services.postgresql = {
     enable =  true;
     enableTCPIP = true;
