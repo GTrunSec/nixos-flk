@@ -10,6 +10,7 @@
     sudo-pair
     btest
     brim
+    tcpdump
   ];
 
   services.dbus = {

@@ -29,6 +29,7 @@ let
     #orgbabelhelper
     jupyter
     jupyterlab
+    pdftotext
     ])).override (args: { ignoreCollisions = true;});
 in
 {
