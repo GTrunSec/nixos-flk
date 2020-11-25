@@ -3,7 +3,7 @@ let
   inherit (builtins) readFile;
 in
 {
-  imports = [ ./i3.nix ];
+  imports = [ ./i3.nix ./xdg.nix ];
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
   hardware.pulseaudio.enable = true;
@@ -20,20 +20,6 @@ in
   };
 
   environment = {
-
-    etc = {
-      "xdg/gtk-3.0/settings.ini" = {
-        text = ''
-          [Settings]
-          gtk-icon-theme-name=Papirus
-          gtk-theme-name=Adapta
-          gtk-cursor-theme-name=Adwaita
-          gtk-cursor-theme-size=128
-        '';
-        mode = "444";
-      };
-    };
-    
     sessionVariables = {
       # Theme settings
       QT_QPA_PLATFORMTHEME = "gtk2";
@@ -75,6 +61,10 @@ in
       zathura
       xdotool
       xorg.xwininfo
+      krusader
+      kdiff3
+      krename
+      keditbookmarks
     ];
   };
 
