@@ -6,7 +6,6 @@
     tcpreplay
     suricata
     #home
-    adguardhome
     sudo-pair
     btest
     brim

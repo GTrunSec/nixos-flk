@@ -1,3 +1,4 @@
 [
   ./ids/zeek
+  ./adguardhome
 ]

@@ -9,4 +9,5 @@
   ./devices
   ./nsm
   ./data
+  ./network
 ]
