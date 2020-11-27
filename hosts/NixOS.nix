@@ -16,17 +16,17 @@
 
   networking.firewall = {
     # 8888 -> Jupyterlab 8889 -> JuliaPluto
-    allowedTCPPorts = [ 8888 8889];
-    allowedUDPPorts = [ 8888 8889];
+    allowedTCPPorts = [ 8888 8889 53 ];
+    allowedUDPPorts = [ 8888 8889 53 ];
   };
 
+  networking.nameservers = [ "10.220.170.112" ]; #adguardhome
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   ## ssd
   services.fstrim.enable = true;
 
-  networking.networkmanager.enable = true;
   # Define your hostname.
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 

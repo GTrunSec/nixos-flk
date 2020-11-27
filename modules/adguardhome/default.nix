@@ -54,11 +54,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    users.users.adguardhome = { isSystemUser = true; group = "adguardhome";
-                                home = "${cfg.home}";
-                                createHome = true;};
-    users.groups.adguardhome = { };
-
     systemd.services.adguardhome = with pkgs; {
       description = "Adguardhome Daemon";
       after = [ "network-online.target" ];
