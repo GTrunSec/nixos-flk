@@ -7,6 +7,12 @@ pkgs.vscode-with-extensions.override {
   ]
     # Concise version from the vscode market place when not available in the default set.
   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    {
+      publisher = "Cardinal90";
+      name = "multi-cursor-case-preserve";
+      version = "1.0.5";
+      sha256 = "sha256-eJafjYDydD8DW83VLH9MPFeDENXBx3el7XvjZqu88Jw=";
+    }
     #theme
     {
       publisher = "enkia";
@@ -36,8 +42,8 @@ pkgs.vscode-with-extensions.override {
     {
       publisher = "DavidAnson";
       name = "vscode-markdownlint";
-      version = "0.31.1";
-      sha256 = "1jaqfvk09ykm3m7mi4kryhialfy8yxbn122dvrmzlsnyci3xpxzg";
+      version = "0.37.2";
+      sha256 = "sha256-TlG0cqZAfD15ZN+d/lKPCdNx72zoDzUu6y8JV8kG1qU=";
     }
 
     {
@@ -52,16 +58,16 @@ pkgs.vscode-with-extensions.override {
     {
       publisher = "ccls-project";
       name = "ccls";
-      version = "0.1.28";
-      sha256 = "11zn2pbj4y1j2cnn0yhf2dvhkxy9am8d1ja92grh3h86wvz0mw8k";
+      version = "0.1.29";
+      sha256 = "sha256-RjMYBLgbi+lgPqaqN7yh8Q8zr9euvQ+YLEoQaV3RDOA=";
     }
 
     # Lang-julia
     {
       publisher = "julialang";
       name = "language-julia";
-      version = "0.15.29";
-      sha256 = "12hna9w6403fw2n99x3qk0b46iw7c79bq5gh2yjzn1rcw027xrnl";
+      version = "1.0.10";
+      sha256 = "sha256-+tnyHNt5NVb6XqAobnS6C8rLh+3yA7OKeGiL08snrBI=";
     }
 
     {
@@ -75,8 +81,8 @@ pkgs.vscode-with-extensions.override {
     {
       publisher = "Ikuyadeu";
       name = "r";
-      version = "1.1.1";
-      sha256 = "1rhwq830jyyxqic5a4mb8kyd29lzfjcz5ap51kb4s0s5y3v6l3m8";
+      version = "1.6.1";
+      sha256 = "sha256-6mEVvZYUostFO4C2oRBuVsqs5x2KpiVwVH1oPvXnYAg=";
     }
     # dotnet-runtime
     # {
@@ -89,16 +95,16 @@ pkgs.vscode-with-extensions.override {
     {
       publisher = "REditorSupport";
       name = "r-lsp";
-      version = "0.1.0";
-      sha256 = "0kqh53jx314bsv3x48vyf29blkicr2jdwgz7vj5vklf9zxd3n1pa";
+      version = "0.1.11";
+      sha256 = "sha256-wGEoZSccqKBKnTvSJnEEwiPLJJhkZxC11zjVLxBlbHY=";
     }
 
     # Lang-Go
     {
       publisher = "golang";
       name = "Go";
-      version = "0.15.1";
-      sha256 = "1h7r781asl890n9fc0dh81l4ffx8xqd81d4hy2680dji8x390axz";
+      version = "0.19.0";
+      sha256 = "sha256-KGWvyRW//sw8fMcMNPgArre0HOaiobpYc8hwYDthIvc=";
     }
 
     {
@@ -111,8 +117,8 @@ pkgs.vscode-with-extensions.override {
     {
       publisher = "ms-python";
       name = "python";
-      version = "2020.4.76186";
-      sha256 = "0arqz1778hp3sk95f3i1p1kyykpn9y7k1h256jpxn1m4723ccbn6";
+      version = "2020.11.371526539";
+      sha256 = "sha256-g7kUdd9iPe6dODsDUFSXbkj5V9waLo2nHGUmIBjxW0U=";
     }
     
     {
