@@ -1,4 +1,5 @@
 [
   ./ids/zeek
   ./adguardhome
+  ./filestash
 ]

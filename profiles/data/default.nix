@@ -5,6 +5,7 @@
               ./miniflux.nix
               ./nextcloud.nix
               ./postgresql.nix
+              ./filestash.nix
             ];
   services.redis = {
     enable = true;
