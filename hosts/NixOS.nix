@@ -22,6 +22,15 @@
 
   networking.nameservers = [ "10.220.170.112" ]; #adguardhome
 
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+
+  environment.etc = {
+    "resolv.conf".text = "nameserver 10.220.170.112";
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   ## ssd

@@ -10,4 +10,5 @@ with pkgs;
   brave
   ccls
   discord
+  adguardhome
 ]

@@ -4,4 +4,9 @@
   imports = [
     ./adguardhome.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    bc
+    dnsutils
+  ];
 }
