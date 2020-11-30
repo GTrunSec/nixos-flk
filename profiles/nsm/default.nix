@@ -30,7 +30,7 @@
     standalone = true;
     interface = "eno1";
     listenAddress = "localhost";
-    package = pkgs.hardenedlinux-zeek;
+    package = pkgs.zeek;
     privateScript = ''
     @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek    
     '';

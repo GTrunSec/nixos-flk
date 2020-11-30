@@ -34,6 +34,7 @@
                      ++ [ (import ./pkgs/my-node-packages)
                           (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                           nuclear-flake.overlay brim-flake.overlay
+                          (import "${zeek-nix}/overlay.nix")
                         ];
           config = { allowUnfree = true; };
         };

@@ -243,11 +243,11 @@
     "zeek-nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1604271706,
-        "narHash": "sha256-zHW6J8T/91apXS3zQCmlrY27PN+BZnQ4r56Fo/g12vs=",
+        "lastModified": 1606690371,
+        "narHash": "sha256-omQCwjcwIiityrtWIFjCVJlYhOgaiPv06DnPtkVRrmw=",
         "owner": "hardenedlinux",
         "repo": "zeek-nix",
-        "rev": "ab1c0bda7f382e100c380c57ecded52dac499fd1",
+        "rev": "b273cb1f5022439e8107b7cc6c7021cb867bbcd3",
         "type": "github"
       },
       "original": {

@@ -19,7 +19,6 @@ in
   motrix = prev.callPackage ./appimage/Motrix.nix {};
   shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix {};
   #FIXME: spicy plugin BUG
-  hardenedlinux-zeek = prev.callPackage "${zeek-nix}/nix" { KafkaPlugin = true; PostgresqlPlugin = true; Http2Plugin = true;};
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
 
   #go packages
