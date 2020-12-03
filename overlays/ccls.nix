@@ -3,8 +3,8 @@ final: prev: {
     src = prev.fetchFromGitHub{
       owner = "MaskRay";
       repo = "ccls";
-      rev = "bd609e89a29c508c8c763db2ecfad50e207391b3";
-      sha256 = "18ik5rzzbwn43dd0ri518i5vzsa5ix81fpcv7gd1s6zdv3nf9bl0";
+      rev = "2ad71f1058cb8079d7a78d35b2dc1af4e282881d";
+      sha256 = "sha256-+FiJRQNwCUP+HeT89NDdfKBzXZO805DJQS2bFJRg5Gc=";
     };
   });
 }
