@@ -127,39 +127,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1597710717,
-        "narHash": "sha256-3vAocE54PK1uU/HwZWL1rs4vRoNhPnRZNB4TTx6D1Zw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
-        "type": "indirect"
-      }
-    },
-    "nuclear-flake": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1604795302,
-        "narHash": "sha256-UErcXOcF8RdKAm9bXVDDMPoOO6U9AeJflH6SDoXHHE4=",
-        "owner": "GTrunSec",
-        "repo": "nuclear-music-flake",
-        "rev": "273df404207960bb71436443fe4f4e753c418b0a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "GTrunSec",
-        "repo": "nuclear-music-flake",
-        "type": "github"
-      }
-    },
     "photoprism": {
       "flake": false,
       "locked": {
@@ -178,7 +145,7 @@
     },
     "photoprism-flake": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "photoprism": "photoprism",
         "ranz2nix": "ranz2nix"
       },
@@ -219,7 +186,6 @@
         "master": "master",
         "nixos": "nixos",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
-        "nuclear-flake": "nuclear-flake",
         "photoprism-flake": "photoprism-flake",
         "unstable": "unstable",
         "zeek-nix": "zeek-nix"

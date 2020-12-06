@@ -26,6 +26,7 @@
                 # TMSU lets you tags your files and then access them through a nifty virtual filesystem from any other application.
                 tmsu
                 nuclear
+                ytmdesktop
                 gitAndTools.delta
                 ##
                 sshfs
