@@ -35,7 +35,7 @@
                 xclip
                 screenfetch
                 urxvt_perls
-
-
+                #disk
+                duf
         ];
 }

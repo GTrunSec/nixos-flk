@@ -12,9 +12,6 @@ buildGoPackage rec {
     sha256 = "1l1inwlf252z6n9xcvqpz6qxcnx3hnwwhylnp22n0qhzf7w23jsk";
   };
 
-  goDeps = ./deps.nix;
-
-  # TODO: add metadata https://nixos.org/nixpkgs/manual/#sec-standard-meta-attributes
   meta = {
     description = "https://github.com/jesseduffield/horcrux.git";
   };

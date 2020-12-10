@@ -3,9 +3,9 @@
 
   inputs =
     {
-      master.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
-      unstable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
-      nixos.url = "nixpkgs/8bdebd463bc77c9b83d66e690cba822a51c34b9b";
+      master.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
+      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
+      nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       home.url = "github:rycee/home-manager/bqv-flakes";
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake.url = "github:GTrunSec/photoprism-flake";
@@ -14,7 +14,7 @@
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
     };
 
-  outputs = inputs@{ self, home, nixos, master, unstable, nixpkgs-hardenedlinux, photoprism-flake
+  outputs = inputs@{ self, home, nixos, master, stable, nixpkgs-hardenedlinux, photoprism-flake
                    , zeek-nix, brim-flake}:
     let
       inherit (builtins) attrNames attrValues readDir;
@@ -42,7 +42,7 @@
       pkgset = {
         osPkgs = pkgImport nixos;
         pkgs = pkgImport master;
-        unstable = pkgImport unstable;
+        stable = pkgImport stable;
       };
 
     in

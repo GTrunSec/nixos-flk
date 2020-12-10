@@ -12,7 +12,7 @@
 let
   inherit (utils) recImport;
   inherit (builtins) attrValues removeAttrs;
-  inherit (pkgset) osPkgs pkgs;
+  inherit (pkgset) osPkgs pkgs stable;
 
   config = hostName:
     lib.nixosSystem {
@@ -49,7 +49,7 @@ let
 
             nixpkgs.overlays =
               let
-                override = import ../pkgs/override.nix pkgs;
+                override = import ../pkgs/override.nix pkgs stable;
 
                 overlay = pkg: final: prev: {
                   "${pkg.pname}" = pkg;
