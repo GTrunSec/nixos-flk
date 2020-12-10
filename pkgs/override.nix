@@ -8,6 +8,7 @@ with pkgs;
   stable.signal-desktop
   #polar-bookshelf
   brave
+  stable.bluez
   ccls
   discord
   adguardhome

@@ -65,6 +65,8 @@ in
       kdiff3
       krename
       keditbookmarks
+      kazam
+      obs-studio
     ];
   };
 

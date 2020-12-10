@@ -1,13 +1,5 @@
 { pkgs, ... }:
 let
-  # julia = pkgs.julia_13.overrideAttrs(oldAttrs: {
-  #   src = pkgs.fetchzip {
-  #     url = "https://github.com/JuliaLang/julia/releases/download/v1.5.1/julia-1.5.1-full.tar.gz";
-  #     sha256 = "sha256-uaxlzni2RtmDhMzPbtDycj44CB0tJUzhmbwsAGwFv/U=";
-  #   };
-  #   checkTarget = "";
-  # });
-
   julia = pkgs.julia_15;
   cudaVersion = pkgs.cudatoolkit_10_2;
   nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
