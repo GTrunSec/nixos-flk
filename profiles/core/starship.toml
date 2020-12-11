@@ -27,8 +27,6 @@ stashed = "  "
 staged = "  "
 renamed = "  "
 untracked = "  "
-prefix = "|"
-suffix = " | "
 show_sync_count = true
 conflicted_count.enabled = true
 deleted_count.enabled = true
@@ -41,80 +39,3 @@ untracked_count.enabled = true
 # Configure the SSH prompt
 [hostname]
 ssh_only = true
-prefix = "⟪"
-suffix = "⟫"
-
-# Configure the battery display
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
-# Configure the background jobs
-[jobs]
-symbol = ""
-
-# Configure the package version
-[package]
-symbol = " "
-style = "dimmed white"
-
-# Configure the .NET module
-[dotnet]
-symbol = " "
-style = "dimmed blue"
-
-# Configure the Rust module
-[rust]
-symbol = " "
-style = "dimmed red"
-
-# Configure the Node.js module
-[nodejs]
-symbol = " "
-style = "dimmed green"
-
-# Configure the Java module
-[java]
-symbol = " "
-style = "dimmed purple"
-# Starship command prompt configuration file. Colour choice and over-use of emoji
-# is to help blend in with Ubuntu MATE default theme, Ambiant-Mate.
-
-
-# disable starship from forcing a new line to be taken. Solved the empty line
-# at start of terminal
-add_newline = false
-
-[line_break]
-disabled = true
-
-# Replace the "❯" symbol in the prompt with "➟"
-[character]      # The name of the module we are configuring is "character"
-use_symbol_for_status = true
-symbol = "  ➟"     # The "symbol" segment is being set to "➜"
-error_symbol = "  ✗"
-style_success = "bold #00A652"
-style_failure = "bold #df382c"
-
-# Hide the username. The username will only show in certain scenarios
-[username]
-disabled = true
-
-# shows the hostname on new lines
-[hostname]
-ssh_only = false
-prefix = "💻️ "
-# suffix = ">>"
-trim_at = ".companyname.com"
-disabled = false
-style = "bold italic #87A752"
-
-# configure directory
-[directory]
-truncation_length = 10
-truncate_to_repo = true # truncates directory to root folder if in github repo
-prefix = " 📂️ "
-style = "bold italic #87A752"
-
-
