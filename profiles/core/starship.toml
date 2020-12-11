@@ -1,97 +1,120 @@
+# Replace the "❯" symbol in the prompt with "➜"
 [character]
-style_success = "purple"
+symbol = "➜"
 
-[aws]
-symbol = " "
+# Configure the number of directories to truncate in the current path
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "blue"
 
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
+# Configure the duration of the last command
 [cmd_duration]
+min_time = 100
+style = "dimmed white"
 disabled = true
 
-[conda]
-symbol = " "
-
-[directory]
-style = "cyan"
-
-[docker]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
+# Configure the Git prompt
 [git_branch]
-symbol = " "
-style = "bold dimmed white"
+style = "green"
 
+# Configure the Git symbols
 [git_status]
-conflicted = "䷅"
-ahead.value = "⟫"
-ahead.style = "green"
-behind.value = "⟪"
-behind.style = "red"
-diverged = "🔀"
-untracked.value = " ❓‍"
-untracked.style = "purple"
-stashed = "↪"
-modified.value = "➕"
-modified.style = "yellow"
-staged.value = "𝚫 "
-staged.style = "green"
-prefix = "「"
-suffix = "」"
-renamed = "⇆"
-deleted.value = "✘ "
-deleted.style = "red"
-style = "white"
+conflicted = "  "
+deleted = " 﫧"
+modified = "  "
+stashed = "  "
+staged = "  "
+renamed = "  "
+untracked = "  "
+prefix = "|"
+suffix = " | "
+show_sync_count = true
+conflicted_count.enabled = true
+deleted_count.enabled = true
+modified_count.enabled = true
+stashed_count.enabled = true
+staged_count.enabled = true
+renamed_count.enabled = true
+untracked_count.enabled = true
 
-[golang]
-symbol = " "
+# Configure the SSH prompt
+[hostname]
+ssh_only = true
+prefix = "⟪"
+suffix = "⟫"
 
-[haskell]
-symbol = " "
+# Configure the battery display
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
 
-[hg_branch]
-symbol = " "
+# Configure the background jobs
+[jobs]
+symbol = ""
 
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-pure_msg = ""
-impure_msg = ""
-
-[nodejs]
-symbol = " "
-
+# Configure the package version
 [package]
 symbol = " "
+style = "dimmed white"
 
-[php]
-symbol = " "
+# Configure the .NET module
+[dotnet]
+symbol = " "
+style = "dimmed blue"
 
-[python]
-symbol = " "
-
-[ruby]
-symbol = " "
-
+# Configure the Rust module
 [rust]
-symbol = " "
+symbol = " "
+style = "dimmed red"
+
+# Configure the Node.js module
+[nodejs]
+symbol = " "
+style = "dimmed green"
+
+# Configure the Java module
+[java]
+symbol = " "
+style = "dimmed purple"
+# Starship command prompt configuration file. Colour choice and over-use of emoji
+# is to help blend in with Ubuntu MATE default theme, Ambiant-Mate.
+
+
+# disable starship from forcing a new line to be taken. Solved the empty line
+# at start of terminal
+add_newline = false
+
+[line_break]
+disabled = true
+
+# Replace the "❯" symbol in the prompt with "➟"
+[character]      # The name of the module we are configuring is "character"
+use_symbol_for_status = true
+symbol = "  ➟"     # The "symbol" segment is being set to "➜"
+error_symbol = "  ✗"
+style_success = "bold #00A652"
+style_failure = "bold #df382c"
+
+# Hide the username. The username will only show in certain scenarios
+[username]
+disabled = true
+
+# shows the hostname on new lines
+[hostname]
+ssh_only = false
+prefix = "💻️ "
+# suffix = ">>"
+trim_at = ".companyname.com"
+disabled = false
+style = "bold italic #87A752"
+
+# configure directory
+[directory]
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+prefix = " 📂️ "
+style = "bold italic #87A752"
+
+

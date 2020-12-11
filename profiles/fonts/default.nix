@@ -20,5 +20,6 @@
                                material-icons
                                weather-icons
                                iosevka
+                               nerdfonts
 	];
 }
