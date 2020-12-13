@@ -27,6 +27,8 @@ in
 
   services.nextcloud = {
     enable = true;
+
+    home = "/DATABASE-4TB/nextcloud";
     # Auto-update Nextcloud Apps
     autoUpdateApps.enable = true;
     # Set what time makes sense for you
