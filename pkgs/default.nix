@@ -14,6 +14,7 @@ let
 in
 {
   nteract = prev.callPackage ./appimage/nteract.nix {};
+  magnetw = prev.callPackage ./appimage/magnetw.nix {};
   onepassword = prev.callPackage ./appimage/1password.nix {};
   notdeft = prev.callPackage ./notdeft {};
   nuclear = prev.callPackage ./appimage/nuclear.nix {};

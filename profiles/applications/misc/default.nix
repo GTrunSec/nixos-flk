@@ -5,7 +5,7 @@
         environment.systemPackages = with pkgs; [
                 goldendict
                 #downloader
-
+                magnetw
                 got
                 aria2
                 motrix
@@ -16,7 +16,7 @@
                 enpass
                 onepassword
                 #media
-                mpv
+                vlc
                 youtube-dl
                 cmus
                 mpc_cli
