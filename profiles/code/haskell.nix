@@ -11,9 +11,10 @@ in
                 cabal-install
                 haskellPackages.hlint
                 haskellPackages.hoogle
-                pkgs.ghcid # Haskell GHCi daemon
+                ghcid # Haskell GHCi daemon
                 #(haskell.lib.dontCheck haskellPackages.intero)
                 haskellPackages.alex
+                haskellPackages.haskell-language-server
                 haskellPackages.happy
                 haskellPackages.zlib
                 #haskellPackages.stack

@@ -49,6 +49,7 @@ in
       pwgen
       git-crypt
       wget
+      nix-output-monitor
     ];
 
     shellInit = ''
