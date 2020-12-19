@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1605143553,
-        "narHash": "sha256-uKKfup4sr/Pmy6IEj0UUz6wM94fmHpTLfslLgzuQDKM=",
+        "lastModified": 1608161872,
+        "narHash": "sha256-bU/l2leYZCsfzN//NxmoWiTAnCpEu+PRk/80MuDe0zE=",
         "owner": "hardenedlinux",
         "repo": "brim-flake",
-        "rev": "f16e3277d49376400163550cbf8b37c8ebf59d4b",
+        "rev": "0cb1dd46699e0d1660799fc935176cf3f65b8fcf",
         "type": "github"
       },
       "original": {
@@ -130,11 +130,11 @@
     "photoprism": {
       "flake": false,
       "locked": {
-        "lastModified": 1604273426,
-        "narHash": "sha256-Ra57ch8xemZQiu8O11Hygp0dhi4XFaRs+MEFGMTrRqc=",
+        "lastModified": 1608402038,
+        "narHash": "sha256-CyLpeqoE71vTNZJbT5pPhVr52Zzob+8YRAD6y7uogyk=",
         "owner": "photoprism",
         "repo": "photoprism",
-        "rev": "b540e4ec0352b62a96ccc357ee405af8e3d289d6",
+        "rev": "b59ecff6ef871e517264567f16158ad309ad46d1",
         "type": "github"
       },
       "original": {
@@ -150,11 +150,11 @@
         "ranz2nix": "ranz2nix"
       },
       "locked": {
-        "lastModified": 1604815984,
-        "narHash": "sha256-z2s+sgjmbV937cyKZDkrWEsLne12RwJ4QiG81xNFZDQ=",
+        "lastModified": 1608417694,
+        "narHash": "sha256-vBK5SrK2ypT7bOXrpKlJ0jEycLoUHGop5E3XjTDWJN0=",
         "owner": "GTrunSec",
         "repo": "photoprism-flake",
-        "rev": "94e8b29710e8bcb95a170764c015c80f2efb8ccf",
+        "rev": "8b61a96401a5e7d600d47603326e10341d3c825a",
         "type": "github"
       },
       "original": {
