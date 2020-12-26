@@ -16,5 +16,6 @@
     #git manager  UI
     gitkraken
 
+    elementary-planner
   ];
 }

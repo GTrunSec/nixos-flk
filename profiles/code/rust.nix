@@ -5,5 +5,6 @@
     cargo
     rustfmt
     rustup
+    rls
   ];
 }
