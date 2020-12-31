@@ -147,11 +147,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1609445092,
-        "narHash": "sha256-77+/+qj8NErxAq3u8NzPqPxRAEM4AXEU8n4IkW75hKE=",
+        "lastModified": 1609449972,
+        "narHash": "sha256-xLZ11F/VmwuRJfh1jZnCVPJOi8cLLHGIgDfZ6tArgl4=",
         "owner": "GTrunSec",
         "repo": "onlyoffice-desktopeditors-flake",
-        "rev": "f4c5b911d08f012ac660f4b04c783cdc7b98bb7c",
+        "rev": "6a404e6916a39e8b51211d64c438a3b25d139013",
         "type": "github"
       },
       "original": {
