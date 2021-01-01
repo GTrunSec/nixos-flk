@@ -261,13 +261,17 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "narHash": "sha256-mMdXRUIFHV7mM9v6rh+AnWpJqaTXuEgpQvaMihZjgBs=",
-        "path": "/home/gtrun/src/Tenvideo-nix-flake",
-        "type": "path"
+        "lastModified": 1609538072,
+        "narHash": "sha256-oj5j5LkQai3VpNoOYCWSWTQfAeIAr1w6K6LrT3TCwrA=",
+        "owner": "GTrunSec",
+        "repo": "Tenvideo-nix-flake",
+        "rev": "e8bc66e35bcfead56ed32a85cb687a0c7435e34a",
+        "type": "github"
       },
       "original": {
-        "path": "/home/gtrun/src/Tenvideo-nix-flake",
-        "type": "path"
+        "owner": "GTrunSec",
+        "repo": "Tenvideo-nix-flake",
+        "type": "github"
       }
     },
     "zeek-nix": {

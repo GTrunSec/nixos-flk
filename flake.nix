@@ -13,7 +13,7 @@
       brim-flake.url = "github:hardenedlinux/brim-flake";
       onlyoffice-desktopeditors.url = "github:GTrunSec/onlyoffice-desktopeditors-flake";
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
-      tenvideo.url = "/home/gtrun/src/Tenvideo-nix-flake";
+      tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
     };
 
   outputs = inputs@{ self, home, nixos, master, stable, nixpkgs-hardenedlinux, photoprism-flake
