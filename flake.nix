@@ -8,12 +8,12 @@
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       home.url = "github:rycee/home-manager/bqv-flakes";
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
-      photoprism-flake.url = "github:GTrunSec/photoprism-flake";
+      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
-      brim-flake.url = "github:hardenedlinux/brim-flake";
-      onlyoffice-desktopeditors.url = "github:GTrunSec/onlyoffice-desktopeditors-flake";
+      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "master";};
+      onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "master";};
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
-      tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
+      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "master";};
     };
 
   outputs = inputs@{ self, home, nixos, master, stable, nixpkgs-hardenedlinux, photoprism-flake
