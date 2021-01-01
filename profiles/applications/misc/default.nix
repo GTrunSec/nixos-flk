@@ -37,6 +37,9 @@
                 urxvt_perls
                 #disk
                 duf
+                #office
                 onlyoffice-desktopeditors
+                #video
+                tenvideo
         ];
 }

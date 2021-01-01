@@ -142,6 +142,21 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1607560137,
+        "narHash": "sha256-qI5U28r9Ie11OlkwzNFkhW0Z4jLanntJdb3JeFq/85A=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "type": "indirect"
+      }
+    },
     "onlyoffice-desktopeditors": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -222,6 +237,7 @@
         "onlyoffice-desktopeditors": "onlyoffice-desktopeditors",
         "photoprism-flake": "photoprism-flake",
         "stable": "stable",
+        "tenvideo": "tenvideo",
         "zeek-nix": "zeek-nix"
       }
     },
@@ -238,6 +254,20 @@
         "id": "nixpkgs",
         "rev": "684d5d27136f154775c95005dcce2d32943c7c9e",
         "type": "indirect"
+      }
+    },
+    "tenvideo": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "narHash": "sha256-mMdXRUIFHV7mM9v6rh+AnWpJqaTXuEgpQvaMihZjgBs=",
+        "path": "/home/gtrun/src/Tenvideo-nix-flake",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/gtrun/src/Tenvideo-nix-flake",
+        "type": "path"
       }
     },
     "zeek-nix": {
