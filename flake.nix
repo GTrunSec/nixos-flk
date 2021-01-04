@@ -7,6 +7,7 @@
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       home.url = "github:rycee/home-manager/bqv-flakes";
+      nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "master";};
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
@@ -16,7 +17,7 @@
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "master";};
     };
 
-  outputs = inputs@{ self, home, nixos, master, stable, nixpkgs-hardenedlinux, photoprism-flake
+  outputs = inputs@{ self, home, nixos, master, stable, nur, nixpkgs-hardenedlinux, photoprism-flake
                    , zeek-nix, brim-flake, onlyoffice-desktopeditors, tenvideo}:
     let
       inherit (builtins) attrNames attrValues readDir;
@@ -35,6 +36,7 @@
                      ++ [ (import ./pkgs/my-node-packages)
                           (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                           #nuclear-flake.overlay
+                          nur.overlay
                           tenvideo.overlay
                           onlyoffice-desktopeditors.overlay
                           brim-flake.overlay
@@ -54,7 +56,7 @@
     {
       nixosConfigurations =
         import ./hosts (recursiveUpdate inputs {
-          inherit lib pkgset system utils;
+          inherit lib pkgset system utils inputs;
         }
         );
 

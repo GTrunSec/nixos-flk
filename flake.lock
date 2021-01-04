@@ -99,6 +99,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1609788835,
+        "narHash": "sha256-J8MqpxHPtjBNZ/UxG+uvxpyjpsc7U6FwjvC259ss2qQ=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "22d02f9d3463d48605065745e48e8777cc2c9636",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "onlyoffice-desktopeditors": {
       "inputs": {
         "nixpkgs": [
@@ -180,6 +195,7 @@
         "master": "master",
         "nixos": "nixos",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
+        "nur": "nur",
         "onlyoffice-desktopeditors": "onlyoffice-desktopeditors",
         "photoprism-flake": "photoprism-flake",
         "stable": "stable",

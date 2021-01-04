@@ -1,5 +1,6 @@
 { home
 , photoprism-flake
+, inputs
 , lib
 , nixos
 , master
@@ -65,7 +66,8 @@ let
             attrValues (removeAttrs self.nixosModules [ "profiles" ]);
 
         in
-        flakeModules ++ [ core global local home-manager overrides photoprism ];
+          flakeModules ++ [ core global local home-manager overrides photoprism ]
+          ++ [ { nixpkgs.overlays = [ inputs.nur.overlay ]; } ];
 
     };
 
