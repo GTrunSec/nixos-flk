@@ -7,6 +7,8 @@
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       home.url = "github:rycee/home-manager/bqv-flakes";
+      devshell.url = "github:numtide/devshell";
+      flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
       nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "master";};
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
@@ -17,7 +19,7 @@
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "master";};
     };
 
-  outputs = inputs@{ self, home, nixos, master, stable, nur, nixpkgs-hardenedlinux, photoprism-flake
+  outputs = inputs@{ self, home, nixos, master, stable, devshell, flake-utils, nur, nixpkgs-hardenedlinux, photoprism-flake
                    , zeek-nix, brim-flake, onlyoffice-desktopeditors, tenvideo}:
     let
       inherit (builtins) attrNames attrValues readDir;
@@ -40,6 +42,7 @@
                           tenvideo.overlay
                           onlyoffice-desktopeditors.overlay
                           brim-flake.overlay
+                          devshell.overlay
                           (import "${zeek-nix}/overlay.nix")
                         ];
           config = { allowUnfree = true; };
