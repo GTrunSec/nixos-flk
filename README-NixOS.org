@@ -83,7 +83,7 @@ in
 ** default.nix
 #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/hosts/default.nix"
 { home
-, photoprism-flake
+, inputs
 , lib
 , nixos
 , master
@@ -96,7 +96,7 @@ in
 let
   inherit (utils) recImport;
   inherit (builtins) attrValues removeAttrs;
-  inherit (pkgset) osPkgs pkgs;
+  inherit (pkgset) osPkgs pkgs stable;
 
   config = hostName:
     lib.nixosSystem {
@@ -105,18 +105,17 @@ let
       modules =
         let
           inherit (home.nixosModules) home-manager;
-          inherit (photoprism-flake.nixosModules) photoprism;
           core = self.nixosModules.profiles.core;
 
           global = {
             networking.hostName = hostName;
             nix.nixPath = let path = toString ../.; in
-              [
-                "nixpkgs=${master}"
-                "nixos=${nixos}"
-                "nixos-config=${path}/configuration.nix"
-                "nixpkgs-overlays=${path}/overlays"
-              ];
+                          [
+                            "nixpkgs=${master}"
+                            "nixos=${nixos}"
+                            "nixos-config=${path}/configuration.nix"
+                            "nixpkgs-overlays=${path}/overlays"
+                          ];
 
             nixpkgs = { pkgs = osPkgs; };
 
@@ -133,13 +132,13 @@ let
 
             nixpkgs.overlays =
               let
-                override = import ../pkgs/override.nix pkgs;
+                override = import ../pkgs/override.nix pkgs stable;
 
                 overlay = pkg: final: prev: {
                   "${pkg.pname}" = pkg;
                 };
               in
-              map overlay override;
+                map overlay override;
           };
 
           local = import "${toString ./.}/${hostName}.nix";
@@ -149,7 +148,8 @@ let
             attrValues (removeAttrs self.nixosModules [ "profiles" ]);
 
         in
-        flakeModules ++ [ core global local home-manager overrides photoprism];
+          flakeModules ++ [ core global local home-manager overrides inputs.photoprism-flake.nixosModules.photoprism ]
+          ++ [ { nixpkgs.overlays = [ inputs.nur.overlay ]; } ];
 
     };
 
@@ -159,6 +159,7 @@ let
   };
 in
 hosts
+
 #+end_src
 
 **  NixOS
@@ -844,6 +845,7 @@ in
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       home.url = "github:rycee/home-manager/bqv-flakes";
+      nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "master";};
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
@@ -853,7 +855,7 @@ in
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "master";};
     };
 
-  outputs = inputs@{ self, home, nixos, master, stable, nixpkgs-hardenedlinux, photoprism-flake
+  outputs = inputs@{ self, home, nixos, master, stable, nur, nixpkgs-hardenedlinux, photoprism-flake
                    , zeek-nix, brim-flake, onlyoffice-desktopeditors, tenvideo}:
     let
       inherit (builtins) attrNames attrValues readDir;
@@ -872,6 +874,7 @@ in
                      ++ [ (import ./pkgs/my-node-packages)
                           (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                           #nuclear-flake.overlay
+                          nur.overlay
                           tenvideo.overlay
                           onlyoffice-desktopeditors.overlay
                           brim-flake.overlay
@@ -891,7 +894,7 @@ in
     {
       nixosConfigurations =
         import ./hosts (recursiveUpdate inputs {
-          inherit lib pkgset system utils;
+          inherit lib pkgset system utils inputs;
         }
         );
 

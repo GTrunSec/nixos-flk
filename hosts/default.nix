@@ -1,5 +1,4 @@
 { home
-, photoprism-flake
 , inputs
 , lib
 , nixos
@@ -22,18 +21,17 @@ let
       modules =
         let
           inherit (home.nixosModules) home-manager;
-          inherit (photoprism-flake.nixosModules) photoprism;
           core = self.nixosModules.profiles.core;
 
           global = {
             networking.hostName = hostName;
             nix.nixPath = let path = toString ../.; in
-              [
-                "nixpkgs=${master}"
-                "nixos=${nixos}"
-                "nixos-config=${path}/configuration.nix"
-                "nixpkgs-overlays=${path}/overlays"
-              ];
+                          [
+                            "nixpkgs=${master}"
+                            "nixos=${nixos}"
+                            "nixos-config=${path}/configuration.nix"
+                            "nixpkgs-overlays=${path}/overlays"
+                          ];
 
             nixpkgs = { pkgs = osPkgs; };
 
@@ -56,7 +54,7 @@ let
                   "${pkg.pname}" = pkg;
                 };
               in
-              map overlay override;
+                map overlay override;
           };
 
           local = import "${toString ./.}/${hostName}.nix";
@@ -66,7 +64,7 @@ let
             attrValues (removeAttrs self.nixosModules [ "profiles" ]);
 
         in
-          flakeModules ++ [ core global local home-manager overrides photoprism ]
+          flakeModules ++ [ core global local home-manager overrides inputs.photoprism-flake.nixosModules.photoprism ]
           ++ [ { nixpkgs.overlays = [ inputs.nur.overlay ]; } ];
 
     };
