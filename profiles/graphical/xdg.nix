@@ -33,6 +33,7 @@
       inode/directory=org.kde.krusader.desktop
       x-scheme-handler/http=brave-browser.desktop
       x-scheme-handler/https=brave-browser.desktop
+      x-scheme-handler/org-protocol=org-protocol.desktop
        '';
     };
   };

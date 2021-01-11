@@ -40,6 +40,7 @@ in
       zip
       pciutils    # lspci
       psmisc      # pkill, killall, pstree, fuser
+      lsd
       nix-index
       #remote
       rxvt_unicode.terminfo
@@ -50,6 +51,7 @@ in
       git-crypt
       wget
       nix-output-monitor
+      nix-direnv
     ];
 
     shellInit = ''
@@ -127,7 +129,11 @@ in
 
     autoOptimiseStore = true;
 
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates     = "weekly";
+      options   = "--delete-older-than 7d";
+    };
 
     optimise.automatic = true;
 
@@ -136,13 +142,18 @@ in
     allowedUsers = [ "@wheel" ];
 
     trustedUsers = [ "root" "@wheel" ];
-
     extraOptions = ''
       experimental-features = nix-command flakes ca-references
       min-free = 536870912
+      keep-outputs = true
+      keep-derivations = true
     '';
 
   };
+
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
 
   programs.bash = {
     promptInit = ''
