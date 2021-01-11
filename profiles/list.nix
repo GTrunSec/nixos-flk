@@ -10,4 +10,5 @@
   ./nsm
   ./data
   ./network
+  ./search
 ]

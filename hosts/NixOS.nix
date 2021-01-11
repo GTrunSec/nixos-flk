@@ -12,6 +12,7 @@
               ../profiles/nsm
               ../profiles/data
               ../profiles/network
+              ../profiles/search
             ];
 
   networking.firewall = {
