@@ -16,6 +16,9 @@
              "repos" : {
                 "nixpkgs": {
                    "url" : "https://www.github.com/NixOS/nixpkgs.git"
+                },
+                "zeek": {
+                   "url" : "https://www.github.com/zeek/zeek.git"
                 }
              }
           }
