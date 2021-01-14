@@ -1,0 +1,14 @@
+{
+    "dbpath" : "/var/lib/hound/data",
+    "repos" : {
+        "nixpkgs": {
+            "url" : "https://www.github.com/NixOS/nixpkgs.git"
+        },
+        "zeek": {
+            "url" : "https://www.github.com/zeek/zeek.git"
+        },
+        "my-profile": {
+            "url" : "https://github.com/GTrunSec/my-profile.git"
+        }
+    }
+}
