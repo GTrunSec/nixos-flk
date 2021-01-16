@@ -5,20 +5,20 @@
     {
       # Once desired, bump master's locked revision:
       # nix flake update --update-input master
-      master.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
+      master.url = "nixpkgs/master";
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       home.url = "github:nix-community/home-manager/master";
       flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
       devshell.url = "github:numtide/devshell";
-      nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "master";};
+      nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "nixos";};
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
-      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
+      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "nixos";};
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
-      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "master";};
-      onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "master";};
+      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos";};
+      onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "nixos";};
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
-      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "master";};
+      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos";};
     };
 
   outputs = inputs@{ self, home, nixos, master, stable, devshell, flake-utils, nur, nixpkgs-hardenedlinux, photoprism-flake

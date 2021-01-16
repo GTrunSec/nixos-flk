@@ -3,7 +3,7 @@
     "brim-flake": {
       "inputs": {
         "nixpkgs": [
-          "master"
+          "nixos"
         ]
       },
       "locked": {
@@ -72,16 +72,16 @@
     },
     "master": {
       "locked": {
-        "lastModified": 1607560137,
-        "narHash": "sha256-qI5U28r9Ie11OlkwzNFkhW0Z4jLanntJdb3JeFq/85A=",
+        "lastModified": 1610825781,
+        "narHash": "sha256-tpCEbkRr2drIuUx2hnpPPLFbxGYDaIMCh893HvKaGLE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "rev": "04da76396584bf757e3b4b7c65871d915dc3679b",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "ref": "master",
         "type": "indirect"
       }
     },
@@ -147,7 +147,7 @@
     "onlyoffice-desktopeditors": {
       "inputs": {
         "nixpkgs": [
-          "master"
+          "nixos"
         ]
       },
       "locked": {
@@ -183,7 +183,7 @@
     "photoprism-flake": {
       "inputs": {
         "nixpkgs": [
-          "master"
+          "nixos"
         ],
         "photoprism": "photoprism",
         "ranz2nix": "ranz2nix"
@@ -253,7 +253,7 @@
     "tenvideo": {
       "inputs": {
         "nixpkgs": [
-          "master"
+          "nixos"
         ]
       },
       "locked": {
