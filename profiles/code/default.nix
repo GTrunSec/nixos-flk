@@ -21,6 +21,5 @@ in
     gnumake
     cmake
     rnix-lsp
-    ms-pyls
   ];
 }
