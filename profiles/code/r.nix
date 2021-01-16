@@ -6,7 +6,6 @@ let
     tmap
   ];
     customRPackages = with rPackages;[
-    
         bookdown
         devtools
         (let

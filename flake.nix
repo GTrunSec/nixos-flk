@@ -3,12 +3,14 @@
 
   inputs =
     {
+      # Once desired, bump master's locked revision:
+      # nix flake update --update-input master
       master.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
-      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       nixos.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
-      home.url = "github:rycee/home-manager/bqv-flakes";
-      devshell.url = "github:numtide/devshell";
+      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
+      home.url = "github:nix-community/home-manager/master";
       flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
+      devshell.url = "github:numtide/devshell";
       nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "master";};
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false;};
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "master";};
@@ -21,95 +23,84 @@
 
   outputs = inputs@{ self, home, nixos, master, stable, devshell, flake-utils, nur, nixpkgs-hardenedlinux, photoprism-flake
                    , zeek-nix, brim-flake, onlyoffice-desktopeditors, tenvideo}:
-    let
-      inherit (builtins) attrNames attrValues readDir;
-      inherit (nixos) lib;
-      inherit (lib) removeSuffix recursiveUpdate genAttrs filterAttrs;
-      inherit (utils) pathsToImportedAttrs;
+                     let
+                       inherit (builtins) attrNames attrValues elem pathExists;
+                       inherit (flake-utils.lib) eachDefaultSystem mkApp flattenTreeSystem;
+                       inherit (nixos) lib;
+                       inherit (lib) recursiveUpdate filterAttrs mapAttrs;
+                       inherit (utils) pathsToImportedAttrs genPkgset overlayPaths modules
+                         genPackages pkgImport;
 
-      utils = import ./lib/utils.nix { inherit lib; };
+                       utils = import ./lib/utils.nix { inherit lib; };
 
-      system = "x86_64-linux";
+                       externOverlays = [ nur.overlay devshell.overlay ];
+                       externModules = [ home.nixosModules.home-manager ];
 
-      pkgImport = pkgs:
-        import pkgs {
-          inherit system;
-          overlays = attrValues self.overlays
-                     ++ [ (import ./pkgs/my-node-packages)
-                          (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
-                          #nuclear-flake.overlay
-                          nur.overlay
-                          tenvideo.overlay
-                          onlyoffice-desktopeditors.overlay
-                          brim-flake.overlay
-                          devshell.overlay
-                          (import "${zeek-nix}/overlay.nix")
-                        ];
-          config = { allowUnfree = true; };
-        };
+                       osSystem = "x86_64-linux";
 
-      pkgset = {
-        osPkgs = pkgImport nixos;
-        pkgs = pkgImport master;
-        stable = pkgImport stable;
-      };
+                       outputs =
+                         let
+                           system = osSystem;
+                           pkgset =
+                             let
+                               overlays =
+                                 (attrValues self.overlays)
+                                 ++ externOverlays
+                                 ++ [ self.overlay
+                                      tenvideo.overlay
+                                      onlyoffice-desktopeditors.overlay
+                                      brim-flake.overlay
+                                      (import "${zeek-nix}/overlay.nix")
+                                      (import ./pkgs/my-node-packages)
+                                      (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
+                                    ];
+                             in
+                               genPkgset {
+                                 inherit master nixos overlays system stable;
+                               };
+                         in
+                           {
+                             nixosConfigurations =
+                               import ./hosts (recursiveUpdate inputs {
+                                 inherit lib pkgset utils externModules system inputs;
+                               });
 
-    in
-    with pkgset;
-    {
-      nixosConfigurations =
-        import ./hosts (recursiveUpdate inputs {
-          inherit lib pkgset system utils inputs;
-        }
-        );
+                             overlay = import ./pkgs;
 
-      devShell."${system}" = import ./shell.nix {
-        inherit pkgs;
-      };
+                             overlays = pathsToImportedAttrs overlayPaths;
 
-      overlay = (import ./pkgs);
+                             nixosModules = modules;
 
-      overlays =
-        let
-          overlayDir = ./overlays;
-          fullPath = name: overlayDir + "/${name}";
-          overlayPaths = map fullPath (attrNames (readDir overlayDir));
-        in
-        pathsToImportedAttrs overlayPaths;
+                             templates.flk.path = ./.;
 
-      packages."${system}" =
-        let
-          packages = self.overlay osPkgs osPkgs ;
-          overlays = lib.filterAttrs (n: v: n != "pkgs") self.overlays;
+                             templates.flk.description = "flk template";
 
-          overlayPkgs =
-            genAttrs
-              (attrNames overlays)
-              (name: (overlays."${name}" osPkgs osPkgs)."${name}");
-        in
-        recursiveUpdate packages overlayPkgs;
+                             defaultTemplate = self.templates.flk;
+                           };
+                     in
+                       recursiveUpdate
+                         (eachDefaultSystem
+                           (system:
+                             let
+                               pkgs = pkgImport {
+                                 inherit system;
+                                 pkgs = nixos;
+                                 overlays = [ devshell.overlay ];
+                               };
 
-      nixosModules =
-        let
-          # binary cache
-          cachix = import ./cachix.nix;
-          cachixAttrs = { inherit cachix; };
+                               packages = flattenTreeSystem system
+                                 (genPackages {
+                                   inherit self pkgs;
+                                 });
+                             in
+                               {
+                                 inherit packages;
 
-          # modules
-          moduleList = import ./modules/list.nix;
-          modulesAttrs = pathsToImportedAttrs moduleList;
-
-          # profiles
-          profilesList = import ./profiles/list.nix;
-          profilesAttrs = { profiles = pathsToImportedAttrs profilesList; };
-
-        in
-        recursiveUpdate
-          (recursiveUpdate cachixAttrs modulesAttrs)
-          profilesAttrs;
-
-      templates.flk.path = ./.;
-      templates.flk.description = "https://github.com/GTrunSec/nixos-flk";
-      defaultTemplate = self.templates.flk;
-    };
+                                 devShell = import ./shell.nix {
+                                   inherit pkgs;
+                                 };
+                               }
+                           )
+                         )
+                         outputs;
 }

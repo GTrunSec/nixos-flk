@@ -1,5 +1,4 @@
 { home
-, inputs
 , lib
 , nixos
 , master
@@ -7,54 +6,70 @@
 , self
 , system
 , utils
+, inputs
+, externModules
 , ...
 }:
 let
   inherit (utils) recImport;
   inherit (builtins) attrValues removeAttrs;
-  inherit (pkgset) osPkgs pkgs stable;
+  inherit (pkgset) osPkgs unstablePkgs stable;
+
+  unstableModules = [ ];
+  addToDisabledModules = [ ];
 
   config = hostName:
     lib.nixosSystem {
       inherit system;
 
+      specialArgs =
+        {
+          unstableModulesPath = "${master}/nixos/modules";
+        };
+
       modules =
         let
-          inherit (home.nixosModules) home-manager;
           core = self.nixosModules.profiles.core;
 
+          modOverrides = { config, unstableModulesPath, ... }: {
+            disabledModules = unstableModules ++ addToDisabledModules;
+            imports = map
+              (path: "${unstableModulesPath}/${path}")
+              unstableModules;
+          };
+
           global = {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
             networking.hostName = hostName;
             nix.nixPath = let path = toString ../.; in
-                          [
-                            "nixpkgs=${master}"
-                            "nixos=${nixos}"
-                            "nixos-config=${path}/configuration.nix"
-                            "nixpkgs-overlays=${path}/overlays"
-                          ];
+              [
+                "nixos-unstable=${master}"
+                "nixpkgs=${nixos}"
+                "nixos-config=${path}/configuration.nix"
+                "nixpkgs-overlays=${path}/overlays"
+                "home-manager=${home}"
+              ];
 
-            nixpkgs = { pkgs = osPkgs; };
+            nixpkgs.pkgs = osPkgs;
 
             nix.registry = {
-              nixos.flake = nixos;
+              master.flake = master;
               nixflk.flake = self;
-              nixpkgs.flake = master;
+              nixpkgs.flake = nixos;
+              home-manager.flake = home;
             };
+
+            system.configurationRevision = lib.mkIf (self ? rev) self.rev;
           };
 
           overrides = {
-            # use latest systemd
-            systemd.package = pkgs.systemd;
-
             nixpkgs.overlays =
               let
-                override = import ../pkgs/override.nix pkgs stable;
-
-                overlay = pkg: final: prev: {
-                  "${pkg.pname}" = pkg;
-                };
+                override = import ../pkgs/override.nix unstablePkgs stable osPkgs;
               in
-                map overlay override;
+              [ override ];
           };
 
           local = import "${toString ./.}/${hostName}.nix";
@@ -64,8 +79,14 @@ let
             attrValues (removeAttrs self.nixosModules [ "profiles" ]);
 
         in
-          flakeModules ++ [ core global local home-manager overrides inputs.photoprism-flake.nixosModules.photoprism ]
-          ++ [ { nixpkgs.overlays = [ inputs.nur.overlay ]; } ];
+        flakeModules ++ [
+          core
+          global
+          local
+          overrides
+          modOverrides
+          inputs.photoprism-flake.nixosModules.photoprism
+        ] ++ externModules;
 
     };
 

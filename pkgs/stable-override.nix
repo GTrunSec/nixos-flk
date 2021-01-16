@@ -2,16 +2,9 @@
 # nixpkgs master instead of the default nixos release. This doesn't actually
 # install them, just creates an overlay to pull them from master if they are
 # installed by the user elsewhere in the configuration.
-pkgs: stable: osPkgs: final: prev: {
+pkgs: final: prev: {
   inherit (pkgs)
-    manix;
-  inherit (osPkgs)
-    brave
-    ccls
-    discord
-    adguardhome;
-  inherit (stable)
-    bluez;
+    virtualbox;
 }
   # with pkgs;
   # [

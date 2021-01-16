@@ -5,6 +5,8 @@
 let
   inherit (builtins) attrNames readDir;
 
+  nixpkgs = toString (import ./nixpkgs-compat.nix);
+
   hostname = lib.fileContents /etc/hostname;
   host = "/etc/nixos/hosts/${hostname}.nix";
   config =
@@ -17,14 +19,14 @@ in
   imports = (import ./modules/list.nix) ++ [
     "${
       builtins.fetchTarball
-        "https://github.com/rycee/home-manager/archive/master.tar.gz"
+        "https://github.com/nix-community/home-manager/archive/master.tar.gz"
       }/nixos"
-    /etc/nixos/profiles/core.nix
+    /etc/nixos/profiles/core
   ] ++ config;
 
   networking.hostName = hostname;
   nix.nixPath = [
-    "nixpkgs=${<nixpkgs>}"
+    "nixpkgs=${nixpkgs}"
     "nixos-config=/etc/nixos/configuration.nix"
     "nixpkgs-overlays=/etc/nixos/overlays"
   ];
