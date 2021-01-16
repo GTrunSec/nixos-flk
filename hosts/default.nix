@@ -67,7 +67,7 @@ let
           overrides = {
             nixpkgs.overlays =
               let
-                override = import ../pkgs/override.nix unstablePkgs stable osPkgs;
+                override = import ../pkgs/override.nix unstablePkgs stable;
               in
               [ override ];
           };
