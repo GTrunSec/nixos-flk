@@ -17,7 +17,9 @@ let
   pkgImport = { pkgs, system, overlays }:
     import pkgs {
       inherit system overlays;
-      config = { allowUnfree = true; };
+      #Broken python-pandas
+      #unsupported dotnet-sdk-2.1.810
+      config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true; };
     };
 
   # Convert a list to file paths to attribute set
