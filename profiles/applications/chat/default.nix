@@ -14,5 +14,8 @@
     keybase
     keybase-gui
     slack
+    # fcitx does not work
+    # kotatogram-desktop
+    tdesktop
   ];
 }
