@@ -9,7 +9,7 @@
       # => nixpkgs/release-20.09
       # Current: https://github.com/NixOS/nixpkgs/tree/nixpkgs-unstable
       nixos = { url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";};
-      stable.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
+      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       home.url = "github:nix-community/home-manager/master";
       flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
       devshell.url = "github:numtide/devshell";

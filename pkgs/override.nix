@@ -5,7 +5,8 @@
 pkgs: stable: final: prev: {
   inherit (pkgs)
     manix;
-  inherit (stable);
+  inherit (stable)
+    bluez;
 }
   # with pkgs;
   # [
