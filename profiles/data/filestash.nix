@@ -2,6 +2,6 @@
 
 {
   services.filestash = {
-    enable = true;
+    enable = false;
   };
 }

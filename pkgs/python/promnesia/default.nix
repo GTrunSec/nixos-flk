@@ -37,10 +37,10 @@ let
   
   cachew = python3Packages.buildPythonPackage rec {
     pname = "cachew";
-    version = "0.7.0";
+    version = "0.8.0";
     src = python3Packages.fetchPypi {
       inherit pname version;
-      sha256 = "01fyd7xjf1rnmm37iqa47dp7qzpl1g7cxqq64rxxzsy08lz1p1xi";
+      sha256 = "sha256-0GkXoCPOnt43Ef+rCe0aPsRHVRaq3oSjHdwXw50rLuU=";
     };
 
     doCheck = false;
@@ -69,13 +69,13 @@ let
 in
 python3Packages.buildPythonPackage rec {
   pname = "promnesia";
-  version = "0.11.20200605";
+  version = "0.11.20210101";
 
   src = fetchFromGitHub {
     owner = "karlicoss";
     repo = pname;
-    rev = "1ef741c9f3ee0b193dc0e41ac9c7250fff566dbe";
-    sha256 = "sha256-AdXASU3AZcVUJOGH0Nl0wmf29joC7q74knQvcsb4hgM=";
+    rev = "e3b21cb080fa9965802bfd2e931ef4263e3a34e9";
+    sha256 = "sha256-t66Ec1AgG92XU1i630Hrn40EjG931STX+Z4bHdQ2FI8=";
   };
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];

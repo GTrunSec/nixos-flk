@@ -7,7 +7,7 @@
 
   services.miniflux = {
     enable = true;
-    adminCredentialsFile = ../../secrets/miniflux-admin-credentials;
+    #adminCredentialsFile = ../../secrets/miniflux-admin-credentials;
     config.LISTEN_ADDR = "10.220.170.112:9000";
   };
 }
