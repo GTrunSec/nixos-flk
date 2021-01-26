@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 let
   readConfig = (builtins.readFile ./config.py);
+
   configFile = pkgs.writeScript "config.py" readConfig;
-  watcherPath = "/home/gtrun/Dropbox/org-notes/GTD";
+
+  watcherPath = "/home/gtrun/Dropbox/org-notes/braindump";
+
   PreShell = pkgs.writeScript "preRun-promnesia" ''
   if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
      ${pkgs.promnesia}/bin/promnesia index --config ${configFile}

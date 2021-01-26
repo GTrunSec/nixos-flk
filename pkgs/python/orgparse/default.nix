@@ -5,15 +5,16 @@
 python3Packages.buildPythonPackage rec {
 
   pname = "orgparse";
-  version = "v0.1.2";
+  version = "0.2.3";
 
-  src = fetchurl {
-    url = "https://github.com/karlicoss/orgparse/archive/${version}.tar.gz";
-    sha256 = "0qng9aa8xbip99vm2d7lxls6j1msbpfdg692girlband66p3zz1y";
-  };  
+  src = python3Packages.fetchPypi {
+    inherit pname version;
+    sha256 = "sha256-CfQgDzKGpIvl9UjdfneHBrw+FOB4ZhGBMogIv+7YyWU=";
+  };
 
-  propagatedBuildInputs = with python3Packages; [ setuptools
+  propagatedBuildInputs = with python3Packages; [ setuptools_scm
                                                 ];
+
   doCheck = false;
   
   meta = with stdenv.lib; {

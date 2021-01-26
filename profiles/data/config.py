@@ -9,15 +9,15 @@ You can specify your own, add more sources, etc.
 See https://github.com/karlicoss/promnesia#setup for more information
 '''
 SOURCES = [
-    Source(
-        auto.index,
-        # just some arbitrary directory with html files
-        '~/Dropbox/org-notes',
+    # Source(
+    #     auto.index,
+    #     # just some arbitrary directory with html files
+    #     '~/Dropbox/org-notes',
 
-        name='org-notes',
+    #     name='org-notes',
 
-        ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.py', '*.csv', '*.json', '*.org.organice-bak' ],
-    ),
+    #     ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.py', '*.csv', '*.json', '*.org.organice-bak' ],
+    # ),
 
     Source(
         auto.index,
