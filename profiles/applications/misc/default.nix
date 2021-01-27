@@ -18,9 +18,12 @@
                 onepassword
                 #media
                 vlc
+                #plex-media-player
                 youtube-dl
                 cmus
                 mpc_cli
+                #image
+                phototonic
                 #tools
                 tree
                 desktop-file-utils
