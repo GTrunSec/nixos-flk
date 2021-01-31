@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1608161872,
-        "narHash": "sha256-bU/l2leYZCsfzN//NxmoWiTAnCpEu+PRk/80MuDe0zE=",
+        "lastModified": 1612063063,
+        "narHash": "sha256-tr+XzViaml4D/rbDJnwoU3u7uYxJi8Lp2a/bymHJojQ=",
         "owner": "hardenedlinux",
         "repo": "brim-flake",
-        "rev": "0cb1dd46699e0d1660799fc935176cf3f65b8fcf",
+        "rev": "90a6b5c4d4ce4b4074d11fef885d02e246e6ebf4",
         "type": "github"
       },
       "original": {

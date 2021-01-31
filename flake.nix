@@ -18,6 +18,8 @@
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable";};
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos";};
+      #brim-flake = { url = "/home/gtrun/src/brim-flake"; inputs.nixpkgs.follows = "nixos";};
+
       onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "nixos";};
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false;};
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos";};

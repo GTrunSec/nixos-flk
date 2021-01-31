@@ -23,7 +23,10 @@
                 cmus
                 mpc_cli
                 #image
+                pqiv
+                digikam
                 phototonic
+                photoqt
                 #tools
                 tree
                 desktop-file-utils

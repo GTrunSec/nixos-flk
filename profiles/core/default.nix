@@ -58,12 +58,14 @@ in
       rxvt_unicode.terminfo
       ncurses.dev # infocmp/tic/etc
       niv
+
       #password
       pwgen
       git-crypt
       wget
       nix-output-monitor
       nix-direnv
+      nixopsUnstable
     ];
 
     shellInit = ''
