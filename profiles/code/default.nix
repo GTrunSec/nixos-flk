@@ -21,5 +21,7 @@ in
     gnumake
     cmake
     rnix-lsp
+    nixfmt
+    nixpkgs-fmt
   ];
 }

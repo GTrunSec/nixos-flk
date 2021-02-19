@@ -17,8 +17,8 @@
 
   networking.firewall = {
     # 8888 -> Jupyterlab 8889 -> JuliaPluto
-    allowedTCPPorts = [ 8888 8889 53 ];
-    allowedUDPPorts = [ 8888 8889 53 ];
+    allowedTCPPorts = [ 8888 8889 53 4822 ];
+    allowedUDPPorts = [ 8888 8889 53 4822 ];
   };
 
   networking.nameservers = [ "10.220.170.112" ]; #adguardhome
