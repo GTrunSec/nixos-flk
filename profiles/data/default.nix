@@ -1,12 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./promnesia.nix
-              ./miniflux.nix
-              ./nextcloud.nix
-              ./postgresql.nix
-              ./filestash.nix
-            ];
+  imports = [
+    ./promnesia.nix
+    ./miniflux.nix
+    ./nextcloud.nix
+    ./postgresql.nix
+    ./filestash.nix
+  ];
   services.redis = {
     enable = true;
   };

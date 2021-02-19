@@ -1,14 +1,14 @@
 { pkgs }:
 {
-#{ fetchurl, runCommand }: {
+  #{ fetchurl, runCommand }: {
   buildAppImage = { name, url, sha256, icon, categories }:
-  let
-    image = pkgs.fetchurl {
-      inherit url sha256;
-      executable = true;
-    };
-  in
-    pkgs.runCommand name {} ''
+    let
+      image = pkgs.fetchurl {
+        inherit url sha256;
+        executable = true;
+      };
+    in
+    pkgs.runCommand name { } ''
       binDir="$out/bin"
       mkdir -p $binDir
       cat > ''${binDir}/${name} <<EOF

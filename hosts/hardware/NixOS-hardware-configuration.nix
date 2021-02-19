@@ -9,12 +9,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CF48-6C3C";
+    {
+      device = "/dev/disk/by-uuid/CF48-6C3C";
       fsType = "vfat";
     };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a8b91326-9a5f-47c9-b827-19e1ce17cfe8";
+    {
+      device = "/dev/disk/by-uuid/a8b91326-9a5f-47c9-b827-19e1ce17cfe8";
       fsType = "xfs";
     };
   ##sudo blkid
@@ -26,11 +28,11 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/d05ef9fb-1433-4819-b1a7-e15b5a7b9a90"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/d05ef9fb-1433-4819-b1a7-e15b5a7b9a90"; }];
 
   fileSystems."/DATABASE-4TB" =
-    { device = "/dev/disk/by-uuid/749df476-c355-469a-9d00-4565a07901bf";
+    {
+      device = "/dev/disk/by-uuid/749df476-c355-469a-9d00-4565a07901bf";
       options = [ "x-systemd.automount" ];
       fsType = "xfs";
     };

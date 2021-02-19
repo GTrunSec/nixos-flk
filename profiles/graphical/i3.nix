@@ -9,7 +9,7 @@
       pulseSupport = true;
       mpdSupport = true;
       alsaSupport = true;
-	  })
+    })
   ];
 
   services.xserver = {

@@ -1,4 +1,3 @@
-
 { stdenv, buildGoPackage, fetchgit, fetchhg, fetchbzr, fetchsvn }:
 
 buildGoPackage rec {

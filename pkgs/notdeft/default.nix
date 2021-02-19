@@ -1,4 +1,4 @@
-{stdenv, fetchgit, xapian, emacs, tclap, pkg-config }:
+{ stdenv, fetchgit, xapian, emacs, tclap, pkg-config }:
 
 stdenv.mkDerivation rec {
   version = "master";
@@ -10,15 +10,15 @@ stdenv.mkDerivation rec {
   };
 
 
-  nativeBuildInputs = [ xapian emacs tclap pkg-config];
+  nativeBuildInputs = [ xapian emacs tclap pkg-config ];
 
- #  phases = [ "installPhase" ];
+  #  phases = [ "installPhase" ];
 
   installPhase = ''
-   mkdir -p $out/bin
-   cd $src/xapian
-   c++ -o $out/bin/notdeft-xapian notdeft-xapian.cc -std=c++11 -Wall `pkg-config --cflags --libs tclap` `xapian-config --cxxflags --libs`
- '';
+    mkdir -p $out/bin
+    cd $src/xapian
+    c++ -o $out/bin/notdeft-xapian notdeft-xapian.cc -std=c++11 -Wall `pkg-config --cflags --libs tclap` `xapian-config --cxxflags --libs`
+  '';
 
   enableParallelBuilding = true;
 

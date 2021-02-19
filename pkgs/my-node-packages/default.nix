@@ -1,7 +1,7 @@
 final: prev:
-
 let packages = prev.callPackage ./plugins.nix { };
-in {
+in
+{
   nodePackages = prev.nodePackages // packages // {
     # https://github.com/NixOS/nixpkgs/issues/60057#issuecomment-505781308
     mermaid-cli = packages."@mermaid-js/mermaid-cli".overrideAttrs (oldAttrs: {

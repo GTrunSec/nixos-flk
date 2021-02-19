@@ -13,26 +13,26 @@ let
   zeek-nix = loadInput flakeLock.nodes.zeek-nix;
 in
 {
-  nteract = prev.callPackage ./appimage/nteract.nix {};
-  magnetw = prev.callPackage ./appimage/magnetw.nix {};
-  onepassword = prev.callPackage ./appimage/1password.nix {};
-  notdeft = prev.callPackage ./notdeft {};
-  nuclear = prev.callPackage ./appimage/nuclear.nix {};
-  ytmdesktop = prev.callPackage ./appimage/ytmdesktop.nix {};
-  motrix = prev.callPackage ./appimage/Motrix.nix {};
-  shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix {};
+  nteract = prev.callPackage ./appimage/nteract.nix { };
+  magnetw = prev.callPackage ./appimage/magnetw.nix { };
+  onepassword = prev.callPackage ./appimage/1password.nix { };
+  notdeft = prev.callPackage ./notdeft { };
+  nuclear = prev.callPackage ./appimage/nuclear.nix { };
+  ytmdesktop = prev.callPackage ./appimage/ytmdesktop.nix { };
+  motrix = prev.callPackage ./appimage/Motrix.nix { };
+  shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix { };
   #FIXME: spicy plugin BUG
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
 
   #go packages
-  horcrux = prev.callPackage ./go/horcrux {};
-  govet = prev.callPackage ./go/govet {};
-  got = prev.callPackage ./go/got {};
+  horcrux = prev.callPackage ./go/horcrux { };
+  govet = prev.callPackage ./go/govet { };
+  got = prev.callPackage ./go/got { };
 
   #python
-  promnesia =  prev.callPackage ./python/promnesia {python3Packages = prev.python37Packages;};
-  orgparse=  prev.callPackage ./python/orgparse {python3Packages = prev.python37Packages;};
-  hpi =  prev.callPackage ./python/HPI {python3Packages = prev.python37Packages;};
+  promnesia = prev.callPackage ./python/promnesia { python3Packages = prev.python37Packages; };
+  orgparse = prev.callPackage ./python/orgparse { python3Packages = prev.python37Packages; };
+  hpi = prev.callPackage ./python/HPI { python3Packages = prev.python37Packages; };
   #rust
-  sudo-pair = prev.callPackage ./rust/sudo_pair {};
+  sudo-pair = prev.callPackage ./rust/sudo_pair { };
 }

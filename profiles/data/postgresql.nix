@@ -2,7 +2,7 @@
 
 {
   services.postgresql = {
-    enable =  true;
+    enable = true;
     enableTCPIP = true;
     ensureDatabases = [
       "timesketch"
@@ -11,7 +11,7 @@
     initialScript = pkgs.writeText "backend-initScript" ''
       CREATE ROLE "timesketch" WITH LOGIN PASSWORD 'timesketch';
       CREATE DATABASE "timesketch" WITH OWNER "timesketch"
-      '';
+    '';
     ensureUsers = [
       {
         name = "timesketch";

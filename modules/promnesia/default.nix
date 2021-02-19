@@ -1,15 +1,14 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
 let
   cfg = config.services.promnesia;
   configFile = pkgs.writeScript "config.py" cfg.config;
   PreShell = pkgs.writeScript "preRun-promnesia" ''
-  if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
-     ${cfg.package}/bin/promnesia index --config ${configFile}
-     fi
-    '';
+    if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
+       ${cfg.package}/bin/promnesia index --config ${configFile}
+       fi
+  '';
 in
 {
   options.services.promnesia = {
@@ -23,7 +22,7 @@ in
       type = types.path;
       default = "";
       description = ''
-       if this path modified that will restart promnesia service automaticlly.
+        if this path modified that will restart promnesia service automaticlly.
       '';
     };
 
@@ -34,7 +33,7 @@ in
         sqlite directory for promnesia
       '';
     };
-    config  = mkOption {
+    config = mkOption {
       description = "write resource to config.py";
       default = ''
       '';
@@ -52,11 +51,11 @@ in
     systemd.user.services.promnesia = {
       description = "promnesia Daemon";
       preStart = ''
-      ${pkgs.bash}/bin/bash ${PreShell}
-        '';
+        ${pkgs.bash}/bin/bash ${PreShell}
+      '';
       serviceConfig = {
         ExecStart = mkIf cfg.enable ''
-        ${cfg.package}/bin/promnesia serve  
+          ${cfg.package}/bin/promnesia serve  
         '';
         Restart = "always";
       };
@@ -73,8 +72,8 @@ in
       serviceConfig.Type = "oneshot";
       wantedBy = [ "promnesia.service" ];
       script = ''
-      systemctl --user restart promnesia.service
-         '';
+        systemctl --user restart promnesia.service
+      '';
     };
   };
 }

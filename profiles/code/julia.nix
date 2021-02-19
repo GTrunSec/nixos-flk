@@ -34,16 +34,33 @@ let
     cudatoolkit
     cudnn
     linuxPackages.nvidia_x11
-    git gitRepo gnupg autoconf curl
-    procps gnumake utillinux m4 gperf unzip
+    git
+    gitRepo
+    gnupg
+    autoconf
+    curl
+    procps
+    gnumake
+    utillinux
+    m4
+    gperf
+    unzip
     #libGLU_combined
-    xorg.libXi xorg.libXmu freeglut
-    xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
-    ncurses5 stdenv.cc binutils
+    xorg.libXi
+    xorg.libXmu
+    freeglut
+    xorg.libXext
+    xorg.libX11
+    xorg.libXv
+    xorg.libXrandr
+    zlib
+    ncurses5
+    stdenv.cc
+    binutils
     # Arpack.jl
     arpack
     gfortran.cc
-    (pkgs.runCommand "openblas64_" {} ''
+    (pkgs.runCommand "openblas64_" { } ''
       mkdir -p "$out"/lib/
       ln -s ${openblasCompat}/lib/libopenblas.so "$out"/lib/libopenblas64_.so.0
     '')

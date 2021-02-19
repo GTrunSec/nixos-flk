@@ -2,7 +2,7 @@
 
 {
   services.xserver = {
-    videoDrivers = [ "nvidia" "intel"];
+    videoDrivers = [ "nvidia" "intel" ];
   };
 
 

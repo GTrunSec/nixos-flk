@@ -44,13 +44,13 @@ in
 
       unstablePkgs = pkgImport {
         inherit system;
-        overlays = [];
+        overlays = [ ];
         pkgs = master;
       };
 
       stable = pkgImport {
         inherit system;
-        overlays = [];
+        overlays = [ ];
         pkgs = stable;
       };
     };
@@ -60,7 +60,7 @@ in
       overlayDir = ../overlays;
       fullPath = name: overlayDir + "/${name}";
     in
-      map fullPath (attrNames (readDir overlayDir));
+    map fullPath (attrNames (readDir overlayDir));
 
   recImport = { dir, _import ? base: import "${dir}/${base}.nix" }:
     mapFilterAttrs
@@ -87,9 +87,9 @@ in
       profilesList = import ../profiles/list.nix;
       profilesAttrs = { profiles = pathsToImportedAttrs profilesList; };
     in
-      recursiveUpdate
-        (recursiveUpdate cachixAttrs modulesAttrs)
-        profilesAttrs;
+    recursiveUpdate
+      (recursiveUpdate cachixAttrs modulesAttrs)
+      profilesAttrs;
 
   genPackages = { self, pkgs }:
     let
@@ -100,6 +100,6 @@ in
           (attrNames overlays)
           (name: (overlays."${name}" pkgs pkgs)."${name}");
     in
-      recursiveUpdate packages overlayPkgs;
+    recursiveUpdate packages overlayPkgs;
 
 }

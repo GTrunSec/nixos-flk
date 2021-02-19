@@ -1,15 +1,15 @@
 { appimageTools, fetchurl, lib, gsettings-desktop-schemas, gtk3 }:
-
 let
   pname = "nteract";
   version = "0.27.0";
-in appimageTools.wrapType2 rec {
-    name = "${pname}-${version}";
-    src = fetchurl {
-    name   = "nteract";
-    url    = "https://github.com/nteract/nteract/releases/download/v${version}/nteract-${version}.AppImage";
+in
+appimageTools.wrapType2 rec {
+  name = "${pname}-${version}";
+  src = fetchurl {
+    name = "nteract";
+    url = "https://github.com/nteract/nteract/releases/download/v${version}/nteract-${version}.AppImage";
     sha256 = "sha256-toH1sBUtjwSOCYza3GPQ9DqmH45fyxAHoDmlVQf+mow=";
-    };
+  };
 
   profile = ''
     export LC_ALL=C.UTF-8
@@ -17,7 +17,7 @@ in appimageTools.wrapType2 rec {
   '';
 
   multiPkgs = null; # no 32bit needed
-    extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [
+  extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [
     p.gtk3
   ];
 

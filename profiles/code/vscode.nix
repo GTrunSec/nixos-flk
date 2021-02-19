@@ -1,11 +1,11 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 pkgs.vscode-with-extensions.override {
   # When the extension is already available in the default extensions set.
   vscodeExtensions = with pkgs.vscode-extensions; [
     bbenoist.Nix
   ]
-    # Concise version from the vscode market place when not available in the default set.
+  # Concise version from the vscode market place when not available in the default set.
   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     {
       publisher = "Cardinal90";
@@ -120,7 +120,7 @@ pkgs.vscode-with-extensions.override {
       version = "2020.11.371526539";
       sha256 = "sha256-g7kUdd9iPe6dODsDUFSXbkj5V9waLo2nHGUmIBjxW0U=";
     }
-    
+
     {
       name = "matchit";
       publisher = "redguardtoo";
@@ -160,7 +160,7 @@ pkgs.vscode-with-extensions.override {
       sha256 = "1xnsdwrcx24vlbpd2igjaqlk3ck5d6jzcfmxaisrgk7sac1aa81p";
 
     }
-    
+
     {
       name = "rainbow-brackets";
       publisher = "2gua";
@@ -168,7 +168,7 @@ pkgs.vscode-with-extensions.override {
       sha256 = "1m5c7jjxphawh7dmbzmrwf60dz4swn8c31svbzb5nhaazqbnyl2d";
 
     }
-    
+
     {
       publisher = "formulahendry";
       name = "code-runner";
@@ -193,8 +193,9 @@ pkgs.vscode-with-extensions.override {
 
     # }
 
-      #haskell
-    { #
+    #haskell
+    {
+      #
       publisher = "justusadam";
       name = "language-haskell";
       version = "2.6.0";
@@ -227,5 +228,5 @@ pkgs.vscode-with-extensions.override {
 
     }
 
-   ];
+  ];
 }

@@ -4,10 +4,15 @@
     home = "/home/gtrun";
     password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.normal;
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "pulse" "sound" "libvirtd"
-                    "video"
-                    "docker"
-                  ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "audio"
+      "pulse"
+      "sound"
+      "libvirtd"
+      "video"
+      "docker"
+    ]; # Enable ‘sudo’ for the user.
     shell = "/run/current-system/sw/bin/zsh";
     uid = 1000;
     openssh.authorizedKeys.keys = [

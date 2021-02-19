@@ -9,13 +9,13 @@ pkgs: stable: final: prev: {
   inherit (stable)
     bluez;
 }
-  # with pkgs;
-  # [
-  #   stable.signal-desktop
-  #   #polar-bookshelf
-  #   brave
-  #   stable.bluez
-  #   ccls
-  #   discord
-  #   adguardhome
-  # ]
+# with pkgs;
+# [
+#   stable.signal-desktop
+#   #polar-bookshelf
+#   brave
+#   stable.bluez
+#   ccls
+#   discord
+#   adguardhome
+# ]

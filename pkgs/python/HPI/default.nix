@@ -1,6 +1,6 @@
 { stdenv
 , python3Packages
-, fetchurl 
+, fetchurl
 }:
 python3Packages.buildPythonPackage rec {
 
@@ -10,19 +10,20 @@ python3Packages.buildPythonPackage rec {
   src = python3Packages.fetchPypi {
     inherit pname version;
     sha256 = "0r6dfsyz6ix1pbf4gr5inn5srwaz37cbw79705sz936kigg9fay5";
-  };  
+  };
 
-  propagatedBuildInputs = with python3Packages; [ pandas
-                                                  appdirs
-                                                  more-itertools
-                                                  mypy
-                                                ];
+  propagatedBuildInputs = with python3Packages; [
+    pandas
+    appdirs
+    more-itertools
+    mypy
+  ];
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
 
   doCheck = false;
-  
+
   meta = with stdenv.lib; {
     description = "Human Programming Interface 🧑👽🤖";
     homepage = "https://github.com/karlicoss/HPI";

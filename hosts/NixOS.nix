@@ -1,19 +1,22 @@
 {
   ### root password is empty by default ###
-  imports = [ ../users/nixos ../users/root ./hardware/NixOS-hardware-configuration.nix
-              ../local/input.nix
-              ../profiles/graphical
-              ../profiles/graphical/nvidia.nix
-              ../profiles/devices
-              ../profiles/ssh
-              ../profiles/code
-              ../profiles/virt
-              ../profiles/applications
-              ../profiles/nsm
-              ../profiles/data
-              ../profiles/network
-              ../profiles/search
-            ];
+  imports = [
+    ../users/nixos
+    ../users/root
+    ./hardware/NixOS-hardware-configuration.nix
+    ../local/input.nix
+    ../profiles/graphical
+    ../profiles/graphical/nvidia.nix
+    ../profiles/devices
+    ../profiles/ssh
+    ../profiles/code
+    ../profiles/virt
+    ../profiles/applications
+    ../profiles/nsm
+    ../profiles/data
+    ../profiles/network
+    ../profiles/search
+  ];
 
   networking.firewall = {
     # 8888 -> Jupyterlab 8889 -> JuliaPluto

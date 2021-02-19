@@ -7,10 +7,10 @@ let
   watcherPath = "/home/gtrun/Dropbox/org-notes/braindump";
 
   PreShell = pkgs.writeScript "preRun-promnesia" ''
-  if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
-     ${pkgs.promnesia}/bin/promnesia index --config ${configFile}
-     fi
-    '';
+    if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
+       ${pkgs.promnesia}/bin/promnesia index --config ${configFile}
+       fi
+  '';
 in
 {
   systemd.user.services.promnesia = {
@@ -18,11 +18,11 @@ in
     wantedBy = [ "graphical-session.target" ];
     preStart = ''
       ${pkgs.bash}/bin/bash ${PreShell}
-        '';
+    '';
     serviceConfig = {
       ExecStart = ''
         ${pkgs.promnesia}/bin/promnesia serve
-        '';
+      '';
       Restart = "on-failure";
     };
   };
@@ -40,6 +40,6 @@ in
     wantedBy = [ "promnesia.service" ];
     script = ''
       systemctl --user restart promnesia.service
-         '';
+    '';
   };
 }

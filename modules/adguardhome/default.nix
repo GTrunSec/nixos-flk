@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 with lib;
-
 let
   cfg = config.services.adguardhome;
   adguardhomeSettingsYml = pkgs.writeText "adguardhome.yaml" cfg.extraSettings;
 
-  adguardhomeSettingsDir = pkgs.runCommand "adguardhome-settings" {
-    inherit adguardhomeSettingsYml;
-    preferLocalBuild = true;
-  } ''
+  adguardhomeSettingsDir = pkgs.runCommand "adguardhome-settings"
+    {
+      inherit adguardhomeSettingsYml;
+      preferLocalBuild = true;
+    } ''
     mkdir -p $out
     ln -s $adguardhomeSettingsYml $out/adguardhome.yaml
   '';
@@ -44,12 +44,12 @@ in
 
     extraSettings = mkOption {
       type = types.lines;
-      default = import ./AdGuardHome.yaml {};
+      default = import ./AdGuardHome.yaml { };
       description = "Extra Logstash settings in YAML format.";
       example = ''
-       dns:
-        port: 53
-        '';
+        dns:
+         port: 53
+      '';
     };
   };
 
@@ -60,8 +60,8 @@ in
       wantedBy = [ "multi-user.target" ];
 
       script = ''
-      exec ${cfg.package}/bin/adguardhome -h ${cfg.listenAddress} -p ${cfg.port} -w ${cfg.home} --pidfile ${cfg.home}/pid -l ${cfg.home}/logs
-        '';
+        exec ${cfg.package}/bin/adguardhome -h ${cfg.listenAddress} -p ${cfg.port} -w ${cfg.home} --pidfile ${cfg.home}/pid -l ${cfg.home}/logs
+      '';
 
       serviceConfig = {
         User = "root";

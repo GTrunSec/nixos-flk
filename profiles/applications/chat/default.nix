@@ -6,7 +6,7 @@
     enable = true;
     enableRedirector = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     discord
     element-desktop

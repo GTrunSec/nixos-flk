@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  
+
   environment.systemPackages = with pkgs; [
     tcpreplay
     suricata
@@ -32,7 +32,7 @@
     listenAddress = "localhost";
     package = pkgs.zeek;
     privateScript = ''
-    @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek    
+      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek    
     '';
   };
 

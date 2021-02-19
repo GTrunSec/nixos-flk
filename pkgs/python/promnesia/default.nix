@@ -5,10 +5,9 @@
 , callPackage
 }:
 with python3.pkgs;
-
 let
-  orgparse = python3Packages.callPackage ../orgparse {inherit python3Packages;};
-  hpi = python3Packages.callPackage ../HPI {inherit python3Packages;};
+  orgparse = python3Packages.callPackage ../orgparse { inherit python3Packages; };
+  hpi = python3Packages.callPackage ../HPI { inherit python3Packages; };
 
   mistletoe = python3Packages.buildPythonPackage rec {
     pname = "mistletoe";
@@ -18,8 +17,8 @@ let
       sha256 = "18z6hqfnfjqnrcgfgl5pkj9ggf9yx0yyy94azcn1qf7hqn6g3l14";
     };
     doCheck = false;
-    nativeBuildInputs = with python3Packages; [  ];
-    propagatedBuildInputs = with python3Packages; [  ];
+    nativeBuildInputs = with python3Packages; [ ];
+    propagatedBuildInputs = with python3Packages; [ ];
   };
 
   hug = python3Packages.buildPythonPackage rec {
@@ -34,7 +33,7 @@ let
     propagatedBuildInputs = with python3Packages; [ falcon requests ];
   };
 
-  
+
   cachew = python3Packages.buildPythonPackage rec {
     pname = "cachew";
     version = "0.8.0";
@@ -44,9 +43,10 @@ let
     };
 
     doCheck = false;
-    propagatedBuildInputs = with python3Packages; [ sqlalchemy
-                                                    setuptools_scm
-                                                  ];
+    propagatedBuildInputs = with python3Packages; [
+      sqlalchemy
+      setuptools_scm
+    ];
   };
 
   urlextract = python3Packages.buildPythonPackage rec {
@@ -58,12 +58,13 @@ let
     };
     doCheck = false;
 
-    propagatedBuildInputs = with python3Packages; [ appdirs
-                                                    dnspython
-                                                    uritools
-                                                    idna
-                                                    filelock
-                                                  ];
+    propagatedBuildInputs = with python3Packages; [
+      appdirs
+      dnspython
+      uritools
+      idna
+      filelock
+    ];
   };
 
 in
@@ -81,23 +82,24 @@ python3Packages.buildPythonPackage rec {
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
-  
+
   doCheck = false;
 
-  propagatedBuildInputs = with python3Packages; [ pytest
-                                                  appdirs
-                                                  python_magic
-                                                  hug
-                                                  tzlocal
-                                                  cachew
-                                                  urlextract
-                                                  orgparse
-                                                  logzero
-                                                  markdown
-                                                  lxml
-                                                  beautifulsoup4
-                                                  hpi
-                                                  mistletoe
-                                                ];
+  propagatedBuildInputs = with python3Packages; [
+    pytest
+    appdirs
+    python_magic
+    hug
+    tzlocal
+    cachew
+    urlextract
+    orgparse
+    logzero
+    markdown
+    lxml
+    beautifulsoup4
+    hpi
+    mistletoe
+  ];
 
 }

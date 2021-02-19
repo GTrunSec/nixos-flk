@@ -12,11 +12,12 @@ python3Packages.buildPythonPackage rec {
     sha256 = "sha256-CfQgDzKGpIvl9UjdfneHBrw+FOB4ZhGBMogIv+7YyWU=";
   };
 
-  propagatedBuildInputs = with python3Packages; [ setuptools_scm
-                                                ];
+  propagatedBuildInputs = with python3Packages; [
+    setuptools_scm
+  ];
 
   doCheck = false;
-  
+
   meta = with stdenv.lib; {
     description = "Python module for reading Emacs org-mode files";
     homepage = "https://github.com/karlicoss/orgparse";

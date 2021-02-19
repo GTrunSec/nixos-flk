@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-    password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.server.nextcloud;
+  password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.server.nextcloud;
 in
 {
   networking.firewall = {
@@ -14,15 +14,15 @@ in
 
 
   environment.etc."nextcloud/nextcloud-db-pass" = {
-      text = password;
-      user = "nextcloud";
-      group = "nextcloud";
+    text = password;
+    user = "nextcloud";
+    group = "nextcloud";
   };
 
   environment.etc."nextcloud/nextcloud-admin-pass" = {
-      text = password;
-      user = "nextcloud";
-      group = "nextcloud";
+    text = password;
+    user = "nextcloud";
+    group = "nextcloud";
   };
 
   services.nextcloud = {
