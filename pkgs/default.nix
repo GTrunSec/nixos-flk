@@ -23,6 +23,7 @@ in
   shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix { };
   #FIXME: spicy plugin BUG
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
+  #vast = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/vast" { };
 
   #go packages
   horcrux = prev.callPackage ./go/horcrux { };

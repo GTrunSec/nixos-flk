@@ -16,13 +16,20 @@
     enable = true;
   };
 
+  services.vast = {
+    enable = true;
+    settings = {
+      log-file = "/var/lib/vast/server.log";
+    };
+  };
+
   programs.dconf.enable = true; #for brim to dfconf service
 
   services.elasticsearch = {
     enable = true;
     package = pkgs.elasticsearch7;
     extraConf = ''
-    '';
+      '';
   };
 
   services.zeek = {
@@ -32,7 +39,7 @@
     listenAddress = "localhost";
     package = pkgs.zeek;
     privateScript = ''
-      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek    
+      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek
     '';
   };
 

@@ -20,6 +20,40 @@
         "type": "github"
       }
     },
+    "broker": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1583784312,
+        "narHash": "sha256-a5+21Q/SkDHS9cEhmcSmAxQgf3YcVgdj3EokwuVtqvA=",
+        "owner": "zeek",
+        "repo": "broker",
+        "rev": "e65cca620b1d2d26af6c5a9ee9513321fc3ed2a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zeek",
+        "repo": "broker",
+        "rev": "e65cca620b1d2d26af6c5a9ee9513321fc3ed2a0",
+        "type": "github"
+      }
+    },
+    "caf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1597334539,
+        "narHash": "sha256-WYzyDM66w7JlNk7/zuHUyeaLcmlrBReRrCM7KeGjikI=",
+        "owner": "actor-framework",
+        "repo": "actor-framework",
+        "rev": "347917fee3420d5fa02220af861869d1728b7fc0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "actor-framework",
+        "repo": "actor-framework",
+        "rev": "347917fee3420d5fa02220af861869d1728b7fc0",
+        "type": "github"
+      }
+    },
     "devshell": {
       "locked": {
         "lastModified": 1607956014,
@@ -47,6 +81,21 @@
       "original": {
         "owner": "numtide",
         "ref": "flatten-tree-system",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1610051610,
+        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
       }
@@ -127,6 +176,21 @@
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
         "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1612206459,
+        "narHash": "sha256-xzOl+2TAskbQaIKO9AUsXS+qiDmHFj54uzUW0nRnf2o=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "449b698a0b554996ac099b4e3534514528019269",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "449b698a0b554996ac099b4e3534514528019269",
+        "type": "indirect"
       }
     },
     "nur": {
@@ -233,6 +297,7 @@
         "photoprism-flake": "photoprism-flake",
         "stable": "stable",
         "tenvideo": "tenvideo",
+        "vast": "vast",
         "zeek-nix": "zeek-nix"
       }
     },
@@ -268,6 +333,28 @@
       "original": {
         "owner": "GTrunSec",
         "repo": "Tenvideo-nix-flake",
+        "type": "github"
+      }
+    },
+    "vast": {
+      "inputs": {
+        "broker": "broker",
+        "caf": "caf",
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1613975249,
+        "narHash": "sha256-in56GVuHQjdsPOGmq4sGL/0Vmfu75SYmJnH7DHfIUXA=",
+        "owner": "GTrunSec",
+        "repo": "vast",
+        "rev": "292315de5a1c91c0591e034c9af119c92aec7e90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GTrunSec",
+        "ref": "nix-flake",
+        "repo": "vast",
         "type": "github"
       }
     },

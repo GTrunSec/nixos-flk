@@ -19,6 +19,8 @@
       #photoprism-flake.url = "/home/gtrun/src/photoprism-flake";
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
       #brim-flake = { url = "/home/gtrun/src/brim-flake"; inputs.nixpkgs.follows = "nixos";};
+      #vast = { url = "/home/gtrun/src/vast"; };
+      vast = { url = "github:GTrunSec/vast/nix-flake"; };
 
       onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "nixos"; };
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false; };
@@ -36,6 +38,7 @@
     , nur
     , nixpkgs-hardenedlinux
     , photoprism-flake
+    , vast
     , zeek-nix
     , brim-flake
     , onlyoffice-desktopeditors
