@@ -55,7 +55,11 @@
       utils = import ./lib/utils.nix { inherit lib; };
 
       externOverlays = [ nur.overlay devshell.overlay ];
-      externModules = [ home.nixosModules.home-manager ];
+      externModules = [
+        home.nixosModules.home-manager
+        photoprism-flake.nixosModules.photoprism
+        vast.nixosModules.vast
+      ];
 
       osSystem = "x86_64-linux";
 
@@ -77,9 +81,10 @@
                   (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                 ];
             in
-            genPkgset {
-              inherit master nixos overlays system stable;
-            };
+            genPkgset
+              {
+                inherit master nixos overlays system stable;
+              };
         in
         {
           nixosConfigurations =

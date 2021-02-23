@@ -85,8 +85,6 @@ let
           local
           overrides
           modOverrides
-          inputs.photoprism-flake.nixosModules.photoprism
-          inputs.vast.nixosModules.vast
         ] ++ externModules;
     };
 
