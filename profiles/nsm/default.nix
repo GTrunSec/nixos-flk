@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-
+  imports = [ ./zeek-deploy.nix ];
   environment.systemPackages = with pkgs; [
     tcpreplay
     suricata
@@ -30,17 +30,6 @@
     package = pkgs.elasticsearch7;
     extraConf = ''
       '';
-  };
-
-  services.zeek = {
-    enable = true;
-    standalone = true;
-    interface = "eno1";
-    listenAddress = "localhost";
-    package = pkgs.zeek;
-    privateScript = ''
-      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek
-    '';
   };
 
 }
