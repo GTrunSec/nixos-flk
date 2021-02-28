@@ -21,6 +21,8 @@ in
   ytmdesktop = prev.callPackage ./appimage/ytmdesktop.nix { };
   motrix = prev.callPackage ./appimage/Motrix.nix { };
   shadowsocks-qt5 = prev.callPackage ./appimage/shadowsocks-qt5.nix { };
+  chord = prev.callPackage ./appimage/chord.nix { };
+
   #FIXME: spicy plugin BUG
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
   #vast = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/vast" { };

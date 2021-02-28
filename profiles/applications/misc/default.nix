@@ -22,6 +22,7 @@
     youtube-dl
     cmus
     mpc_cli
+    chord
     #image
     pqiv
     digikam
