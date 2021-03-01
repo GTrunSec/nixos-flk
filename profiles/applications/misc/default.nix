@@ -11,7 +11,8 @@
     aria2
     motrix
     #VPN
-    shadowsocks-qt5
+    outline-client
+    shadowsocks-libev
     # manager password
     gopass
     enpass
