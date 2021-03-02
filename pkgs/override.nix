@@ -4,7 +4,7 @@
 # installed by the user elsewhere in the configuration.
 pkgs: stable: final: prev: {
   inherit (pkgs)
-    plex-media-player
+    nextcloud20
     manix;
   inherit (stable)
     bluez;

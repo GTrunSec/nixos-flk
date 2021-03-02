@@ -9,6 +9,7 @@
     haskellPackages.alex
     haskellPackages.haskell-language-server
     haskellPackages.happy
+    haskellPackages.brittany
     haskellPackages.zlib
     #haskellPackages.stack
     haskellPackages.stylish-haskell
