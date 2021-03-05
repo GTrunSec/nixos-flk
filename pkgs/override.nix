@@ -5,6 +5,7 @@
 pkgs: stable: final: prev: {
   inherit (pkgs)
     nextcloud20
+    du-dust
     manix;
   inherit (stable)
     bluez;

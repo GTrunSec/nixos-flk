@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     goldendict
     flameshot
+    du-dust
     #downloader
     magnetw
     got
