@@ -76,7 +76,6 @@
                   tenvideo.overlay
                   onlyoffice-desktopeditors.overlay
                   brim-flake.overlay
-                  (import "${zeek-nix}/overlay.nix")
                   (import ./pkgs/my-node-packages)
                   (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                 ];
