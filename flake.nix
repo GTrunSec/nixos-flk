@@ -23,7 +23,10 @@
       vast = { url = "github:GTrunSec/vast/nix-flake"; };
 
       onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "nixos"; };
-      zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; flake = false; };
+      zeek-nix = {
+        url = "github:hardenedlinux/zeek-nix/main";
+        inputs.nixpkgs.follows = "nixos";
+      };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
     };
 
@@ -76,6 +79,7 @@
                   tenvideo.overlay
                   onlyoffice-desktopeditors.overlay
                   brim-flake.overlay
+                  zeek-nix.overlay
                   (import ./pkgs/my-node-packages)
                   (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                 ];

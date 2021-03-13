@@ -14,7 +14,7 @@
       CommunityIdPlugin = true;
       ZipPlugin = true;
       PdfPlugin = true;
-      SpicyPlugin = false;
+      SpicyPlugin = true;
     };
     privateScript = ''
       @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek

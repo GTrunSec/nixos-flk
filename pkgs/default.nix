@@ -27,7 +27,6 @@ in
   #FIXME: spicy plugin BUG
   btest = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/python/btest" { python3Packages = prev.python37Packages; };
   #vast = prev.callPackage "${nixpkgs-hardenedlinux}/pkgs/vast" { };
-  zeek = prev.callPackage "${zeek-nix}/nix" { };
   #go packages
   horcrux = prev.callPackage ./go/horcrux { };
   govet = prev.callPackage ./go/govet { };
