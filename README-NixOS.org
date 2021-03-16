@@ -953,24 +953,12 @@ in
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./ghcide-nix.nix
-              ./ros.nix
-            ];
+  imports = [
+    ./ros.nix
+    ./nsm-data-analysis.nix
+  ];
 }
-  #+end_src
 
-- ghcide-nix.nix
-  #+begin_src nix :exports both :tangle "~/.config/nixpkgs/nixos-flk/cachix/ghcide-nix.nix"
-{
-  nix = {
-    binaryCaches = [
-      "https://ghcide-nix.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c="
-    ];
-  };
-}
   #+end_src
 
 - ros.nix

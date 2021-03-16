@@ -8,6 +8,7 @@ pkgs: stable: final: prev: {
     du-dust
     brave
     discord
+    nixFlakes
     manix;
   inherit (stable)
     bluez;
