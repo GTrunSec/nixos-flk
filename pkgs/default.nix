@@ -18,6 +18,8 @@ in
   onepassword = prev.callPackage ./appimage/1password.nix { };
   notdeft = prev.callPackage ./notdeft { };
   nuclear = prev.callPackage ./appimage/nuclear.nix { };
+  logseq = prev.callPackage ./appimage/logseq.nix { };
+
   ytmdesktop = prev.callPackage ./appimage/ytmdesktop.nix { };
   motrix = prev.callPackage ./appimage/Motrix.nix { };
   outline-client = prev.callPackage ./appimage/outline-client.nix { };

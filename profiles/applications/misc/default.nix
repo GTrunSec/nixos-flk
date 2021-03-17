@@ -41,6 +41,7 @@
     ##
     sshfs
     wakatime
+    logseq
     #
     xclip
     screenfetch
