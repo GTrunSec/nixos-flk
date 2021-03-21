@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, xapian, emacs, tclap, pkg-config }:
+{ stdenv, lib, fetchgit, xapian, emacs, tclap, pkg-config }:
 
 stdenv.mkDerivation rec {
   version = "master";
@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "NotDeft note manager for Emacs";
     homepage = https://github.com/hasu/notdeft;
     license = licenses.bsd3;

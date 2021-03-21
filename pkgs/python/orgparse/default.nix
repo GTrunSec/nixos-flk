@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , python3Packages
 , fetchurl
 }:
@@ -18,7 +18,7 @@ python3Packages.buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Python module for reading Emacs org-mode files";
     homepage = "https://github.com/karlicoss/orgparse";
     license = licenses.asl20;

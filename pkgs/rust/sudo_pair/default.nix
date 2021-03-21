@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchurl
 , rustPlatform
 }:
@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoSha256 = "sha256-tw0biqDMElEeYH9u+w63QtP4T+27Iqt6xhRJj7U+5ms=";
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://github.com/square/sudo_pair/";
     description = "Plugin for sudo that requires another human to approve and monitor privileged sudo sessions";
     license = licenses.gpl3;

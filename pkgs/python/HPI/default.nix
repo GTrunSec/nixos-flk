@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , python3Packages
 , fetchurl
 }:
@@ -24,7 +24,7 @@ python3Packages.buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Human Programming Interface 🧑👽🤖";
     homepage = "https://github.com/karlicoss/HPI";
     license = licenses.asl20;
