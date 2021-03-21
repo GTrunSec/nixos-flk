@@ -9,6 +9,7 @@
     nodejs
     yarn
     nodePackages.typescript
+    jre
   ];
 
 }
