@@ -40,7 +40,6 @@
     gitAndTools.delta
     ##
     sshfs
-    wakatime
     logseq
     #
     xclip

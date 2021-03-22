@@ -35,7 +35,6 @@ in
 {
   environment.systemPackages = with pkgs; [
     my-python-packages
-    wakatime
     nodePackages.pyright
     promnesia
     orgparse
