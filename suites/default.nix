@@ -17,6 +17,14 @@ let
 
   suites = with profiles; rec {
     base = [ users.nixos users.root ];
+
+    graphics = base ++ [
+      graphical
+      code
+      application
+    ];
+
+    #application = [ application ];
   };
 
   # available as 'suites' within the home-manager configuration
