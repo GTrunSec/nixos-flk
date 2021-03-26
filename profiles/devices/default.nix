@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./buletooth.nix ];
+  imports = [
+    ./buletooth.nix
+    ./pipewire.nix
+  ];
 }

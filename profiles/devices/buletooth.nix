@@ -3,8 +3,10 @@
   environment.systemPackages = with pkgs; [
     lxqt.pavucontrol-qt
   ];
+
   hardware.bluetooth = {
     enable = true;
+    package = pkgs.bluez-master;
     powerOnBoot = true;
     # config = ''
     #     ControllerMode = bredr
@@ -15,13 +17,5 @@
     #     FastConnectable=true
     #     '';
   };
-
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-  };
-
   services.blueman.enable = true;
-
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
 }

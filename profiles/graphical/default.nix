@@ -6,7 +6,6 @@ in
   imports = [ ./i3.nix ./xdg.nix ];
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
-  hardware.pulseaudio.enable = true;
 
 
   environment = {

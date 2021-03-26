@@ -9,16 +9,6 @@ pkgs: stable: final: prev: {
     brave
     discord
     manix;
-  inherit (stable)
-    bluez;
+  # inherit (stable)
+  #   bluez;
 }
-# with pkgs;
-# [
-#   stable.signal-desktop
-#   #polar-bookshelf
-#   brave
-#   stable.bluez
-#   ccls
-#   discord
-#   adguardhome
-# ]
