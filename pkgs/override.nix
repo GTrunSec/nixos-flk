@@ -4,11 +4,10 @@
 # installed by the user elsewhere in the configuration.
 pkgs: stable: final: prev: {
   inherit (pkgs)
-    nextcloud20
+    nextcloud21
     du-dust
     brave
     discord
-    nixFlakes
     manix;
   inherit (stable)
     bluez;

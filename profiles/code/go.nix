@@ -7,7 +7,6 @@
     govet
     #######
     gotools
-    go_bootstrap
     go-langserver
     gocode
     go-outline

@@ -48,7 +48,6 @@
     #disk
     duf
     #office
-    onlyoffice-desktopeditors
     #video
     tenvideo
   ];

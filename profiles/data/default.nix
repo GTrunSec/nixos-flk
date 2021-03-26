@@ -7,6 +7,7 @@
     ./nextcloud.nix
     ./postgresql.nix
     ./filestash.nix
+    ./cassandra.nix
   ];
   services.redis = {
     enable = true;

@@ -183,16 +183,16 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1610942247,
-        "narHash": "sha256-PKo1ATAlC6BmfYSRmX0TVmNoFbrec+A5OKcabGEu2yU=",
+        "lastModified": 1615926763,
+        "narHash": "sha256-yeq8A3EPNuQVlsxlEQrIRsklfJwJK0Us6jtcG/u8wNs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "rev": "b702a56d417647de4090ac56c0f18bdc7e646610",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "rev": "b702a56d417647de4090ac56c0f18bdc7e646610",
         "type": "indirect"
       }
     },
@@ -252,26 +252,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "NUR",
-        "type": "github"
-      }
-    },
-    "onlyoffice-desktopeditors": {
-      "inputs": {
-        "nixpkgs": [
-          "nixos"
-        ]
-      },
-      "locked": {
-        "lastModified": 1609449972,
-        "narHash": "sha256-xLZ11F/VmwuRJfh1jZnCVPJOi8cLLHGIgDfZ6tArgl4=",
-        "owner": "GTrunSec",
-        "repo": "onlyoffice-desktopeditors-flake",
-        "rev": "6a404e6916a39e8b51211d64c438a3b25d139013",
-        "type": "github"
-      },
-      "original": {
-        "owner": "GTrunSec",
-        "repo": "onlyoffice-desktopeditors-flake",
         "type": "github"
       }
     },
@@ -340,7 +320,6 @@
         "nixos": "nixos",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
         "nur": "nur",
-        "onlyoffice-desktopeditors": "onlyoffice-desktopeditors",
         "photoprism-flake": "photoprism-flake",
         "stable": "stable",
         "tenvideo": "tenvideo",

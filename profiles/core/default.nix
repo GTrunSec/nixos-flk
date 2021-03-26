@@ -6,7 +6,7 @@ in
 
   boot = {
     #
-    kernelPackages = pkgs.linuxPackages_5_9;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     tmpOnTmpfs = true;
 
@@ -180,8 +180,6 @@ in
   };
 
   security = {
-
-    hideProcessInformation = true;
 
     protectKernelImage = true;
 

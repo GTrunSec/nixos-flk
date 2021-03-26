@@ -3,7 +3,6 @@
 {
   imports = [ ./zeek-deploy.nix ];
   environment.systemPackages = with pkgs; [
-    tcpreplay
     suricata
     #home
     sudo-pair

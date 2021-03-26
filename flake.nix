@@ -8,7 +8,7 @@
       master.url = "nixpkgs/master";
       # => nixpkgs/release-20.09
       # Current: https://github.com/NixOS/nixpkgs/tree/nixpkgs-unstable
-      nixos = { url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a"; };
+      nixos = { url = "nixpkgs/b702a56d417647de4090ac56c0f18bdc7e646610"; };
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       home.url = "github:nix-community/home-manager/master";
       flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
@@ -22,7 +22,6 @@
       #vast = { url = "/home/gtrun/src/vast"; };
       vast = { url = "github:GTrunSec/vast/nix-flake"; };
 
-      onlyoffice-desktopeditors = { url = "github:GTrunSec/onlyoffice-desktopeditors-flake"; inputs.nixpkgs.follows = "nixos"; };
       zeek-nix = {
         url = "github:hardenedlinux/zeek-nix/main";
         inputs.nixpkgs.follows = "nixos";
@@ -44,7 +43,6 @@
     , vast
     , zeek-nix
     , brim-flake
-    , onlyoffice-desktopeditors
     , tenvideo
     }:
     let
@@ -77,7 +75,6 @@
                 ++ [
                   self.overlay
                   tenvideo.overlay
-                  onlyoffice-desktopeditors.overlay
                   brim-flake.overlay
                   zeek-nix.overlay
                   (import ./pkgs/my-node-packages)
