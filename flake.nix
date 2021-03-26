@@ -3,7 +3,8 @@
 
   inputs =
     {
-      nixos.url = "nixpkgs/nixos-unstable";
+      nixos = { url = "nixpkgs/b702a56d417647de4090ac56c0f18bdc7e646610"; };
+
       override.url = "nixpkgs";
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
@@ -26,9 +27,36 @@
       utils.url = "github:numtide/flake-utils/flatten-tree-system";
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
+
+
+      #User's custom flakes
+      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
+      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
+      nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
+      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
+      vast-flake = { url = "github:GTrunSec/vast/nix-flake"; };
+      zeek-nix = {
+        url = "github:hardenedlinux/zeek-nix/main";
+        inputs.nixpkgs.follows = "nixos";
+      };
+      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
     };
 
-  outputs = inputs@{ deploy, nixos, nur, self, utils, ... }:
+  outputs =
+    inputs@{ deploy
+    , nixos
+    , nur
+    , self
+    , utils
+    , stable
+    , nixpkgs-hardenedlinux
+    , photoprism-flake
+    , vast-flake
+    , zeek-nix
+    , brim-flake
+    , tenvideo
+    , ...
+    }:
     let
       inherit (self) lib;
       inherit (lib) os;
@@ -77,7 +105,8 @@
               tests = nixos.lib.optionalAttrs (system == "x86_64-linux")
                 (import ./tests { inherit self pkgs; });
               deployHosts = nixos.lib.filterAttrs
-                (n: _: self.nixosConfigurations.${n}.config.nixpkgs.system == system) self.deploy.nodes;
+                (n: _: self.nixosConfigurations.${n}.config.nixpkgs.system == system)
+                self.deploy.nodes;
               deployChecks = deploy.lib.${system}.deployChecks { nodes = deployHosts; };
             in
             nixos.lib.recursiveUpdate tests deployChecks;

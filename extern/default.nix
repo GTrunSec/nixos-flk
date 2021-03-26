@@ -3,11 +3,15 @@
   modules = [
     home.nixosModules.home-manager
     ci-agent.nixosModules.agent-profile
+
+    #User's custom modules
+    photoprism-flake.nixosModules.photoprism
   ];
 
   overlays = [
     nur.overlay
     devshell.overlay
+    tenvideo.overlay
     (final: prev: {
       deploy-rs = deploy.packages.${prev.system}.deploy-rs;
     })
@@ -25,6 +29,5 @@
   ];
 
   # passed to all home-manager modules
-  userSpecialArgs = {
-  };
+  userSpecialArgs = { };
 }
