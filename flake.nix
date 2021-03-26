@@ -12,7 +12,7 @@
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       home.url = "github:nix-community/home-manager/master";
       flake-utils.url = "github:numtide/flake-utils/flatten-tree-system";
-      devshell.url = "github:numtide/devshell";
+      devshell.url = "github:numtide/devshell/17f46732ce299daa2977be2978f60d258c2d1b41";
       nur = { url = "github:nix-community/NUR"; inputs.nixpkgs.follows = "nixos"; };
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
@@ -78,7 +78,6 @@
                   brim-flake.overlay
                   zeek-nix.overlay
                   (import ./pkgs/my-node-packages)
-                  (import "${nixpkgs-hardenedlinux}/nix/python-packages-overlay.nix")
                 ];
             in
             genPkgset

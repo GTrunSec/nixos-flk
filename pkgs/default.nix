@@ -43,6 +43,4 @@ in
 
   # bluez
   firmwareLinuxNonfree = prev.callPackage ./misc/firmware-linux-nonfree.nix { };
-  bluez-master = prev.callPackage ./misc/bluez-master.nix { };
-  pipewire-bluez-master = prev.callPackage ./misc/pipewire-bluez-master.nix { bluez-master = final.bluez-master; };
 }

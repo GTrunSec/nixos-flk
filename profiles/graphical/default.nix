@@ -5,8 +5,6 @@ in
 {
   imports = [ ./i3.nix ./xdg.nix ];
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-
 
   environment = {
     sessionVariables = {

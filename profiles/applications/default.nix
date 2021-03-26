@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs; [
     #notice
     dunst
-
     #browwser
     brave
 
