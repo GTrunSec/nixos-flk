@@ -16,14 +16,8 @@ let
 
     ###
     pytest
-    numpy
     #orgparse
     pytest
-    scikitlearn
-    #zat
-    matplotlib
-    sqlalchemy
-    pandas
     #voila
     pygments
     #orgbabelhelper

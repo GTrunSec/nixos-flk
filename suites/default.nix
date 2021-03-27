@@ -32,8 +32,6 @@ let
       ssh
       nsm
     ];
-
-    #application = [ application ];
   };
 
   # available as 'suites' within the home-manager configuration
