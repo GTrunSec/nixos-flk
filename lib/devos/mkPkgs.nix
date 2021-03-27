@@ -10,6 +10,8 @@ in
       overridesOverlay = (import ../../overrides).packages;
 
       overlays = [
+        (overridesOverlay overridePkgs)
+        self.overlay
         (final: prev: {
           lib = prev.lib.extend (lfinal: lprev: {
             inherit dev;
@@ -18,8 +20,6 @@ in
             utils = inputs.utils.lib;
           });
         })
-        (overridesOverlay overridePkgs)
-        self.overlay
       ]
       ++ extern.overlays
       ++ (lib.attrValues self.overlays);

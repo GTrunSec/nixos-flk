@@ -1,9 +1,7 @@
 {
   description = "Package Sources";
 
-  inputs = {
-    notdeft = { url = "github:hasu/notdeft/7c0125074332df9eb75b0b82cf57a4f8698ffc7a"; flake = false; };
-  };
+  inputs = { };
 
   outputs = { self, nixpkgs, ... }: {
     overlay = final: prev: {

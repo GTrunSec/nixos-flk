@@ -19,9 +19,9 @@ let
   );
 
   systemOutputs = lib.filterAttrs
-    (name: set: lib.isAttrs set
+    (_: set: lib.isAttrs set
       && lib.any
-      (system: set ? ${system} && name != "legacyPackages")
+      (system: set ? ${system})
       ciSystems
     )
     default.outputs;
