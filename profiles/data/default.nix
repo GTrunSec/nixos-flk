@@ -6,7 +6,7 @@
     ./miniflux.nix
     ./nextcloud.nix
     ./postgresql.nix
-    ./filestash.nix
+    #./filestash.nix
     ./cassandra.nix
   ];
   services.redis = {

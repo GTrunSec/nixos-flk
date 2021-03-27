@@ -19,9 +19,18 @@ let
     base = [ users.nixos users.root ];
 
     graphics = base ++ [
+      core-extend
       graphical
       code
       application
+      data
+      virt
+      fonts
+      devices
+      network
+      search
+      ssh
+      nsm
     ];
 
     #application = [ application ];
