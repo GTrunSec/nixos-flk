@@ -1,7 +1,7 @@
 [
-  ./services/zeek/default.nix
+  ./services/zeek
   # Bug? import the module in extern/default.nix instead
-  ./adguardhome/default.nix
-  ./filestash/default.nix
-  ./promnesia/default.nix
+  ./adguardhome
+  ./filestash
+  ./promnesia
 ]

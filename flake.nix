@@ -79,7 +79,7 @@
 
         nixosModules =
           let moduleList = import ./modules/module-list.nix;
-          in lib.pathsToImportedAttrs moduleList;
+          in moduleList;
 
         homeModules =
           let moduleList = import ./users/modules/module-list.nix;
