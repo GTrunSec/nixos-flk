@@ -16,7 +16,22 @@ let
 
 
   suites = with profiles; rec {
-    base = [ users.nixos users.root ];
+    base = [ users.gtrun users.root ];
+
+    graphics = base ++ [
+      core-extend
+      graphical
+      code
+      application
+      data
+      virt
+      fonts
+      devices
+      network
+      search
+      ssh
+      nsm
+    ];
   };
 
   # available as 'suites' within the home-manager configuration

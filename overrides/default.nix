@@ -11,13 +11,15 @@
     inherit (pkgs)
       cachix
       dhall
-      discord
       element-desktop
       manix
       nixpkgs-fmt
-      qutebrowser
       signal-desktop
-      starship;
+      starship
+      nextcloud21
+      brave
+      discord
+      ;
 
     haskellPackages = prev.haskellPackages.override {
       overrides = hfinal: hprev:

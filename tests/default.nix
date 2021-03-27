@@ -41,6 +41,8 @@ in
     '';
   };
 
+  homeTest = self.homeConfigurations."gtrun@NixOS".home.activationPackage;
+
   libTests = pkgs.runCommandNoCC "devos-lib-tests"
     {
       buildInputs = [
