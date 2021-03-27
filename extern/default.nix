@@ -8,7 +8,7 @@
     photoprism-flake.nixosModules.photoprism
     vast-flake.nixosModules.vast
   ] ++ [
-    (import ../modules/adguardhome/default.nix)
+    (import ../modules/adguardhome)
     (import ../modules/services/zeek)
   ];
 
