@@ -6,16 +6,23 @@
 
     #User's custom modules
     photoprism-flake.nixosModules.photoprism
+    vast-flake.nixosModules.vast
+  ] ++ [
+    (import ../modules/adguardhome/default.nix)
+    (import ../modules/services/zeek)
   ];
 
   overlays = [
     nur.overlay
     devshell.overlay
-    tenvideo.overlay
     (final: prev: {
       deploy-rs = deploy.packages.${prev.system}.deploy-rs;
     })
     pkgs.overlay
+
+    #User custom pkgs
+    tenvideo.overlay
+    zeek-nix.overlay
   ];
 
   # passed to all nixos modules

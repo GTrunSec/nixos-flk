@@ -1,13 +1,16 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./zeek-deploy.nix ];
+  imports = [
+    ./zeek-deploy.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     suricata
     #home
     sudo-pair
-    btest
-    brim
+    #btest
+    #brim
     tcpdump
   ];
 
