@@ -16,7 +16,7 @@ let
 
 
   suites = with profiles; rec {
-    base = [ users.nixos users.root ];
+    base = [ users.gtrun users.root ];
 
     graphics = base ++ [
       core-extend
