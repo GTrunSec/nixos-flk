@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (import ../../bin/clean-nix-store.nix { });
+  clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (import ../../bin/clean-nix-store.nix {
+    home-manager = pkgs.home-manager;
+  });
+
   lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../../bin/lsyncd-rsync.nix { });
 
   LS_COLORS = pkgs.fetchgit {
