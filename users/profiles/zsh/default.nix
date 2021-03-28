@@ -1,12 +1,16 @@
 { config, lib, pkgs, ... }:
 let
   home_directory = builtins.getEnv "HOME";
+  flake-zsh-completion = pkgs.runCommand "flake-nix-completion" { } ''
+    install -Dm644 ${./_nix} $out/share/zsh/site-functions/_nix
+  '';
 in
 {
   config = with lib; mkMerge [
     ({
       home.packages = with pkgs;[
         ##https://github.com/ajeetdsouza/zoxide A faster way to navigate your filesystem
+        (lib.hiPrio flake-zsh-completion)
         zoxide
       ];
       programs.zsh = {
@@ -45,7 +49,7 @@ in
           em = "emacs";
           cp = "cp -i";
           mv = "mv -i";
-          ##update Nixpkgs 
+          ##update Nixpkgs
           un = "~/.config/nixpkgs  && git fetch && git pull";
           overlay-go = "cd ~/.config/nixpkgs/nixos/overlays/go";
           overlay-python = "cd ~/.config/nixpkgs/nixos/overlays/python";
@@ -113,6 +117,16 @@ in
                 rev = "2db04c704360b5b303fb5708686cbfd198c6bf4f";
                 sha256 = "1ib98j7v6hy3x43dcli59q5rpg9bamrg335zc4fw91hk6jcxvy45";
               };
+            }
+            {
+              name = "nix-zsh-completions";
+              src = pkgs.fetchFromGitHub
+                {
+                  owner = "Ma27";
+                  repo = "nix-zsh-completions";
+                  rev = "939c48c182e9d018eaea902b1ee9d00a415dba86";
+                  sha256 = "sha256-3HVYez/wt7EP8+TlhTppm968Wl8x5dXuGU0P+8xNDpo=";
+                };
             }
           ];
       };
