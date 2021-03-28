@@ -48,6 +48,7 @@ let
       tmux
       link-home-file
       home-packages
+      randr
     ];
   };
 
