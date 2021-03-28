@@ -31,7 +31,6 @@ in
     systemPackages = with pkgs; [
       adapta-gtk-theme
       dzen2
-      feh
       ffmpeg-full
       gsettings-desktop-schemas
       gnome3.adwaita-icon-theme

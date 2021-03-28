@@ -31,6 +31,7 @@
 
       #User's custom flakes
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
+      emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
@@ -51,6 +52,7 @@
     , stable
     , nixpkgs-hardenedlinux
     , photoprism-flake
+    , emacs-overlay
     , vast-flake
     , zeek-nix
     , brim-flake

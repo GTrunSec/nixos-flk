@@ -1,0 +1,13 @@
+;;;;https://ox-hugo.scripter.co/doc/dates/
+
+#+HUGO_BASE_DIR: ~/Documents/my-blog
+#+HUGO_SECTION: post
+#+hugo_custom_front_matter: :author "GTrunSec"
+#+options: creator:t author:nil
+#+DESCRIPTION: my wallpaper
+#+KEYWORDS: wallpaper
+#+LANGUAGE:  en cn
+#+hugo_publishdate:
+#+hugo_auto_set_lastmod: t
+#+HUGO_categories: profile
+#+HUGO_tags: wallpaper personal
