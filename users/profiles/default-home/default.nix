@@ -18,4 +18,19 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
+
+  services.gpg-agent = {
+    defaultCacheTtl = 180000;
+    defaultCacheTtlSsh = 180000;
+    enable = true;
+    enableScDaemon = true;
+    enableSshSupport = true;
+    grabKeyboardAndMouse = false;
+  };
+
+  services.dunst = {
+    enable = true;
+  };
+
+  systemd.user.startServices = true;
 }
