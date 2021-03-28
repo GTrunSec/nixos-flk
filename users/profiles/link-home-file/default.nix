@@ -36,7 +36,7 @@
     })
 
     ({
-      #home.file.".config/direnv/direnvrc".source = ../../dotfiles/direnv/direnvrc.sh;
+      home.file.".config/direnv/direnvrc".source = ../../dotfiles/direnv/direnvrc.sh;
     })
   ];
 }

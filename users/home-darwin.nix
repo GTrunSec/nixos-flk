@@ -2,5 +2,7 @@
 
 {
   imports = [
+    ./profiles/link-home-file
+    ./profiles/home-packages
   ];
 }
