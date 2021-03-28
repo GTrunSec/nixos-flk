@@ -64,8 +64,11 @@
       inherit (lib) os;
 
       extern = import ./extern { inherit inputs; };
+      overrides = import ./overrides;
 
-      multiPkgs = os.mkPkgs;
+      multiPkgs = os.mkPkgs {
+        inherit extern overrides;
+      };
 
       outputs = {
         nixosConfigurations =
@@ -121,7 +124,7 @@
           packages = lib.filterPackages system legacyPackages;
 
           devShell = import ./shell {
-            inherit self system;
+            inherit self system extern overrides;
           };
         }
       );
