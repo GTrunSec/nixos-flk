@@ -36,7 +36,19 @@ let
 
   # available as 'suites' within the home-manager configuration
   userSuites = with userProfiles; rec {
-    base = [ direnv git ];
+    base = [
+      default-home
+      direnv
+      git
+      feh
+      zsh
+      doom-emacs
+      cursor
+      alacritty
+      tmux
+      link-home-file
+      home-packages
+    ];
   };
 
 in

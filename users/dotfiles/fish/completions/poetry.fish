@@ -1,0 +1,1 @@
+poetry completions fish

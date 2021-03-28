@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    feh
     rofi
     (polybar.override {
       i3Support = true;

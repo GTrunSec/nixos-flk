@@ -20,6 +20,7 @@
     #User custom pkgs
     tenvideo.overlay
     zeek-nix.overlay
+    emacs-overlay.overlay
   ];
 
   # passed to all nixos modules
