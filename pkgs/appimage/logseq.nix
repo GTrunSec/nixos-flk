@@ -1,14 +1,14 @@
 { appimageTools, fetchurl, lib, gsettings-desktop-schemas, gtk3 }:
 let
   pname = "logseq";
-  version = "0.0.13";
+  version = "0.0.15";
 in
 appimageTools.wrapType2 rec {
   name = "${pname}-${version}";
   src = fetchurl {
     name = "logseq";
     url = "https://github.com/logseq/logseq/releases/download/${version}/logseq-linux-x64-${version}.AppImage";
-    sha256 = "sha256-x10rhdVk3NMtWsc3SXCxJHrO0bn9TkyNZ9SXdtwY7Cg=";
+    sha256 = "sha256-4mnS2ikDPmIyT4P8zXssk6AVx50C24bsP4WpD5xJbD8=";
   };
 
   profile = ''

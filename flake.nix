@@ -3,7 +3,7 @@
 
   inputs =
     {
-      nixos = { url = "nixpkgs/b702a56d417647de4090ac56c0f18bdc7e646610"; };
+      nixos = { url = "nixpkgs/d09f37cc24e4ec1a567f77e553a298158185182d"; };
 
       override.url = "nixpkgs";
       ci-agent = {

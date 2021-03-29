@@ -299,16 +299,16 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1615926763,
-        "narHash": "sha256-yeq8A3EPNuQVlsxlEQrIRsklfJwJK0Us6jtcG/u8wNs=",
+        "lastModified": 1616189872,
+        "narHash": "sha256-F6V78hQ5EBqXwo/OnoDLAfno87BdnKliDqQ6A6oBaAY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b702a56d417647de4090ac56c0f18bdc7e646610",
+        "rev": "d09f37cc24e4ec1a567f77e553a298158185182d",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "b702a56d417647de4090ac56c0f18bdc7e646610",
+        "rev": "d09f37cc24e4ec1a567f77e553a298158185182d",
         "type": "indirect"
       }
     },
@@ -377,11 +377,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1616977631,
-        "narHash": "sha256-QkvqHXpOOwFazpcfpnVYNmysroTc0lafo+yO7nuBYck=",
+        "lastModified": 1616991260,
+        "narHash": "sha256-zofdTFEdbS0Tmxcala2bMfJUBkMcxT9Y2NMakkjwZ8A=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b7ea143563db091243bdbc9ff9f82c94278934c7",
+        "rev": "b06e0d0b8584578ea410991ca01f87f5a5a9224c",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
     },
     "override": {
       "locked": {
-        "lastModified": 1616972207,
-        "narHash": "sha256-rYgW8rrBbcI2IzLzhYfAHe7E6FMYhA1Oz5XBfJHjyMA=",
+        "lastModified": 1616989418,
+        "narHash": "sha256-LcOn5wHR/1JwClfY/Ai/b+pSRY+d23QtIPQHwPAyHHI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b9753491a3b021f224358069cae46b7df94540e5",
+        "rev": "9d8e05e088ad91b7c62886a2175f38bfa443db2c",
         "type": "github"
       },
       "original": {
@@ -607,11 +607,11 @@
         "zeek-tls": "zeek-tls"
       },
       "locked": {
-        "lastModified": 1616977986,
-        "narHash": "sha256-/9Dp8ptYs/Jpj5nYjyJS8ROI7/ut+9sCHltsOOALfdQ=",
+        "lastModified": 1616978689,
+        "narHash": "sha256-IM0JRPj/p4qKVrZYyt0JOtX6VyomnKkfgWw6fZvX9Lc=",
         "owner": "hardenedlinux",
         "repo": "zeek-nix",
-        "rev": "c826d2a76674c7aa43b362bbc2491e2c55b6822b",
+        "rev": "25dc0666cf57fd102083e8ae55456d733fceeba8",
         "type": "github"
       },
       "original": {

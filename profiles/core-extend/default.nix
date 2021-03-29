@@ -27,7 +27,6 @@
     #remote
     rxvt_unicode.terminfo
     ncurses.dev # infocmp/tic/etc
-    niv
 
     #password
     pwgen
