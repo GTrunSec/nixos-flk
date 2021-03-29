@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: py replace
-# uuid:
-# key: pr
-# condition: t
-# --
---replace "$1" "$2" \

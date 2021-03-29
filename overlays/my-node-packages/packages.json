@@ -1,7 +1,0 @@
-[
-    "typescript-language-server",
-    "tslint",
-    "maildev",
-    "@mermaid-js/mermaid-cli",
-    "mathjax-node-cli"
-]

@@ -1,8 +1,0 @@
-#+HUGO_BASE_DIR: ~/Documents/my-blog/
-#+HUGO_SECTION: post
-#+hugo_custom_front_matter: :author "GTrunSec"
-#+options: creator:t author:nil
-#+hugo_auto_set_lastmod: t
-#+HUGO_categories: profile Doom-Emacs
-#+HUGO_tags: Emacs Config
-#+PROPERTY: header-args :tangle "~/.emacs.d/init.el"

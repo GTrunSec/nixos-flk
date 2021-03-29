@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Item price
-# uuid:
-# key: ip
-# condition: t
-# --
-Item price: $1

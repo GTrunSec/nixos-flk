@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: rust-src
-# key: ro
-# condition: t                  
-# --
-#+begin_src rust :exports both :crates
-$1
-#+end_src
