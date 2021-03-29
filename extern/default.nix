@@ -7,6 +7,7 @@
     #User's custom modules
     photoprism-flake.nixosModules.photoprism
     vast-flake.nixosModules.vast
+    zeek-nix.nixosModules.zeek
   ];
 
   overlays = [

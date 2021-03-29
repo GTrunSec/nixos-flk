@@ -377,11 +377,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1616922152,
-        "narHash": "sha256-FL1QXOFK7sclMkyNGnxPacWrUe2O27ED1o2vf16pTPU=",
+        "lastModified": 1616977631,
+        "narHash": "sha256-QkvqHXpOOwFazpcfpnVYNmysroTc0lafo+yO7nuBYck=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "96cf717e2cc1c117f40510585683ad86a50e8de7",
+        "rev": "b7ea143563db091243bdbc9ff9f82c94278934c7",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
     },
     "override": {
       "locked": {
-        "lastModified": 1616923904,
-        "narHash": "sha256-Nk97OqAPHh54J/t7yHbg5+yamDwmRhsYAIdYQt7MW+c=",
+        "lastModified": 1616972207,
+        "narHash": "sha256-rYgW8rrBbcI2IzLzhYfAHe7E6FMYhA1Oz5XBfJHjyMA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "158da5a4fae80aa589b6bd375ce63cd461dd6887",
+        "rev": "b9753491a3b021f224358069cae46b7df94540e5",
         "type": "github"
       },
       "original": {
@@ -607,11 +607,11 @@
         "zeek-tls": "zeek-tls"
       },
       "locked": {
-        "lastModified": 1615957151,
-        "narHash": "sha256-X9RhGn3tVPDEou5J0l1iUY/SX0Uqn1sOVJwJaRoQbSs=",
+        "lastModified": 1616977986,
+        "narHash": "sha256-/9Dp8ptYs/Jpj5nYjyJS8ROI7/ut+9sCHltsOOALfdQ=",
         "owner": "hardenedlinux",
         "repo": "zeek-nix",
-        "rev": "0e8d6582ea935538e8127d69e6c15cdd38122ea8",
+        "rev": "c826d2a76674c7aa43b362bbc2491e2c55b6822b",
         "type": "github"
       },
       "original": {
