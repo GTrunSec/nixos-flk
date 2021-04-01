@@ -6,7 +6,6 @@ with prev;
   magnetw = callPackage ./appimage/magnetw.nix { };
   onepassword = callPackage ./appimage/1password.nix { };
   nuclear = callPackage ./appimage/nuclear.nix { };
-  logseq = callPackage ./appimage/logseq.nix { };
   ytmdesktop = callPackage ./appimage/ytmdesktop.nix { };
   motrix = callPackage ./appimage/Motrix.nix { };
   outline-client = callPackage ./appimage/outline-client.nix { };

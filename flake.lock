@@ -71,11 +71,11 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix"
       },
       "locked": {
-        "lastModified": 1616071049,
-        "narHash": "sha256-wzXGaHO7Zlx6AtEYsuCXM1/gMdz37hc4f12O7nSUtD0=",
+        "lastModified": 1617051928,
+        "narHash": "sha256-50Qd32ebudm1kL/prp44WjZH5gDkKkZXWy8HPW8lZ88=",
         "owner": "hercules-ci",
         "repo": "hercules-ci-agent",
-        "rev": "7fc025e183f22a21360b550dc0d0e15a5c1a3122",
+        "rev": "4110b97734d54dc0df22e6e01a426038e236d710",
         "type": "github"
       },
       "original": {
@@ -232,11 +232,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1616918239,
-        "narHash": "sha256-Z9hL54J/M6sWSa2UqDDVCgsNsA1MhUEt0dQ803+24I8=",
+        "lastModified": 1616993087,
+        "narHash": "sha256-MPmREQbhtq6v7/qzqXesJCz7/PFTxUr5DBetyaEPQJM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c1761366b522595ff0dda47d7ba79d5242ecb31e",
+        "rev": "cbf0667037e6ca16fcc38818b2aa1391de702c6a",
         "type": "github"
       },
       "original": {
@@ -377,11 +377,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1616991260,
-        "narHash": "sha256-zofdTFEdbS0Tmxcala2bMfJUBkMcxT9Y2NMakkjwZ8A=",
+        "lastModified": 1617045225,
+        "narHash": "sha256-7rPbBfmiE8viXKKEWtBBgqN0pFs4068wN2pgQRvQd3I=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b06e0d0b8584578ea410991ca01f87f5a5a9224c",
+        "rev": "77d81a5ca49bf69731ad803882ee4f02ae824809",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
     },
     "override": {
       "locked": {
-        "lastModified": 1616989418,
-        "narHash": "sha256-LcOn5wHR/1JwClfY/Ai/b+pSRY+d23QtIPQHwPAyHHI=",
+        "lastModified": 1617057180,
+        "narHash": "sha256-MCSkB0TqSeyS7u3kf8aI+GkgGDP4TZ8691n4thw4g3M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9d8e05e088ad91b7c62886a2175f38bfa443db2c",
+        "rev": "299d054a7f5cc3d6d0e6731cea5bc4dc9ec2afdb",
         "type": "github"
       },
       "original": {
@@ -451,7 +451,7 @@
         "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-MAK4kultXnnrtZu828gCf63Hgk0TCv8qXssXVDxNyuo=",
+        "narHash": "sha256-Jt0U3ZaFe3U5li5lcuAPfqd8SNqVmRXTkaaTzUWOAu4=",
         "path": "./pkgs",
         "type": "path"
       },
