@@ -169,6 +169,9 @@ exec_always --no-startup-id bash $HOME/.config/nixpkgs/dotfiles/polybar/compton.
 # adguard-home
 #exec --no-startup-id bash $HOME/.config/nixpkgs/sh/adguard-home.sh
 
+# nextcloud-client
+exec --no-startup-id nextcloud
+
 #applcation
 # exec --no-startup-id polar-bookshel
 # exec --no-startup-id emacs
