@@ -8,7 +8,7 @@ let
     "flakes"
     "nix-command"
     "ca-references"
-    "ca-derivations"
+    #"ca-derivations"
   ];
 
   modules = {

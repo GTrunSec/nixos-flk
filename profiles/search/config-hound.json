@@ -1,0 +1,24 @@
+{
+    "dbpath" : "/var/lib/hound/data",
+    "max-concurrent-indexers" : 2,
+    "repos" : {
+        "nixpkgs": {
+            "url" : "https://www.github.com/NixOS/nixpkgs.git"
+        },
+        "zeek": {
+            "url" : "https://www.github.com/zeek/zeek.git"
+        },
+        "Xe": {
+            "url" : "https://github.com/Xe/nixos-configs.git"
+        },
+        "jlesquembre": {
+            "url" : "https://github.com/jlesquembre/dotfiles.git"
+        },
+        "charvp": {
+            "url" : "https://github.com/charvp/nixos-config.git"
+        },
+        "GTrunSec": {
+            "url" : "https://github.com/GTrunSec/my-profile.git"
+        }
+    }
+}
