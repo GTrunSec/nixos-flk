@@ -3,11 +3,6 @@
   modules = [
     home.nixosModules.home-manager
     ci-agent.nixosModules.agent-profile
-
-    #User's custom modules
-    photoprism-flake.nixosModules.photoprism
-    vast-flake.nixosModules.vast
-    zeek-nix.nixosModules.zeek
   ];
 
   overlays = [
@@ -17,11 +12,6 @@
       deploy-rs = deploy.packages.${prev.system}.deploy-rs;
     })
     pkgs.overlay
-
-    #User custom pkgs
-    tenvideo.overlay
-    zeek-nix.overlay
-    emacs-overlay.overlay
   ];
 
   # passed to all nixos modules
@@ -35,5 +25,6 @@
   ];
 
   # passed to all home-manager modules
-  userSpecialArgs = { };
+  userSpecialArgs = {
+  };
 }
