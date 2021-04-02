@@ -3,7 +3,7 @@
 
   inputs =
     {
-      nixos = { url = "nixpkgs/d09f37cc24e4ec1a567f77e553a298158185182d"; };
+      nixos = { url = "nixpkgs/a986113bf3e900da191bc79dd9c5fa0e430a8c2c"; };
 
       override.url = "nixpkgs";
       ci-agent = {
@@ -36,10 +36,7 @@
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
       vast-flake = { url = "github:GTrunSec/vast/nix-flake"; };
-      zeek-nix = {
-        url = "github:hardenedlinux/zeek-nix/main";
-        inputs.nixpkgs.follows = "nixos";
-      };
+      zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
     };
 
