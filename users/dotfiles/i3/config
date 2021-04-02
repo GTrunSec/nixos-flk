@@ -163,6 +163,8 @@ bindsym Mod4+b mode "resize"
 # Automatically detect screen resolution
 exec_always --no-startup-id autorandr home-1
 
+exec_always --no-startup-id lsyncd-rsync
+
 exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
 # Compton
 exec_always --no-startup-id bash $HOME/.config/nixpkgs/dotfiles/polybar/compton.sh

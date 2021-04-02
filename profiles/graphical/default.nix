@@ -13,6 +13,9 @@ in
       # Theme settings
       QT_QPA_PLATFORMTHEME = "gtk2";
 
+      # GDK_SCALE = "2";
+      # GDK_DPI_SCALE = "0.5";
+
       GTK2_RC_FILES =
         let
           gtk = ''
@@ -72,5 +75,5 @@ in
       user = "gtrun";
     };
   };
-
+  hardware.video.hidpi.enable = true;
 }

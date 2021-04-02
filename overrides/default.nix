@@ -20,6 +20,8 @@
       brave
       discord
       logseq
+      i3-gaps
+      i3
       ;
 
     haskellPackages = prev.haskellPackages.override {
