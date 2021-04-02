@@ -232,11 +232,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1616993087,
-        "narHash": "sha256-MPmREQbhtq6v7/qzqXesJCz7/PFTxUr5DBetyaEPQJM=",
+        "lastModified": 1617220862,
+        "narHash": "sha256-nLka+S6Vww8hTF3ZkzK/BezvgAo1Z433/L6TR1SiXyM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "cbf0667037e6ca16fcc38818b2aa1391de702c6a",
+        "rev": "ad04237d5142f53dcba258942b78e2d2bbf210c8",
         "type": "github"
       },
       "original": {
@@ -259,22 +259,6 @@
       "original": {
         "type": "git",
         "url": "https://github.com/cisagov/icsnpp-bacnet"
-      }
-    },
-    "metron-zeek-plugin-kafka": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1600793201,
-        "narHash": "sha256-F2jWQYEQIo/oLdaLkBlddjlnUk8LrD3+x2QBElvQYrI=",
-        "ref": "master",
-        "rev": "92b85e5e00cc2fd9023ea7f53466db6592eb6634",
-        "revCount": 48,
-        "type": "git",
-        "url": "https://github.com/apache/metron-bro-plugin-kafka/"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://github.com/apache/metron-bro-plugin-kafka/"
       }
     },
     "naersk": {
@@ -377,11 +361,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1617045225,
-        "narHash": "sha256-7rPbBfmiE8viXKKEWtBBgqN0pFs4068wN2pgQRvQd3I=",
+        "lastModified": 1617336777,
+        "narHash": "sha256-UIcxN68YvXzjHv0R1sjAgxX8PpzjfTPlNPIHGcP3JO8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "77d81a5ca49bf69731ad803882ee4f02ae824809",
+        "rev": "2003686c0377d9b8f3304a6a4fa4ac5e0b48ffb1",
         "type": "github"
       },
       "original": {
@@ -391,11 +375,11 @@
     },
     "override": {
       "locked": {
-        "lastModified": 1617057180,
-        "narHash": "sha256-MCSkB0TqSeyS7u3kf8aI+GkgGDP4TZ8691n4thw4g3M=",
+        "lastModified": 1617337697,
+        "narHash": "sha256-ELWONIvxoK8VAxDHsEAnUW1w7iMRa+4Y/g78PhScLdM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "299d054a7f5cc3d6d0e6731cea5bc4dc9ec2afdb",
+        "rev": "b092bdccfacc7433e4fde52e8446948d77e61584",
         "type": "github"
       },
       "original": {
@@ -451,7 +435,7 @@
         "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-Jt0U3ZaFe3U5li5lcuAPfqd8SNqVmRXTkaaTzUWOAu4=",
+        "narHash": "sha256-wjmOCaQ/ObmhdMQCaH/Adl0yUdFXxSH+PBGRXBdRqdU=",
         "path": "./pkgs",
         "type": "path"
       },
@@ -515,6 +499,23 @@
         "utils": "utils",
         "vast-flake": "vast-flake",
         "zeek-nix": "zeek-nix"
+      }
+    },
+    "spicy-analyzers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1617206134,
+        "narHash": "sha256-iJc+CAYW1SXU2OMAkyF4JKJzUpSQhZooBzE+npNxy4w=",
+        "ref": "main",
+        "rev": "26696b65574faf6282aaa5e7836fda1f43a09092",
+        "revCount": 108,
+        "type": "git",
+        "url": "https://github.com/zeek/spicy-analyzers"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://github.com/zeek/spicy-analyzers"
       }
     },
     "stable": {
@@ -593,13 +594,14 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "icsnpp-bacnet": "icsnpp-bacnet",
-        "metron-zeek-plugin-kafka": "metron-zeek-plugin-kafka",
         "nixpkgs": [
           "nixos"
         ],
+        "spicy-analyzers": "spicy-analyzers",
         "zeek-plugin-community-id": "zeek-plugin-community-id",
         "zeek-plugin-http2": "zeek-plugin-http2",
         "zeek-plugin-ikev2": "zeek-plugin-ikev2",
+        "zeek-plugin-kafka": "zeek-plugin-kafka",
         "zeek-plugin-pdf": "zeek-plugin-pdf",
         "zeek-plugin-postgresql": "zeek-plugin-postgresql",
         "zeek-plugin-zip": "zeek-plugin-zip",
@@ -607,11 +609,11 @@
         "zeek-tls": "zeek-tls"
       },
       "locked": {
-        "lastModified": 1616978689,
-        "narHash": "sha256-IM0JRPj/p4qKVrZYyt0JOtX6VyomnKkfgWw6fZvX9Lc=",
+        "lastModified": 1617306708,
+        "narHash": "sha256-ROXp2Dznsglp91Zs61pJbJk/kuwAJx5wZmWU8h+lrPs=",
         "owner": "hardenedlinux",
         "repo": "zeek-nix",
-        "rev": "25dc0666cf57fd102083e8ae55456d733fceeba8",
+        "rev": "bfbf1bf858500dd424ae0ec6ac3c04e251e88448",
         "type": "github"
       },
       "original": {
@@ -624,15 +626,17 @@
     "zeek-plugin-community-id": {
       "flake": false,
       "locked": {
-        "lastModified": 1612397448,
-        "narHash": "sha256-NuYFwhnAVWL643YhDYA9hmAigmMViUpTPo608vW23YI=",
+        "lastModified": 1600967039,
+        "narHash": "sha256-MV5Wa67u7WY91nh5jOCgiCk1ymvSKSyfT5nhl9EDA/w=",
         "ref": "master",
-        "rev": "889c1fcda0016e64fd40cab518183d55e3346661",
-        "revCount": 22,
+        "rev": "181a104b99d9019771ece7e489e46f2268b746d8",
+        "revCount": 21,
         "type": "git",
         "url": "https://github.com/corelight/zeek-community-id/"
       },
       "original": {
+        "ref": "master",
+        "rev": "181a104b99d9019771ece7e489e46f2268b746d8",
         "type": "git",
         "url": "https://github.com/corelight/zeek-community-id/"
       }
@@ -667,6 +671,23 @@
       "original": {
         "type": "git",
         "url": "https://github.com/ukncsc/zeek-plugin-ikev2"
+      }
+    },
+    "zeek-plugin-kafka": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614206104,
+        "narHash": "sha256-rpKlIo08GOrYWPU+UcPZ7QmmQqb1udjLLRJ75Zo+v7Q=",
+        "ref": "main",
+        "rev": "f8b9c5fe89917641845be572119f354d06a6409f",
+        "revCount": 55,
+        "type": "git",
+        "url": "https://github.com/SeisoLLC/zeek-kafka"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://github.com/SeisoLLC/zeek-kafka"
       }
     },
     "zeek-plugin-pdf": {
