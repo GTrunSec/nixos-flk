@@ -40,6 +40,7 @@ in
         poetry
         fdupes
         asciinema
+        bat
         #vips
         nixpkgs-review
         #for emacs notdeft
