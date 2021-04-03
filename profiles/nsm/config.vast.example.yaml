@@ -1,0 +1,26 @@
+logging:
+  console: true
+  console_verbosity: DEBUG
+  file: true
+  file_verbosity: DEBUG
+  filename: pyvast-threatbus.log
+
+metrics:
+  interval: 10 # set to 0 to disable metrics
+  filename: metrics.log
+
+vast: "127.0.0.1:4000"
+threatbus: "127.0.0.1:13370"
+
+snapshot: 30
+# live-matching requires you to install the VAST matcher plugin
+live_match: false
+retro_match: true
+retro_match_max_events: 0 # set to 0 for unlimited results
+unflatten: true
+# optional. remove the field if you don't want to transform sighting context
+transform_context: fever alertify --alert-prefix 'MY PREFIX' --extra-key my-ioc --ioc %ioc
+# optional. remove the field if you simply want to report back sightings to Threat Bus
+sink: STDOUT
+# limits the amount of concurrent background tasks for querying vast
+max_background_tasks: 100

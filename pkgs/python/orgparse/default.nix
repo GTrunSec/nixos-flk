@@ -2,12 +2,13 @@
 , python3Packages
 , fetchurl
 }:
+with python3Packages;
 python3Packages.buildPythonPackage rec {
 
   pname = "orgparse";
   version = "0.2.3";
 
-  src = python3Packages.fetchPypi {
+  src = fetchPypi {
     inherit pname version;
     sha256 = "sha256-CfQgDzKGpIvl9UjdfneHBrw+FOB4ZhGBMogIv+7YyWU=";
   };

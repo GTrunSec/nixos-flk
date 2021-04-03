@@ -36,6 +36,7 @@
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
       vast-flake = { url = "github:GTrunSec/vast/nix-flake"; };
+      threatbus-flake = { url = "github:GTrunSec/threatbus-nix-flake/main"; };
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
     };
@@ -49,6 +50,7 @@
     , stable
     , nixpkgs-hardenedlinux
     , photoprism-flake
+    , threatbus-flake
     , emacs-overlay
     , vast-flake
     , zeek-nix

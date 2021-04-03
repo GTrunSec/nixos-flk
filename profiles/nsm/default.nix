@@ -18,6 +18,11 @@
     enable = true;
   };
 
+  services.threatbus-vast = {
+    enable = true;
+    settings = builtins.readFile ./config.vast.example.yaml;
+  };
+
   services.vast = {
     enable = true;
     settings = {

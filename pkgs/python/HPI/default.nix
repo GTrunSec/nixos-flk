@@ -2,14 +2,13 @@
 , python3Packages
 , fetchurl
 }:
+with python3Packages;
 python3Packages.buildPythonPackage rec {
-
   pname = "HPI";
-  version = "0.2.20200820";
-
-  src = python3Packages.fetchPypi {
+  version = "0.3.20210220";
+  src = fetchPypi {
     inherit pname version;
-    sha256 = "0r6dfsyz6ix1pbf4gr5inn5srwaz37cbw79705sz936kigg9fay5";
+    sha256 = "96ee36d9d217330243ed0da436a97eb553a410df36d174417e8ff338e9802e44";
   };
 
   propagatedBuildInputs = with python3Packages; [
@@ -17,6 +16,7 @@ python3Packages.buildPythonPackage rec {
     appdirs
     more-itertools
     mypy
+    decorator
   ];
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];

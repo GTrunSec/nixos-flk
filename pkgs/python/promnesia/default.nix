@@ -70,13 +70,13 @@ let
 in
 python3Packages.buildPythonPackage rec {
   pname = "promnesia";
-  version = "0.11.20210101";
+  version = "2021-04-01";
 
   src = fetchFromGitHub {
     owner = "karlicoss";
-    repo = pname;
-    rev = "e3b21cb080fa9965802bfd2e931ef4263e3a34e9";
-    sha256 = "sha256-t66Ec1AgG92XU1i630Hrn40EjG931STX+Z4bHdQ2FI8=";
+    repo = "promnesia";
+    rev = "137c3d2e685c08a4ead3c2602d7f6cdaf877ed1f";
+    sha256 = "109w209r42x1wqxpjdhp9snrsrgr5ypa7gx48fz7i4kkvlxy78mm";
   };
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];

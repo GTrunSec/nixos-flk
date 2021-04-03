@@ -2869,6 +2869,10 @@ Used in :switch-buffer-functions slot."
   )
 #+end_src
 
+#+RESULTS:
+: t
+
+
 ** Nix Mode
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
