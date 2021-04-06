@@ -8,6 +8,7 @@
     photoprism-flake.nixosModules.photoprism
     vast-flake.nixosModules.vast
     zeek-nix.nixosModules.zeek
+    threatbus-flake.nixosModules.threatbus
     threatbus-flake.nixosModules.threatbus-vast
   ];
 

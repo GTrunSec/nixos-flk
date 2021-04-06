@@ -4,6 +4,11 @@
     imports = suites.base;
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [ 8888 8889 ];
+    allowedUDPPorts = [ 8888 8889 ];
+  };
+
   users.users.gtrun = {
     home = "/home/gtrun";
     password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.normal;

@@ -3,6 +3,7 @@
 {
   imports = [
     ./zeek-deploy.nix
+    ./vast-threatbus.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -16,18 +17,6 @@
 
   services.dbus = {
     enable = true;
-  };
-
-  services.threatbus-vast = {
-    enable = true;
-    settings = builtins.readFile ./config.vast.example.yaml;
-  };
-
-  services.vast = {
-    enable = true;
-    settings = {
-      log-file = "/var/lib/vast/server.log";
-    };
   };
 
   programs.dconf.enable = true; #for brim to dfconf service

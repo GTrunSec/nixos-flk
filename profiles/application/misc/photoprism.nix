@@ -5,6 +5,7 @@
     allowedTCPPorts = [ 2344 ];
     allowedUDPPorts = [ 2344 ];
   };
+
   services.photoprism = {
     enable = true;
     port = "2344";
