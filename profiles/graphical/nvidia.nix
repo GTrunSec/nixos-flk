@@ -5,6 +5,7 @@
     videoDrivers = [ "nvidia" "intel" ];
   };
 
+  hardware.nvidia.modesetting.enable = true;
 
   systemd.services.nvidia-control-devices = {
     wantedBy = [

@@ -171,13 +171,30 @@ exec_always --no-startup-id bash $HOME/.config/nixpkgs/dotfiles/polybar/compton.
 # adguard-home
 #exec --no-startup-id bash $HOME/.config/nixpkgs/sh/adguard-home.sh
 
+
+
+# applcation
+exec --no-startup-id polar-desktop-app
+exec --no-startup-id emacs
+# exec --no-startup-id gitkraken
 # nextcloud-client
 exec --no-startup-id nextcloud
+exec --no-startup-id 1password
+exec --no-startup-id brave
+exec --no-startup-id element-desktop
+exec --no-startup-id telegram-desktop
+exec --no-startup-id slack
 
-#applcation
-# exec --no-startup-id polar-bookshel
-# exec --no-startup-id emacs
-# exec --no-startup-id gitkraken
+#workspace
+assign [class="^Emacs$"] → 2
+for_window [title="^1Password$"] move container to workspace $ws7
+assign [class="^Element$"] → 3
+assign [class="^Slack$"] → 3
+assign [class="^TelegramDesktop$"] → 3
+assign [class="^Brave-browser$"] → 1
+assign [class="^polar-desktop-app$"] → 4
+assign [class="^Okular$"] → 3
+#git workspace
 
 
 for_window [window_type="menu"] floating enable
@@ -220,15 +237,6 @@ exec --no-startup-id fcitx5 -d
 exec_always --no-startup-id xset dpms 500
 
 
-#workspace
-assign [class="^Emacs$"] → 2
-for_window [title="^Enpass$"] move container to workspace $ws7
-#assign [class="^Chromium-browser$"] → 3
-assign [class="^brave$"] → 3
-assign [class="^polar-bookshelf$"] → 4
-assign [class="^Okular$"] → 3
-#git workspace
-assign [class="^GitKraken$"] → 5
 
 mode "swap_windows" {
     # move window 2 to window 1
