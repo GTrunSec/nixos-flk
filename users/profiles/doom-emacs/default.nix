@@ -61,13 +61,8 @@ in
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = (pkgs.emacsGcc.override ({
-    withImageMagick = true;
-    imagemagick = pkgs.imagemagick7;
-  })).overrideAttrs (old: rec {
+  programs.emacs.package = (pkgs.emacsNg.override ({ })).overrideAttrs (old: rec {
     configureFlags = (old.configureFlags or [ ]) ++ [
-      "--with-imagemagick"
-      "--with-nativecomp"
     ];
   });
 

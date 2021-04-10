@@ -40,6 +40,8 @@
       #threatbus-flake = { url = "/home/gtrun/src/threatbus-nix-flake"; inputs.flake-utils.follows = "utils"; inputs.nixpkgs-hardenedlinux.follows = "nixpkgs-hardenedlinux"; };
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
+      rust-overlay = { url = "github:oxalica/rust-overlay"; };
+      emacsNg-flake = { url = "github:GTrunSec/emacs-ng/fix-install"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; };
     };
 
   outputs =
@@ -57,6 +59,8 @@
     , zeek-nix
     , brim-flake
     , tenvideo
+    , emacsNg-flake
+    , rust-overlay
     , ...
     }:
     let

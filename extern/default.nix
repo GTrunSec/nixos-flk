@@ -24,6 +24,8 @@
     tenvideo.overlay
     zeek-nix.overlay
     emacs-overlay.overlay
+    emacsNg-flake.overlay
+    rust-overlay.overlay
   ];
 
   # passed to all nixos modules
