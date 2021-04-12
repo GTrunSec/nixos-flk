@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: org-superlink type
-# key: lk
-# --
-
-- `(insert-current-date-time-inactive)` -> $1

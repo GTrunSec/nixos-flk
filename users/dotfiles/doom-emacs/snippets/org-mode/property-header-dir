@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: PROPERTIES header dir
-# key: phd
-# condition: t                  
-# --
-:PROPERTIES:
-:header-args:sh: :dir ./$1
-:END:

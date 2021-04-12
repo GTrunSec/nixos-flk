@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: go-src
-# key: go
-# --
-#+begin_src go  :exports both :results output  :async nil
-$1
-#+end_src
