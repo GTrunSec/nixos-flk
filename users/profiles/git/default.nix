@@ -20,6 +20,8 @@
       "__pycache__"
       "*.org.organice-bak"
       ".direnv"
+      ".secrets"
+      ".cargo"
     ];
     extraConfig = {
 

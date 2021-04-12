@@ -21,5 +21,6 @@ in
     rnix-lsp
     nixfmt
     nixpkgs-fmt
+    sbcl
   ];
 }

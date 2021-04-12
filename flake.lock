@@ -163,6 +163,21 @@
         "type": "github"
       }
     },
+    "devshell-flake_2": {
+      "locked": {
+        "lastModified": 1617631469,
+        "narHash": "sha256-kBoHeZPbDAfOCWjy+ialZYmlg2FXKaqHH7eH+15e3pk=",
+        "owner": "numtide",
+        "repo": "devshell",
+        "rev": "5d2ad08eb7cb0cf1f73b6f6e0ccfd2508a4995d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "devshell",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "locked": {
         "lastModified": 1616214656,
@@ -196,28 +211,31 @@
     },
     "emacsNg-flake": {
       "inputs": {
+        "devshell-flake": "devshell-flake",
         "emacs-overlay": "emacs-overlay_2",
         "emacsNg-src": "emacsNg-src",
         "flake-compat": "flake-compat",
         "flake-utils": [
           "utils"
         ],
-        "nixpkgs": "nixpkgs",
+        "master": "master",
+        "nixpkgs": [
+          "nixos"
+        ],
         "rust-overlay": [
           "rust-overlay"
         ]
       },
       "locked": {
-        "lastModified": 1617996947,
-        "narHash": "sha256-oAwpwxwb8yoq/231uWAAM65mpYoKNvcXpcKVEhxe6aY=",
-        "owner": "GTrunSec",
+        "lastModified": 1618176312,
+        "narHash": "sha256-H8pXXM9Hz8w4Y+6qWeQ+40iaXsCb/viO8yj1SWnL6Ps=",
+        "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "40707132e62496b230a5bec8f98a52353ae15491",
+        "rev": "15576b2972bb9fefb903f0825fcf1be00c17aeaa",
         "type": "github"
       },
       "original": {
-        "owner": "GTrunSec",
-        "ref": "fix-install",
+        "owner": "emacs-ng",
         "repo": "emacs-ng",
         "type": "github"
       }
@@ -225,11 +243,11 @@
     "emacsNg-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1617818079,
-        "narHash": "sha256-Frgm9e5BCN5WjGWAXx9dc5rUEwOJlZowzn+nYddBaXs=",
+        "lastModified": 1618097931,
+        "narHash": "sha256-LC8m9bv2IcOvQNqOKH4f8mCVRWgou+jDWZFbl7hAyFM=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "415de78e6d4fdd2c7f3f28cafe37ac1be710ee41",
+        "rev": "3f248da01436ef56375720d584901dcf263f46da",
         "type": "github"
       },
       "original": {
@@ -353,6 +371,21 @@
         "url": "https://github.com/cisagov/icsnpp-bacnet"
       }
     },
+    "master": {
+      "locked": {
+        "lastModified": 1610942247,
+        "narHash": "sha256-PKo1ATAlC6BmfYSRmX0TVmNoFbrec+A5OKcabGEu2yU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "type": "indirect"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": [
@@ -405,16 +438,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1617847365,
-        "narHash": "sha256-SSnW2PDrpqvI3/d6RVTtNPTZTwd/UJaQLrlk9TwDFps=",
+        "lastModified": 1615709438,
+        "narHash": "sha256-hDLC1wVzcD+9dt1U9QpbP0v9bOYD9NGczsobHIEhDYw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e4650171afb53ca227d0c51f13fae87207153d69",
+        "rev": "3a7674c896847d18e598fa5da23d7426cb9be3d2",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "e4650171afb53ca227d0c51f13fae87207153d69",
+        "rev": "3a7674c896847d18e598fa5da23d7426cb9be3d2",
         "type": "indirect"
       }
     },
@@ -435,21 +468,6 @@
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1615709438,
-        "narHash": "sha256-hDLC1wVzcD+9dt1U9QpbP0v9bOYD9NGczsobHIEhDYw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a7674c896847d18e598fa5da23d7426cb9be3d2",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "3a7674c896847d18e598fa5da23d7426cb9be3d2",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1612206459,
         "narHash": "sha256-xzOl+2TAskbQaIKO9AUsXS+qiDmHFj54uzUW0nRnf2o=",
@@ -559,7 +577,7 @@
         "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-A7mzEnf9+jIv5dhApK00jyQVcDJv38mLpVJowOAxdp4=",
+        "narHash": "sha256-C9DC6YvUlb03FD1w0Pbw0rvbA3ZGaUiC2gqCD9dMkzY=",
         "path": "./pkgs",
         "type": "path"
       },
@@ -703,12 +721,12 @@
     },
     "threatbus-flake": {
       "inputs": {
-        "devshell-flake": "devshell-flake",
+        "devshell-flake": "devshell-flake_2",
         "flake-compat": "flake-compat_3",
         "flake-utils": [
           "utils"
         ],
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-hardenedlinux": [
           "nixpkgs-hardenedlinux"
         ],
@@ -768,7 +786,7 @@
         "broker": "broker",
         "caf": "caf",
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1617488711,

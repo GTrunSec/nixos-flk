@@ -13,7 +13,8 @@ let
     pyqtwebengine
     markdown
     feedparser
-
+    retrying
+    epc
     ###
     pytest
     #orgparse

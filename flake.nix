@@ -41,7 +41,7 @@
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
-      emacsNg-flake = { url = "github:GTrunSec/emacs-ng/fix-install"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; };
+      emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
     };
 
   outputs =

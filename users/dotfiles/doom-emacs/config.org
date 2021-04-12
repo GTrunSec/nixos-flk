@@ -3395,6 +3395,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-LINUX
+  (package! epc :recipe (:build (:not compile)))
   (package! eaf :recipe (:host github
                             :repo "manateelazycat/emacs-application-framework"
                             :files ("*")
@@ -3419,6 +3420,8 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
       "Open Google using EAF."
       (interactive)
       (eaf-open-browser "https://www.google.com")))
+
+  (use-package! epc)
   )
 #+end_src
 
