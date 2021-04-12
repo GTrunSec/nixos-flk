@@ -16,7 +16,6 @@
       ssh
       nsm
     ];
-
   };
   user = with userProfiles; rec {
     base = [
