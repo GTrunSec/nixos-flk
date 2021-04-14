@@ -3,17 +3,13 @@ let
   inherit (builtins) concatStringsSep;
   inherit (pkgs) fetchFromGitHub stdenv gnugrep;
   inherit (builtins) readFile fetchurl;
-  inherit (srcs) StevenBlack-src;
+  fetch = import ../../../compat/input-pkgs.nix;
+  src = fetch "StevenBlack-hosts";
 
   hosts = stdenv.mkDerivation {
     name = "hosts";
 
-    src = fetchFromGitHub {
-      owner = "StevenBlack";
-      repo = "hosts";
-      rev = "c202dbda759bb0ab52c68e9f675ccd2ad4b59c3e";
-      hash = "sha256-etXlrCUOBU2U/T/lHYOzAtIyLW4k1OXA7Q/+WMvPiZg=";
-    };
+    inherit src;
 
     nativeBuildInputs = [ gnugrep ];
 
