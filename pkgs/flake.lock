@@ -1,12 +1,29 @@
 {
   "nodes": {
+    "StevenBlack-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618323021,
+        "narHash": "sha256-etXlrCUOBU2U/T/lHYOzAtIyLW4k1OXA7Q/+WMvPiZg=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "c202dbda759bb0ab52c68e9f675ccd2ad4b59c3e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1615926763,
-        "narHash": "sha256-yeq8A3EPNuQVlsxlEQrIRsklfJwJK0Us6jtcG/u8wNs=",
-        "path": "/nix/store/sf1z1dkpfs3rzqz1mxxi3sfvx5257wyv-source",
-        "rev": "b702a56d417647de4090ac56c0f18bdc7e646610",
-        "type": "path"
+        "lastModified": 1618358406,
+        "narHash": "sha256-BTdYXQqBjyBfw1BkkGHW+EPHY6IPGGguAPvEbmAWmGA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ccabc238a8bd142e58c2cd8db8ebd78ab38555d9",
+        "type": "github"
       },
       "original": {
         "id": "nixpkgs",
@@ -32,6 +49,7 @@
     },
     "root": {
       "inputs": {
+        "StevenBlack-hosts": "StevenBlack-hosts",
         "nixpkgs": "nixpkgs",
         "notdeft": "notdeft"
       }

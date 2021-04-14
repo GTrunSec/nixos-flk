@@ -3,6 +3,7 @@
 {
   imports = [
     ./adguardhome.nix
+    ./adblocking
   ];
 
   environment.systemPackages = with pkgs; [

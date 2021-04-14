@@ -1,7 +1,7 @@
 { users, profiles, userProfiles, ... }:
 {
   system = with profiles; rec {
-    base = [ users.gtrun users.root ];
+    base = [ users.gtrun users.root core ];
     graphics = base ++ [
       core-extend
       graphical

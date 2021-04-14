@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "StevenBlack-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618323021,
+        "narHash": "sha256-etXlrCUOBU2U/T/lHYOzAtIyLW4k1OXA7Q/+WMvPiZg=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "c202dbda759bb0ab52c68e9f675ccd2ad4b59c3e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "type": "github"
+      }
+    },
     "brim-flake": {
       "inputs": {
         "nixpkgs": [
@@ -571,13 +587,14 @@
     },
     "pkgs": {
       "inputs": {
+        "StevenBlack-hosts": "StevenBlack-hosts",
         "nixpkgs": [
           "nixos"
         ],
         "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-C9DC6YvUlb03FD1w0Pbw0rvbA3ZGaUiC2gqCD9dMkzY=",
+        "narHash": "sha256-mIIK6cB9MbXMlJlrcEcW5Ol+pTGnHdOh6KRM5QiZ/0Q=",
         "path": "./pkgs",
         "type": "path"
       },
