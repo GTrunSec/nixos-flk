@@ -2920,13 +2920,14 @@ Used in :switch-buffer-functions slot."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
-    :hook (rustic-mode . (tree-sitter-hl-mode tree-sitter-mode))
+    :hook (rustic-mode . tree-sitter-mode)
     :init
     (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/core")
     (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
     :config
+    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
     (tree-sitter-require 'rust)
     )
   )
