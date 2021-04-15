@@ -22,5 +22,6 @@ in
     nixfmt
     nixpkgs-fmt
     sbcl
+    tree-sitter
   ];
 }

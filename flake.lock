@@ -531,11 +531,11 @@
     },
     "override": {
       "locked": {
-        "lastModified": 1617337697,
-        "narHash": "sha256-ELWONIvxoK8VAxDHsEAnUW1w7iMRa+4Y/g78PhScLdM=",
+        "lastModified": 1618430098,
+        "narHash": "sha256-TmYwkNo7rOCNCIHtfyAY5Lq00GMfnMyiOZmD9o1so+A=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b092bdccfacc7433e4fde52e8446948d77e61584",
+        "rev": "78927e608facf9d9a1f5958f2fa6afef8036f16e",
         "type": "github"
       },
       "original": {

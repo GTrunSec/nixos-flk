@@ -272,9 +272,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ;;(setq doom-theme 'doom-city-lights)
 #+end_src
 
-#+RESULTS:
-: doom-city-lights
-
 * use-package
 
 ** helm-tramp
@@ -989,7 +986,7 @@ In that case, insert the number."
   (advice-add #'company--transform-candidates :around #'my-company--transform-candidates)
   (advice-add #'company-tabnine :around #'my-company-tabnine)
   ;; Trigger completion immediately.
-  ;; (setq company-idle-delay 0)
+  (setq company-idle-delay 0.6)
 
   ;; Number the candidates (use M-1, M-2 etc to select completions).
   (setq company-show-numbers t)
@@ -1004,7 +1001,6 @@ In that case, insert the number."
   )
 
 #+end_src
-
 
 ** company-math
 
@@ -1500,7 +1496,7 @@ FACE defaults to inheriting from default and highlight."
     ("network/" :agenda t)
     ("data-science/" :agenda t)        
     )
-  (org-starter-def "~/.config/nixpkgs/dotfiles/doom-emacs/"
+  (org-starter-def "~/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/"
     :files
     ("config.org" :key "c" :refile (:maxlevel . 5))
     ("meow.org" :key "w" :refile (:maxlevel . 5))
@@ -2911,7 +2907,36 @@ Used in :switch-buffer-functions slot."
   )
 #+end_src
 
+** Tree Sitter
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(when IS-LINUX
+  (package! emacs-tree-sitter :recipe (:local-repo "~/src/emacs-plugin/emacs-tree-sitter"
+                                 :files ("lisp/*")
+                                 :build (:not compile)))
+)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(when IS-LINUX
+  (use-package! emacs-tree-sitter
+    :hook (rustic-mode . (tree-sitter-hl-mode tree-sitter-mode))
+    :init
+    (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/core")
+    (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/langs")
+    (require 'tree-sitter)
+    (require 'tree-sitter-langs)
+    :config
+    (tree-sitter-require 'rust)
+    )
+  )
+#+end_src
+
+#+RESULTS:
+
+
 * Visual
+
 
 ** Buffer
 

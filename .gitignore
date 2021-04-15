@@ -3,3 +3,6 @@ up
 hosts/up-*
 .direnv
 book
+
+my-org
+my-code
