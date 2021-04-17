@@ -6,8 +6,7 @@
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
 #+TAGS: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 
-
-- [[https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
+- U[[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
 - [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
 - [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
 
@@ -152,6 +151,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
+       yaml
        ;;erlang            ; an elegant language for a more civilized age
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
@@ -657,6 +657,17 @@ Uses `current-date-time-format' for the formatting the date/time."
        ;;(insert "\n")
        )
 #+end_src
+
+*** default
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+default.el"
+;;; ~/.doom.d/autoload/+default.el -*- lexical-binding: t; -*-
+(defun dir-locals-reload-for-current-buffer ()
+  "reload dir locals for the current buffer"
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
+#+end_src
+
 
 ** +org-mode.el
 
@@ -1477,8 +1488,8 @@ FACE defaults to inheriting from default and highlight."
     ;;
     ("guangtao/" :agenda t)
     ("guangtao/learn_music.org"          :agenda t :key "M" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao's_library.org"       :key "b" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao's_feed.org"         :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ("guangtao/guangtao_library.org"       :key "b" :refile (:maxlevel . 5 ))
+    ("guangtao/guangtao_feed.org"         :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
     ("life/" :agenda t)
     ("life/life_goods.org"     :key "s" :refile (:maxlevel . 5 ))
@@ -1529,7 +1540,7 @@ FACE defaults to inheriting from default and highlight."
     ("l" org-starter-find-file:love)
     ("h" org-starter-find-file:Habit)
     ("p" org-starter-find-file:plan)
-    ("b" org-starter-find-file:guangtao\'\s_library)
+    ("b" org-starter-find-file:guangtao_library)
     )
   :commands org-starter-load-all-files-in-path
   :hook
@@ -1596,7 +1607,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-books
   :config
-  (setq org-books-file "~/Documents/org-notes/braindump/guangtao/guangtao's_library.org")
+  (setq org-books-file "~/Documents/org-notes/braindump/guangtao/guangtao_library.org")
   )
 #+end_src
 
@@ -2396,24 +2407,6 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-tanglesync
-  :config
-  :hook (((prog-mode text-mode) . org-tanglesync-watch-mode))
-  :custom
-  (org-tanglesync-watch-files '("~/.config/nixpkgs/dotfiles/README-dotfiles.org"
-                                "~/.config/nixpkgs/README-home-manager.org"
-                                "~/.config/nixpkgs/nixos-flk/README-NixOS.org"
-                                ))
-  :config
-  ;; (add-hook 'org-mode-hook (lambda ()
-  ;;                            ;;……
-  ;;                            (cond
-  ;;                             ((equal (substring buffer-file-name -11) "-README.org")
-  ;;                              (progn
-  ;;                                (setq-local org-tanglesync-mode t)
-  ;;                                ))
-  ;;                              ))
-  ;;                            )
-
   :bind
   (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
    ( "C-c M-a" . org-tanglesync-process-buffer-automatic))
@@ -2909,17 +2902,10 @@ Used in :switch-buffer-functions slot."
 
 ** Tree Sitter
 
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(when IS-LINUX
-  (package! emacs-tree-sitter :recipe (:local-repo "~/src/emacs-plugin/emacs-tree-sitter"
-                                 :files ("lisp/*")
-                                 :build (:not compile)))
-)
-#+end_src
-
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
+    :load-path "~/src/emacs-plugin/emacs-tree-sitter/lisp"
     :hook (rustic-mode . tree-sitter-mode)
     :init
     (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/core")
@@ -2927,14 +2913,16 @@ Used in :switch-buffer-functions slot."
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
     :config
-    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
     (tree-sitter-require 'rust)
+    (tree-sitter-require 'python)
+    (tree-sitter-require 'julia)
     )
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   )
 #+end_src
 
 #+RESULTS:
-
+| tree-sitter-hl-mode |
 
 * Visual
 
