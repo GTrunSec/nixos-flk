@@ -3561,7 +3561,11 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; my-macos.el -*- lexical-binding: t; -*-
 (when IS-MAC
-  (use-package! exec-path-from-shell)
+  (use-package! exec-path-from-shell
+    :config
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize))
+    )
   (define-key! awesome-tab-mode-map
     "s-1" #'awesome-tab-select-visible-tab
     "s-2" #'awesome-tab-select-visible-tab
