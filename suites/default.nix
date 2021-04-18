@@ -31,6 +31,8 @@
       link-home-file
       home-packages
       randr
-    ];
+    ] ++ services;
+
+    services = [ lorri ];
   };
 }

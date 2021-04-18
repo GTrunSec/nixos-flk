@@ -20,6 +20,7 @@
       "__pycache__"
       "*.org.organice-bak"
       ".direnv"
+      ".direnv.d"
       ".secrets"
       ".cargo"
     ];

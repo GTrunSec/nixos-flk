@@ -595,7 +595,7 @@
         "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-mIIK6cB9MbXMlJlrcEcW5Ol+pTGnHdOh6KRM5QiZ/0Q=",
+        "narHash": "sha256-HyGUbCAYteev5C0NHBera2quYziMRjtT84M9yDvht4E=",
         "path": "./pkgs",
         "type": "path"
       },
