@@ -36,7 +36,7 @@ SOURCES = [
 
         name='my-braindump',
 
-        ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc' ],
+        ignored=[ '*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc', '*.bib' ],
     ),
 ]
 
