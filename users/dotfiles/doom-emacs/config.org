@@ -2803,6 +2803,13 @@ Used in :switch-buffer-functions slot."
   )
 #+end_src
 
+*** Julia conf
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook 'ob-async-pre-execute-src-block-hook
+          '(lambda ()
+             (setq inferior-julia-program-name "julia")))
+#+end_src
 
 ** Python
 
@@ -3351,6 +3358,16 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 | yasnippet | backquote-change |
 | :warning  |                  |
 
+* Fonts
+
+** Chinese Font
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! cnfonts)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! cnfonts)
+#+end_src
 
 * Linux & MacOS
 
@@ -3364,49 +3381,47 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+end_src
 
 ** Linux only
+
+- cursor
+
 #+begin_src emacs-lisp :tangle "linux.el"
-(add-hook! 'emacs-startup-hook 'doom-modeline-mode)
-;;fix post hook only linux
-(require 'savehist)
 (setq-default cursor-type 'box)
 (blink-cursor-mode -1)
 (set-cursor-color "IndianRed3")
+#+end_src
+
+
+- bookmark
+
+#+begin_src emacs-lisp :tangle "linux.el"
 (setq bm-repository-file (f-join doom-private-dir "etc/bm-linux-data"))
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-linux-default.el"))
+(bookmark-load bookmark-default-file t)
+#+end_src
 
+- variables
+
+#+begin_src emacs-lisp :tangle "linux.el"
 (setq python-shell-interpreter "python")
 (setq eaf-python-command "python")
 
-(bookmark-load bookmark-default-file t)
-
-(setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam.db")
 
 (when (not window-system)
   (xterm-mouse-mode 1)
   )
+
+(setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam.db")
 (setq org-crypt-key "24945FE0DBD04F4C045025F96F92B3E8F942D425")
+#+end_src
 
-(set-face-attribute
- 'default nil
- :font (font-spec :name "-PfEd-Fantasque Sans Mono-bold-italic-normal-*-*-*-*-*-m-0-iso10646-1"
-                  :weight 'normal
-                  :slant 'normal
-                  :size 12.0))
 
-(use-package! cnfonts)
-(when (display-graphic-p)
-  (dolist (charset '(kana han cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family "Weibei SC" :size 55)))
-  )
 
-(define-key org-mode-map (kbd "C-c l") 'grab-x-link)
-
+#+begin_src emacs-lisp :tangle "linux.el"
+;; (add-hook! 'emacs-startup-hook 'doom-modeline-mode)
+;;fix post hook only linux
+;; (require 'savehist)
 ;; (setq jupyter-runtime-directory "~/.local/share/jupyter/runtime")
-(add-hook 'ob-async-pre-execute-src-block-hook
-          '(lambda ()
-             (setq inferior-julia-program-name "julia")))
 #+end_src
 
 
@@ -3424,23 +3439,25 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when (display-graphic-p)
-  (use-package! eaf
-    :if (eq system-type 'gnu/linux)
-    :custom
-    (eaf-find-alternate-file-in-dired t)
-    :config
-    (eaf-setq eaf-browser-default-zoom "2.0")
+(when IS-LINUX
+  (when (display-graphic-p)
+    (use-package! eaf
+      :if (eq system-type 'gnu/linux)
+      :custom
+      (eaf-find-alternate-file-in-dired t)
+      :config
+      (eaf-setq eaf-browser-default-zoom "2.0")
 
-    (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-    (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+      (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+      (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
 
-    (defun eaf-open-google ()
-      "Open Google using EAF."
-      (interactive)
-      (eaf-open-browser "https://www.google.com")))
+      (defun eaf-open-google ()
+        "Open Google using EAF."
+        (interactive)
+        (eaf-open-browser "https://www.google.com")))
 
-  (use-package! epc)
+    (use-package! epc)
+    )
   )
 #+end_src
 
@@ -3452,22 +3469,71 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
   )
 #+end_src
 
-** My MacOS
+*** Font Setting
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(set-face-attribute
+ 'default nil
+ :font (font-spec :name "-PfEd-Fantasque Sans Mono-bold-italic-normal-*-*-*-*-*-m-0-iso10646-1"
+                  :weight 'normal
+                  :slant 'normal
+                  :size 12.0))
+
+(when (display-graphic-p)
+  (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "Weibei SC" :size 55)))
+  )
+#+end_src
+*** Mode Map -> Linux
+
+****  Org Mode Map
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(map! :map org-mode-map
+      "C-c l" 'grab-x-link
+      )
+#+end_src
+** MacOS Linux
+*** Default Settings
+- cursor
+
+  #+begin_src emacs-lisp :tangle "macos.el"
+  (setq-default cursor-type 'box)
+  (blink-cursor-mode -1)
+  (set-cursor-color "yellow1")
+  #+end_src
+
+  - bookmark
 #+begin_src emacs-lisp :tangle "macos.el"
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-macos-default.el"))
 (bookmark-load bookmark-default-file t)
-
-(setq-default cursor-type 'box)
-(blink-cursor-mode -1)
-(set-cursor-color "yellow1")
 (setq bm-repository-file (f-join doom-private-dir "etc/bm-macos-data"))
+
+
+#+end_src
+
+- variables
+
+#+begin_src emacs-lisp :tangle "macos.el"
 (setq insert-directory-program "/usr/local/bin/gls")
-
 (setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam-macos.db")
+(setq ispell-program-name "~/.nix-profile/bin/ispell")
+#+end_src
 
-(define-key org-mode-map (kbd "C-c l") 'org-mac-grab-link)
+*** Mode Map -> MacOS
 
+****  Org Mode Map
+
+#+begin_src emacs-lisp :tangle "macos.el"
+(map! :map org-mode-map
+      "C-c l" 'org-mac-grab-link
+      )
+#+end_src
+*** Fonts Setting
+
+#+begin_src emacs-lisp :tangle "macos.el"
 (set-face-attribute
  'default nil
  :font (font-spec :name "-*-Fantasque Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
@@ -3482,15 +3548,12 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
               :weight 'normal
               :slant 'normal
               :size 24.5)))
-
-(setq ispell-program-name "~/.nix-profile/bin/ispell")
 #+end_src
 
 ** macos use packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-MAC
-  (package! cnfonts)
   (package! exec-path-from-shell)
 )
 #+end_src
@@ -3498,7 +3561,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; my-macos.el -*- lexical-binding: t; -*-
 (when IS-MAC
-  (use-package! cnfonts)
   (use-package! exec-path-from-shell)
   (define-key! awesome-tab-mode-map
     "s-1" #'awesome-tab-select-visible-tab

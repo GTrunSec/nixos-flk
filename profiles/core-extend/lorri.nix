@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  service.lorri = {
+  services.lorri = {
     enable = true;
   };
 }
