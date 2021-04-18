@@ -6,7 +6,7 @@
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
 #+TAGS: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 
-- U[[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
+- [[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
 - [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
 - [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
 
@@ -661,6 +661,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 *** default
 #+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+default.el"
 ;;; ~/.doom.d/autoload/+default.el -*- lexical-binding: t; -*-
+;;;###autoload
 (defun dir-locals-reload-for-current-buffer ()
   "reload dir locals for the current buffer"
   (interactive)
@@ -3374,7 +3375,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-linux-default.el"))
 
-
 (setq python-shell-interpreter "python")
 (setq eaf-python-command "python")
 
@@ -3394,6 +3394,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
                   :slant 'normal
                   :size 12.0))
 
+(use-package! cnfonts)
 (when (display-graphic-p)
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset

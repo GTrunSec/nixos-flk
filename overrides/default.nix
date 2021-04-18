@@ -19,7 +19,6 @@
       nextcloud21
       brave
       discord
-      logseq
       ;
 
     haskellPackages = prev.haskellPackages.override {

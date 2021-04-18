@@ -20,9 +20,9 @@ with prev;
   got = callPackage ./go/got { };
 
   #python
-  promnesia = callPackage ./python/promnesia { python3Packages = prev.python37Packages; };
-  orgparse = callPackage ./python/orgparse { python3Packages = prev.python37Packages; };
-  hpi = callPackage ./python/HPI { python3Packages = prev.python37Packages; };
+  promnesia = callPackage ./python/promnesia { };
+  orgparse = callPackage ./python/orgparse { };
+  hpi = callPackage ./python/HPI { };
   #rust
   sudo-pair = callPackage ./rust/sudo_pair { };
 

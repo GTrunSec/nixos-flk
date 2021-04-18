@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ./lorri.nix ];
+
   nix = {
 
     gc = {

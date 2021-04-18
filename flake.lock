@@ -166,11 +166,11 @@
     },
     "devshell-flake": {
       "locked": {
-        "lastModified": 1617631469,
-        "narHash": "sha256-kBoHeZPbDAfOCWjy+ialZYmlg2FXKaqHH7eH+15e3pk=",
+        "lastModified": 1618523768,
+        "narHash": "sha256-Gev9da35pHUey3kGz/zrJFc/9ICs++vPCho7qB1mqd8=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "5d2ad08eb7cb0cf1f73b6f6e0ccfd2508a4995d7",
+        "rev": "709fe4d04a9101c9d224ad83f73416dce71baf21",
         "type": "github"
       },
       "original": {
@@ -243,15 +243,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1618176312,
-        "narHash": "sha256-H8pXXM9Hz8w4Y+6qWeQ+40iaXsCb/viO8yj1SWnL6Ps=",
-        "owner": "emacs-ng",
+        "lastModified": 1618717153,
+        "narHash": "sha256-UEBoqvqNK1zwxEPml6tN+ECFfY0Xqn26zGiQmtTXXYg=",
+        "owner": "gtrunsec",
         "repo": "emacs-ng",
-        "rev": "15576b2972bb9fefb903f0825fcf1be00c17aeaa",
+        "rev": "6e57f07bcf6433bb3675a0fdc2fe2928e8c1e726",
         "type": "github"
       },
       "original": {
-        "owner": "emacs-ng",
+        "owner": "gtrunsec",
+        "ref": "nix-webrender",
         "repo": "emacs-ng",
         "type": "github"
       }
@@ -259,11 +260,11 @@
     "emacsNg-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1618097931,
-        "narHash": "sha256-LC8m9bv2IcOvQNqOKH4f8mCVRWgou+jDWZFbl7hAyFM=",
+        "lastModified": 1618403898,
+        "narHash": "sha256-mZzkHqPMyd+BwdXU+rDHGIQVCGf6ZvW9mGch0yxYYNk=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "3f248da01436ef56375720d584901dcf263f46da",
+        "rev": "b2b5f92302a7806df83cfe52f57870f1df15bb90",
         "type": "github"
       },
       "original": {
@@ -424,16 +425,16 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1616189872,
-        "narHash": "sha256-F6V78hQ5EBqXwo/OnoDLAfno87BdnKliDqQ6A6oBaAY=",
+        "lastModified": 1618358406,
+        "narHash": "sha256-BTdYXQqBjyBfw1BkkGHW+EPHY6IPGGguAPvEbmAWmGA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d09f37cc24e4ec1a567f77e553a298158185182d",
+        "rev": "ccabc238a8bd142e58c2cd8db8ebd78ab38555d9",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "d09f37cc24e4ec1a567f77e553a298158185182d",
+        "rev": "ccabc238a8bd142e58c2cd8db8ebd78ab38555d9",
         "type": "indirect"
       }
     },

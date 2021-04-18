@@ -8,7 +8,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.networkmanager.enable = true;
   environment.etc = {
     "resolv.conf".text = "nameserver 10.220.170.112";
   };

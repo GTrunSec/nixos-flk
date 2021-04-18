@@ -17,6 +17,7 @@ python3Packages.buildPythonPackage rec {
     more-itertools
     mypy
     decorator
+    setuptools_scm
   ];
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];

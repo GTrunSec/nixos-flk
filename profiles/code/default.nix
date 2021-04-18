@@ -9,7 +9,7 @@ in
     ./lib-dep.nix
     ./c++.nix
     ./node.nix
-    ./r.nix
+    #./r.nix
     ./rust.nix
     ./haskell.nix
     ./python.nix

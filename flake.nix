@@ -3,7 +3,7 @@
 
   inputs =
     {
-      nixos = { url = "nixpkgs/d09f37cc24e4ec1a567f77e553a298158185182d"; };
+      nixos = { url = "nixpkgs/ccabc238a8bd142e58c2cd8db8ebd78ab38555d9"; };
 
       override.url = "nixpkgs";
       ci-agent = {
@@ -41,7 +41,7 @@
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
-      emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
+      emacsNg-flake = { url = "github:gtrunsec/emacs-ng/nix-webrender"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
     };
 
   outputs =
