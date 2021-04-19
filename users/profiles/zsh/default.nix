@@ -145,7 +145,7 @@ in
     })
     (mkIf pkgs.stdenv.isDarwin {
       programs.zsh.sessionVariables = {
-        PATH = "$HOME/.nix-profile/bin:/bin:/usr/bin:/run/current-system/sw/bin/:/usr/local/bin:/Applications/kitty.app/Contents/MacOS:/sbin/:/usr/sbin/";
+        PATH = "$HOME/.nix-profile/bin:/bin:/usr/bin:/run/current-system/sw/bin/:/usr/local/bin:/Applications/kitty.app/Contents/MacOS:/sbin/:/usr/sbin/:/run/current-system/etc/profiles/per-user/gtrun/bin/";
         TMUX_TMPDIR = "$HOME/.config/.";
         LANG = "en_US.UTF-8";
         export = "LC_ALL=en_US.UTF-8";

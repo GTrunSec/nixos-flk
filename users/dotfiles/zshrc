@@ -12,42 +12,41 @@ autoload -Uz zed # edit functions within zle
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-        fd --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-        fd --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-if [ -n "''${commands[fzf-share]}" ]; then
-            source "$(fzf-share)/key-bindings.zsh"
+if [ -n "''${commands[fzf - share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
 fi
 
 function cd() {
-        if [[ "$#" != 0 ]]; then
-                    builtin cd "$@";
-                    return
-        fi
-        while true; do
-                local lsd=$(echo ".." && ls -p | grep '/$' | sed 's;/$;;')
-                local dir="$(printf '%s\n' "''${lsd[@]}" |
-                        fzf --reverse --preview '
+  if [[ "$#" != 0 ]]; then
+    builtin cd "$@"
+    return
+  fi
+  while true; do
+    local lsd=$(echo ".." && ls -p | grep '/$' | sed 's;/$;;')
+    local dir="$(printf '%s\n' "''${lsd[@]}" |
+      fzf --reverse --preview '
                                         __cd_nxt="$(echo {})";
                                         __cd_path="$(echo $(pwd)/''${__cd_nxt} | sed "s;//;/;")";
                                         echo $__cd_path;
                                         echo;
                                         ls -p --color=always "''${__cd_path}";
                                         ')"
-                [[ ''${#dir} != 0 ]] || return 0
-                builtin cd "$dir" &> /dev/null
-                                done
+    [[ ''${#dir} != 0 ]] || return 0
+    builtin cd "$dir" &>/dev/null
+  done
 }
-
 
 function prev() {
   PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
+  sh -c "pet new $(printf %q "$PREV")"
 }
 
 function pet-select() {
@@ -55,7 +54,6 @@ function pet-select() {
   CURSOR=$#BUFFER
   zle redisplay
 }
-
 
 function jupyter-env() {
   cd ~/data/Jupyter-data-science-environment
@@ -66,19 +64,18 @@ zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
 
-
-
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
 export TERM=xterm-256color
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-          export NIX_PATH="$HOME/.nix-defexpr/channels"
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+  export NIX_PATH="$HOME/.nix-defexpr/channels"
+  export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+  source /run/current-system/etc/profiles/per-user/gtrun/etc/profile.d/hm-session-vars.sh ~
 fi
 
-[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
+[[ -n "$key[Up]" ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
 [[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
 # nix direnv hook
 eval "$(direnv hook zsh)"
