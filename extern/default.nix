@@ -26,6 +26,7 @@
     emacs-overlay.overlay
     emacsNg-flake.overlay
     rust-overlay.overlay
+    brim-flake.overlay
   ];
 
   # passed to all nixos modules

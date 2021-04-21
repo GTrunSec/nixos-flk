@@ -11,8 +11,9 @@
     #home
     sudo-pair
     #btest
-    #brim
+    brim
     tcpdump
+    wireshark
   ];
 
   services.dbus = {
