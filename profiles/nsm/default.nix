@@ -3,7 +3,7 @@
 {
   imports = [
     ./zeek-deploy.nix
-    ./vast-threatbus.nix
+    ./tenzir-infra.nix
   ];
 
   environment.systemPackages = with pkgs; [

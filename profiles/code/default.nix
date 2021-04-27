@@ -15,7 +15,7 @@ in
     ./python.nix
   ];
   environment.systemPackages = with pkgs; [
-    #customVscode
+    customVscode
     gnumake
     cmake
     rnix-lsp
