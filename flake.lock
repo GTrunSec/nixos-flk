@@ -243,11 +243,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1618717153,
-        "narHash": "sha256-UEBoqvqNK1zwxEPml6tN+ECFfY0Xqn26zGiQmtTXXYg=",
+        "lastModified": 1619561710,
+        "narHash": "sha256-EYP4cKSQv9BRfIfPyW3UMR1XYvuhLZA2CXiLQ33eiCI=",
         "owner": "gtrunsec",
         "repo": "emacs-ng",
-        "rev": "6e57f07bcf6433bb3675a0fdc2fe2928e8c1e726",
+        "rev": "4b7a33c19985319668c507c4047d28d9b48f258f",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     "emacsNg-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1618403898,
-        "narHash": "sha256-mZzkHqPMyd+BwdXU+rDHGIQVCGf6ZvW9mGch0yxYYNk=",
+        "lastModified": 1619505640,
+        "narHash": "sha256-YRJBdC2bOTvaUzN2SbXxvb7usv4YwN6ya9w1tidnyKs=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "b2b5f92302a7806df83cfe52f57870f1df15bb90",
+        "rev": "a93e3e4ba9254ebe3147dacc695f5cc42b975a09",
         "type": "github"
       },
       "original": {
