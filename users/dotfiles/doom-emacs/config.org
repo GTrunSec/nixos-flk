@@ -1214,7 +1214,7 @@ FACE defaults to inheriting from default and highlight."
   :config
   (dolist (hook (list
                  'js-mode-hook
-                 'rust-mode-hook
+                 'rustic-mode-hook
                  'python-mode-hook
                  'java-mode-hook
                  'sh-mode-hook
@@ -1226,9 +1226,6 @@ FACE defaults to inheriting from default and highlight."
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   )
 #+end_src
-
-#+RESULTS:
-: t
 
 ** Bookmark
 
