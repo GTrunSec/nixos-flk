@@ -2,7 +2,9 @@ result
 up
 hosts/up-*
 .direnv
-book
+
+doc/index.html
+
 
 my-org
 my-code

@@ -1,7 +1,7 @@
 # From NixOS
 
 ## Generate Configuration
-Assuming your happy with your existing partition layout, you can generate a
+Assuming you're happy with your existing partition layout, you can generate a
 basic NixOS configuration for your system using:
 ```sh
 flk up
@@ -15,8 +15,8 @@ your region. Keep in mind that `networking.hostName` with be automatically
 set to the filename of your hosts file, so `hosts/my-host.nix` will have the
 hostname `my-host`.
 
-Now might be a good time to read the docs on [suites](../../suites) and
-[profiles](../../profiles) and add or create any that you need.
+Now might be a good time to read the docs on [suites](../concepts/suites.md) and
+[profiles](../concepts/profiles.md) and add or create any that you need.
 
 > ##### _Note:_
 > While the `up` sub-command is provided as a convenience to quickly set up and
@@ -28,7 +28,7 @@ Now might be a good time to read the docs on [suites](../../suites) and
 > them directly into a host module of your own making, and commit that instead.
 # Installation
 
-Once your ready to deploy `hosts/my-host.nix`:
+Once you're ready to deploy `hosts/my-host.nix`:
 ```sh
 flk my-host switch
 ```
