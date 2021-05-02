@@ -3,7 +3,7 @@ let
   inherit (builtins) concatStringsSep;
   inherit (pkgs) fetchFromGitHub stdenv gnugrep;
   inherit (builtins) readFile fetchurl;
-  fetch = import ../../../compat/input-pkgs.nix;
+  fetch = import ../../../lib/compat/input-pkgs.nix;
   src = fetch "StevenBlack-hosts";
 
   hosts = stdenv.mkDerivation {

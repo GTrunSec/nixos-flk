@@ -180,7 +180,7 @@
 #+end_src
 ** Org mode => map!
 
-#+begin_src emacs-lisp :tangle yes
+#+begin_src emacs-lisp :tangle "meow.el"
 (map! :map org-mode-map
       "M-s l" 'org-super-links-quick-insert-inline-link
       "M-s d" 'org-super-links-quick-insert-drawer-link

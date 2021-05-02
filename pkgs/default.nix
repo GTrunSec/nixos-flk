@@ -25,7 +25,4 @@ with prev;
   hpi = callPackage ./python/HPI { };
   #rust
   sudo-pair = callPackage ./rust/sudo_pair { };
-
-  # bluez
-  firmwareLinuxNonfree = callPackage ./misc/firmware-linux-nonfree.nix { };
 }

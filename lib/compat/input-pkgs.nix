@@ -4,7 +4,7 @@ let
     fromJSON
     readFile
     ;
-  lockfile = fromJSON (readFile ../pkgs/flake.lock);
+  lockfile = fromJSON (readFile ../../pkgs/flake.lock);
 in
 input:
 let

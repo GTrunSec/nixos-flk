@@ -36,23 +36,6 @@
         "type": "github"
       }
     },
-    "broker": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1583784312,
-        "narHash": "sha256-a5+21Q/SkDHS9cEhmcSmAxQgf3YcVgdj3EokwuVtqvA=",
-        "owner": "zeek",
-        "repo": "broker",
-        "rev": "e65cca620b1d2d26af6c5a9ee9513321fc3ed2a0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zeek",
-        "repo": "broker",
-        "rev": "e65cca620b1d2d26af6c5a9ee9513321fc3ed2a0",
-        "type": "github"
-      }
-    },
     "caf": {
       "flake": false,
       "locked": {
@@ -243,16 +226,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1619561710,
-        "narHash": "sha256-EYP4cKSQv9BRfIfPyW3UMR1XYvuhLZA2CXiLQ33eiCI=",
-        "owner": "gtrunsec",
+        "lastModified": 1619911019,
+        "narHash": "sha256-JlIP0ZpaTgnlDDF5mGOq/pFqhUpjNwCRNZaWt8Y8GGk=",
+        "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "4b7a33c19985319668c507c4047d28d9b48f258f",
+        "rev": "934ec39a609954d4ddf5cf95ced23aa86eebc291",
         "type": "github"
       },
       "original": {
-        "owner": "gtrunsec",
-        "ref": "nix-webrender",
+        "owner": "emacs-ng",
         "repo": "emacs-ng",
         "type": "github"
       }
@@ -339,11 +321,11 @@
     },
     "flake-utils_2": {
       "locked": {
-        "lastModified": 1610051610,
-        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "lastModified": 1614513358,
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
         "type": "github"
       },
       "original": {
@@ -801,17 +783,20 @@
     },
     "vast-flake": {
       "inputs": {
-        "broker": "broker",
         "caf": "caf",
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-hardenedlinux": [
+          "nixpkgs-hardenedlinux"
+        ],
+        "zeek-vast-src": "zeek-vast-src"
       },
       "locked": {
-        "lastModified": 1617488711,
-        "narHash": "sha256-cgZJrctK+jRf/rZvybgDneqqxuIrzfP+5bNp/neZc1o=",
+        "lastModified": 1619125223,
+        "narHash": "sha256-eb2hicSgPW8Ixx7GugWYZMQUr91VXUofGC6gXDU/nQM=",
         "owner": "GTrunSec",
         "repo": "vast",
-        "rev": "659cd4628cffb8b6dc693ef8628e40f3a07354b7",
+        "rev": "2f011ec262cdfef0677928398305b1a9cf1b5ac2",
         "type": "github"
       },
       "original": {
@@ -993,6 +978,22 @@
       "original": {
         "type": "tarball",
         "url": "https://download.zeek.org/zeek-4.0.0.tar.gz"
+      }
+    },
+    "zeek-vast-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1617477524,
+        "narHash": "sha256-AdRDAmoUCTfCsD9l+nsLLdKqMzc6inurRGOm7w8Uz2g=",
+        "owner": "tenzir",
+        "repo": "zeek-vast",
+        "rev": "8945b6389a2e3ae20d92a0b08a53b8bb73d459c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tenzir",
+        "repo": "zeek-vast",
+        "type": "github"
       }
     }
   },
