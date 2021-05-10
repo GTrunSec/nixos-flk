@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "StevenBlack-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620619443,
+        "narHash": "sha256-MLSOnZkfKd31YvYJrfdTvNXLO6rzPRgFQtZ8m3ubtG8=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "f974eb031a8eeb833959b03b939f3ffc3af1b1a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "type": "github"
+      }
+    },
     "brim-flake": {
       "inputs": {
         "flake-compat": [
@@ -407,17 +423,18 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1620340338,
-        "narHash": "sha256-Op/4K0+Z9Sp5jtFH0s/zMM4H7VFZxrekcAmjQ6JpQ4w=",
-        "owner": "NixOS",
+        "lastModified": 1620627471,
+        "narHash": "sha256-HbMXRWnc+pJdlG8WiAC89Kl3UJn0LfVc7bOiqWPzU4Y=",
+        "owner": "GTrunSec",
         "repo": "nixpkgs",
-        "rev": "63586475587d7e0e078291ad4b49b6f6a6885100",
+        "rev": "2c843b6903cacff74fe8daa0bbe59e350716dedc",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "GTrunSec",
+        "repo": "nixpkgs",
+        "rev": "2c843b6903cacff74fe8daa0bbe59e350716dedc",
+        "type": "github"
       }
     },
     "nixos-hardware": {
@@ -496,6 +513,23 @@
         "type": "indirect"
       }
     },
+    "notdeft": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1598303276,
+        "narHash": "sha256-pTcyKI66t0/N6wH7JmOa8ulXOQ9ipOCTL6wwVRj/G/0=",
+        "owner": "hasu",
+        "repo": "notdeft",
+        "rev": "7c0125074332df9eb75b0b82cf57a4f8698ffc7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hasu",
+        "repo": "notdeft",
+        "rev": "7c0125074332df9eb75b0b82cf57a4f8698ffc7a",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1620619826,
@@ -569,12 +603,14 @@
     },
     "pkgs": {
       "inputs": {
+        "StevenBlack-hosts": "StevenBlack-hosts",
         "nixpkgs": [
           "nixos"
-        ]
+        ],
+        "notdeft": "notdeft"
       },
       "locked": {
-        "narHash": "sha256-Zs7dc0dNNa0Z3//+Gckxj7SKrMqVovY0xZZ1z8xWnEg=",
+        "narHash": "sha256-EHyOKVL9W73FYeYPV18uL9CMtAlfeoqL8h7a4W6LIDY=",
         "path": "./pkgs",
         "type": "path"
       },
