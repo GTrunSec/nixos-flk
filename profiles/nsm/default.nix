@@ -7,7 +7,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    suricata
     #home
     sudo-pair
     #btest

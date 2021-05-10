@@ -4,6 +4,7 @@
   inputs =
     {
       nixos.url = "github:GTrunSec/nixpkgs/2c843b6903cacff74fe8daa0bbe59e350716dedc";
+      #nixos.url = "nixpkgs/ccabc238a8bd142e58c2cd8db8ebd78ab38555d9";
       override.url = "nixpkgs";
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
@@ -18,7 +19,7 @@
       devshell.url = "github:numtide/devshell";
       flake-compat.url = "github:BBBSnowball/flake-compat/pr-1";
       flake-compat.flake = false;
-      home.url = "github:nix-community/home-manager";
+      home.url = "github:nix-community/home-manager/ad04237d5142f53dcba258942b78e2d2bbf210c8";
       home.inputs.nixpkgs.follows = "nixos";
       naersk.url = "github:nmattia/naersk";
       naersk.inputs.nixpkgs.follows = "override";
