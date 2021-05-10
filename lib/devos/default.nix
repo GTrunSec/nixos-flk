@@ -4,10 +4,7 @@
   pkgImport = nixpkgs: overlays: system:
     import nixpkgs {
       inherit system overlays;
-      config = {
-        allowUnfree = true;
-        allowBroken = true;
-      };
+      config = { allowUnfree = true; };
     };
 
   profileMap = list: map (profile: profile.default) (lib.flatten list);
@@ -30,3 +27,4 @@
 
   mkPackages = dev.callLibs ./mkPackages.nix;
 }
+

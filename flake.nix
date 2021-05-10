@@ -3,8 +3,7 @@
 
   inputs =
     {
-      nixos = { url = "nixpkgs/ccabc238a8bd142e58c2cd8db8ebd78ab38555d9"; };
-
+      nixos.url = "nixpkgs/nixos-unstable";
       override.url = "nixpkgs";
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
@@ -27,42 +26,24 @@
       utils.url = "github:numtide/flake-utils";
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
+      nur.url = github:nix-community/NUR;
 
 
-      #User's custom flakes
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
-      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; inputs.flake-utils.follows = "utils"; };
+      photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; inputs.flake-utils.follows = "utils"; inputs.flake-compat.follows = "flake-compat"; };
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; flake = false; };
-      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
+      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; inputs.flake-compat.follows = "flake-compat"; };
       vast-flake = { url = "github:GTrunSec/vast/nix-flake"; inputs.nixpkgs-hardenedlinux.follows = "nixpkgs-hardenedlinux"; };
-      threatbus-flake = { url = "github:GTrunSec/threatbus-nix-flake/main"; inputs.flake-utils.follows = "utils"; inputs.nixpkgs-hardenedlinux.follows = "nixpkgs-hardenedlinux"; inputs.vast-flake.follows = "vast-flake"; };
+      threatbus-flake = { url = "github:GTrunSec/threatbus-nix-flake/main"; inputs.flake-utils.follows = "utils"; inputs.nixpkgs-hardenedlinux.follows = "nixpkgs-hardenedlinux"; inputs.vast-flake.follows = "vast-flake"; inputs.flake-compat.follows = "flake-compat"; };
       #threatbus-flake = { url = "/home/gtrun/src/threatbus-nix-flake"; inputs.flake-utils.follows = "utils"; inputs.nixpkgs-hardenedlinux.follows = "nixpkgs-hardenedlinux"; };
       zeek-nix = { url = "github:hardenedlinux/zeek-nix/main"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
-      rust-overlay = { url = "github:oxalica/rust-overlay"; };
-      emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.flake-utils.follows = "utils"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
+      rust-overlay = { url = "github:oxalica/rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
+      emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; inputs.flake-compat.follows = "flake-compat"; };
     };
 
-  outputs =
-    inputs@{ deploy
-    , nixos
-    , nur
-    , self
-    , utils
-    , stable
-    , nixpkgs-hardenedlinux
-    , photoprism-flake
-    , threatbus-flake
-    , emacs-overlay
-    , vast-flake
-    , zeek-nix
-    , brim-flake
-    , tenvideo
-    , emacsNg-flake
-    , rust-overlay
-    , ...
-    }:
+  outputs = inputs: with builtins; with inputs;
     let
       lib = import ./lib { inherit self nixos utils inputs; };
     in

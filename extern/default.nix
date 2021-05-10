@@ -19,7 +19,6 @@
       deploy-rs = deploy.packages.${prev.system}.deploy-rs;
     })
     pkgs.overlay
-
     #User custom pkgs
     tenvideo.overlay
     zeek-nix.overlay
