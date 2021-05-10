@@ -5,6 +5,7 @@
     nodePackages.create-react-app
     nodePackages.mathjax
     nodePackages.mathjax-node-cli
+    nodePackages.prettier
     nodePackages.javascript-typescript-langserver
     nodejs
     yarn

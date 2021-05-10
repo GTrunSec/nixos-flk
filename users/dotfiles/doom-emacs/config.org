@@ -1224,8 +1224,12 @@ FACE defaults to inheriting from default and highlight."
                  ))
     (add-hook hook 'format-all-mode))
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
+  (setq format-all-default-formatters (cons '("Haskell" ormolu) format-all-default-formatters))
   )
 #+end_src
+
+#+RESULTS:
+: t
 
 ** Bookmark
 
@@ -2587,6 +2591,14 @@ a separator ' -> '."
   (add-hook 'haskell-literate-mode-hook #'lsp)
 )
 #+end_src
+
+** Lsp Mode
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! lsp-mode)
+#+end_src
+
+#+RESULTS:
+: t
 
 ** Ccls
 

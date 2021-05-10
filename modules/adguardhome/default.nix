@@ -15,7 +15,12 @@ let
 in
 {
   options.services.adguardhome = {
-    enable = mkEnableOption "adguardhome";
+    enable = mkOption {
+      description = "Whether to enable adguardhome.";
+      default = false;
+      type = types.bool;
+    };
+
     home = mkOption {
       type = types.str;
       default = "/var/lib/adguardhome";

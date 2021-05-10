@@ -8,7 +8,7 @@
 
   services.photoprism = {
     enable = true;
-    port = "2344";
-    http_host = "10.220.170.112";
+    port = 2344;
+    host = "10.220.170.112";
   };
 }

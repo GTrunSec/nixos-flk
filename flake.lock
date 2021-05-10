@@ -555,11 +555,11 @@
         "ranz2nix": "ranz2nix"
       },
       "locked": {
-        "lastModified": 1617684656,
-        "narHash": "sha256-IRJJLk/K1i36XJIXXW5Fwf9Mu0oiW3rfmLD6QNrkDdQ=",
+        "lastModified": 1620372382,
+        "narHash": "sha256-uR35IPNRn1Qt1boOZoftpUfyhjI7JYiVGr0HAv8Vquw=",
         "owner": "GTrunSec",
         "repo": "photoprism-flake",
-        "rev": "ffa5c4c536a3a2b9def802dc3fb037f941e887a5",
+        "rev": "a9d768e890060c99917e909800997e098c78c123",
         "type": "github"
       },
       "original": {
