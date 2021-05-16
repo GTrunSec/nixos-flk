@@ -1075,6 +1075,21 @@ In that case, insert the number."
 
 #+end_src
 
+** Ordless
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! orderless)
+#+end_src
+
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! orderless
+  :config
+  (setq completion-styles '(orderless)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+#+end_src
 
 ** Edition
 
@@ -1537,7 +1552,7 @@ FACE defaults to inheriting from default and highlight."
     ("g" org-starter-find-file:gtd)
     ("s" org-starter-find-file:life_goods)
     ("n" org-starter-find-file:notes)
-    ("f" org-starter-find-file:feed)
+    ("f" org-starter-find-file:guangtao_feed)
     ("m" org-starter-find-file:myself)
     ("l" org-starter-find-file:love)
     ("h" org-starter-find-file:Habit)
