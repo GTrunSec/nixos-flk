@@ -19,7 +19,7 @@ HTML them READ org
 
 - [Source Code] [[https://github.com/GTrunSec/my-profile/tree/master/dotfiles/doom-emacs][my-profile/dotfiles/doom-emacs at master · GTrunSec/my-profile]]
 
-  
+
 
 * Emacs
 :PROPERTIES:
@@ -216,6 +216,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
+       everywhere
        ;;calendar
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
@@ -870,34 +871,15 @@ appropriate.  In tables, insert a new row or end the table."
 #+RESULTS:
 : t
 
-* Completion
-
-** Ivy/counsel
+** Auto Save
 
 #+begin_src emacs-lisp :tangle "config.el"
-  (use-package! counsel
-    :hook
-    (after-init . ivy-mode)
-    (counsel-grep-post-action . better-jumper-set-jump)
-    :diminish ivy-mode
-    :config
-    (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
-          counsel-describe-function-function #'helpful-callable
-          ncounsel-describe-variable-function #'helpful-variable
-          ;; Add smart-casing (-S) to default command arguments:
-          counsel-rg-base-command "rg -S --no-heading --line-number --color never %s ."
-          counsel-ag-base-command "ag -S --nocolor --nogroup %s"
-          counsel-pt-base-command "pt -S --nocolor --nogroup -e %s"
-          counsel-find-file-at-point t)
-       )
-
-     (use-package! ivy-rich
-       :config
-       (ivy-rich-mode 1)
-       (setq ivy-format-function #'ivy-format-function-line))
-     ;;[[https://github.com/gilbertw1/better-jumper][gilbertw1/better-jumper: A configurable jump list implementation for Emacs]]
+(add-hook 'meow-switch-state-hook #'save-buffer)
+(add-hook 'before-save-hook 'font-lock-flush)
 #+end_src
 
+
+* Completion
 
 ** company
 #+begin_src emacs-lisp :tangle "config.el"
@@ -941,6 +923,33 @@ In that case, insert the number."
                         (self-insert-command 1)))
   (define-key map (kbd "<return>") nil)))
 #+end_src
+
+** Ivy/counsel
+
+#+begin_src emacs-lisp :tangle "config.el"
+  (use-package! counsel
+    :hook
+    (after-init . ivy-mode)
+    (counsel-grep-post-action . better-jumper-set-jump)
+    :diminish ivy-mode
+    :config
+    (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
+          counsel-describe-function-function #'helpful-callable
+          ncounsel-describe-variable-function #'helpful-variable
+          ;; Add smart-casing (-S) to default command arguments:
+          counsel-rg-base-command "rg -S --no-heading --line-number --color never %s ."
+          counsel-ag-base-command "ag -S --nocolor --nogroup %s"
+          counsel-pt-base-command "pt -S --nocolor --nogroup -e %s"
+          counsel-find-file-at-point t)
+       )
+
+     (use-package! ivy-rich
+       :config
+       (ivy-rich-mode 1)
+       (setq ivy-format-function #'ivy-format-function-line))
+     ;;[[https://github.com/gilbertw1/better-jumper][gilbertw1/better-jumper: A configurable jump list implementation for Emacs]]
+#+end_src
+
 
 ** selectrum
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -1522,7 +1531,7 @@ FACE defaults to inheriting from default and highlight."
     ("security/" :agenda t)
     ("financial/" :agenda t)
     ("network/" :agenda t)
-    ("data-science/" :agenda t)        
+    ("data-science/" :agenda t)
     )
   (org-starter-def "~/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/"
     :files
@@ -2923,7 +2932,7 @@ Used in :switch-buffer-functions slot."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; 
+;;
 (use-package! separedit
   :config
   (define-key prog-mode-map        (kbd "C-x '") #'separedit)
@@ -3623,4 +3632,3 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
   - Zettelkasten
 
   - [[https://github.com/walseb/QualityEmacsConfig][walseb/QualityEmacsConfig]]
-
