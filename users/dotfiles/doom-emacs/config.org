@@ -3345,6 +3345,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (unpin! nix-mode)
 (unpin! org-journal)
 (unpin! lsp-mode)
+(unpin! ox-hugo)
 #+end_src
 * misc
 

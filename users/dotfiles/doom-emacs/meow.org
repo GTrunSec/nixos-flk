@@ -160,7 +160,7 @@
 : magit-status
 * Normal State Mode List
 #+begin_src emacs-lisp :tangle "meow.el"
-(add-hook! 'zeek-mode-hook 'meow-normal-mode)
+(add-to-list 'meow-mode-state-list '(zeek-mode . normal))
 #+end_src
 
 * remap global keys
