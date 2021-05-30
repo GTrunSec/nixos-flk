@@ -13,7 +13,7 @@
     kvmgt.enable = true;
   };
   #virtualisation.vmware.host.enable = true;
-  users.extraUsers.myuser.extraGroups = [ "vboxusers" ];
+  users.extraUsers.gtrun.extraGroups = [ "vboxusers" ];
   # you'll need to add your user to 'libvirtd' group to use virt-manager
   boot.kernelModules = [ "kvm-intel" ];
 

@@ -1,5 +1,5 @@
 final: prev:
-let packages = prev.callPackage ./plugins.nix { };
+let packages = prev.callPackage ../pkgs/my-node-packages/plugins.nix { };
 in
 {
   nodePackages = prev.nodePackages // packages // {

@@ -1,8 +1,15 @@
 { config, lib, pkgs, ... }:
-let
-  password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.server.nextcloud;
-in
 {
+  age.secrets.nextcloud-admin = {
+    owner = "nextcloud";
+    file = ../../secrets/nextcloud-admin.age;
+  };
+
+  age.secrets.nextcloud-db = {
+    owner = "nextcloud";
+    file = ../../secrets/nextcloud-db.age;
+  };
+
   networking.firewall = {
     allowedTCPPorts = [ 80 ];
     allowedUDPPorts = [ 80 ];
@@ -12,18 +19,6 @@ in
     nextcloud-client
   ];
 
-
-  environment.etc."nextcloud/nextcloud-db-pass" = {
-    text = password;
-    user = "nextcloud";
-    group = "nextcloud";
-  };
-
-  environment.etc."nextcloud/nextcloud-admin-pass" = {
-    text = password;
-    user = "nextcloud";
-    group = "nextcloud";
-  };
 
   services.nextcloud = {
     enable = true;
@@ -42,9 +37,9 @@ in
       # nextcloud will add /.s.PGSQL.5432 by itself
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
-      dbpassFile = "/etc/nextcloud/nextcloud-db-pass";
+      dbpassFile = config.age.secrets.nextcloud-db.path;
 
-      adminpassFile = "/etc/nextcloud/nextcloud-admin-pass";
+      adminpassFile = config.age.secrets.nextcloud-admin.path;
       adminuser = "admin";
     };
   };

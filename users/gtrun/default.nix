@@ -9,10 +9,15 @@
     allowedUDPPorts = [ 8888 8889 ];
   };
 
+  age.secrets.gtrun-password = {
+    owner = "gtrun";
+    file = ../../secrets/gtrun-user.age;
+  };
+
   users.users.gtrun = {
     home = "/home/gtrun";
-    password = (builtins.fromJSON (builtins.readFile ../../secrets/password.json)).user.gtrun.normal;
-    isNormalUser = true;
+    passwordFile = config.age.secrets.gtrun-password.path;
+    isSystemUser = true;
     extraGroups = [
       "wheel"
       "audio"

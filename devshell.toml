@@ -1,0 +1,5 @@
+[devshell]
+packages = [
+  "haskellPackages.nvfetcher",
+  "agenix"
+]

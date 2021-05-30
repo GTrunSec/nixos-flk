@@ -1,4 +1,4 @@
-{ pkgs, srcs, ... }:
+{ pkgs, ... }:
 let
   inherit (builtins) concatStringsSep;
   inherit (pkgs) fetchFromGitHub stdenv gnugrep;

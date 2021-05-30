@@ -8,7 +8,8 @@
 
   services.adguardhome = {
     enable = true;
-    listenAddress = "10.220.170.112";
+    host = "10.220.170.112";
+    port = 9002;
   };
 
   environment.systemPackages = with pkgs; [
