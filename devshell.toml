@@ -1,5 +1,5 @@
-[devshell]
-packages = [
-  "haskellPackages.nvfetcher",
-  "agenix"
-]
+[[commands]]
+name = "ae"
+category = "secrets"
+command = "agenix -e $@"
+help = "agenix edit file"

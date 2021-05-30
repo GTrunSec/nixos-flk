@@ -127,11 +127,11 @@
     },
     "devshell": {
       "locked": {
-        "lastModified": 1622280192,
-        "narHash": "sha256-PUKxjvyNkCQ2mJ9KdoEla46lvasBQwxHGtNi2i57tFk=",
+        "lastModified": 1618523768,
+        "narHash": "sha256-Gev9da35pHUey3kGz/zrJFc/9ICs++vPCho7qB1mqd8=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "4ad45f317e2b1b84175c96c1f71cf6332545aa7f",
+        "rev": "709fe4d04a9101c9d224ad83f73416dce71baf21",
         "type": "github"
       },
       "original": {
@@ -170,25 +170,10 @@
         "type": "github"
       }
     },
-    "devshell_2": {
-      "locked": {
-        "lastModified": 1618523768,
-        "narHash": "sha256-Gev9da35pHUey3kGz/zrJFc/9ICs++vPCho7qB1mqd8=",
-        "owner": "numtide",
-        "repo": "devshell",
-        "rev": "709fe4d04a9101c9d224ad83f73416dce71baf21",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "devshell",
-        "type": "github"
-      }
-    },
     "digga": {
       "inputs": {
         "deploy": "deploy",
-        "devshell": "devshell_2",
+        "devshell": "devshell",
         "nixlib": "nixlib",
         "nixpkgs": "nixpkgs_3",
         "utils": "utils_2"
@@ -954,7 +939,6 @@
         "brim-flake": "brim-flake",
         "ci-agent": "ci-agent",
         "darwin": "darwin",
-        "devshell": "devshell",
         "digga": "digga",
         "emacs-overlay": "emacs-overlay",
         "emacsNg-flake": "emacsNg-flake",

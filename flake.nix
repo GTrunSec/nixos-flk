@@ -12,7 +12,6 @@
         url = "github:hercules-ci/hercules-ci-agent";
         inputs = { nix-darwin.follows = "darwin"; nixos-20_09.follows = "nixos"; nixos-unstable.follows = "latest"; };
       };
-      devshell.url = "github:numtide/devshell";
       darwin = {
         url = "github:LnL7/nix-darwin";
         inputs.nixpkgs.follows = "latest";
@@ -84,15 +83,21 @@
         nvfetcher-flake.overlay
       ];
 
-      devshell.externalModules = { pkgs, ... }: {
-        packages = with pkgs; [
-          agenix
-          (haskellPackages.ghcWithPackages
-            (p: with p;  [
-              nvfetcher
-            ]))
-        ];
+
+      devshell = {
+        #modules = [ ./devshell.toml ];
+        externalModules = { pkgs, ... }: {
+          packages = with pkgs;
+            [
+              agenix
+              (haskellPackages.ghcWithPackages
+                (p: with p;  [
+                  nvfetcher
+                ]))
+            ];
+        };
       };
+
 
       nixos = {
         hostDefaults = {
@@ -121,8 +126,7 @@
           /* set host specific properties here */
           NixOS = { };
         };
-        # profiles = [ ./profiles ./users ];
-        # suites = { profiles, users, ... }: with profiles; rec {
+
         importables = rec {
           profiles = digga.lib.importers.rakeLeaves ./profiles // {
             users = digga.lib.importers.rakeLeaves ./users;
@@ -146,6 +150,8 @@
           };
         };
       };
+
+
       home = {
         modules = ./users/modules/module-list.nix;
         externalModules = [ ];
@@ -170,9 +176,12 @@
           };
         };
       };
-      homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
+      homeConfigurations = digga.lib.mkHomeConfigurations
+        self.nixosConfigurations;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
+      deploy.nodes = digga.lib.mkDeployNodes
+        self.nixosConfigurations
+        { };
 
       defaultTemplate = self.templates.flk;
       templates.flk.path = ./.;
