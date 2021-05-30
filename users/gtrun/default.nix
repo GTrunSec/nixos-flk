@@ -4,20 +4,16 @@
     imports = suites.base;
   };
 
+
   networking.firewall = {
     allowedTCPPorts = [ 8888 8889 ];
     allowedUDPPorts = [ 8888 8889 ];
   };
 
-  age.secrets.gtrun-password = {
-    owner = "gtrun";
-    file = ../../secrets/gtrun-user.age;
-  };
-
   users.users.gtrun = {
     home = "/home/gtrun";
-    passwordFile = config.age.secrets.gtrun-password.path;
-    isSystemUser = true;
+    password = "nixos";
+    isNormalUser = true;
     extraGroups = [
       "wheel"
       "audio"

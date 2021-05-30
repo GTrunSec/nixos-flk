@@ -27,7 +27,6 @@ in
             "z"
             "docker"
             "git-flow"
-            "tmux"
             "history-substring-search"
             "python"
           ];

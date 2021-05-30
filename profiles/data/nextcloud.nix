@@ -1,15 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  age.secrets.nextcloud-admin = {
-    owner = "nextcloud";
-    file = ../../secrets/nextcloud-admin.age;
-  };
-
-  age.secrets.nextcloud-db = {
-    owner = "nextcloud";
-    file = ../../secrets/nextcloud-db.age;
-  };
-
   networking.firewall = {
     allowedTCPPorts = [ 80 ];
     allowedUDPPorts = [ 80 ];
@@ -37,9 +27,9 @@
       # nextcloud will add /.s.PGSQL.5432 by itself
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
-      dbpassFile = config.age.secrets.nextcloud-db.path;
 
-      adminpassFile = config.age.secrets.nextcloud-admin.path;
+      #adminpassFile = "nextcloud@admin";
+      adminpass = "nextcloud@admin";
       adminuser = "admin";
     };
   };

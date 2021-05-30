@@ -25,7 +25,8 @@
 
       nur.url = github:nix-community/NUR;
 
-      agenix-flake.url = "github:ryantm/agenix";
+      sops-nix.url = github:Mic92/sops-nix;
+
 
       nvfetcher-flake = {
         url = "github:berberman/nvfetcher";
@@ -59,7 +60,6 @@
           overlays = [
             ./pkgs/default.nix
             nur.overlay
-            agenix-flake.overlay
             nvfetcher-flake.overlay
             tenvideo.overlay
             zeek-nix.overlay
@@ -67,6 +67,7 @@
             emacsNg-flake.overlay
             rust-overlay.overlay
             brim-flake.overlay
+            sops-nix.overlay
           ];
         };
         latest = { };
@@ -89,12 +90,24 @@
         externalModules = { pkgs, ... }: {
           packages = with pkgs;
             [
-              agenix
               (haskellPackages.ghcWithPackages
                 (p: with p;  [
                   nvfetcher
                 ]))
+              sops
+              sops-init-gpg-key
             ];
+
+          commands = with pkgs; [
+            {
+              name = "sops-edit";
+              category = "secrets";
+              command = ''
+                nix-shell --command "sops $@"
+              '';
+              help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix";
+            }
+          ];
         };
       };
 
@@ -109,8 +122,7 @@
             ci-agent.nixosModules.agent-profile
             home.nixosModules.home-manager
             ./modules/customBuilds.nix
-            agenix-flake.nixosModules.age
-
+            sops-nix.nixosModules.sops
 
             #User's custom modules
             photoprism-flake.nixosModules.photoprism
