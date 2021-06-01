@@ -161,11 +161,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1622507624,
-        "narHash": "sha256-Xg/PU4tgHLrRE8aT9aqdPKchY/Hw9SmNtbSeW7GoWGc=",
+        "lastModified": 1622509311,
+        "narHash": "sha256-uwQgBr9gj0WYJewj8rY8dcQV4nvmOude9BDcLK7Is0Q=",
         "owner": "divnix",
         "repo": "digga",
-        "rev": "5862c771c031522a7c8a83e3654d16e06e45ae9c",
+        "rev": "2a09fd26af3f765f8786bcadcc9f18b473e9a710",
         "type": "github"
       },
       "original": {
@@ -834,11 +834,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622465276,
-        "narHash": "sha256-ZB3884iMmLmiXaQt6K9Sk5nlX6wgxUp8JSfH2tyPdT4=",
+        "lastModified": 1622514611,
+        "narHash": "sha256-mxgCwQ+ZduWWzGk9x1tkWQB+F1Zcby6rnLClKV4ewAI=",
         "owner": "berberman",
         "repo": "nvfetcher",
-        "rev": "fc1a01c80f128fd76c7e3967eea735a4cd8ef878",
+        "rev": "dc8c186e9ac97ab914d9e296961f4bf474f7d8a5",
         "type": "github"
       },
       "original": {

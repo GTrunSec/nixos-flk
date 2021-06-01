@@ -4,15 +4,11 @@ with prev;
   # AppImages
   nteract = callPackage ./appimage/nteract.nix { };
   magnetw = callPackage ./appimage/magnetw.nix { };
-  onepassword = callPackage ./appimage/1password.nix { };
-  nuclear = callPackage ./appimage/nuclear.nix { };
-  ytmdesktop = callPackage ./appimage/ytmdesktop.nix { };
   motrix = callPackage ./appimage/Motrix.nix { };
-  outline-client = callPackage ./appimage/outline-client.nix { };
-
+  chord = callPackage ./appimage/chord.nix { };
 
   notdeft = callPackage ./notdeft { };
-  chord = callPackage ./appimage/chord.nix { };
+
 
   #go packages
   horcrux = callPackage ./go/horcrux { };

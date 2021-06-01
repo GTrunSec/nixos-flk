@@ -1,5 +1,18 @@
 # nvfetcher.toml
 [logseq]
 src.github = "logseq/logseq"
-# $ver can be used in fetch.url
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
+
+
+[chord]
+src.manual = "0.2.38"
+fetch.url = "https://github.com/PeterDing/chord/releases/download/v$ver/chord-$ver-linux-x86_64.AppImage"
+
+
+[magnetw]
+src.github = "xiandanin/magnetW"
+fetch.url = "https://github.com/xiandanin/magnetW/releases/download/$ver/magnetw-$ver-linux.AppImage"
+
+[motrix]
+src.github = "agalwood/Motrix"
+fetch.url = "https://github.com/agalwood/Motrix/releases/download/$ver/Motrix-1.6.11.AppImage"

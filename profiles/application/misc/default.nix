@@ -12,12 +12,11 @@
     aria2
     motrix
     #VPN
-    outline-client
     shadowsocks-libev
     # manager password
     gopass
-    enpass
-    onepassword
+    _1password-gui
+    _1password
     #media
     vlc
     #plex-media-player
@@ -36,7 +35,7 @@
     # TMSU lets you tags your files and then access them through a nifty virtual filesystem from any other application.
     tmsu
     nuclear
-    ytmdesktop
+    #ytmdesktop
     gitAndTools.delta
     ##
     sshfs
