@@ -3,3 +3,11 @@ name = "ae"
 category = "secrets"
 command = "agenix -e $@"
 help = "agenix edit file"
+
+[[commands]]
+name = "sops-edit"
+category = "secrets"
+command = '''
+        nix-shell --command "sops $@"
+        '''
+help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix"

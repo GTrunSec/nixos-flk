@@ -91,10 +91,12 @@
 
 
       devshell = {
-        #modules = [ ./devshell.toml ];
+        modules = [ ./devshell.toml ];
         externalModules = { pkgs, ... }: {
           packages = with pkgs;
             [
+              nvchecker
+              nix-prefetch-git
               (haskellPackages.ghcWithPackages
                 (p: with p;  [
                   nvfetcher
@@ -102,17 +104,6 @@
               sops
               sops-init-gpg-key
             ];
-
-          commands = with pkgs; [
-            {
-              name = "sops-edit";
-              category = "secrets";
-              command = ''
-                nix-shell --command "sops $@"
-              '';
-              help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix";
-            }
-          ];
         };
       };
 

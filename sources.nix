@@ -6,7 +6,8 @@
     version = "0.1.2";
     src = fetchurl {
       sha256 = "0gfbzdqbqgpi5h16hmysd9w7gawrhzig1575g3gdnf1l1qglpgq2";
-      url = "https://github.com/logseq/logseq/releases/download/0.1.2/logseq-linux-x64-0.1.2.AppImage";
+      url = ""https://github.com/logseq/logseq/releases/download/0.1.2/logseq-linux-x64-0.1.2.AppImage"";
     };
+    
   };
 }
