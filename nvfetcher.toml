@@ -1,0 +1,5 @@
+# nvfetcher.toml
+[logseq]
+src.github = "logseq/logseq"
+# $ver can be used in fetch.url
+fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"

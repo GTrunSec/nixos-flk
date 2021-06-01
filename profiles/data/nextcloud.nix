@@ -9,6 +9,15 @@
     nextcloud-client
   ];
 
+  environment.etc."nextcloud/nextcloud-admin" = {
+    source = config.sops.secrets.nextcloud-admin.path;
+    mode = "0644";
+  };
+
+  sops.secrets.nextcloud-admin = {
+    owner = "nextcloud";
+    group = "nextcloud";
+  };
 
   services.nextcloud = {
     enable = true;
@@ -28,8 +37,8 @@
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
 
-      #adminpassFile = "nextcloud@admin";
-      adminpass = "nextcloud@admin";
+      adminpassFile = "/etc/nextcloud/nextcloud-admin";
+      #adminpass = "nextcloud@admin";
       adminuser = "admin";
     };
   };

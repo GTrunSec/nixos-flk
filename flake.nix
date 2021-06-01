@@ -76,11 +76,16 @@
       lib = import ./lib { lib = digga.lib // nixos.lib; };
 
       sharedOverlays = [
-        (final: prev: {
-          lib = prev.lib.extend (lfinal: lprev: {
-            our = self.lib;
-          });
-        })
+        (final: prev:
+          let
+            sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
+          in
+          {
+            inherit sources;
+            lib = prev.lib.extend (lfinal: lprev: {
+              our = self.lib;
+            });
+          })
         nvfetcher-flake.overlay
       ];
 

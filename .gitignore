@@ -2,7 +2,7 @@ result
 up
 hosts/up-*
 .direnv
-
+.shake
 doc/index.html
 
 

@@ -1,5 +1,7 @@
 { config, ... }:
 # recommend using `hashedPassword`
 {
-  users.users.root = { };
+  users.users.root = {
+    password = "";
+  };
 }
