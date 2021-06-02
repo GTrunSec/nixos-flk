@@ -12,7 +12,10 @@
 
       #https://github.com/gpakosz/.tmux/issues/53
       set -gu prefix2
+
       unbind C-a
+
+      set -g @resurrect-capture-pane-contents "on"
 
       set -g mouse on
       bind P paste-buffer

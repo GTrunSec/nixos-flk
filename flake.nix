@@ -34,6 +34,7 @@
       };
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
+      nixpkgs-hardenedlinx = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; inputs.nixpkgs.follows = "nixos"; inputs.digga.follows = "digga"; inputs.nvfetcher-flake.follows = "nvfetcher-flake"; };
       photoprism-flake = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
       vast-flake = { url = "github:GTrunSec/vast/nix-flake"; };
