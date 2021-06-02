@@ -1,15 +1,11 @@
 { lib
 , python3Packages
 , fetchurl
+, sources
 }:
 with python3Packages;
 python3Packages.buildPythonPackage rec {
-  pname = "HPI";
-  version = "0.3.20210220";
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "96ee36d9d217330243ed0da436a97eb553a410df36d174417e8ff338e9802e44";
-  };
+  inherit (sources.HPI) pname version src;
 
   propagatedBuildInputs = with python3Packages; [
     pandas

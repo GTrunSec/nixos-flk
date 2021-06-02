@@ -26,3 +26,21 @@ src.prefix = "v"
 [adguardhome]
 src.github = "AdguardTeam/AdGuardHome"
 fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/AdGuardHome_linux_amd64.tar.gz"
+
+
+[notdeft]
+src.git = "https://github.com/hasu/notdeft"
+fetch.github = "hasu/notdeft"
+
+[promnesia]
+src.git = "https://github.com/karlicoss/promnesia"
+fetch.github = "karlicoss/promnesia"
+
+
+[HPI]
+src.pypi = "HPI"
+fetch.pypi = "HPI"
+
+[orgparse]
+src.pypi = "orgparse"
+fetch.pypi = "orgparse"

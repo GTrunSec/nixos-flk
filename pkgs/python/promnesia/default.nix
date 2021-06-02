@@ -2,13 +2,12 @@
 , python3Packages
 , python3
 , fetchFromGitHub
-, callPackage
+, orgparse
+, hpi
+, sources
 }:
 with python3.pkgs;
 let
-  orgparse = python3Packages.callPackage ../orgparse { inherit python3Packages; };
-  hpi = python3Packages.callPackage ../HPI { inherit python3Packages; };
-
   mistletoe = python3Packages.buildPythonPackage rec {
     pname = "mistletoe";
     version = "0.7.2";
@@ -69,15 +68,7 @@ let
 
 in
 python3Packages.buildPythonPackage rec {
-  pname = "promnesia";
-  version = "2021-04-01";
-
-  src = fetchFromGitHub {
-    owner = "karlicoss";
-    repo = "promnesia";
-    rev = "137c3d2e685c08a4ead3c2602d7f6cdaf877ed1f";
-    sha256 = "109w209r42x1wqxpjdhp9snrsrgr5ypa7gx48fz7i4kkvlxy78mm";
-  };
+  inherit (sources.promnesia) pname version src;
 
   makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
@@ -102,4 +93,8 @@ python3Packages.buildPythonPackage rec {
     mistletoe
   ];
 
+  postPatch = ''
+    substituteInPlace setup.py \
+        --replace "idna<3" "idna"
+  '';
 }

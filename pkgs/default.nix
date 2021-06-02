@@ -7,7 +7,7 @@ with prev;
   motrix = callPackage ./appimage/Motrix.nix { };
   chord = callPackage ./appimage/chord.nix { };
 
-  notdeft = callPackage ./notdeft { };
+  notdeft = callPackage ./packages/notdeft { };
 
 
   #go packages
@@ -16,9 +16,9 @@ with prev;
   got = callPackage ./go/got { };
 
   #python
-  promnesia = callPackage ./python/promnesia { };
-  orgparse = callPackage ./python/orgparse { };
-  hpi = callPackage ./python/HPI { };
+  promnesia = pythonPackages.callPackage ./python/promnesia { orgparse = final.orgparse; hpi = final.hpi; };
+  orgparse = pythonPackages.callPackage ./python/orgparse { };
+  hpi = pythonPackages.callPackage ./python/HPI { };
   #rust
   sudo-pair = callPackage ./rust/sudo_pair { };
 }

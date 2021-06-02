@@ -41,6 +41,7 @@ in
         fdupes
         asciinema
         bat
+        notdeft
         #vips
         nixpkgs-review
         #for emacs notdeft

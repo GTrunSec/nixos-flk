@@ -1,17 +1,15 @@
-{ srcs, stdenv, lib, fetchgit, xapian, emacs, tclap, pkg-config }:
-let inherit (srcs) notdeft; in
+{ sources
+, stdenv
+, lib
+, fetchgit
+, xapian
+, emacs
+, tclap
+, pkg-config
+}:
 stdenv.mkDerivation rec {
-  inherit (notdeft) version;
 
-  src = notdeft;
-
-  name = "notdeft";
-  # src = fetchgit {
-  #   url = "https://github.com/hasu/notdeft";
-  #   rev = "7c0125074332df9eb75b0b82cf57a4f8698ffc7a";
-  #   sha256 = "sha256-pTcyKI66t0/N6wH7JmOa8ulXOQ9ipOCTL6wwVRj/G/0=";
-  # };
-
+  inherit (sources.notdeft) pname src version;
 
   nativeBuildInputs = [ xapian emacs tclap pkg-config ];
 
