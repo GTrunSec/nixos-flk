@@ -15,4 +15,14 @@ fetch.url = "https://github.com/xiandanin/magnetW/releases/download/$ver/magnetw
 
 [motrix]
 src.github = "agalwood/Motrix"
-fetch.url = "https://github.com/agalwood/Motrix/releases/download/$ver/Motrix-1.6.11.AppImage"
+fetch.url = "https://github.com/agalwood/Motrix/releases/download/v$ver/Motrix-$ver.AppImage"
+src.prefix = "v"
+
+[polar-bookshelf]
+src.github = "burtonator/polar-bookshelf"
+fetch.url = "https://github.com/burtonator/polar-bookshelf/releases/download/v$ver/polar-desktop-app-$ver-amd64.deb"
+src.prefix = "v"
+
+[adguardhome]
+src.github = "AdguardTeam/AdGuardHome"
+fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/AdGuardHome_linux_amd64.tar.gz"

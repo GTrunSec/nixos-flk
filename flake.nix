@@ -96,7 +96,6 @@
           packages = with pkgs;
             [
               nvchecker
-              nix-prefetch-git
               (haskellPackages.ghcWithPackages
                 (p: with p;  [
                   nvfetcher

@@ -2031,7 +2031,6 @@ make
 
 easy way to display org-ref with tree view instead of org-mode ?
 
-
 *** org-roam
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
@@ -2092,18 +2091,6 @@ easy way to display org-ref with tree view instead of org-mode ?
 ;;               ("C-c n a" . orb-note-actions)
 ;;               )
 ;;   )
-#+end_src
-*** org-nroam
-
-#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! nroam :recipe (:host github :repo "NicolasPetton/nroam"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! nroam
-  :after org-roam
-  :config
-  (add-hook 'org-mode-hook #'nroam-setup-maybe))
 #+end_src
 
 
