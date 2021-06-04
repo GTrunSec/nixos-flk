@@ -1,9 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+
   users.nix.configureBuildUsers = true;
   services.nix-daemon.enable = true;
-
 
   # system.build.applications = pkgs.lib.mkForce (pkgs.buildEnv {
   #   name = "applications";
@@ -29,11 +29,13 @@
     package = pkgs.nixFlakes;
     registry.nixpkgs.flake = inputs.nixpkgs;
     readOnlyStore = true;
+
     extraOptions = ''
       experimental-features = nix-command flakes ca-references
       keep-derivations = true
       keep-outputs = true
     '';
+
     gc = {
       # Automatically run the Nix garbage collector.
       automatic = false;

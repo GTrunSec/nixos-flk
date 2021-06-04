@@ -1,0 +1,102 @@
+{
+  description = "Darwin OS - A highly awesome system configuration";
+
+  inputs = {
+    nixpkgs.url = "nixpkgs/86da493497869fe33d3a7eb513b4e9918abdbc9e";
+    latest.url = "github:nixos/nixpkgs/nixos-unstable";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
+
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    digga.url = "github:divnix/digga/develop";
+  };
+
+
+  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home-manager, digga }:
+    let
+      inherit (nixpkgs) lib;
+    in
+    utils.lib.systemFlake {
+
+      # `self` and `inputs` arguments are REQUIRED!!!!!!!!!!!!!!
+      inherit self inputs;
+
+      # Shared overlays between channels, gets applied to all `channels.<name>.input`
+      sharedOverlays =
+        [
+          # Overlay imported from `./overlays`. (Defined above)
+          self.overlay
+          (final: prev:
+            let
+              sources = (import ../../sources.nix) { inherit (final) fetchurl fetchgit; };
+            in
+            {
+              inherit sources;
+            })
+          (import ../../overlays/my-node-packages.nix)
+        ];
+
+      # Channel definitions. `channels.<name>.{input,overlaysBuilder,config,patches}`
+      channels.nixpkgs = {
+        input = nixpkgs;
+      };
+
+      channels.latest = {
+        input = latest;
+      };
+
+      # Default configuration values for `channels.<name>.config = {...}`
+      channelsConfig = {
+        allowUnsupportedSystem = true;
+        allowUnfree = true;
+      };
+
+      # Channel specific overlays
+      channels.nixpkgs.overlaysBuilder = channels: [
+        (final: prev: {
+          # Overwrites specified packages to be used from unstable channel.
+          inherit (channels.latest) alacritty;
+        })
+      ];
+
+
+      # Shared modules/configurations between `hosts`
+      hostDefaults = {
+        modules = [
+          # Sets sane `nix.*` defaults. Please refer to implementation/readme for more details.
+          utils.nixosModules.saneFlakeDefaults
+          #(import rootDir + "/users/modules/darwin-module-list.nix")
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
+
+
+      hosts."MacBook" = {
+        # This host will be exported under the flake's `darwinConfigurations` output
+        output = "darwinConfigurations";
+
+        # Build host with darwinSystem. `removeAttrs` workaround due to https://github.com/LnL7/nix-darwin/issues/319
+        builder = args: nix-darwin.lib.darwinSystem (builtins.removeAttrs args [ "system" ]);
+
+        system = "x86_64-darwin";
+
+        # This host uses `channels.unstable.{input,overlaysBuilder,config,patches}` attributes instead of `channels.nixpkgs.<...>`
+        channelName = "nixpkgs";
+
+        # Host specific configuration.
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./.
+          ../../users/darwin/gtrun.nix
+        ];
+      };
+
+      overlay = import ../../pkgs;
+    };
+}

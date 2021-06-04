@@ -13,6 +13,13 @@ in
         (lib.hiPrio flake-zsh-completion)
         zoxide
       ];
+
+      programs.fzf = {
+        enable = true;
+        enableBashIntegration = true;
+        enableZshIntegration = true;
+      };
+
       programs.zsh = {
         enable = true;
         autocd = true;

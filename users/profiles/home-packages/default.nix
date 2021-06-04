@@ -34,25 +34,22 @@ in
     (mkIf (pkgs.stdenv.isLinux || pkgs.stdenv.isDarwin) {
       home.packages = with pkgs;[
         clean-nix-store
+        ls-colors
+      ] ++ [
         nodePackages.node2nix
-        system-sendmail
-        pypi2nix
+        yarn2nix
+      ] ++ [
+        #misc
         poetry
         fdupes
         asciinema
         bat
-        notdeft
-        #vips
         nixpkgs-review
-        #for emacs notdeft
-        #notdeft
-        #rnix-lsp
-        ls-colors
-        php
+        notdeft
         poppler_utils
         dnsperf
         pet
-        yarn2nix
+        php
       ] ++ [
         (hunspellWithDicts [
           hunspellDicts.en-us
@@ -73,10 +70,8 @@ in
         compton
         lsyncd-rsync
         #clj2nix
-        ## emacs-org-beautify
         ffmpegthumbnailer
         python-language-server
-        #python37Packages.voila
       ];
     })
   ];

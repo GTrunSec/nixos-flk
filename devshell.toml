@@ -1,4 +1,11 @@
 [[commands]]
+name = "darwin-MacBook"
+category = "nix-darwin"
+command = "darwin-rebuild $@ --flake .#MacBook"
+help = "darwin-MacBook rebuild"
+
+
+[[commands]]
 name = "ae"
 category = "secrets"
 command = "agenix -e $@"
