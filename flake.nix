@@ -184,7 +184,7 @@
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = with profiles; rec {
             base = [
-              default-home
+              home-services
               direnv
               git
               feh

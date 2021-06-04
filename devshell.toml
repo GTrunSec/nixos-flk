@@ -1,7 +1,12 @@
 [[commands]]
 name = "darwin-MacBook"
 category = "nix-darwin"
-command = "darwin-rebuild $@ --flake .#MacBook"
+command = '''
+        if [[ $(pwd) != "~/.config/nixpkgs/nixos-flk/hosts/MacBook" ]]; then
+        cd ~/.config/nixpkgs/nixos-flk/hosts/MacBook
+        darwin-rebuild $@ --flake .#MacBook
+        fi
+        '''
 help = "darwin-MacBook rebuild"
 
 
