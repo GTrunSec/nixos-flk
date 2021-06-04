@@ -1,8 +1,6 @@
 #+TITLE: GuangTao's Doom Emacs config
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+AUTHOR: GTrunSec
-#+SETUPFILE: ~/.config/nixpkgs/dotfiles/doom-emacs/hugo.setup
-#+SETUPFILE: ~/.config/nixpkgs/dotfiles/doom-emacs/theme-readtheorg.setup
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
 #+TAGS: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 

@@ -155,6 +155,7 @@ in
         TMUX_TMPDIR = "$HOME/.config/.";
         LANG = "en_US.UTF-8";
         export = "LC_ALL=en_US.UTF-8";
+        GNUPGHOME = "$HOME/.gnupg";
       };
       programs.zsh.initExtra = ''
         source  ~/.nix-profile/etc/profile.d/nix.sh

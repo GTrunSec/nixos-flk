@@ -8,25 +8,6 @@ in
   home.activation.linkEmacsPrivate = config.lib.dag.entryAfter [ "writeBoundary" ] ''
      if [ ! -d "$HOME/.emacs.d" ];then
         ${pkgs.git}/bin/git clone https://github.com/GTrunSec/doom-emacs.git -b my-doom ~/.emacs.d
-        if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        ## FIXME: pkgs.shell can not escaped the \'\' in macos?
-        sed -i 's|~/org|~/Documents/org-notes|' $HOME/.emacs.d/modules/lang/org/config.el
-        sed -i 's|org-roam-directory "roam"|org-roam-directory "braindump"|' $HOME/.emacs.d/modules/lang/org/contrib/roam.el
-        else
-        sed -i \'\' "s|~/org|~/Documents/org-notes|g" $HOME/.emacs.d/modules/lang/org/config.el
-        sed -i \'\' "s|org-roam-directory "roam"|org-roam-directory "braindump"|g" $HOME/.emacs.d/modules/lang/org/contrib/roam.el
-        fi
-     fi
-
-     if [ ! -f "$HOME/.emacs.d/bin/doom" ];then
-      mv $HOME/.emacs.d $HOME/.emacs.d-backup
-      ${pkgs.git}/bin/git clone https://github.com/GTrunSec/doom-emacs.git -b my-doom ~/.emacs.d
-        if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        sed -i 's|~/org|~/Documents/org-notes|' $HOME/.emacs.d/modules/lang/org/config.el
-        sed -i 's|org-roam-directory "roam"|org-roam-directory "braindump"|' $HOME/.emacs.d/modules/lang/org/contrib/roam.el
-        else
-        sed -i \'\' "s|~/org|~/Documents/org-notes|g" $HOME/.emacs.d/modules/lang/org/config.el
-        fi
      fi
 
     if [ ! -d "$HOME/.doom.d" ];then
@@ -35,11 +16,11 @@ in
     fi
 
     if [ ! -d "$HOME/.doom.d/modules" ];then
-    ln -sfT "${config.home.homeDirectory}/.config/nixpkgs/dotfiles/doom-emacs/lisp" $HOME/.doom.d/lisp
-    ln -sfT "${config.home.homeDirectory}/.config/nixpkgs/dotfiles/doom-emacs/bin" $HOME/.doom.d/bin
-    ln -sfT "${config.home.homeDirectory}/.config/nixpkgs/dotfiles/doom-emacs/snippets" $HOME/.doom.d/snippets
-    ln -sfT "${config.home.homeDirectory}/.config/nixpkgs/dotfiles/doom-emacs/modules" $HOME/.doom.d/modules
-    ln -sfT "${config.home.homeDirectory}/.config/nixpkgs/dotfiles/doom-emacs/Makefile" $HOME/.doom.d/Makefile
+    ln -sfT "$HOME/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/lisp" $HOME/.doom.d/lisp
+    ln -sfT "$HOME/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/bin" $HOME/.doom.d/bin
+    ln -sfT "$HOME/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/snippets" $HOME/.doom.d/snippets
+    ln -sfT "$HOME/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/modules" $HOME/.doom.d/modules
+    ln -sfT "$HOME/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/Makefile" $HOME/.doom.d/Makefile
     fi
 
     if [ ! -d "$HOME/.doom.d/modules/my-code" ];then
