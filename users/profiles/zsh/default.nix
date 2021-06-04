@@ -67,7 +67,7 @@ in
         };
 
         initExtraBeforeCompInit = (builtins.readFile ../../dotfiles/pre-zsh-Compinit) + ''
-          eval $(${pkgs.coreutils}/bin/dircolors -b ~/.config/nixpkgs/dotfiles/LS_COLORS)
+          eval $(${pkgs.coreutils}/bin/dircolors -b ~/.config/nixpkgs/nixos-flk/users/dotfiles/LS_COLORS)
         '';
 
         initExtra = (builtins.readFile ../../dotfiles/zshrc) +
