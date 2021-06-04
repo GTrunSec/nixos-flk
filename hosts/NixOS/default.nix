@@ -2,7 +2,7 @@
 {
   ### root password is empty by default ###
   imports = suites.graphics ++ [
-    ./hardware/NixOS-hardware-configuration.nix
+    ./NixOS-hardware-configuration.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -22,7 +22,7 @@
   # sudo cp -r ~/.gnupg /var/lib/sops
   sops.gnupgHome = "/home/gtrun/.gnupg";
   sops.sshKeyPaths = [ ];
-  sops.defaultSopsFile = ../secrets/secrets.yaml;
+  sops.defaultSopsFile = ../../secrets/secrets.yaml;
 
   i18n = {
     inputMethod = {
