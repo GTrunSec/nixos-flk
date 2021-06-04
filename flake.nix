@@ -46,7 +46,7 @@
       emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
     };
 
-  outputs = inputs: with builtins; with inputs;
+  outputs = inputs: with builtins; with inputs; with inputs.darwin;
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -159,6 +159,23 @@
         };
       };
 
+      hosts."MacBook" = {
+        # This host will be exported under the flake's `darwinConfigurations` output
+        output = "darwinConfigurations";
+
+        # Build host with darwinSystem
+        builder = darwin.lib.darwinSystem;
+
+        # This host uses `channels.unstable.{input,overlaysBuilder,config,patches}` attributes instead of `channels.nixpkgs.<...>`
+        channelName = "nixpkgs";
+
+        # Host specific configuration. Same as `sharedModules`
+        modules = [
+          (import ./hosts/MacBook)
+          ci-agent.darwinModules.agent-profile
+          home-manager.darwinModules.home-manager
+        ];
+      };
 
       home = {
         modules = ./users/modules/module-list.nix;
