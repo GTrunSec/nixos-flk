@@ -52,7 +52,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        config.allowBroken = true;
+        allowBroken = true;
       };
 
       channels = {
