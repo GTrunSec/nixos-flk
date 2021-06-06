@@ -3,7 +3,7 @@
 {
   imports = [
     ./adguardhome.nix
-    #./adblocking
+    ./adblocking
   ];
 
 

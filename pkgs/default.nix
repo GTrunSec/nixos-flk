@@ -2,13 +2,12 @@ final: prev:
 with prev;
 {
   # AppImages
-  nteract = callPackage ./appimage/nteract.nix { };
   magnetw = callPackage ./appimage/magnetw.nix { };
   motrix = callPackage ./appimage/Motrix.nix { };
   chord = callPackage ./appimage/chord.nix { };
 
   notdeft = callPackage ./packages/notdeft { };
-
+  StevenBlack-hosts = callPackage ./packages/StevenBlack-hosts { };
 
   #go packages
   horcrux = callPackage ./go/horcrux { };

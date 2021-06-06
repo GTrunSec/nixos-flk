@@ -16,7 +16,5 @@
   environment.systemPackages = with pkgs; [
     rocksdb
     sqlite
-
-    nteract
   ];
 }

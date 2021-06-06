@@ -1,4 +1,8 @@
 # nvfetcher.toml
+[StevenBlack-hosts]
+src.git = "https://github.com/StevenBlack/hosts"
+fetch.github = "StevenBlack/hosts"
+
 [logseq]
 src.github = "logseq/logseq"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"

@@ -28,6 +28,16 @@
       sops-nix.url = github:Mic92/sops-nix;
 
 
+      ######################
+      # Python Environment #
+      ######################
+      mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixos"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
+      pypi-deps-db = {
+        url = "github:DavHau/pypi-deps-db";
+        flake = false;
+      };
+
+
       nvfetcher-flake = {
         url = "github:berberman/nvfetcher";
         inputs.nixpkgs.follows = "nixos";
@@ -46,170 +56,173 @@
       emacsNg-flake = { url = "github:emacs-ng/emacs-ng"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
     };
 
-  outputs = inputs: with builtins; with inputs; with inputs.darwin;
-    digga.lib.mkFlake {
-      inherit self inputs;
+  outputs = inputs: with builtins; with inputs; with inputs.darwin; let
+    machLib = mach-nix.lib."x86_64-linux";
+  in
+  digga.lib.mkFlake {
+    inherit self inputs;
 
-      channelsConfig = {
-        allowUnfree = true;
-        allowBroken = true;
-      };
+    channelsConfig = {
+      allowUnfree = true;
+      allowBroken = true;
+      allowUnsupportedSystem = true;
+    };
 
-      channels = {
-        nixos = {
-          imports = [ (digga.lib.importers.overlays ./overlays) ];
-          overlays = [
-            ./pkgs/default.nix
-            nur.overlay
-            nvfetcher-flake.overlay
-            tenvideo.overlay
-            zeek-nix.overlay
-            emacs-overlay.overlay
-            emacsNg-flake.overlay
-            rust-overlay.overlay
-            brim-flake.overlay
-            sops-nix.overlay
-          ];
-        };
-        latest = { };
-      };
-
-      lib = import ./lib { lib = digga.lib // nixos.lib; };
-
-      sharedOverlays = [
-        (final: prev:
-          let
-            sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
-          in
-          {
-            inherit sources;
-            lib = prev.lib.extend (lfinal: lprev: {
-              our = self.lib;
-            });
-          })
-        nvfetcher-flake.overlay
-      ];
-
-
-      devshell = {
-        modules = [ ./devshell.toml ];
-        externalModules = { pkgs, ... }: {
-          packages = with pkgs;
-            [
-              nvchecker
-              (haskellPackages.ghcWithPackages
-                (p: with p;  [
-                  nvfetcher
-                ]))
-              sops
-              sops-init-gpg-key
-            ];
-        };
-      };
-
-
+    channels = {
       nixos = {
-        hostDefaults = {
-          system = "x86_64-linux";
-          channelName = "nixos";
-          modules = ./modules/module-list.nix;
-          externalModules = [
-            { _module.args.ourLib = self.lib; }
-            ci-agent.nixosModules.agent-profile
-            home.nixosModules.home-manager
-            ./modules/customBuilds.nix
-            sops-nix.nixosModules.sops
-
-            #User's custom modules
-            photoprism-flake.nixosModules.photoprism
-            vast-flake.nixosModules.vast
-            zeek-nix.nixosModules.zeek
-            threatbus-flake.nixosModules.threatbus
-            threatbus-flake.nixosModules.threatbus-vast
-          ];
-        };
-
-        imports = [ (digga.lib.importers.hosts ./hosts) ];
-        hosts = {
-          /* set host specific properties here */
-          NixOS = { };
-        };
-
-        importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./profiles // {
-            users = digga.lib.importers.rakeLeaves ./users;
-          };
-          suites = with profiles; rec {
-            base = [ core users.gtrun users.root ];
-            graphics = base ++ [
-              core-extend
-              graphical
-              code
-              application
-              data
-              virt
-              fonts
-              devices
-              network
-              search
-              ssh
-              nsm
-            ];
-          };
-        };
+        imports = [ (digga.lib.importers.overlays ./overlays) ];
+        overlays = [
+          ./pkgs/default.nix
+          nur.overlay
+          nvfetcher-flake.overlay
+          tenvideo.overlay
+          zeek-nix.overlay
+          emacs-overlay.overlay
+          emacsNg-flake.overlay
+          rust-overlay.overlay
+          brim-flake.overlay
+          sops-nix.overlay
+        ];
       };
+      latest = { };
+    };
 
-      hosts."MacBook" = {
-        # This host will be exported under the flake's `darwinConfigurations` output
-        output = "darwinConfigurations";
+    lib = import ./lib { lib = digga.lib // nixos.lib; };
 
-        # Build host with darwinSystem
-        builder = darwin.lib.darwinSystem;
+    sharedOverlays = [
+      (final: prev:
+        let
+          sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
+        in
+        {
+          inherit sources machLib;
+          lib = prev.lib.extend (lfinal: lprev: {
+            our = self.lib;
+          });
+        })
+      nvfetcher-flake.overlay
+    ];
 
-        # This host uses `channels.unstable.{input,overlaysBuilder,config,patches}` attributes instead of `channels.nixpkgs.<...>`
-        channelName = "nixpkgs";
 
-        # Host specific configuration. Same as `sharedModules`
-        modules = [
-          (import ./hosts/MacBook)
-          ci-agent.darwinModules.agent-profile
-          home-manager.darwinModules.home-manager
+    devshell = {
+      modules = [ ./devshell.toml ];
+      externalModules = { pkgs, ... }: {
+        packages = with pkgs;
+          [
+            nvchecker
+            (haskellPackages.ghcWithPackages
+              (p: with p;  [
+                nvfetcher
+              ]))
+            sops
+            sops-init-gpg-key
+          ];
+      };
+    };
+
+
+    nixos = {
+      hostDefaults = {
+        system = "x86_64-linux";
+        channelName = "nixos";
+        modules = ./modules/module-list.nix;
+        externalModules = [
+          { _module.args.ourLib = self.lib; }
+          ci-agent.nixosModules.agent-profile
+          home.nixosModules.home-manager
+          ./modules/customBuilds.nix
+          sops-nix.nixosModules.sops
+
+          #User's custom modules
+          photoprism-flake.nixosModules.photoprism
+          vast-flake.nixosModules.vast
+          zeek-nix.nixosModules.zeek
+          threatbus-flake.nixosModules.threatbus
+          threatbus-flake.nixosModules.threatbus-vast
         ];
       };
 
-      home = {
-        modules = ./users/modules/module-list.nix;
-        externalModules = [ ];
-        importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./users/profiles;
-          suites = with profiles; rec {
-            base = [
-              home-services
-              direnv
-              git
-              feh
-              zsh
-              doom-emacs
-              cursor
-              alacritty
-              tmux
-              link-home-file
-              home-packages
-              randr
-            ] ++ services;
-            services = [ lorri ];
-          };
+      imports = [ (digga.lib.importers.hosts ./hosts) ];
+      hosts = {
+        /* set host specific properties here */
+        NixOS = { };
+      };
+
+      importables = rec {
+        profiles = digga.lib.importers.rakeLeaves ./profiles // {
+          users = digga.lib.importers.rakeLeaves ./users;
+        };
+        suites = with profiles; rec {
+          base = [ core users.gtrun users.root ];
+          graphics = base ++ [
+            core-extend
+            graphical
+            code
+            application
+            data
+            virt
+            fonts
+            devices
+            network
+            search
+            ssh
+            nsm
+          ];
         };
       };
-      homeConfigurations = digga.lib.mkHomeConfigurations
-        self.nixosConfigurations;
-
-      deploy.nodes = digga.lib.mkDeployNodes
-        self.nixosConfigurations
-        { };
-
-      defaultTemplate = self.templates.flk;
-      templates.flk.path = ./.;
-      templates.flk.description = "flk template";
     };
+
+    hosts."MacBook" = {
+      # This host will be exported under the flake's `darwinConfigurations` output
+      output = "darwinConfigurations";
+
+      # Build host with darwinSystem
+      builder = darwin.lib.darwinSystem;
+
+      # This host uses `channels.unstable.{input,overlaysBuilder,config,patches}` attributes instead of `channels.nixpkgs.<...>`
+      channelName = "nixpkgs";
+
+      # Host specific configuration. Same as `sharedModules`
+      modules = [
+        (import ./hosts/MacBook)
+        ci-agent.darwinModules.agent-profile
+        home-manager.darwinModules.home-manager
+      ];
+    };
+
+    home = {
+      modules = ./users/modules/module-list.nix;
+      externalModules = [ ];
+      importables = rec {
+        profiles = digga.lib.importers.rakeLeaves ./users/profiles;
+        suites = with profiles; rec {
+          base = [
+            home-services
+            direnv
+            git
+            feh
+            zsh
+            doom-emacs
+            cursor
+            alacritty
+            tmux
+            link-home-file
+            home-packages
+            randr
+          ] ++ services;
+          services = [ lorri ];
+        };
+      };
+    };
+    homeConfigurations = digga.lib.mkHomeConfigurations
+      self.nixosConfigurations;
+
+    deploy.nodes = digga.lib.mkDeployNodes
+      self.nixosConfigurations
+      { };
+
+    defaultTemplate = self.templates.flk;
+    templates.flk.path = ./.;
+    templates.flk.description = "flk template";
+  };
 }
