@@ -8,6 +8,7 @@ with prev;
 
   notdeft = callPackage ./packages/notdeft { };
   StevenBlack-hosts = callPackage ./packages/StevenBlack-hosts { };
+  logseq = callPackage ./packages/logseq { };
 
   #go packages
   horcrux = callPackage ./go/horcrux { };
