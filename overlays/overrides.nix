@@ -12,6 +12,7 @@ channels: final: prev: {
     qutebrowser
     signal-desktop
     tmux
+    electron_13
     starship;
 
 
