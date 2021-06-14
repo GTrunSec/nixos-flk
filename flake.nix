@@ -91,11 +91,9 @@
 
     sharedOverlays = [
       (final: prev:
-        let
-          sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
-        in
         {
-          inherit sources machLib;
+          inherit machLib;
+          sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
           lib = prev.lib.extend (lfinal: lprev: {
             our = self.lib;
           });

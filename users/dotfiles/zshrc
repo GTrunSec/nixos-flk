@@ -75,6 +75,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   source /run/current-system/etc/profiles/per-user/gtrun/etc/profile.d/hm-session-vars.sh ~
 fi
 
+export EDITOR="emacsclient -nw"
+export VISUAL=$EDITOR
+
 [[ -n "$key[Up]" ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
 [[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
 # nix direnv hook
