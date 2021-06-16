@@ -43,10 +43,10 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.1.7";
+    version = "0.1.8";
     src = fetchurl {
-      sha256 = "1q0ydw80brgwsqh2s7czsxw97qyib83p4wg7vqwmffza9zcisgkk";
-      url = "https://github.com/logseq/logseq/releases/download/0.1.7/logseq-linux-x64-0.1.7.AppImage";
+      sha256 = "0q8lci72rzzc04wnfqry31zav07srw0iymjlq5mxygsq4h9bcq01";
+      url = "https://github.com/logseq/logseq/releases/download/0.1.8/logseq-linux-x64-0.1.8.AppImage";
     };
     
   };

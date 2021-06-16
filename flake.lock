@@ -310,11 +310,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622859159,
-        "narHash": "sha256-6CTqPMiT2fSM1v4FysP/TM5rdrNXpdTuhFz/uKzPi0Q=",
+        "lastModified": 1623704450,
+        "narHash": "sha256-rQUVp0yEzkuJkbqEBcGh2MceKmNBCtZjjtZ4+FxXglg=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "5233a6ca3d139f55c3b895ccd32d02f59cfd1af1",
+        "rev": "fcd2a95dd59e3f7f25697b8126adb57dedab032b",
         "type": "github"
       },
       "original": {
@@ -326,11 +326,11 @@
     "emacsNg-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1622745270,
-        "narHash": "sha256-lN0Z/8I2CzLUHIDURSF2bJuGBq1PhuQa1twysKTvDAQ=",
+        "lastModified": 1623689892,
+        "narHash": "sha256-QB1YGaIJaxowoazJD3o09q8/OnvkYOXNj/DNLLESypU=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "d40c7bddb02f6065f81fc39b6573f8e2633b8065",
+        "rev": "15933baebbeaef4bf32711e3ae8f7e71aeea0fd6",
         "type": "github"
       },
       "original": {
@@ -1343,11 +1343,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622790111,
-        "narHash": "sha256-58ugchZum5rmu2MEMAOIKnBkiBQxDbuQWvx7kX5+1mw=",
+        "lastModified": 1623767613,
+        "narHash": "sha256-dckkA2T0rxWXsVjip4nYpIY+9Ex/0CvWlGdOoR9nq2M=",
         "owner": "berberman",
         "repo": "nvfetcher",
-        "rev": "cb0dd7addccd480aaec020da50f118ad1b5f35d7",
+        "rev": "f02c9c0d4b7efa339f6f52bc5a0ea5c9ce209566",
         "type": "github"
       },
       "original": {

@@ -1,1 +1,1 @@
-_build/generated.nix
+_sources/generated.nix

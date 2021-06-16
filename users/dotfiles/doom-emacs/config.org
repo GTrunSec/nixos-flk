@@ -1,6 +1,6 @@
 #+TITLE: GuangTao's Doom Emacs config
 #+EMAIL: gtrunsec@hardenedlinux.org
-#+AUTHOR: GTrunSec
+#+AUTHOR: GuangTao
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
 #+TAGS: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 
@@ -829,7 +829,7 @@ appropriate.  In tables, insert a new row or end the table."
 ** Global Setting
 
 #+begin_src emacs-lisp :tangle "config.el"
-(setq user-full-name "GTrunSec"
+(setq user-full-name "GuangTao"
       user-mail-address "gtrunsec@hardenedlinux.org")
 ;; (setq auth-sources '("~/.authinfo.gpg")
 ;;       auth-source-cache-expiry nil) ; default is 7200 (2h)

@@ -1,5 +1,5 @@
 #+TITLE: ${1:Title}
-#+AUTHOR: GTrunSec
-#+EMAIL: gtrunsec@hardenedlinux.org
+#+AUTHOR: `user-full-name`
+#+EMAIL: `user-mail-address`
 #+DATE: `(format-time-string "%Y-%m-%d %a %H:%M")`
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t

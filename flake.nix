@@ -107,11 +107,7 @@
       externalModules = { pkgs, ... }: {
         packages = with pkgs;
           [
-            nvchecker
-            (haskellPackages.ghcWithPackages
-              (p: with p;  [
-                nvfetcher
-              ]))
+            nvfetcher-bin
             sops
             sops-init-gpg-key
           ];
