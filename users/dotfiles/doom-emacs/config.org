@@ -1,4 +1,4 @@
-#+TITLE: GuangTao's Doom Emacs config
++TITLE: GuangTao's Doom Emacs config
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+AUTHOR: GuangTao
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
@@ -269,8 +269,11 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 - native compile
 #+begin_src emacs-lisp :tangle "config.el"
 ;;(setq comp-async-jobs-number 24)
-;;(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-city-lights)
 #+end_src
+
+#+RESULTS:
+: doom-city-lights
 
 * use-package
 

@@ -93,7 +93,7 @@
       (final: prev:
         {
           inherit machLib;
-          sources = (import ./sources.nix) { inherit (final) fetchurl fetchgit; };
+          sources = (import ./pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; };
           lib = prev.lib.extend (lfinal: lprev: {
             our = self.lib;
           });
@@ -107,10 +107,16 @@
       externalModules = { pkgs, ... }: {
         packages = with pkgs;
           [
-            nvfetcher-bin
             sops
             sops-init-gpg-key
           ];
+        commands = [
+          {
+            name = pkgs.nvfetcher-bin.pname;
+            help = pkgs.nvfetcher-bin.meta.description;
+            command = "cd $DEVSHELL_ROOT/pkgs; ${pkgs.nvfetcher-bin}/bin/nvfetcher -c ./sources.toml --no-output $@";
+          }
+        ];
       };
     };
 

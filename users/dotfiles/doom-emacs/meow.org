@@ -183,10 +183,10 @@
 
 #+begin_src emacs-lisp :tangle "meow.el"
 (map! :map org-mode-map
-      "M-s l" 'org-super-links-quick-insert-inline-link
-      "M-s d" 'org-super-links-quick-insert-drawer-link
-      "M-s i" 'org-super-links-insert-link
-      "M-s s" 'org-super-links-store-link
+      "M-s M-l" 'org-super-links-quick-insert-inline-link
+      "M-s M-d" 'org-super-links-quick-insert-drawer-link
+      "M-s M-i" 'org-super-links-insert-link
+      "M-s M-s" 'org-super-links-store-link
       "C-;" 'org-super-links-store-link
       "C-," 'org-super-links-insert-link
       )
