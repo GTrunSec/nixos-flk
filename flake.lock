@@ -888,11 +888,11 @@
     },
     "latest": {
       "locked": {
-        "lastModified": 1622333988,
-        "narHash": "sha256-u5hYdirS/lmgPavXMKzvPOL0PRiP0GVqatlveEZBDHw=",
+        "lastModified": 1624058346,
+        "narHash": "sha256-cnCY5vE7A9ZZwIlQQDZcjOmpxYGKmNUdYWBl2OrHwxY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ed4857612db921da509e10e0ee65a266758a5f96",
+        "rev": "1a7a786dc1a5d0ed154c49cdd2017e2b6b7f0643",
         "type": "github"
       },
       "original": {

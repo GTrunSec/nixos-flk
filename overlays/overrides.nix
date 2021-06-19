@@ -9,7 +9,7 @@ channels: final: prev: {
     element-desktop
     manix
     nixpkgs-fmt
-    qutebrowser
+    brave
     signal-desktop
     tmux
     electron_13
