@@ -29,13 +29,7 @@
         [
           # Overlay imported from `./overlays`. (Defined above)
           self.overlay
-          (final: prev:
-            let
-              sources = (import ../../sources.nix) { inherit (final) fetchurl fetchgit; };
-            in
-            {
-              inherit sources;
-            })
+          (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
           (import ../../overlays/my-node-packages.nix)
         ];
 
