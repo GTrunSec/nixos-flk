@@ -113,7 +113,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        :tools
        ;;ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
-       ;;direnv
+       direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
@@ -142,10 +142,10 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        :lang
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
-       (cc
-          +lsp)                              ; C/C++/Obj-C madness
+       ;; (cc
+       ;;    +lsp)                              ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
-       common-lisp       ; if you've seen one lisp, you've seen them all
+       ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
@@ -158,7 +158,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ess               ; emacs speaks statistics
        ;;faust             ; dsp, but you get to keep your soul
        ;;fsharp           ; ML stands for Microsoft's Language
-       go                ; the hipster dialect
+       ;;go                ; the hipster dialect
        json
 
        haskell ; a language that's lazier than I am
@@ -527,17 +527,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   (:map isearch-mode-map
    ("M-s M-s" . isearch-toggle-color-rg))
   )
-#+end_src
-** envrc
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! envrc :recipe (:host github :repo "purcell/envrc"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! envrc
-:hook (after-init . envrc-global-mode)
-)
 #+end_src
 ** snails
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -2613,15 +2602,6 @@ a separator ' -> '."
 #+RESULTS:
 : t
 
-** Ccls
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! ccls
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'ccls) (lsp)))
-  )
-#+end_src
-
 ** Poly Mode
 
 - [[https://github.com/ShuguangSun/ess-view-data][ShuguangSun/ess-view-data: View data support for ESS]]
@@ -2773,21 +2753,6 @@ Used in :switch-buffer-functions slot."
 *** TODO [[https://github.com/emacs-elsa/Elsa][emacs-elsa/Elsa: Emacs Lisp Static Analyzer]]
 
 *** [[https://github.com/twlz0ne/elpl][twlz0ne/elpl: Provides a simple interface to evaluating Emacs Lisp expressions but without contaminating current Emacs.]]
-
-** Scheme
-
-- https://gitlab.com/jaor/geiser
-
-#+begin_src emacs-lisp :tangle "packages.el"
-;;(package! geiser)
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! geiser
-;;   :config
-;;   (setq geiser-default-implementation 'racket)
-;; )
-#+end_src
 
 ** Julia
 
