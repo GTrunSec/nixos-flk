@@ -6,7 +6,7 @@
     standalone = true;
     interface = "eno1";
     listenAddress = "localhost";
-    package = pkgs.zeek.override {
+    package = pkgs.zeek-release.override {
       KafkaPlugin = true;
       PostgresqlPlugin = true;
       Http2Plugin = true;
