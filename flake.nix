@@ -6,7 +6,11 @@
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs";
       digga.url = "github:divnix/digga/develop";
-
+      quick-nix-registry.url = "github:divnix/quick-nix-registry";
+      nix-dram = {
+        url = "github:dramforever/nix-dram";
+        inputs.nixpkgs.follows = "nixos";
+      };
 
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
@@ -80,6 +84,7 @@
           rust-overlay.overlay
           brim-flake.overlay
           sops-nix.overlay
+          nix-dram.overlay
         ];
       };
       latest = { };
@@ -130,7 +135,7 @@
           home.nixosModules.home-manager
           ./modules/customBuilds.nix
           sops-nix.nixosModules.sops
-
+          quick-nix-registry.nixosModules.local-registry
           #User's custom modules
           photoprism-flake.nixosModules.photoprism
           vast-flake.nixosModules.vast

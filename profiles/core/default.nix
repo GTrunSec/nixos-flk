@@ -112,6 +112,12 @@ in
   };
 
   nix = {
+    package = pkgs.nix-dram;
+
+    localRegistry = {
+      enable = true;
+      cacheGlobalRegistry = true;
+    };
 
     autoOptimiseStore = true;
 
@@ -126,8 +132,8 @@ in
     trustedUsers = [ "root" "@wheel" ];
 
     extraOptions = ''
-      min-free = 536870912
-      keep-outputs = true
+        min-free = 536870912
+        keep-outputs = true
       keep-derivations = true
       fallback = true
     '';
