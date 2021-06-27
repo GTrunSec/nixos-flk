@@ -9,6 +9,7 @@ let
     pymupdf
     xlib
     grip
+    black
     pyinotify
     pyqtwebengine
     markdown

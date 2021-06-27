@@ -865,7 +865,7 @@ appropriate.  In tables, insert a new row or end the table."
 ** Auto Save
 
 #+begin_src emacs-lisp :tangle "config.el"
-(add-hook 'meow-switch-state-hook #'save-buffer)
+;;(add-hook 'meow-switch-state-hook #'save-buffer)
 (add-hook 'before-save-hook 'font-lock-flush)
 #+end_src
 

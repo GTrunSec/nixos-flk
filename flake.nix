@@ -112,12 +112,13 @@
           [
             sops
             sops-init-gpg-key
+            nixpkgs-fmt
           ];
         commands = [
           {
             name = pkgs.nvfetcher-bin.pname;
             help = pkgs.nvfetcher-bin.meta.description;
-            command = "cd $DEVSHELL_ROOT/pkgs; ${pkgs.nvfetcher-bin}/bin/nvfetcher -c ./sources.toml --no-output $@";
+            command = "cd $DEVSHELL_ROOT/pkgs; ${pkgs.nvfetcher-bin}/bin/nvfetcher -c ./sources.toml --no-output $@; nixpkgs-fmt _sources";
           }
         ];
       };
