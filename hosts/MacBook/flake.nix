@@ -2,12 +2,12 @@
   description = "Darwin OS - A highly awesome system configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/86da493497869fe33d3a7eb513b4e9918abdbc9e";
+    nixpkgs.url = "nixpkgs/release-21.05";
     latest.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
-    home-manager = {
+    home = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -15,7 +15,7 @@
   };
 
 
-  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home-manager, digga }:
+  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home, digga }:
     let
       inherit (nixpkgs) lib;
     in
@@ -85,7 +85,7 @@
 
         # Host specific configuration.
         modules = [
-          home-manager.darwinModules.home-manager
+          home.darwinModules.home-manager
           ./.
           ../../users/darwin/gtrun.nix
         ];
