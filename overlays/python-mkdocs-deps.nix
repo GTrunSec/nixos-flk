@@ -1,6 +1,6 @@
 final: prev:
-let
-  python-packages-custom = prev.machLib.mkPython rec {
+{
+  python-packages-mkdocs = prev.machlib.mkPython rec {
     ignoreDataOutdated = true;
     requirements = ''
       mkdocs-material
@@ -8,5 +8,4 @@ let
       setuptools
     '';
   };
-in
-{ inherit python-packages-custom; }
+}
