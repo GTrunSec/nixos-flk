@@ -269,11 +269,12 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 - native compile
 #+begin_src emacs-lisp :tangle "config.el"
 ;;(setq comp-async-jobs-number 24)
-(setq doom-theme 'doom-city-lights)
+(when (display-graphic-p)
+  (setq doom-theme 'doom-city-lights)
+)
 #+end_src
 
 #+RESULTS:
-: doom-city-lights
 
 * use-package
 
@@ -2854,13 +2855,10 @@ Used in :switch-buffer-functions slot."
   (defun add-company-tabnine ()
     (add-to-list (make-local-variable 'company-backends) 'company-tabnine))
   (add-hook 'zeek-mode-hook #'add-company-tabnine)
+  (add-hook 'zeek-mode-hook #'doom/toggle-line-numbers)
+  (add-hook 'zeek-mode-hook #'highlight-indent-guides-mode)
   )
 #+end_src
-
-#+RESULTS:
-: t
-
-
 ** Nix Mode
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"

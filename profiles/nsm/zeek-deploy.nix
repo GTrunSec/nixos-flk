@@ -17,8 +17,6 @@
       SpicyAnalyzersPlugin = true;
     };
     privateScript = ''
-      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/zeek-query.zeek
-      @load /home/gtrun/project/hardenedlinux-zeek-script/scripts/log-passwords.zeek
     '';
   };
 }
