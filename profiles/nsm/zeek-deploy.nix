@@ -14,7 +14,6 @@
       ZipPlugin = true;
       PdfPlugin = true;
       SpicyPlugin = true;
-      SpicyAnalyzersPlugin = true;
     };
     privateScript = ''
     '';
