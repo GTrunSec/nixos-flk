@@ -2,7 +2,9 @@
 {
   home-manager.users.gtrun = { suites, ... }: {
     imports = suites.base;
+    home.enableNixpkgsReleaseCheck = false;
   };
+
 
 
   networking.firewall = {

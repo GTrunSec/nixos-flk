@@ -5,7 +5,11 @@
     {
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs";
-      digga.url = "github:divnix/digga/develop";
+      digga = {
+        url = "github:divnix/digga/develop";
+        inputs.nipxkgs.follows = "latest";
+      };
+      bud.url = "github:divnix/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
       nix-dram = {
         url = "github:dramforever/nix-dram";
@@ -28,7 +32,7 @@
       nur.url = github:nix-community/NUR;
 
       sops-nix.url = github:Mic92/sops-nix;
-
+      agenix.url = "github:ryantm/agenix";
 
       ######################
       # Python Environment #
@@ -59,6 +63,9 @@
     };
 
   outputs = inputs: with builtins; with inputs; with inputs.darwin;
+    let
+      bud' = bud self; # rebind to access self.budModules
+    in
     digga.lib.mkFlake
       {
         inherit self inputs;
@@ -75,6 +82,7 @@
             overlays = [
               ./pkgs/default.nix
               nur.overlay
+              agenix.overlay
               nvfetcher.overlay
               tenvideo.overlay
               spicy2nix.overlay
@@ -110,20 +118,8 @@
 
 
         devshell = {
-          modules = [ ./devshell.toml ];
-          externalModules = { pkgs, ... }: {
-            packages = with pkgs;
-              [
-                nixpkgs-fmt
-              ];
-            commands = [
-              {
-                name = pkgs.nvfetcher-bin.pname;
-                help = pkgs.nvfetcher-bin.meta.description;
-                command = "cd $DEVSHELL_ROOT/pkgs; ${pkgs.nvfetcher-bin}/bin/nvfetcher -c ./sources.toml --no-output $@; nixpkgs-fmt _sources";
-              }
-            ];
-          };
+          modules = [ ./devshell.toml (import ./shell bud') ];
+          externalModules = { pkgs, ... }: { };
         };
 
 
@@ -136,7 +132,8 @@
               { _module.args.ourLib = self.lib; }
               ci-agent.nixosModules.agent-profile
               home.nixosModules.home-manager
-              ./modules/customBuilds.nix
+              agenix.nixosModules.age
+              (bud.nixosModules.bud bud')
               sops-nix.nixosModules.sops
               quick-nix-registry.nixosModules.local-registry
               #User's custom modules
@@ -197,7 +194,9 @@
         };
 
         home = {
-          imports = [ (digga.lib.importers.modules ./users/modules) ];
+          imports = [
+            (digga.lib.importers.modules ./users/modules)
+          ];
           externalModules = [ ];
           importables = rec {
             profiles = digga.lib.importers.rakeLeaves ./users/profiles;
@@ -241,5 +240,7 @@
             };
           };
         };
-      } // { };
+      } // {
+      budModules = { devos = import ./pkgs/bud; };
+    };
 }

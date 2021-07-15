@@ -53,4 +53,6 @@ in
   ];
 
   services.emacs.enable = true;
+  services.emacs.client.enable = true;
+  services.emacs.socketActivation.enable = true;
 }
