@@ -2172,11 +2172,11 @@
         "zeek-vast-src": "zeek-vast-src_2"
       },
       "locked": {
-        "lastModified": 1626227741,
-        "narHash": "sha256-FN68QQzIQRwoG01c5ob5hvvwMeK2Ojp84+47avPNAe4=",
+        "lastModified": 1626326780,
+        "narHash": "sha256-YtIoeWYfIj/rbuM3jwaDTWckMzstua6nXhT9ucFDurI=",
         "owner": "GTrunSec",
         "repo": "vast2nix",
-        "rev": "1bee47c5ccc8d02e01ed672ec0f2eaa4c8c11a4e",
+        "rev": "411f5a4de7fcee5fb723b5e605cca7aac85f5ffd",
         "type": "github"
       },
       "original": {

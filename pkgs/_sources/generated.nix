@@ -12,14 +12,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "52d759a680fbe1ed3976c3c0bcb3c7b3ac263bbb";
+    version = "16b732e3d83afbb558567a98bfa0c6b58e51afdb";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "52d759a680fbe1ed3976c3c0bcb3c7b3ac263bbb";
+      rev = "16b732e3d83afbb558567a98bfa0c6b58e51afdb";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "0z1jw6vhdkifk694gajmg1dcw7sl05x3xl096dvmlw79224s69lx";
+      sha256 = "10jkkndswy4rrbwn0kpv960nh8b3kv0m7ni3l35y2g0z0xjx3q7r";
     };
 
   };
@@ -43,10 +43,10 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.2.3";
+    version = "0.2.5";
     src = fetchurl {
-      sha256 = "0bb4nk0wq9fq39pj3wxvq8y2k75bgnr90jvg8y956lg3dwn20g1d";
-      url = "https://github.com/logseq/logseq/releases/download/0.2.3/logseq-linux-x64-0.2.3.AppImage";
+      sha256 = "0dsns3wp61l2ac1aixqssf5kra72wvk18spjm4bp4lnld13lsdy6";
+      url = "https://github.com/logseq/logseq/releases/download/0.2.5/logseq-linux-x64-0.2.5.AppImage";
     };
 
   };
@@ -70,14 +70,14 @@
   };
   notdeft = {
     pname = "notdeft";
-    version = "e28bf5a9aacb4e9c46d5f350d6389e148b24926c";
+    version = "9740eceae6929c62da81f9e19646412d01e88def";
     src = fetchgit {
       url = "https://github.com/hasu/notdeft";
-      rev = "e28bf5a9aacb4e9c46d5f350d6389e148b24926c";
+      rev = "9740eceae6929c62da81f9e19646412d01e88def";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "0h3ci4qm7zkfx6rvzlxc4f6drlhgfsvrl15jhi2yibvmkc56az0m";
+      sha256 = "064pcb57vg1hpkhg2k13bm9svl0ck0mmgf33q6v12za7vpc4bmkf";
     };
 
   };

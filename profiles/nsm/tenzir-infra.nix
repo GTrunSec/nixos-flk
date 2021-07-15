@@ -14,7 +14,7 @@
 
   services.vast = {
     enable = true;
-    settings = {
+    extraConfig = {
       log-file = "/var/lib/vast/server.log";
     };
   };
