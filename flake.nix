@@ -9,8 +9,8 @@
         url = "github:divnix/digga/develop";
         inputs.nipxkgs.follows = "latest";
       };
-      #bud.url = "github:divnix/bud";
-      bud.url = "/home/gtrun/src/bud";
+      bud.url = "github:divnix/bud";
+      #bud.url = "/home/gtrun/src/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
       nix-dram = {
         url = "github:dramforever/nix-dram";

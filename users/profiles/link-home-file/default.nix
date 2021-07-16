@@ -33,8 +33,10 @@
       home.file.".config/pet/config.toml".source = ../../dotfiles/pet/darwin-config.toml;
       home.file.".config/pet/snippet.toml".source = ../../dotfiles/pet/snippet.toml;
       home.file."Library/Application Support/promnesia/config.py".source = ../../../profiles/data/config.py;
-      #home.file.".config/direnv/direnvrc".source = ../../dotfiles/direnv/direnvrc.sh;
     })
-    ({ })
+
+    ({
+      home.file.".config/direnv/direnvrc".source = ../../dotfiles/direnv/direnvrc.sh;
+    })
   ];
 }
