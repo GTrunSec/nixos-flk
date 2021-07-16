@@ -44,6 +44,7 @@ in
 
   programs.emacs.package = (pkgs.emacsNg.override ({ })).overrideAttrs (old: rec {
     configureFlags = (old.configureFlags or [ ]) ++ [
+      "--with-x-toolkit=lucid"
     ];
   });
 
@@ -52,7 +53,6 @@ in
     grab-x-link
   ];
 
-  services.emacs.enable = true;
+  # services.emacs.enable = true;
   services.emacs.client.enable = true;
-  services.emacs.socketActivation.enable = true;
 }

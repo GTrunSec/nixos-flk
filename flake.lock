@@ -45,17 +45,13 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1625703505,
-        "narHash": "sha256-PNtHOR5wp3R/cysCHTIFcxCHHuisljbrS6iNyP/Ivfk=",
-        "owner": "divnix",
-        "repo": "bud",
-        "rev": "baefc56e5819375736b51e93df9e2154a120ea3d",
-        "type": "github"
+        "narHash": "sha256-pDCUYpXOU0RwBHu4UXmflVZ/g9SC8mZU6w9cSPjsYGE=",
+        "path": "/home/gtrun/src/bud",
+        "type": "path"
       },
       "original": {
-        "owner": "divnix",
-        "repo": "bud",
-        "type": "github"
+        "path": "/home/gtrun/src/bud",
+        "type": "path"
       }
     },
     "ci-agent": {

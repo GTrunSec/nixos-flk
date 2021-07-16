@@ -9,7 +9,8 @@
         url = "github:divnix/digga/develop";
         inputs.nipxkgs.follows = "latest";
       };
-      bud.url = "github:divnix/bud";
+      #bud.url = "github:divnix/bud";
+      bud.url = "/home/gtrun/src/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
       nix-dram = {
         url = "github:dramforever/nix-dram";
@@ -189,7 +190,7 @@
           modules = [
             (import ./hosts/MacBook)
             ci-agent.darwinModules.agent-profile
-            home-manager.darwinModules.home-manager
+            home.darwinModules.home-manager
           ];
         };
 
