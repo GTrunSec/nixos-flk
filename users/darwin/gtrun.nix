@@ -14,5 +14,6 @@
       ../profiles/gpg
       ../profiles/direnv
     ];
+    home.enableNixpkgsReleaseCheck = false;
   };
 }

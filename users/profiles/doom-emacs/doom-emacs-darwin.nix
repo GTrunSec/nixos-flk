@@ -2,19 +2,23 @@
 
 let
   updatefont = ''fc-cache -f -v'';
-  updateDoom = ".emacs.d/bin/doom sync";
-  updateInit = "bash .doom.d/bin/emacs.sh";
+  onChange = ''
+    export PATH=/usr/local/bin/:$PATH
+    cd $HOME/.doom.d/
+    emacs -Q -batch -l 'lisp/compile.el'
+    $HOME/.emacs.d/bin/doom sync
+  '';
 in
 
 {
   home.file.".doom.d/config.org" = {
     source = ../../dotfiles/doom-emacs/config.org;
-    onChange = updateInit;
+    inherit onChange;
   };
 
   home.file.".doom.d/meow.org" = {
     source = ../../dotfiles/doom-emacs/meow.org;
-    onChange = updateInit;
+    inherit onChange;
   };
 
   home.activation.linkEmacsPrivate = config.lib.dag.entryAfter [ "writeBoundary" ] ''
