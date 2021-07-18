@@ -817,7 +817,6 @@ appropriate.  In tables, insert a new row or end the table."
     (cl-loop while (call-interactively #'org-sort))))
 #+end_src
 
-
 * Default Setting
 
 ** Global Setting
@@ -870,7 +869,6 @@ appropriate.  In tables, insert a new row or end the table."
 ;;(add-hook 'meow-switch-state-hook #'save-buffer)
 (add-hook 'before-save-hook 'font-lock-flush)
 #+end_src
-
 
 * Completion
 
@@ -1401,7 +1399,6 @@ FACE defaults to inheriting from default and highlight."
 ** [[https://github.com/ROCKTAKEY/grugru][ROCKTAKEY/grugru: Rotate text at point in Emacs.]]
 
 * org-mode
-
 
 ** load basic config
 
@@ -2027,7 +2024,7 @@ easy way to display org-ref with tree view instead of org-mode ?
 *** org-roam
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
-(unpin! org-roam)
+;;(unpin! org-roam) TODO 2.0 Version
 #+end_src
 
 
