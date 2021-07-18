@@ -112,7 +112,7 @@ in
   };
 
   nix = {
-    package = pkgs.nix-dram;
+    package = pkgs.nixUnstable;
 
     # localRegistry = {
     #   enable = true;

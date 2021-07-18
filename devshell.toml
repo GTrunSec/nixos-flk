@@ -1,11 +1,4 @@
 [[commands]]
-name = "flk"
-category = "backup"
-command = '''
-    sudo nixos-rebuild --flake "$DEVSHELL_ROOT#$1" "${@:2}"
-        '''
-
-[[commands]]
 name = "darwin-MacBook"
 category = "nix-darwin"
 command = '''

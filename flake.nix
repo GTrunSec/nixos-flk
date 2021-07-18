@@ -1,22 +1,36 @@
 {
-  description = "A highly structured configuration database.";
+  description = "A highly structured configuration database => User:Guangtao";
+  nixConfig.extra-experimental-features = "nix-command flakes ca-references";
+  nixConfig.extra-substituters = "https://nrdxp.cachix.org https://nix-community.cachix.org";
+  nixConfig.extra-trusted-public-keys = "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
 
   inputs =
     {
+      ##################
+      # Default Flakes #
+      ##################
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs";
       digga = {
         url = "github:divnix/digga/develop";
         inputs.nipxkgs.follows = "latest";
       };
-      bud.url = "github:divnix/bud";
+      naersk = {
+        url = "github:nmattia/naersk";
+        inputs.nixpkgs.follows = "latest";
+      };
+      flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
+      bud.url = "github:gtrunsec/bud/nixos-rebuild";
       #bud.url = "/home/gtrun/src/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
+
+      ####################
+      # Default Features #
+      ####################
       nix-dram = {
         url = "github:dramforever/nix-dram";
         inputs.nixpkgs.follows = "nixos";
       };
-
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
         inputs = { nix-darwin.follows = "darwin"; nixos-20_09.follows = "nixos"; nixos-unstable.follows = "latest"; };
@@ -25,16 +39,18 @@
         url = "github:LnL7/nix-darwin";
         inputs.nixpkgs.follows = "latest";
       };
-      home.url = "github:nix-community/home-manager";
-      home.inputs.nixpkgs.follows = "nixos";
+      home = {
+        url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixos";
+      };
       nixos-hardware.url = "github:nixos/nixos-hardware";
-      flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-
-      nur.url = github:nix-community/NUR;
-
-      sops-nix.url = github:Mic92/sops-nix;
+      nur.url = "github:nix-community/NUR";
+      sops-nix.url = "github:Mic92/sops-nix";
       agenix.url = "github:ryantm/agenix";
-
+      nvfetcher = {
+        url = "github:berberman/nvfetcher";
+        inputs.nixpkgs.follows = "latest";
+      };
       ######################
       # Python Environment #
       ######################
@@ -44,17 +60,16 @@
         flake = false;
       };
 
-
-      nvfetcher = {
-        url = "github:berberman/nvfetcher";
-        inputs.nixpkgs.follows = "nixos";
-      };
+      #################
+      # Custom Flakes #
+      #################
       stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
       emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
       nixpkgs-hardenedlinx = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
       photoprism = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
-      vast2nix = { url = "github:GTrunSec/vast2nix"; };
+      #vast2nix = { url = "github:GTrunSec/vast2nix"; };
+      vast2nix = { url = "/home/gtrun/src/vast2nix"; };
       threatbus2nix = { url = "github:GTrunSec/threatbus2nix"; };
       spicy2nix = { url = "github:GTrunSec/spicy2nix"; };
       zeek2nix = { url = "github:hardenedlinux/zeek2nix"; };
@@ -83,6 +98,7 @@
             overlays = [
               ./pkgs/default.nix
               nur.overlay
+              digga.overlays.patchedNix
               agenix.overlay
               nvfetcher.overlay
               tenvideo.overlay
@@ -93,7 +109,6 @@
               rust-overlay.overlay
               brim-flake.overlay
               sops-nix.overlay
-              nix-dram.overlay
             ];
           };
           latest = { };
