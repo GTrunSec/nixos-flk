@@ -68,8 +68,8 @@
       nixpkgs-hardenedlinx = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
       photoprism = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
       brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
-      #vast2nix = { url = "github:GTrunSec/vast2nix"; };
-      vast2nix = { url = "/home/gtrun/src/vast2nix"; };
+      vast2nix = { url = "github:GTrunSec/vast2nix"; };
+      #vast2nix = { url = "/home/gtrun/src/vast2nix"; };
       threatbus2nix = { url = "github:GTrunSec/threatbus2nix"; };
       spicy2nix = { url = "github:GTrunSec/spicy2nix"; };
       zeek2nix = { url = "github:hardenedlinux/zeek2nix"; };

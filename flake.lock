@@ -60,11 +60,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1626579773,
-        "narHash": "sha256-8HqbpmfW61P/XfhUk640OxBSGPLPMBj68es6RMRkgBQ=",
+        "lastModified": 1626580131,
+        "narHash": "sha256-X2i1NSTzB4eSwCsyKKm7Ex+hg82TRIT5aDgoTxzTIbQ=",
         "owner": "gtrunsec",
         "repo": "bud",
-        "rev": "23eef19747aa3d16548df078f16aefbfb8edfac4",
+        "rev": "3c711989ba1fd0639a6c8d1e9af413d46be0e27c",
         "type": "github"
       },
       "original": {
@@ -2407,13 +2407,17 @@
         "zeek-vast-src": "zeek-vast-src_2"
       },
       "locked": {
-        "narHash": "sha256-aSOVfyC9Jbe6M8+jFX19Cgt47TQRidHlCRwNvOPq9Y0=",
-        "path": "/home/gtrun/src/vast2nix",
-        "type": "path"
+        "lastModified": 1626549518,
+        "narHash": "sha256-AtXRIi4hfP+NOcSymOb8ma4kKH7OnW1tTGC4pCq+c0s=",
+        "owner": "GTrunSec",
+        "repo": "vast2nix",
+        "rev": "96a26411f4b82953f29238b135f45ee1c3ca605d",
+        "type": "github"
       },
       "original": {
-        "path": "/home/gtrun/src/vast2nix",
-        "type": "path"
+        "owner": "GTrunSec",
+        "repo": "vast2nix",
+        "type": "github"
       }
     },
     "zeek-vast-src": {
