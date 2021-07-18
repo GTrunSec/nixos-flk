@@ -75,7 +75,7 @@
       zeek2nix = { url = "github:hardenedlinux/zeek2nix"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
-      emacsNg = { url = "github:emacs-ng/emacs-ng"; inputs.rust-overlay.follows = "rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
+      emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
     };
 
   outputs = inputs: with builtins; with inputs; with inputs.darwin;
@@ -105,7 +105,7 @@
               spicy2nix.overlay
               zeek2nix.overlay
               emacs-overlay.overlay
-              emacsNg.overlay
+              (final: prev: { emacsNg = emacs-ng.defaultPackage."${final.system}"; })
               rust-overlay.overlay
               brim-flake.overlay
               sops-nix.overlay
