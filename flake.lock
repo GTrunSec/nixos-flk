@@ -60,11 +60,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1626583186,
-        "narHash": "sha256-PukdJqKFLaVLyi3WdISN2PEs8ytIjluTLSbb+hZENxY=",
+        "lastModified": 1626633307,
+        "narHash": "sha256-4bp6uFF6r2y50FXxgwBePLFFGavVpUW8/d0qmhZSmHQ=",
         "owner": "gtrunsec",
         "repo": "bud",
-        "rev": "9f9d5e34d866240206c35a970e4af2de000e1f34",
+        "rev": "285cf9eedbac843466b56a3504db38a89c5ed9d9",
         "type": "github"
       },
       "original": {

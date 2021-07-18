@@ -146,6 +146,7 @@
             imports = [ (digga.lib.importers.modules ./modules) ];
             externalModules = [
               { _module.args.ourLib = self.lib; }
+              #digga.nixosModules.nixConfig
               ci-agent.nixosModules.agent-profile
               home.nixosModules.home-manager
               agenix.nixosModules.age

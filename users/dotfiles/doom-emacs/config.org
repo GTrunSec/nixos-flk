@@ -13,7 +13,6 @@
 HTML them READ org
 #+END_QUOTE
 
-
 - [[https://www.gtrun.org/custom/config.html][My Doom Emacs config]]
 
 - [Source Code] [[https://github.com/GTrunSec/my-profile/tree/master/dotfiles/doom-emacs][my-profile/dotfiles/doom-emacs at master · GTrunSec/my-profile]]

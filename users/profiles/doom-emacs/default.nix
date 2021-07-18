@@ -2,9 +2,9 @@
 let
   updatefont = ''fc-cache -f -v'';
   onChange = ''
-    export PATH=${pkgs.emacsNg}/bin/:$PATH
+    export PATH=${config.programs.emacs.finalPackage}/bin/:$PATH
     cd $HOME/.doom.d/
-    ${pkgs.emacsNg}/bin/emacs -Q -batch -l 'lisp/compile.el'
+    emacs -Q -batch -l 'lisp/compile.el'
     $HOME/.emacs.d/bin/doom sync
   '';
 in
