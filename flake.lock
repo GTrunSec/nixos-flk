@@ -60,16 +60,15 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1626633307,
+        "lastModified": 1626704671,
         "narHash": "sha256-4bp6uFF6r2y50FXxgwBePLFFGavVpUW8/d0qmhZSmHQ=",
-        "owner": "gtrunsec",
+        "owner": "divnix",
         "repo": "bud",
-        "rev": "285cf9eedbac843466b56a3504db38a89c5ed9d9",
+        "rev": "5a5ff8831a6bed3d2b1587ae67114e44753d438f",
         "type": "github"
       },
       "original": {
-        "owner": "gtrunsec",
-        "ref": "nixos-rebuild",
+        "owner": "divnix",
         "repo": "bud",
         "type": "github"
       }
@@ -372,11 +371,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1626646080,
-        "narHash": "sha256-bEDa6Px0HXT2X0pxk7Y6j+TWzMmwzs46pzjWXi1lXzY=",
+        "lastModified": 1626730871,
+        "narHash": "sha256-GiNHPKUwElLRY7+MKPX5qut+XccjPVl9+JuY4BoWIaY=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "82d55ed3a5a2696c7acde7a87e9f501e50829244",
+        "rev": "279f6465a15df54681577cd9f2aefb5c68c70c02",
         "type": "github"
       },
       "original": {

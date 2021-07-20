@@ -20,7 +20,7 @@
         inputs.nixpkgs.follows = "latest";
       };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-      bud.url = "github:gtrunsec/bud/nixos-rebuild";
+      bud.url = "github:divnix/bud";
       #bud.url = "/home/gtrun/src/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
 
@@ -97,6 +97,7 @@
             imports = [ (digga.lib.importers.overlays ./overlays) ];
             overlays = [
               ./pkgs/default.nix
+              (final: prev: { emacsNg = emacs-ng.defaultPackage."${final.system}"; })
               nur.overlay
               digga.overlays.patchedNix
               agenix.overlay
@@ -105,7 +106,6 @@
               spicy2nix.overlay
               zeek2nix.overlay
               emacs-overlay.overlay
-              (final: prev: { emacsNg = emacs-ng.defaultPackage."${final.system}"; })
               rust-overlay.overlay
               brim-flake.overlay
               sops-nix.overlay
