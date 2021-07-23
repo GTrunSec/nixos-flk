@@ -11,14 +11,8 @@
       ##################
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs";
-      digga = {
-        url = "github:divnix/digga";
-        inputs.nipxkgs.follows = "latest";
-      };
-      naersk = {
-        url = "github:nmattia/naersk";
-        inputs.nixpkgs.follows = "latest";
-      };
+      digga = { url = "github:divnix/digga"; };
+      naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "latest"; };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       bud.url = "github:divnix/bud";
       #bud.url = "/home/gtrun/src/bud";
@@ -139,7 +133,7 @@
             imports = [ (digga.lib.importModules ./modules) ];
             externalModules = [
               { _module.args.ourLib = self.lib; }
-              #digga.nixosModules.nixConfig
+              digga.nixosModules.nixConfig
               ci-agent.nixosModules.agent-profile
               home.nixosModules.home-manager
               agenix.nixosModules.age
@@ -241,15 +235,7 @@
 
 
         outputsBuilder = channels: {
-          packages = {
-            sops-shell = channels.nixos.mkShell {
-              sopsPGPKeyDirs = [
-                #"./secrets/keys/hosts"
-                "./secrets/keys/users"
-              ];
-              nativeBuildInputs = with channels.nixos; [ sops-pgp-hook ];
-            };
-          };
+          packages = { };
         };
       } // { };
 }

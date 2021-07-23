@@ -26,6 +26,6 @@ category = "bumpup"
 command = "nix flake lock --update-input $@"
 help = "lock-update unstable"
 
-# [[env]]
-# name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
-# value = "1"
+[[env]]
+name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
+value = "1"
