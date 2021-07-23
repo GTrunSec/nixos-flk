@@ -1,16 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./zeek-deploy.nix
-    ./tenzir-infra.nix
-  ];
+  imports = [ ];
 
   environment.systemPackages = with pkgs; [
     #home
     sudo-pair
     #btest
-    #brim
+    brim
     tcpdump
     wireshark
   ];
@@ -20,12 +17,4 @@
   };
 
   programs.dconf.enable = true; #for brim to dfconf service
-
-  services.elasticsearch = {
-    enable = true;
-    package = pkgs.elasticsearch7;
-    extraConf = ''
-      '';
-  };
-
 }

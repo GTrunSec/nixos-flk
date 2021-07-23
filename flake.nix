@@ -17,7 +17,6 @@
       bud.url = "github:divnix/bud";
       #bud.url = "/home/gtrun/src/bud";
       quick-nix-registry.url = "github:divnix/quick-nix-registry";
-
       ####################
       # Default Features #
       ####################
@@ -57,19 +56,12 @@
       #################
       # Custom Flakes #
       #################
-      stable.url = "nixpkgs/684d5d27136f154775c95005dcce2d32943c7c9e";
-      emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
-      nixpkgs-hardenedlinx = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
-      photoprism = { url = "github:GTrunSec/photoprism-flake"; inputs.nixpkgs.follows = "stable"; };
-      brim-flake = { url = "github:hardenedlinux/brim-flake"; inputs.nixpkgs.follows = "nixos"; };
-      vast2nix = { url = "github:GTrunSec/vast2nix"; };
-      #vast2nix = { url = "/home/gtrun/src/vast2nix"; };
-      threatbus2nix = { url = "github:GTrunSec/threatbus2nix"; };
-      spicy2nix = { url = "github:GTrunSec/spicy2nix"; };
-      zeek2nix = { url = "github:hardenedlinux/zeek2nix"; };
-      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
-      rust-overlay = { url = "github:oxalica/rust-overlay"; inputs.nixpkgs.follows = "nixos"; };
+      photoprism = { url = "github:GTrunSec/photoprism-flake"; };
+      brim-flake = { url = "github:hardenedlinux/brim-flake"; };
+      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; };
+      rust-overlay = { url = "github:oxalica/rust-overlay"; };
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
+      nixpkgs-hardenedliux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
     };
 
   outputs = inputs: with builtins; with inputs; with inputs.darwin;
@@ -94,12 +86,10 @@
               agenix.overlay
               nvfetcher.overlay
               tenvideo.overlay
-              spicy2nix.overlay
-              zeek2nix.overlay
-              emacs-overlay.overlay
               rust-overlay.overlay
               brim-flake.overlay
               sops-nix.overlay
+              nixpkgs-hardenedliux.overlay
             ];
           };
           latest = { };
@@ -142,10 +132,6 @@
               quick-nix-registry.nixosModules.local-registry
               #User's custom modules
               photoprism.nixosModules.photoprism
-              vast2nix.nixosModules.vast
-              zeek2nix.nixosModules.zeek
-              threatbus2nix.nixosModules.threatbus
-              threatbus2nix.nixosModules.threatbus-vast
             ];
           };
 
