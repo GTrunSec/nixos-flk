@@ -42,10 +42,10 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.2.6";
+    version = "0.2.7";
     src = fetchurl {
-      sha256 = "1rp7jg20rc5rws1l9gbvyjv6fzvw7dn6v4lncbign65j260mxnpy";
-      url = "https://github.com/logseq/logseq/releases/download/0.2.6/logseq-linux-x64-0.2.6.AppImage";
+      sha256 = "1ix7h4yyd0rv9gkh9ga5kx3a8lg6i5qw358y1jvpl5rxl0l10m3p";
+      url = "https://github.com/logseq/logseq/releases/download/0.2.7/logseq-linux-x64-0.2.7.AppImage";
     };
   };
   magnetw = {

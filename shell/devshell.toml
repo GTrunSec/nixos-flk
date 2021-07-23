@@ -1,3 +1,6 @@
+[devshell]
+packages = []
+
 [[commands]]
 name = "darwin-MacBook"
 category = "nix-darwin"
@@ -16,10 +19,13 @@ category = "secrets"
 command = "agenix -e $@"
 help = "agenix edit file"
 
+
 [[commands]]
-name = "sops-edit"
-category = "secrets"
-command = '''
-        nix develop $DEVSHELL_ROOT/#sops-shell -c sops $@
-        '''
-help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix"
+name = "update"
+category = "bumpup"
+command = "nix flake lock --update-input $@"
+help = "lock-update unstable"
+
+# [[env]]
+# name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
+# value = "1"

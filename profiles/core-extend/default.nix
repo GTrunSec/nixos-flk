@@ -36,7 +36,5 @@
     wget
     nix-output-monitor
     nix-direnv
-    nixopsUnstable
   ];
-
 }

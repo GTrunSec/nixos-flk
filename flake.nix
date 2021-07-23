@@ -12,7 +12,7 @@
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs";
       digga = {
-        url = "github:divnix/digga/develop";
+        url = "github:divnix/digga";
         inputs.nipxkgs.follows = "latest";
       };
       naersk = {
@@ -79,9 +79,6 @@
     };
 
   outputs = inputs: with builtins; with inputs; with inputs.darwin;
-    let
-      bud' = bud self; # rebind to access self.budModules
-    in
     digga.lib.mkFlake
       {
         inherit self inputs;
@@ -94,7 +91,7 @@
 
         channels = {
           nixos = {
-            imports = [ (digga.lib.importers.overlays ./overlays) ];
+            imports = [ (digga.lib.importOverlays ./overlays) ];
             overlays = [
               ./pkgs/default.nix
               (final: prev: { emacsNg = emacs-ng.defaultPackage."${final.system}"; })
@@ -133,24 +130,20 @@
         ];
 
 
-        devshell = {
-          modules = [ ./devshell.toml (import ./shell bud') ];
-          externalModules = { pkgs, ... }: { };
-        };
-
+        devshell = ./shell;
 
         nixos = {
           hostDefaults = {
             system = "x86_64-linux";
             channelName = "nixos";
-            imports = [ (digga.lib.importers.modules ./modules) ];
+            imports = [ (digga.lib.importModules ./modules) ];
             externalModules = [
               { _module.args.ourLib = self.lib; }
               #digga.nixosModules.nixConfig
               ci-agent.nixosModules.agent-profile
               home.nixosModules.home-manager
               agenix.nixosModules.age
-              (bud.nixosModules.bud bud')
+              (bud.nixosModules.bud)
               sops-nix.nixosModules.sops
               quick-nix-registry.nixosModules.local-registry
               #User's custom modules
@@ -162,15 +155,15 @@
             ];
           };
 
-          imports = [ (digga.lib.importers.hosts ./hosts) ];
+          imports = [ (digga.lib.importHosts ./hosts) ];
           hosts = {
             /* set host specific properties here */
             NixOS = { };
           };
 
           importables = rec {
-            profiles = digga.lib.importers.rakeLeaves ./profiles // {
-              users = digga.lib.importers.rakeLeaves ./users;
+            profiles = digga.lib.rakeLeaves ./profiles // {
+              users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
               base = [ core users.gtrun users.root ];
@@ -212,11 +205,11 @@
 
         home = {
           imports = [
-            (digga.lib.importers.modules ./users/modules)
+            (digga.lib.importModules ./users/modules)
           ];
           externalModules = [ ];
           importables = rec {
-            profiles = digga.lib.importers.rakeLeaves ./users/profiles;
+            profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [
                 home-services
@@ -231,6 +224,7 @@
                 link-home-file
                 home-packages
                 randr
+                gpg
               ] ++ services;
               services = [ lorri ];
             };
@@ -257,7 +251,5 @@
             };
           };
         };
-      } // {
-      budModules = { devos = import ./pkgs/bud; };
-    };
+      } // { };
 }

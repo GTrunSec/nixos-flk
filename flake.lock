@@ -60,11 +60,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1626704671,
-        "narHash": "sha256-4bp6uFF6r2y50FXxgwBePLFFGavVpUW8/d0qmhZSmHQ=",
+        "lastModified": 1626840404,
+        "narHash": "sha256-6HKRxPlVO4iKyPNAjkjku3JzGX1lgJ+93ieWAx7MY60=",
         "owner": "divnix",
         "repo": "bud",
-        "rev": "5a5ff8831a6bed3d2b1587ae67114e44753d438f",
+        "rev": "452ec18574b6e4d8b8a6aae9e190255d4c89768c",
         "type": "github"
       },
       "original": {
@@ -335,26 +335,25 @@
         "deploy": "deploy",
         "devshell": "devshell_2",
         "flake-utils": "flake-utils",
+        "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
         "nixlib": [
           "digga",
           "nixpkgs"
         ],
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs_3",
-        "utils": "utils"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1626470112,
-        "narHash": "sha256-hC5I3A1HxfGi45avpYBf8zXi1hQkHYWgRgUM4sF9byI=",
+        "lastModified": 1626842481,
+        "narHash": "sha256-tppFdKz4fvt7gYsMotT/kWSIzKWcdDsMCkQzn6mGRCA=",
         "owner": "divnix",
         "repo": "digga",
-        "rev": "f25928ed0bf05ab20af5a8231d264ae01b42ab34",
+        "rev": "a238e1e84c72d06f1baf64618bbf84405cba623b",
         "type": "github"
       },
       "original": {
         "owner": "divnix",
-        "ref": "develop",
         "repo": "digga",
         "type": "github"
       }
@@ -826,6 +825,28 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils-plus": {
+      "inputs": {
+        "flake-utils": [
+          "digga",
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1626825599,
+        "narHash": "sha256-hgjuzvLE+jlt9z6k5MDbc0Fod4k5frZGnN7zArrlpd4=",
+        "owner": "gytis-ivaskevicius",
+        "repo": "flake-utils-plus",
+        "rev": "ea46e02fb86785d3c883d658b194d69799386673",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gytis-ivaskevicius",
+        "ref": "staging",
+        "repo": "flake-utils-plus",
         "type": "github"
       }
     },
@@ -1371,7 +1392,9 @@
     "naersk": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "digga",
+          "deploy",
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -1508,7 +1531,7 @@
         "pypi-deps-db": "pypi-deps-db_2",
         "spicy": "spicy",
         "stable": "stable_2",
-        "utils": "utils_2"
+        "utils": "utils"
       },
       "locked": {
         "lastModified": 1625271006,
@@ -1690,11 +1713,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1613917044,
-        "narHash": "sha256-YvBBwtvrnove51SXQ67OVQHctYjEEpFu6GEzRe0pp5I=",
+        "lastModified": 1625223284,
+        "narHash": "sha256-jjLcDSU1rRiJb+n3uez23XAa7kbnPcGZTa6jIKh1GMQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "aed173ff9707387b238c1c7e143152ca9d8878e9",
+        "rev": "357d2c8f6087685fe35cb1889a005a4dd4cce7b8",
         "type": "github"
       },
       "original": {
@@ -2211,11 +2234,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1618840526,
-        "narHash": "sha256-3VAac44xE+kO8o7BQXLqHrAMUQT+XqIK8BcLkEEDwOA=",
+        "lastModified": 1625936460,
+        "narHash": "sha256-U6xlITKrYuhlHWe+poACaz4GJl3ZVN1BSUqZe2gFg+g=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "4f384662a85804fa2bc1bc1f99e70bb468e76f88",
+        "rev": "ec2800174de5a7be8ec5b144819af2c7de77abe2",
         "type": "github"
       },
       "original": {
@@ -2387,28 +2410,6 @@
       }
     },
     "utils": {
-      "inputs": {
-        "flake-utils": [
-          "digga",
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1626288344,
-        "narHash": "sha256-TioHDqWJkw37jjx4DVrH6LCzwrUfAqXbWl4rKR91fpA=",
-        "owner": "gytis-ivaskevicius",
-        "repo": "flake-utils-plus",
-        "rev": "5c6ee69f6957afc2fe22c094717d6d78516418b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gytis-ivaskevicius",
-        "ref": "staging",
-        "repo": "flake-utils-plus",
-        "type": "github"
-      }
-    },
-    "utils_2": {
       "inputs": {
         "flake-utils": "flake-utils_20"
       },

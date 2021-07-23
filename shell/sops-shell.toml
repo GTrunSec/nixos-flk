@@ -1,0 +1,49 @@
+[devshell]
+packages = [
+  "sops-init-gpg-key",
+  "sops",
+  "ssh-to-pgp",
+  "gnupg"
+]
+
+[[commands]]
+name = "sops-edit"
+category = "secrets"
+command = "sops $@"
+help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix"
+
+[[env]]
+name = "sopsPGPKeyDirs"
+value = "./secrets/keys/hosts ./secrets/keys/users"
+
+[[env]]
+name = "SOPS_GPG_KEYSERVER"
+value = "https://keys.openpgp.org"
+
+[[commands]]
+name = "sops-new"
+category = "secrets"
+command = "sops-init-gpg-key --hostname $@ --gpghome /tmp/$@-sops-gpg-key &>> $@.asc"
+help = "sops-new <hostName> | Generate a new gpg-key with sops-nix /tmp/<hostName>-sops-gpg-key"
+
+[[commands]]
+name = "sops-copy"
+category = "secrets"
+command = "scp -r /tmp/$1-sops-gpg-key $2:/var/lib/sops"
+help = "sops-copy <hostName> <user@hostName> | Copy the host's GPG(sops-init-gpg-key) key to target host."
+
+[[commands]]
+name = "ssh-new-ed25519"
+category = "secrets"
+command = '''
+        ssh $@ 'ssh-keygen -o -a 256 -t ed25519 -C "$(hostname)-$(date +'%d-%m-%Y')"'
+        '''
+help = "ssh-new-ed25519 <user@hostName> Generate a new SSH ed25519 key to target host"
+
+[[commands]]
+name = "copy-newHost"
+category = ""
+command = '''
+        scp -r $1:/etc/nixos/ hosts/$2
+        '''
+help = "copy-newHost <root@hostname> <machine-name>"
