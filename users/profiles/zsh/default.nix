@@ -1,16 +1,11 @@
 { config, lib, pkgs, ... }:
 let
   home_directory = builtins.getEnv "HOME";
-  flake-zsh-completion = pkgs.runCommand "flake-nix-completion" { } ''
-    install -Dm644 ${./_nix} $out/share/zsh/site-functions/_nix
-  '';
 in
 {
   config = with lib; mkMerge [
     ({
       home.packages = with pkgs;[
-        ##https://github.com/ajeetdsouza/zoxide A faster way to navigate your filesystem
-        (lib.hiPrio flake-zsh-completion)
         zoxide
       ];
 
@@ -73,6 +68,7 @@ in
         initExtra = (builtins.readFile ../../dotfiles/zshrc) +
           ''
             ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#fdf6e3,bg=#586e75,bold,underline"
+            source ${pkgs.nixUnstable.src}/misc/zsh/completion.zsh
           ''
         ;
 
