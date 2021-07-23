@@ -57,7 +57,6 @@
       # Custom Flakes #
       #################
       photoprism = { url = "github:GTrunSec/photoprism-flake"; };
-      brim-flake = { url = "github:hardenedlinux/brim-flake"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
@@ -87,7 +86,6 @@
               nvfetcher.overlay
               tenvideo.overlay
               rust-overlay.overlay
-              brim-flake.overlay
               sops-nix.overlay
               nixpkgs-hardenedliux.overlay
             ];
