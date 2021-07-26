@@ -5,10 +5,7 @@ packages = []
 name = "darwin-MacBook"
 category = "nix-darwin"
 command = '''
-        if [[ $(pwd) != "~/.config/nixpkgs/nixos-flk/hosts/MacBook" ]]; then
-        cd ~/.config/nixpkgs/nixos-flk/hosts/MacBook
-        darwin-rebuild $@ --flake .#MacBook
-        fi
+        darwin-rebuild $@ --flake $DEVSHELL_ROOT/hosts/MacBook/#MacBook
         '''
 help = "darwin-MacBook rebuild"
 
@@ -26,6 +23,6 @@ category = "bumpup"
 command = "nix flake lock --update-input $@"
 help = "lock-update unstable"
 
-[[env]]
-name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
-value = "1"
+# [[env]]
+# name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
+# value = "1"

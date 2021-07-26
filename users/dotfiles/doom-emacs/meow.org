@@ -121,7 +121,7 @@
   '("w" . ace-window)
   '("oi" . org-roam-node-insert)
   '("os" . org-roam-buffer)
-  '("of" . org-roam-find-file)
+  '("of" . org-roam-buffer-display-dedicated)
   '("oB" . org-brain-visualize)
   '("ob" . org-brain-visualize-dwim)
   '("ti" . insert-current-date-time-inactive)
@@ -139,6 +139,9 @@
   '("RET" . counsel-bookmark)
 )
 #+end_src
+
+#+RESULTS:
+| fd-dired | counsel-recentf | counsel-find-file | +ivy/projectile-find-file | counsel-rg | counsel-M-x | ace-window | org-roam-node-insert | org-roam-buffer | org-roam-buffer-display-dedicated | org-brain-visualize | org-brain-visualize-dwim | insert-current-date-time-inactive | insert-current-date-time-active | insert-current-date-time | bookmark-set | bookmark-bmenu-list | bm-toggle | +ivy/switch-buffer | +ivy/switch-workspace-buffer | helm-register | point-to-register | counsel-bookmark |
 
 * define global-set-key
 #+begin_src emacs-lisp :tangle "meow.el"
@@ -179,8 +182,7 @@
 ** Org mode => map!
 
 #+begin_src emacs-lisp :tangle "meow.el"
-(map! :map org-mode-map
-  )
+(map! :map org-mode-map)
 #+end_src
 
 * Org Mode Hydra Key Map
