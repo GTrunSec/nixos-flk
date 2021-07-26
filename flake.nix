@@ -79,7 +79,7 @@
             imports = [ (digga.lib.importOverlays ./overlays) ];
             overlays = [
               ./pkgs/default.nix
-              (final: prev: { emacsNg = emacs-ng.defaultPackage."${final.system}"; })
+              (final: prev: { emacsNg = emacs-ng.defaultPackage.x86_64-linux; })
               nur.overlay
               digga.overlays.patchedNix
               agenix.overlay

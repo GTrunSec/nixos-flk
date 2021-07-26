@@ -34,7 +34,7 @@ HTML them READ org
 
 Emacs or EMACS (Editor MACroS) is a family of text editors that are characterized by their extensibility. The manual for the most widely used variant, GNU Emacs, describes it as "the extensible, customizable, self-documenting, real-time display editor". Development of the first Emacs began in the mid-1970s, and work on its direct descendant, GNU Emacs, continues actively as of 2020.
 
-* init.el
+* Init.el
 
 #+begin_src emacs-lisp :tangle "init.el"
 ;;; init.el -*- lexical-binding: t; -*-
@@ -62,7 +62,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       ;;hydra
+       hydra
        indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink the current line after jumping
@@ -181,7 +181,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
         +ipython         ; ipython/jupyter support for babel
         +pandoc          ; export-with-pandoc support
         +journal
-        +roam
+        +roam2
         ;;+helm-org
         ;+pomodoro        ; be fruitful with the tomato technique
         +present)        ; using org-mode for presentations
@@ -239,7 +239,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
          )
 #+end_src
 
-* package.el
+* Packages.el
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;; packages.el -*- lexical-binding: t; -*-
@@ -258,7 +258,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 -  [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
 
 -  [[https://github.com/Overdr0ne/sfs][GitHub - Overdr0ne/sfs: Search File System for Emacs]]
-* config.el
+* Config.el
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; config.el -*- lexical-binding: t; -*-
@@ -276,7 +276,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+RESULTS:
 : doom-city-lights
 
-* use-package
+* Use Packages
 
 ** helm-tramp
 
@@ -593,7 +593,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 (use-package! find-dupes-dired)
 #+end_src
 
-* autoload
+* Autoload
 
 ** +misc.el
 
@@ -871,13 +871,15 @@ appropriate.  In tables, insert a new row or end the table."
 
 * Completion
 
-** company
+** Company
 #+begin_src emacs-lisp :tangle "config.el"
 (after! company
   (setq company-idle-delay 0.5
         company-minimum-prefix-length 2
-        company-transformers nil)
-  (setq company-show-numbers t)
+        company-transformers nil
+        company-show-numbers t)
+
+
   (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
   (define-key company-active-map (kbd "C-j") 'company-select-previous-or-abort)
 
@@ -914,7 +916,7 @@ In that case, insert the number."
   (define-key map (kbd "<return>") nil)))
 #+end_src
 
-** Ivy/counsel
+** Ivy / Counsel
 
 #+begin_src emacs-lisp :tangle "config.el"
   (use-package! counsel
@@ -1095,28 +1097,33 @@ In that case, insert the number."
 *** maple-iedit
 
 #+begin_src emacs-lisp :tangle "config.el"
-  (use-package! maple-iedit
-    :commands (maple-iedit-match-all maple-iedit-match-next maple-iedit-match-previous)
-    :config
-    (delete-selection-mode t)
-    (setq maple-iedit-ignore-case t)
-    (defhydra maple/iedit ()
-      ("n" maple-iedit-match-next "next")
-      ("t" maple-iedit-skip-and-match-next "skip and next")
-      ("T" maple-iedit-skip-and-match-previous "skip and previous")
-      ("p" maple-iedit-match-previous "prev"))
-    :bind (:map maple-iedit-mode-keymap
-                ("C-n" . maple-iedit-match-next)
-                ("C-m" . maple-iedit-match-previous)
-                ("<down>" . maple-iedit-match-next)
-                ("<up>" . maple-iedit-match-previous)
-                ("C-," . maple-iedit-skip-and-match-next)
-                ("C-." . maple-iedit-skip-and-match-previous)
-                ("<right>" . maple-iedit-skip-and-match-next)
-                ("<left>" . maple-iedit-skip-and-match-previous)
-                )
-    )
+(use-package! maple-iedit
+  :commands (maple-iedit-match-all maple-iedit-match-next maple-iedit-match-previous)
+  :config
+  (delete-selection-mode t)
+  (setq maple-iedit-ignore-case t)
+  :bind (:map maple-iedit-mode-keymap
+         ("C-n" . maple-iedit-match-next)
+         ("C-m" . maple-iedit-match-previous)
+         ("<down>" . maple-iedit-match-next)
+         ("<up>" . maple-iedit-match-previous)
+         ("C-," . maple-iedit-skip-and-match-next)
+         ("C-." . maple-iedit-skip-and-match-previous)
+         ("<right>" . maple-iedit-skip-and-match-next)
+         ("<left>" . maple-iedit-skip-and-match-previous)
+         )
+
+  )
+(defhydra maple/iedit (:color blue)
+  "hydra maple-iedit"
+  ("n" maple-iedit-match-next "next")
+  ("t" maple-iedit-skip-and-match-next "skip and next")
+  ("T" maple-iedit-skip-and-match-previous "skip and previous")
+  ("p" maple-iedit-match-previous "prev"))
 #+end_src
+
+#+RESULTS:
+: maple/iedit/body
 
 *** highlight
 
@@ -1245,121 +1252,121 @@ FACE defaults to inheriting from default and highlight."
 #+RESULTS:
 : t
 
-** Bookmark
+** Bookmarks/bm
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! bm)
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-  (use-package! bm
-    :demand t
-    :init
-    (setq bm-restore-repository-on-load t)
-    :config
+(use-package! bm
+  :demand t
+  :init
+  (setq bm-restore-repository-on-load t)
+  :config
 
-    (bind-keys
-     :map bm-show-mode-map
-     ("j" . next-line)
-     ("k" . previous-line))
+  (bind-keys
+   :map bm-show-mode-map
+   ("j" . next-line)
+   ("k" . previous-line))
 
-    (setq bm-cycle-all-buffers t
-          bm-highlight-style 'bm-highlight-only-fringe
-          bm-repository-size 1000)
-    (setq-default bm-buffer-persistence t)
+  (setq bm-cycle-all-buffers t
+        bm-highlight-style 'bm-highlight-only-fringe
+        bm-repository-size 1000)
+  (setq-default bm-buffer-persistence t)
 
-    (defun adq/bm-save ()
-      "Save bookmarks to persistent repository."
-      (interactive)
-      (bm-buffer-save-all)
-      (bm-repository-save))
+  (defun adq/bm-save ()
+    "Save bookmarks to persistent repository."
+    (interactive)
+    (bm-buffer-save-all)
+    (bm-repository-save))
 
-    (advice-add 'bm-bookmark-add
-                :after (lambda (&rest args)
-                         (adq/bm-save)))
-    (advice-add 'bm-bookmark-remove
-                :after (lambda (&rest args)
-                         (adq/bm-save)))
-    (add-hook 'after-init-hook #'bm-repository-load)
-    (add-hook 'find-file-hooks #'bm-buffer-restore)
-    (add-hook 'after-rever-hook #'bm-buffer-restore)
-    (add-hook 'kill-buffer-hook #'bm-buffer-save)
-    (add-hook 'after-save-hook #'bm-buffer-save)
-    (add-hook 'kill-emacs-hook
-              (lambda ()
-                (bm-buffer-save-all)
-                (bm-repository-save)))
+  (advice-add 'bm-bookmark-add
+              :after (lambda (&rest args)
+                       (adq/bm-save)))
+  (advice-add 'bm-bookmark-remove
+              :after (lambda (&rest args)
+                       (adq/bm-save)))
+  (add-hook 'after-init-hook #'bm-repository-load)
+  (add-hook 'find-file-hooks #'bm-buffer-restore)
+  (add-hook 'after-rever-hook #'bm-buffer-restore)
+  (add-hook 'kill-buffer-hook #'bm-buffer-save)
+  (add-hook 'after-save-hook #'bm-buffer-save)
+  (add-hook 'kill-emacs-hook
+            (lambda ()
+              (bm-buffer-save-all)
+              (bm-repository-save)))
 
-    (defun adq/bm-list-all-bookmarks ()
-      "Generate a list of all bookmarks from all files."
-      (let ((bookmarks '()))
-        (cl-loop for entry in bm-repository
-                 when (and (listp entry) (f-readable-p (car entry)))
-                 do
-                 (with-temp-buffer
-                   (insert-file-contents-literally (car entry))
-                   (cl-letf (((symbol-function 'bm-bookmark-add)
-                              (lambda (&optional annotation time temporary)
-                                (!cons (list (car entry)
-                                             (point)
-                                             (line-number-at-pos)
-                                             (string-trim (thing-at-point 'line t)))
-                                       bookmarks)))
-                             ((symbol-function 'message)
-                              (lambda (&rest _))))
-                     (bm-buffer-restore-2 (cdr entry)))))
-        bookmarks))
+  (defun adq/bm-list-all-bookmarks ()
+    "Generate a list of all bookmarks from all files."
+    (let ((bookmarks '()))
+      (cl-loop for entry in bm-repository
+               when (and (listp entry) (f-readable-p (car entry)))
+               do
+               (with-temp-buffer
+                 (insert-file-contents-literally (car entry))
+                 (cl-letf (((symbol-function 'bm-bookmark-add)
+                            (lambda (&optional annotation time temporary)
+                              (!cons (list (car entry)
+                                           (point)
+                                           (line-number-at-pos)
+                                           (string-trim (thing-at-point 'line t)))
+                                     bookmarks)))
+                           ((symbol-function 'message)
+                            (lambda (&rest _))))
+                   (bm-buffer-restore-2 (cdr entry)))))
+      bookmarks))
 
-      (defun adq/helm-bm-all-format-bookmark (bookmark)
-        "Format bookmark for display."
-        (let ((file (f-filename (car bookmark)))
-              (line (caddr bookmark))
-              (contents (cadddr bookmark)))
-          (cons
-           (format "%s:%s: %s"
-                   (propertize file 'face compilation-info-face)
-                   (propertize (format "%d" line) 'face compilation-line-face)
-                   contents)
-           bookmark)))
+  (defun adq/helm-bm-all-format-bookmark (bookmark)
+    "Format bookmark for display."
+    (let ((file (f-filename (car bookmark)))
+          (line (caddr bookmark))
+          (contents (cadddr bookmark)))
+      (cons
+       (format "%s:%s: %s"
+               (propertize file 'face compilation-info-face)
+               (propertize (format "%d" line) 'face compilation-line-face)
+               contents)
+       bookmark)))
 
-      (defvar adq/helm-bm-all-source
-        (helm-build-sync-source "Helm All Bookmarks"
-          :candidates
-          (lambda ()
-            (mapcar #'adq/helm-bm-all-format-bookmark
-                    (adq/bm-list-all-bookmarks)))
-          :action
-          '(("Switch to buffer" .
-             (lambda (bookmark)
-               (find-file (car bookmark))
-               (goto-char (cadr bookmark))))))
-        "Helm source with all the bookmarks.")
+  (defvar adq/helm-bm-all-source
+    (helm-build-sync-source "Helm All Bookmarks"
+      :candidates
+      (lambda ()
+        (mapcar #'adq/helm-bm-all-format-bookmark
+                (adq/bm-list-all-bookmarks)))
+      :action
+      '(("Switch to buffer" .
+         (lambda (bookmark)
+           (find-file (car bookmark))
+           (goto-char (cadr bookmark))))))
+    "Helm source with all the bookmarks.")
 
-      (defun adq/helm-bm-list-all ()
-        "List all bookmarks usin Helm."
-        (interactive)
-        (helm :sources 'adq/helm-bm-all-source
-              :buffer "*helm bm all*"))
+  (defun adq/helm-bm-list-all ()
+    "List all bookmarks usin Helm."
+    (interactive)
+    (helm :sources 'adq/helm-bm-all-source
+          :buffer "*helm bm all*"))
 
-    (defhydra adq/hydra-bm nil
-      "
+  (defhydra adq/hydra-bm nil
+    "
   Bookmarks
   ^^^^------------------------------------------------
   _m_: Toggle      _l_: Bookmarks from Buffers
   _n_: Next        _a_: Bookmarks form All Files
   _p_: Previous    _L_: List
   "
-      ("m" bm-toggle)
-      ("n" bm-next)
-      ("p" bm-previous)
-      ("a" adq/helm-bm-list-all :exit t)
-      ("l" helm-bm :exit t)
-      ("L" bm-show-all :exit t))
-    (bind-key "C-c m" #'adq/hydra-bm/body))
+    ("m" bm-toggle)
+    ("n" bm-next)
+    ("p" bm-previous)
+    ("a" adq/helm-bm-list-all :exit t)
+    ("l" helm-bm :exit t)
+    ("L" bm-show-all :exit t))
+  (bind-key "C-c m" #'adq/hydra-bm/body))
 #+end_src
 
 
-** scroll
+** Scrolling
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;; (use-package! fast-scroll
@@ -1376,8 +1383,8 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 
-** templating
-
+** Templating
+*** yatemplate
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! yatemplate)
 #+end_src
@@ -1397,18 +1404,23 @@ FACE defaults to inheriting from default and highlight."
 
 ** [[https://github.com/ROCKTAKEY/grugru][ROCKTAKEY/grugru: Rotate text at point in Emacs.]]
 
-* org-mode
+* Org Mode
 
-** load basic config
+** Load Basic Config
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (load! "setting")
-(use-package! ox-hugo)
+
+(setq-default org-directory "~/Documents/org-notes")
+#+end_src
+
+** Laod Default Org Packages
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! ob-session-async)
 #+end_src
 
 
-** Only modes or files seeting in org-mode
+** Only Modes Or Files Seeting In Org-Mode
 
 #+begin_src emacs-lisp :tangle "config.el"
 (define-derived-mode only-file-to-org-mode org-mode "Org + only mode"
@@ -1625,57 +1637,6 @@ FACE defaults to inheriting from default and highlight."
   (setq org-books-file "~/Documents/org-notes/braindump/guangtao/guangtao_library.org")
   )
 #+end_src
-
-** org-z
-:PROPERTIES:
-:ID:       ccfe887a-cb1b-4671-8d35-44d46f98b0ef
-:END:
- - [2021-01-08 Fri 17:49] -> [[id:132bd909-bf8d-40c7-8809-c50dc3226002][helm-rg]]
- - [2021-01-08 Fri 17:49] -> [[id:13ea46d9-4bc3-49fd-b776-e0259d977b03][org-ql]]
-
-#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! org-z :recipe (:host github :repo "landakram/org-z"
-                         :files ("*.el")
-                         ))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! org-z
-  :init
-  (define-key org-mode-map (kbd "C-c C-;") 'org-z-insert-link)
-  (require 'org-z-helm)
-  ;;(require 'org-z-selectrum)
-  :config
-  (org-z-mode 1)
-  (setq org-z-directories  '("~/Documents/org-notes/braindump"
-                             "~/Documents/org-notes/braindump/guangtao"
-                             "~/Documents/org-notes/braindump/journals"
-                             "~/Documents/org-notes/braindump/cs"
-                             "~/Documents/org-notes/braindump/network"
-                             "~/Documents/org-notes/braindump/security"
-                             "~/Documents/org-notes/braindump/life"
-                             "~/Documents/org-notes/braindump/math"
-                             "~/Documents/org-notes/braindump/math/my-mathematic-julia"
-                             "~/Documents/org-notes/braindump/data-science"
-                             "~/Documents/org-notes/braindump/deployment"
-                             "~/Documents/org-notes/braindump/hardware"
-                             "~/Documents/org-notes/braindump/system"
-                             "~/Documents/org-notes/braindump/emacs"
-                             "~/Documents/org-notes/braindump/gaming"
-                             "~/Documents/org-notes/braindump/financial"
-                             "~/Documents/org-notes/braindump/myself-private"
-                             "~/Documents/org-notes/braindump/myself-private/GTD"
-                             "~/Documents/org-notes/braindump/nix"
-                             "~/Documents/org-notes/braindump/programming"
-                             "~/.config/nixpkgs/dotfiles/doom-emacs"
-                             ))
-
-   )
-#+end_src
-
-#+RESULTS:
-: t
-
 
 ** GTD
 
@@ -2023,23 +1984,23 @@ easy way to display org-ref with tree view instead of org-mode ?
 *** org-roam
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
-;;(unpin! org-roam) TODO 2.0 Version
+(unpin! org-roam);;
 #+end_src
 
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-roam
-  :init
-  (require 'org-roam-protocol)
   :config
-  (setq org-roam-index-file "~/Documents/org-notes/braindump/pages/contents.org")
+  (setq org-roam-directory (concat org-directory "/braindump"))
+)
+;;  (setq org-roam-index-file "~/Documents/org-notes/braindump/pages/contents.org")
   ;;https://github.com/zaeph/.emacs.d/blob/0f4bf9a500ef6397b93c41cb51602bea9ab9a4c3/init.el#L3804
   ;; [[https://copingmechanism.com/2020/keeping-org-roam-daily-notes-in-a-separate-folder/][Keeping Org-roam Daily Notes in a separate folder – Coping Mechanism]]
-  ;; (setq org-roam-dailies-capture-templates '(("d" "daily" plain (function org-roam-capture--get-point) ""
+  ;; (setq org-roam-dailies-capture-templates '(("d" "daily" org-roam-capture--get-point) ""
   ;;                                             :immediate-finish t
   ;;                                             :file-name "dailies/%<%Y-%m-%d>-${slug}"
   ;;                                             :head "#+TITLE: %<%Y-%m-%d>-${slug}\n#+created: %u\n#+last_modified: %U\n\n")))
-  )
+  ;;)
 #+end_src
 
 
@@ -2455,7 +2416,7 @@ a separator ' -> '."
 
  - [[http://ergoemacs.org/emacs/elisp_parse_org_mode.html][Elisp: Parse Org Mode]]
 
-* my-codes
+* My Langs
 
 ** Initialize packages
 
@@ -2914,7 +2875,7 @@ Used in :switch-buffer-functions slot."
 #+RESULTS:
 | tree-sitter-hl-mode |
 
-* Visual
+* Visualization
 
 
 ** Buffer
@@ -2955,7 +2916,7 @@ Used in :switch-buffer-functions slot."
   (setq eyebrowse-new-workspace t)
 )
  #+end_src
-** window
+** Window
 
 *** awesome-tab
 
@@ -3098,7 +3059,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
   :init (golden-ratio-mode 1))
 #+end_src
 
-** theme
+** Themes
 
 *** [[https://github.com/vbuzin/berrys-theme][vbuzin/berrys-theme: A light, clean and elegant Emacs theme]]
 
@@ -3114,7 +3075,22 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 *** [[https://github.com/rougier/elegant-emacs][rougier/elegant-emacs: A very minimal but elegant emacs (I think)]]
 
-** writeroom or writegood
+** Hydra
+
+*** Hydra Posframe
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! hydra-posframe :recipe (:host github :repo "Ladicle/hydra-posframe"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! hydra-posframe
+ :hook (after-init . hydra-posframe-enable)
+  )
+#+end_src
+
+** Writeroom Or Writegood
 
 - [[https://github.com/bnbeckwith/writegood-mode][bnbeckwith/writegood-mode: Minor mode for Emacs to improve English writing]]
 
@@ -3157,7 +3133,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 ;;            ;; ↯ What is the evidence of highighted phrase? ↯
 #+end_src
 
-** grip-mode
+** Grip Mode
 
 1. [[https://github.com/seagle0128/grip-mode][seagle0128/grip-mode: Instant Github-flavored Markdown/Org preview using grip]]
 
@@ -3287,9 +3263,10 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (disable-packages! lsp-python-ms)
 #+end_src
 
-** unpin packages
+** Unpin Packages
 #+begin_src emacs-lisp :tangle "packages.el"
 (unpin! doom-modeline)
+(unpin! doom-themes) ;; BUG https://github.com/hlissner/emacs-doom-themes/issues/631
 (unpin! magit)
 (unpin! nix-mode)
 (unpin! org-journal)
