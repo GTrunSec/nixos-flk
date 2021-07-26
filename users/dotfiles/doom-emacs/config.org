@@ -2695,7 +2695,7 @@ Used in :switch-buffer-functions slot."
 ;;                             :repo "polymode/poly-org"
 ;;                             :build (:not compile)
 ;;                             ))
-(package! poly-org   :recipe (:local-repo "./modules"
+(package! poly-org :recipe (:local-repo "./modules/poly-org"
                               :build (:not compile))
 )
 #+end_src
@@ -3484,7 +3484,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 *** Mode Map -> MacOS
 
-****  Org Mode Map
+**** Org Mode Map
 
 #+begin_src emacs-lisp :tangle "macos.el"
 (map! :map org-mode-map
@@ -3515,12 +3515,16 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-MAC
   (package! exec-path-from-shell)
+
+  (package! org-mac-link   :recipe (:local-repo "./modules/org-mac-link"
+                              :build (:not compile)))
 )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; my-macos.el -*- lexical-binding: t; -*-
 (when IS-MAC
+  (use-package! org-mac-link)
   (use-package! exec-path-from-shell
     :config
     (when (memq window-system '(mac ns x))
