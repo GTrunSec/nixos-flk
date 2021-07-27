@@ -331,6 +331,10 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 )
 #+end_src
 
+** Hydra
+
+- https://github.com/abo-abo/hydra/wiki/Projectile
+
 ** maple-explorer
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -1507,16 +1511,16 @@ FACE defaults to inheriting from default and highlight."
     )
   (org-starter-def "~/Documents/org-notes/braindump"
     :files
-    ("myself-private/" :agenda t)
-    ("myself-private/GTD/gtd.org"                      :key "g" :refile (:maxlevel . 5))
-    ("myself-private/GTD/notes.org"                    :key "n" :refile (:maxlevel . 5 ))
-    ("myself-private/GTD/myself.org"                    :key "m" :refile (:maxlevel . 5 ))
-    ("myself-private/GTD/Habit.org"                     :key "h" :refile (:maxlevel . 5 ))
+    ("myself/" :agenda t)
+    ("myself/GTD/gtd.org"    :key "g" :refile (:maxlevel . 5))
+    ("myself/GTD/notes.org"  :key "n" :refile (:maxlevel . 5 ))
+    ("myself/GTD/myself.org" :key "m" :refile (:maxlevel . 5 ))
+    ("myself/GTD/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
     ;;
-    ("guangtao/" :agenda t)
-    ("guangtao/learn_music.org"          :agenda t :key "M" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao_library.org"       :key "b" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao_feed.org"         :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ("guangtao/"                     :agenda t)
+    ("guangtao/learn_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
+    ("guangtao/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
+    ("guangtao/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
     ("life/" :agenda t)
     ("life/life_goods.org"     :key "s" :refile (:maxlevel . 5 ))
@@ -1544,30 +1548,6 @@ FACE defaults to inheriting from default and highlight."
     ("README.org")
     ("global-readme.org")
     ("dotfiles/wallpaper/wallpaper.org" :agenda nil)
-    )
-
-  (defhydra gtrun/hydra-org-starter nil
-    "
-  Org-starter-files
-  ^^^^------------------------------------------------
- _c_: config.org  _g_: gtd.org     _l_: love.org
- _n_: note        _h_: Habit.org    _w_: meow.org
- _m_: myself      _p_: Plan.org
- _b_: my-books    _f_: feed
- _s_: life-goods
-  "
-
-    ("c" org-starter-find-file:config)
-    ("w" org-starter-find-file:meow)
-    ("g" org-starter-find-file:gtd)
-    ("s" org-starter-find-file:life_goods)
-    ("n" org-starter-find-file:notes)
-    ("f" org-starter-find-file:guangtao_feed)
-    ("m" org-starter-find-file:myself)
-    ("l" org-starter-find-file:love)
-    ("h" org-starter-find-file:Habit)
-    ("p" org-starter-find-file:plan)
-    ("b" org-starter-find-file:guangtao_library)
     )
   :commands org-starter-load-all-files-in-path
   :hook
@@ -1919,7 +1899,7 @@ FACE defaults to inheriting from default and highlight."
   :config
   (setq notdeft-extension "org")
   ;;(setq notdeft-secondary-extensions '("md" "org" "scrbl"))
-  (setq notdeft-xapian-program "/home/gtrun/.nix-profile/bin/notdeft-xapian")
+  (setq notdeft-xapian-program "notdeft-xapian")
   (when IS-MAC
     (setq notdeft-xapian-program "/Users/gtrun/.nix-profile/bin/notdeft-xapian")
     )
@@ -1940,6 +1920,8 @@ FACE defaults to inheriting from default and highlight."
          )
   )
 #+end_src
+
+#+RESULTS:
 
 - build
 
@@ -2141,6 +2123,60 @@ easy way to display org-ref with tree view instead of org-mode ?
   :config
   (setq ob-mermaid-cli-path "~/.nix-profile/bin/mmdc")
   )
+#+end_src
+
+** Org ID
+:PROPERTIES:
+:ID:       11c28ecd-d192-49b8-9af0-0a949e7a28d3
+:END:
+
+- https://zzamboni.org/post/how-to-easily-create-and-use-human-readable-ids-in-org-mode-and-doom-emacs/
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! counsel
+  (setq counsel-outline-display-style 'title))
+
+(after! org-id
+  ;; Do not create ID if a CUSTOM_ID exists
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id))
+
+(defun zz/make-id-for-title (title)
+  "Return an ID based on TITLE."
+  (let* ((new-id (replace-regexp-in-string "[^[:alnum:]]" "-" (downcase title))))
+    new-id))
+
+(defun zz/org-custom-id-create ()
+  "Create and store CUSTOM_ID for current heading."
+  (let* ((title (or (nth 4 (org-heading-components)) ""))
+         (new-id (zz/make-id-for-title title)))
+    (org-entry-put nil "CUSTOM_ID" new-id)
+    (org-id-add-location new-id (buffer-file-name (buffer-base-buffer)))
+    new-id))
+
+(defun zz/org-custom-id-get-create (&optional where force)
+  "Get or create CUSTOM_ID for heading at WHERE.
+
+If FORCE is t, always recreate the property."
+  (org-with-point-at where
+    (let ((old-id (org-entry-get nil "CUSTOM_ID")))
+      ;; If CUSTOM_ID exists and FORCE is false, return it
+      (if (and (not force) old-id (stringp old-id))
+          old-id
+        ;; otherwise, create it
+        (zz/org-custom-id-create)))))
+
+;; Now override counsel-org-link-action
+(after! counsel
+  (defun counsel-org-link-action (x)
+    "Insert a link to X.
+
+X is expected to be a cons of the form (title . point), as passed
+by `counsel-org-link'.
+
+If X does not have a CUSTOM_ID, create it based on the headline
+title."
+    (let* ((id (zz/org-custom-id-get-create (cdr x))))
+      (org-insert-link nil (concat "#" id) (car x)))))
 #+end_src
 
 
@@ -2877,7 +2913,6 @@ Used in :switch-buffer-functions slot."
 
 * Visualization
 
-
 ** Buffer
 
 *** Parenthesis
@@ -3075,9 +3110,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 *** [[https://github.com/rougier/elegant-emacs][rougier/elegant-emacs: A very minimal but elegant emacs (I think)]]
 
-** Hydra
-
-*** Hydra Posframe
+** Hydra Posframe
 
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -3086,7 +3119,10 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! hydra-posframe
- :hook (after-init . hydra-posframe-enable)
+  :config
+  (when (display-graphic-p)
+    (add-hook! 'after-init-hook 'hydra-posframe-enable)
+    )
   )
 #+end_src
 

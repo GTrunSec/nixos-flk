@@ -145,7 +145,8 @@
 
 * define global-set-key
 #+begin_src emacs-lisp :tangle "meow.el"
-(global-set-key (kbd "<f3>") 'gtrun/hydra-org-starter/body)
+(global-set-key (kbd "<f2>") 'hydra/org-roam/body)
+(global-set-key (kbd "<f3>") 'org-starter-find-file-by-key)
 (global-set-key (kbd "<f4>") 'org-agenda)
 (global-set-key (kbd "<f5>") 'notdeft)
 (global-set-key (kbd "C-s") 'swiper-isearch)
@@ -187,21 +188,22 @@
 
 * Org Mode Hydra Key Map
 #+begin_src emacs-lisp :tangle "meow.el" :colnames yes
-(defhydra hydra/org-roam (:color pink
-                     :hint nil
-                     :columns 4)
+(defhydra hydra/org-roam (:hint nil :color teal)
   "
-^Find                  ^Add                ^Buffer       ^Misc
 ------------------------------------------------------------------
-                          _l_: org-super-links-quick-insert-inline-link
-                          _s_: org-super-links-quick-insert-drawer-link
-  _nf_: org-roam-node-find     _s_: org-super-links-store-link
-  _rf_: org-roam-ref-find      _i_: org-super-links-insert-link
+  ^_l_: insert-inline-link   ^_j_: org-goto    _w_:id-create  _k_: org-goto-all
+  _nf_: Node Find           _s_: store-link
+  _rf_: Ref Find            _i_: insert-link
+  ^_s_: insert-drawer-link
 ------------------------------------------------------------------
 "
   ("nf" org-roam-node-find)
   ("rf" org-roam-ref-find)
 
+  ("w" org-id-get-create)
+  ("k" counsel-org-goto-all)
+  ("j" counsel-org-goto)
+  ("i" org-super-links-insert-link)
   ("i" org-super-links-insert-link)
   ("s" org-super-links-store-link)
   ("l" org-super-links-quick-insert-inline-link)

@@ -7,4 +7,8 @@
   };
 
   systemd.user.startServices = true;
+
+  services.dropbox = {
+    enable = true;
+  };
 }

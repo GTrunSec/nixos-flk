@@ -685,11 +685,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1621761365,
-        "narHash": "sha256-2SA6Pe3obXinpSDRB1zuMb7gwXlXgu8C95MJ1WwOrMg=",
+        "lastModified": 1625744778,
+        "narHash": "sha256-9Ynbc/fIHZWBSU8DUzOhpX0b5bDDCAH7esGIIPLhHlo=",
         "owner": "DavHau",
         "repo": "mach-nix",
-        "rev": "6cfa1d22bc4d071fa2a2118571999bc995e908b2",
+        "rev": "d884751a1c5942529ec8daf9d11ec516f8397b86",
         "type": "github"
       },
       "original": {
