@@ -162,7 +162,11 @@
 * Normal State Mode List
 #+begin_src emacs-lisp :tangle "meow.el"
 (add-to-list 'meow-mode-state-list '(zeek-mode . normal))
+(add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
 #+end_src
+
+#+RESULTS:
+: ((notdeft-mode . normal) (zeek-mode . normal) (cider-browse-spec-view-mode . motion) (beancount-mode . normal) (fundamental-mode . normal) (occur-edit-mode . normal) (text-mode . normal) (prog-mode . normal) (conf-mode . normal) (cider-repl-mode . normal) (eshell-mode . normal) (vterm-mode . normal) (json-mode . normal) (deft-mode . normal) (pass-view-mode . normal) (telega-chat-mode . normal) (restclient-mode . normal) (help-mode . normal) (deadgrep-edit-mode . normal) (mix-mode . normal) (py-shell-mode . normal) (term-mode . normal) (Custom-mode . normal) (jupyter-repl-mode . normal))
 
 * remap global keys
 
@@ -180,34 +184,50 @@
       "," 'xah-open-in-external-app
       )
 #+end_src
-** Org mode => map!
+** Org Mode Map => map!
+:PROPERTIES:
+:ID:       51647023-c013-40c4-83de-c2ba20e3a9c7
+:END:
+
+- [2021-07-27 Tue 12:44] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
 
 #+begin_src emacs-lisp :tangle "meow.el"
-(map! :map org-mode-map)
+(map! :map org-mode-map
+      "C-c ;" #'org-time-stamp-inactive
+      "RET"   #'unpackaged/org-return-dwim
+      )
 #+end_src
 
 * Org Mode Hydra Key Map
-#+begin_src emacs-lisp :tangle "meow.el" :colnames yes
+:PROPERTIES:
+:ID:       26a87c3a-375b-4bfb-9520-845641ec1335
+:END:
+
+- [2021-07-27 Tue 13:07] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
+#+begin_src emacs-lisp :tangle "meow.el"
 (defhydra hydra/org-roam (:hint nil :color teal)
   "
 ------------------------------------------------------------------
-  ^_l_: insert-inline-link   ^_j_: org-goto    _w_:id-create  _k_: org-goto-all
-  _nf_: Node Find           _s_: store-link
-  _rf_: Ref Find            _i_: insert-link
-  ^_s_: insert-drawer-link
+  ^_j_: org-goto    _w_:id-create  _k_: org-goto-all
+  _f_: Node Find           _,_: store-link
+  _n_: Ref Find            _._: insert-link
+  _i_: Node Insert                        ^_'_: insert-drawer-link
+  ^_;_: insert-inline-link
 ------------------------------------------------------------------
 "
-  ("nf" org-roam-node-find)
-  ("rf" org-roam-ref-find)
+  ("f" org-roam-node-find)
+  ("n" org-roam-ref-find)
+  ("i" org-roam-node-insert)
 
   ("w" org-id-get-create)
   ("k" counsel-org-goto-all)
   ("j" counsel-org-goto)
-  ("i" org-super-links-insert-link)
-  ("i" org-super-links-insert-link)
-  ("s" org-super-links-store-link)
-  ("l" org-super-links-quick-insert-inline-link)
-  ("d" org-super-links-quick-insert-drawer-link)
+  ("." org-super-links-insert-link)
+  ("," org-super-links-store-link)
+  (";" org-super-links-quick-insert-inline-link)
+  ("'" org-super-links-quick-insert-drawer-link)
 
   ("c" nil "cancel")
   )
@@ -215,8 +235,6 @@
 
 #+RESULTS:
 : hydra/org-roam/body
-
-
 
 * end line of meow setting
 #+begin_src emacs-lisp :tangle "meow.el"

@@ -1436,6 +1436,12 @@ FACE defaults to inheriting from default and highlight."
 
 
 ** Org Mode Map && After Org! settings
+:PROPERTIES:
+:ID:       e4386f66-eaeb-470f-9ea0-992e583a5909
+:END:
+ - [2021-07-27 Tue 12:44] -> [[id:51647023-c013-40c4-83de-c2ba20e3a9c7][Org Mode Map => map!]]
+ - [2021-07-27 Tue 13:07] -> [[id:26a87c3a-375b-4bfb-9520-845641ec1335][Org Mode Hydra Key Map]]
+
 
  - [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][zzamboni.org | Beautifying Org Mode in Emacs]]
 
@@ -1463,7 +1469,7 @@ FACE defaults to inheriting from default and highlight."
   ;; Removes clocked tasks with 0:00 duration
   (setq org-clock-out-remove-zero-time-clocks t)
   ;; Change task state to STARTED when clocking in
-  (setq org-clock-in-switch-to-state "⚔ INPROCESS")
+  (setq org-clock-in-switch-to-state "INPROCESS")
   (setq org-src-fontify-natively t
         org-src-preserve-indentation t
         org-src-tab-acts-natively t
@@ -1474,19 +1480,14 @@ FACE defaults to inheriting from default and highlight."
   (eval-after-load "org"
     '(require 'ox-md nil t))
   ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
-
   (defun org-show-two-levels ()
     (interactive)
     (org-content 2))
 
   (setq org-download-timestamp "%Y%m%d_%H%M%S")
-
   (add-hook! 'org-mode-hook 'org-show-two-levels)
-  (add-hook! 'after-init-hook 'org-id-update-id-locations)
-
+  (add-hook! 'emacs-startup-hook 'org-id-update-id-locations)
   (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
-  (define-key org-mode-map (kbd "C-c ;") 'org-time-stamp-inactive)
-  (define-key org-mode-map (kbd "RET") 'unpackaged/org-return-dwim)
   (setq org-plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
   )
 #+end_src
@@ -1899,10 +1900,8 @@ FACE defaults to inheriting from default and highlight."
   :config
   (setq notdeft-extension "org")
   ;;(setq notdeft-secondary-extensions '("md" "org" "scrbl"))
+  (setq notdeft-allow-org-property-drawers t)
   (setq notdeft-xapian-program "notdeft-xapian")
-  (when IS-MAC
-    (setq notdeft-xapian-program "/Users/gtrun/.nix-profile/bin/notdeft-xapian")
-    )
   (setq notdeft-directories '("~/Documents/org-notes/post/myself"
                               "~/Documents/org-notes/dailies"
                               "~/Documents/org-notes/post/traveling"
