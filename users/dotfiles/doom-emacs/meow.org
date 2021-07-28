@@ -146,9 +146,9 @@
 * define global-set-key
 #+begin_src emacs-lisp :tangle "meow.el"
 (global-set-key (kbd "<f2>") 'hydra/org-roam/body)
-(global-set-key (kbd "<f3>") 'org-starter-find-file-by-key)
-(global-set-key (kbd "<f4>") 'org-agenda)
-(global-set-key (kbd "<f5>") 'notdeft)
+(global-set-key (kbd "<f4>") 'org-starter-find-file-by-key)
+(global-set-key (kbd "<f5>") 'org-agenda)
+(global-set-key (kbd "<f3>") 'notdeft)
 (global-set-key (kbd "C-s") 'swiper-isearch)
 (global-set-key (kbd "<f9>") 'save-buffer)
 (global-set-key (kbd "C-c w") 'doom/save-and-kill-buffer)
@@ -159,14 +159,12 @@
 
 #+RESULTS:
 : magit-status
-* Normal State Mode List
+* Meeow Mode State List
+
 #+begin_src emacs-lisp :tangle "meow.el"
 (add-to-list 'meow-mode-state-list '(zeek-mode . normal))
-(add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
+(add-to-list 'meow-mode-state-list '(notdeft-mode . insert))
 #+end_src
-
-#+RESULTS:
-: ((notdeft-mode . normal) (zeek-mode . normal) (cider-browse-spec-view-mode . motion) (beancount-mode . normal) (fundamental-mode . normal) (occur-edit-mode . normal) (text-mode . normal) (prog-mode . normal) (conf-mode . normal) (cider-repl-mode . normal) (eshell-mode . normal) (vterm-mode . normal) (json-mode . normal) (deft-mode . normal) (pass-view-mode . normal) (telega-chat-mode . normal) (restclient-mode . normal) (help-mode . normal) (deadgrep-edit-mode . normal) (mix-mode . normal) (py-shell-mode . normal) (term-mode . normal) (Custom-mode . normal) (jupyter-repl-mode . normal))
 
 * remap global keys
 
@@ -211,8 +209,8 @@
   "
 ------------------------------------------------------------------
   ^_j_: org-goto    _w_:id-create  _k_: org-goto-all
-  _f_: Node Find           _,_: store-link
-  _n_: Ref Find            _._: insert-link
+  _f_: Node Find           _,_: store-link       _b_: Roam Buffer
+  _n_: Ref Find            _._: insert-link      _a_: Alias Add
   _i_: Node Insert                        ^_'_: insert-drawer-link
   ^_;_: insert-inline-link
 ------------------------------------------------------------------
@@ -220,6 +218,8 @@
   ("f" org-roam-node-find)
   ("n" org-roam-ref-find)
   ("i" org-roam-node-insert)
+  ("b" org-roam-buffer-display-dedicated)
+  ("a" org-roam-alias-add)
 
   ("w" org-id-get-create)
   ("k" counsel-org-goto-all)

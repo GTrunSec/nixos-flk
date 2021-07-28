@@ -1,4 +1,4 @@
-+TITLE: GuangTao's Doom Emacs config
+#+TITLE: GuangTao's Doom Emacs Config
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+AUTHOR: GuangTao
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
@@ -7,7 +7,7 @@
 - [[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
 - [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
 - [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
-
+- https://github.com/zzamboni/dot-doom/blob/master/doom.org
 
 #+BEGIN_QUOTE
 HTML them READ org
@@ -866,12 +866,34 @@ appropriate.  In tables, insert a new row or end the table."
 #+RESULTS:
 : t
 
-** Auto Save
+** Auto Save Buffer
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
+#+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;;(add-hook 'meow-switch-state-hook #'save-buffer)
-(add-hook 'before-save-hook 'font-lock-flush)
+(add-hook! 'before-save-hook 'font-lock-flush)
+
+(use-package! auto-save
+  :config
+  (auto-save-enable)
+  (setq auto-save-silent t)   ; quietly save
+  ;; after foraml-buffer
+  (setq auto-save-idle 5)
+  (setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+  (setq auto-save-disable-predicates
+        '((lambda ()
+            (string-suffix-p
+             "gpg"
+             (file-name-extension (buffer-name)) t))))
+  )
 #+end_src
+
+#+RESULTS:
+: t
 
 * Completion
 
@@ -1035,8 +1057,15 @@ In that case, insert the number."
 ** company-backend
 
 #+begin_src emacs-lisp :tangle "config.el"
-(set-company-backend! '(julia-mode
-                        org-mode)
+(set-company-backend! '(org-mode)
+  '(
+    company-math-symbols-unicode
+    company-files
+    company-yasnippet
+    :separate
+    company-tabnine
+    ))
+(set-company-backend! '(julia-mode)
   '(
     company-math-symbols-unicode
     company-files
@@ -1079,6 +1108,9 @@ In that case, insert the number."
                               ))
 
 #+end_src
+
+#+RESULTS:
+| company-capf | company-files | company-yasnippet | :separate | company-tabnine |
 
 ** Ordless
 
@@ -1983,6 +2015,9 @@ easy way to display org-ref with tree view instead of org-mode ?
   ;;                                             :head "#+TITLE: %<%Y-%m-%d>-${slug}\n#+created: %u\n#+last_modified: %U\n\n")))
   ;;)
 #+end_src
+
+#+RESULTS:
+: t
 
 
 
