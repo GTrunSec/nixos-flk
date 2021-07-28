@@ -205,29 +205,21 @@
 - [2021-07-27 Tue 13:07] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
 
 #+begin_src emacs-lisp :tangle "meow.el"
-(defhydra hydra/org-roam (:hint nil :color teal)
-  "
-------------------------------------------------------------------
-  ^_j_: org-goto    _w_:id-create  _k_: org-goto-all
-  _f_: Node Find           _,_: store-link       _b_: Roam Buffer
-  _n_: Ref Find            _._: insert-link      _a_: Alias Add
-  _i_: Node Insert                        ^_'_: insert-drawer-link
-  ^_;_: insert-inline-link
-------------------------------------------------------------------
-"
-  ("f" org-roam-node-find)
-  ("n" org-roam-ref-find)
-  ("i" org-roam-node-insert)
-  ("b" org-roam-buffer-display-dedicated)
-  ("a" org-roam-alias-add)
+(defhydra hydra/org-roam (:columns 4 :hint nil)
+  "Org Roam Hydra"
+  ("f" org-roam-node-find "Node Findd")
+  ("n" org-roam-ref-find "Ref Find")
+  ("i" org-roam-node-insert "Node Insert")
+  ("b" org-roam-buffer-display-dedicated "Buffer Display")
+  ("a" org-roam-alias-add "Alias Add")
 
-  ("w" org-id-get-create)
-  ("k" counsel-org-goto-all)
-  ("j" counsel-org-goto)
-  ("." org-super-links-insert-link)
-  ("," org-super-links-store-link)
-  (";" org-super-links-quick-insert-inline-link)
-  ("'" org-super-links-quick-insert-drawer-link)
+  ("w" org-id-get-create "Id Create")
+  ("k" counsel-org-goto-all "Goto")
+  ("j" counsel-org-goto "Goto All")
+  ("." org-super-links-insert-link "sl Insert")
+  ("," org-super-links-store-link "Link Store")
+  (";" org-super-links-quick-insert-inline-link "sl Inline Insert")
+  ("'" org-super-links-quick-insert-drawer-link "sl drawer Insert")
 
   ("c" nil "cancel")
   )
