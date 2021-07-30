@@ -142,6 +142,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
               users = digga.lib.rakeLeaves ./users;
+              virtual = digga.lib.rakeLeaves ./profiles/virtualisation;
             };
             suites = with profiles; rec {
               base = [ core users.gtrun users.root ];
@@ -151,13 +152,14 @@
                 code
                 application
                 data
-                virt
                 fonts
                 devices
                 network
                 search
                 ssh
                 nsm
+                virtual.docker
+                virtual.libvirtd
               ];
             };
           };

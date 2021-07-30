@@ -59,6 +59,7 @@
    '("C" . meow-change-save)
    '("d" . meow-delete)
    '("e" . meow-line)
+   '("E" . meow-kmacro-lines)
    '("f" . meow-find)
    '("F" . meow-find-expand)
    '("g" . meow-keyboard-quit)
@@ -106,7 +107,7 @@
 #+end_src
 
 #+RESULTS:
-| meow-expand-0 | meow-expand-9 | meow-expand-8 | meow-expand-7 | meow-expand-6 | meow-expand-5 | meow-expand-4 | meow-expand-3 | meow-expand-2 | meow-expand-1 | negative-argument | meow-reverse | meow-inner-of-thing | meow-bounds-of-thing | meow-beginning-of-thing | meow-end-of-thing | meow-append | meow-open-below | meow-back-word | meow-back-symbol | meow-change | meow-change-save | meow-delete | meow-line | meow-find | meow-find-expand | meow-keyboard-quit | meow-goto-line | meow-left | meow-left-expand | meow-insert | meow-open-above | meow-join | delete-indentation | meow-kill | meow-till | meow-till-expand | meow-mark-word | meow-mark-symbol | meow-next | meow-next-expand | meow-block | meow-block-expand | meow-prev | meow-prev-expand | meow-quit | +popup/quit-window | meow-replace | meow-replace-save | meow-search | meow-pop-search | meow-right | meow-right-expand | undo-fu-only-undo | undo-fu-only-redo | meow-visit | meow-next-word | meow-next-symbol | meow-save | meow-clipboard-save | meow-yank | meow-clipboard-yank | meow-pop-selection | meow-pop-all-selection | meow-query-replace | meow-query-replace-regexp | meow-last-buffer |
+| meow-expand-0 | meow-expand-9 | meow-expand-8 | meow-expand-7 | meow-expand-6 | meow-expand-5 | meow-expand-4 | meow-expand-3 | meow-expand-2 | meow-expand-1 | negative-argument | meow-reverse | meow-inner-of-thing | meow-bounds-of-thing | meow-beginning-of-thing | meow-end-of-thing | meow-append | meow-open-below | meow-back-word | meow-back-symbol | meow-change | meow-change-save | meow-delete | meow-line | meow-kmacro-lines | meow-find | meow-find-expand | meow-keyboard-quit | meow-goto-line | meow-left | meow-left-expand | meow-insert | meow-open-above | meow-join | delete-indentation | meow-kill | meow-till | meow-till-expand | meow-mark-word | meow-mark-symbol | meow-next | meow-next-expand | meow-block | meow-block-expand | meow-prev | meow-prev-expand | meow-quit | +popup/quit-window | meow-replace | meow-replace-save | meow-search | meow-pop-search | meow-right | meow-right-expand | undo-fu-only-undo | undo-fu-only-redo | meow-visit | meow-next-word | meow-next-symbol | meow-save | meow-clipboard-save | meow-yank | meow-clipboard-yank | meow-pop-selection | meow-pop-all-selection | meow-query-replace | meow-query-replace-regexp | meow-last-buffer |
 
 * Meow Define Leader Key
 
@@ -163,8 +164,12 @@
 
 #+begin_src emacs-lisp :tangle "meow.el"
 (add-to-list 'meow-mode-state-list '(zeek-mode . normal))
-(add-to-list 'meow-mode-state-list '(notdeft-mode . insert))
+(add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
+(add-hook 'notdeft-mode-hook (lambda () (meow-insert-mode 1)))
 #+end_src
+
+#+RESULTS:
+| meow-insert-mode | meow-insert | t |
 
 * remap global keys
 
