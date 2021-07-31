@@ -13,9 +13,9 @@
   };
 
 
-  environment.pathsToLink = [
-    "/share/nix-direnv"
-  ];
+  # environment.pathsToLink = [
+  #   "/share/nix-direnv"
+  # ];
 
   environment.systemPackages = with pkgs; [
     zsh
@@ -35,6 +35,5 @@
     git-crypt
     wget
     nix-output-monitor
-    nix-direnv
   ];
 }

@@ -147,7 +147,7 @@
             suites = with profiles; rec {
               base = [ core users.gtrun users.root ];
               graphics = base ++ [
-                core-extend
+                core-custom
                 graphical
                 code
                 application

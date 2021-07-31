@@ -35,8 +35,6 @@
       home.file."Library/Application Support/promnesia/config.py".source = ../../../profiles/data/config.py;
     })
 
-    ({
-      home.file.".config/direnv/direnvrc".source = ../../dotfiles/direnv/direnvrc.sh;
-    })
+    ({ })
   ];
 }

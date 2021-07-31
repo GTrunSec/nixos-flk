@@ -171,6 +171,9 @@ exec_always --no-startup-id bash $HOME/.config/nixpkgs/nixos-flk/users/dotfiles/
 # adguard-home
 #exec --no-startup-id bash $HOME/.config/nixpkgs/sh/adguard-home.sh
 
+# dropbox client
+exec --no-startup-id dropbox start
+
 
 
 # applcation
