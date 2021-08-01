@@ -13,11 +13,12 @@ channels: final: prev: {
     signal-desktop
     tmux
     electron_13
+    i3-gaps
     starship;
 
   haskellPackages = prev.haskellPackages.override
-    (hpArgs: {
-      overrides = prev.lib.composeExtensions (hpArgs.overrides or (_: _: { })) (hfinal: hprev:
+    (old: {
+      overrides = prev.lib.composeExtensions (old.overrides or (_: _: { })) (hfinal: hprev:
         let version = prev.lib.replaceChars [ "." ] [ "" ] prev.ghc.version;
         in
         {

@@ -1489,6 +1489,7 @@ FACE defaults to inheriting from default and highlight."
 
   (setq org-clock-into-drawer t)
   (add-hook! 'org-mode-hook 'auto-revert-mode)
+  (add-hook! 'org-mode-hook 'org-indent-mode)
   (add-hook! 'dired-mode-hook 'org-download-enable)
   ;; (setq-hook! 'org-mode-hook fill-column 80)
   ;; (setq-hook! 'org-mode-hook org-superstar-mode 1)
@@ -3580,21 +3581,17 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
               :size 24.5)))
 #+end_src
 
-** macos use packages
+** Macos Use Packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-MAC
   (package! exec-path-from-shell)
-
-  (package! org-mac-link   :recipe (:local-repo "./modules/org-mac-link"
-                              :build (:not compile)))
 )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; my-macos.el -*- lexical-binding: t; -*-
 (when IS-MAC
-  (use-package! org-mac-link)
   (use-package! exec-path-from-shell
     :config
     (when (memq window-system '(mac ns x))

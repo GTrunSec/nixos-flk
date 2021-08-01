@@ -217,14 +217,15 @@
   ("i" org-roam-node-insert "Node Insert")
   ("b" org-roam-buffer-display-dedicated "Buffer Display")
   ("a" org-roam-alias-add "Alias Add")
+  ("y" org-roam-db-sync "DB Sync")
 
   ("w" org-id-get-create "Id Create")
   ("k" counsel-org-goto-all "Goto")
   ("j" counsel-org-goto "Goto All")
-  ("." org-super-links-insert-link "sl Insert")
+  ("." org-super-links-insert-link "SL Insert")
   ("," org-super-links-store-link "Link Store")
-  (";" org-super-links-quick-insert-inline-link "sl Inline Insert")
-  ("'" org-super-links-quick-insert-drawer-link "sl drawer Insert")
+  (";" org-super-links-quick-insert-inline-link "SL Inline Insert")
+  ("'" org-super-links-quick-insert-drawer-link "SL Drawer Insert")
 
   ("c" nil "cancel")
   )

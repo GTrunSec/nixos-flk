@@ -10,7 +10,7 @@
       # Default Flakes #
       ##################
       nixos.url = "nixpkgs/release-21.05";
-      latest.url = "nixpkgs";
+      latest.url = "nixpkgs/nixos-unstable";
       digga = { url = "github:divnix/digga"; };
       naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "latest"; };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
