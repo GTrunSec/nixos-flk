@@ -218,6 +218,7 @@
   ("b" org-roam-buffer-display-dedicated "Buffer Display")
   ("a" org-roam-alias-add "Alias Add")
   ("y" org-roam-db-sync "DB Sync")
+  ("r" revert-buffer "Revert buffer")
 
   ("w" org-id-get-create "Id Create")
   ("k" counsel-org-goto-all "Goto")

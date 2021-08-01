@@ -1467,7 +1467,7 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 
-** Org Mode Map && After Org! settings
+** Org Mode Map && After Org! 
 :PROPERTIES:
 :ID:       e4386f66-eaeb-470f-9ea0-992e583a5909
 :END:
@@ -1487,43 +1487,56 @@ FACE defaults to inheriting from default and highlight."
     (setq org-id-locations-file (concat org-directory "/cache/.mac-orgids"))
     )
 
-  (setq org-clock-into-drawer t)
-  (add-hook! 'org-mode-hook 'auto-revert-mode)
-  (add-hook! 'org-mode-hook 'org-indent-mode)
-  (add-hook! 'dired-mode-hook 'org-download-enable)
-  ;; (setq-hook! 'org-mode-hook fill-column 80)
-  ;; (setq-hook! 'org-mode-hook org-superstar-mode 1)
   (setq org-directory "~/Documents/org-notes")
-  (setq org-log-into-drawer t)
-  (setq org-agenda-start-day "-1d")
-  (setq org-agenda-span 2)
+
+  (setq org-src-fontify-natively t
+        org-startup-indented t ; Enable `org-indent-mode' by default
+        org-src-preserve-indentation t
+        org-src-tab-acts-natively t
+        org-src-window-setup 'current-window
+        org-clock-into-drawer t
+        org-log-into-drawer t
+        org-agenda-start-day "-1d"
+        org-agenda-span 2
+        org-agenda-time-leading-zero t
+        )
+
   (setq org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
   (setq org-archive-location (concat "%s_archive_" (format-time-string "%Y" (current-time)) "::"))
   ;; Removes clocked tasks with 0:00 duration
   (setq org-clock-out-remove-zero-time-clocks t)
   ;; Change task state to STARTED when clocking in
   (setq org-clock-in-switch-to-state "INPROCESS")
-  (setq org-src-fontify-natively t
-        org-src-preserve-indentation t
-        org-src-tab-acts-natively t
-        org-src-window-setup 'current-window)
-  (setq org-agenda-time-leading-zero t)
 
   ;;Markdown
   (eval-after-load "org"
     '(require 'ox-md nil t))
-  ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+
+;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
   (defun org-show-two-levels ()
     (interactive)
     (org-content 2))
 
   (setq org-download-timestamp "%Y%m%d_%H%M%S")
-  (add-hook! 'org-mode-hook 'org-show-two-levels)
-  (add-hook! 'emacs-startup-hook 'org-id-update-id-locations)
-  (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
   (setq org-plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
   )
 #+end_src
+
+#+RESULTS:
+: /home/gtrun/.myscript/plantuml
+
+*** Org Mode Hook!
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! org
+  (add-hook! 'org-mode-hook 'auto-revert-mode)
+  (add-hook! 'dired-mode-hook 'org-download-enable)
+  (add-hook! 'org-mode-hook 'org-show-two-levels)
+  (add-hook! 'doom-init-ui-hook 'org-id-update-id-locations)
+  (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
+  )
+#+end_src
+
 ** org-starter
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
