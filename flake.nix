@@ -44,6 +44,7 @@
         url = "github:berberman/nvfetcher";
         inputs.nixpkgs.follows = "latest";
       };
+      beautysh = { url = "github:lovesegfault/beautysh"; };
       ######################
       # Python Environment #
       ######################
@@ -79,7 +80,10 @@
             imports = [ (digga.lib.importOverlays ./overlays) ];
             overlays = [
               ./pkgs/default.nix
-              (final: prev: { emacsNg = emacs-ng.defaultPackage.x86_64-linux; })
+              (final: prev: {
+                emacsNg = emacs-ng.defaultPackage.x86_64-linux;
+                beautysh = beautysh.defaultPackage."${final.system}";
+              })
               nur.overlay
               digga.overlays.patchedNix
               agenix.overlay

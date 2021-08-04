@@ -1282,6 +1282,7 @@ FACE defaults to inheriting from default and highlight."
     (add-hook hook 'format-all-mode))
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   (setq format-all-default-formatters (cons '("Haskell" ormolu) format-all-default-formatters))
+  (setq format-all-default-formatters (cons '("Shell" beautysh) format-all-default-formatters))
   )
 #+end_src
 

@@ -22,7 +22,7 @@ in
     nixfmt
     nixpkgs-fmt
     sbcl
-    shfmt
+    beautysh
     tree-sitter
   ];
 }

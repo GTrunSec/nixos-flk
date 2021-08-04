@@ -1,7 +1,8 @@
 [
-    "typescript-language-server",
-    "tslint",
-    "maildev",
-    "@mermaid-js/mermaid-cli",
-    "mathjax-node-cli"
+  "typescript-language-server",
+  "tslint",
+  "maildev",
+  "@mermaid-js/mermaid-cli",
+  "mathjax-node-cli",
+  "prettier-plugin-toml"
 ]

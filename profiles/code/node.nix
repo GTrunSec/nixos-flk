@@ -1,16 +1,21 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nodePackages.mermaid-cli
-    nodePackages.create-react-app
-    nodePackages.mathjax
-    nodePackages.mathjax-node-cli
-    nodePackages.prettier
-    nodePackages.javascript-typescript-langserver
     nodejs
     yarn
-    nodePackages.typescript
-    jre
-  ];
 
+    jre
+  ] ++ (with nodePackages; [
+    mermaid-cli
+    create-react-app
+    mathjax
+    mathjax-node-cli
+    typescript
+    # TOML formater
+    (pkgs.writeShellScriptBin "prettier" ''
+      ${prettier}/bin/prettier \
+      --plugin-search-dir "${prettier-plugin-toml}/lib" \
+      "$@"
+    '')
+  ]);
 }
