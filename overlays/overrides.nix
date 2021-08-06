@@ -13,6 +13,7 @@ channels: final: prev: {
     signal-desktop
     tmux
     electron_13
+    appimage-run
     i3-gaps
     starship;
 

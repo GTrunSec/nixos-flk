@@ -4,6 +4,8 @@ let
     home-manager = pkgs.home-manager;
   });
 
+  et = pkgs.writeScriptBin "et" (builtins.readFile ../bin-scripts/et.sh);
+
   lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../bin-scripts/lsyncd-rsync.nix { });
 
   LS_COLORS = pkgs.fetchgit {
@@ -35,6 +37,7 @@ in
       home.packages = with pkgs;[
         clean-nix-store
         ls-colors
+        et
       ] ++ [
         nodePackages.node2nix
         yarn2nix
