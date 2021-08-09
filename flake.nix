@@ -57,11 +57,12 @@
       #################
       # Custom Flakes #
       #################
-      photoprism = { url = "github:GTrunSec/photoprism-flake"; };
+      photoprism2nix = { url = "github:GTrunSec/photoprism2nix"; };
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
       nixpkgs-hardenedliux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
+      gomod2nix = { url = "github:tweag/gomod2nix"; };
     };
 
   outputs = inputs: with builtins; with inputs; with inputs.darwin;
@@ -105,14 +106,13 @@
               sources = (import ./pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; };
               machlib = import mach-nix {
                 pkgs = prev;
-                pypiDataRev = pypi-deps-db.rev;
-                pypiDataSha256 = pypi-deps-db.narHash;
+                pypiData = pypi-deps-db;
               };
               lib = prev.lib.extend (lfinal: lprev: {
                 our = self.lib;
               });
             })
-          nvfetcher.overlay
+          gomod2nix.overlay
         ];
 
 
@@ -133,7 +133,7 @@
               sops-nix.nixosModules.sops
               quick-nix-registry.nixosModules.local-registry
               #User's custom modules
-              photoprism.nixosModules.photoprism
+              photoprism2nix.nixosModules.photoprism
             ];
           };
 

@@ -19,7 +19,7 @@
     golint
     #for nix
     go2nix
-    vgo2nix
+    gomod2nix
     dep
     gosec
     gotests
