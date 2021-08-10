@@ -69,7 +69,7 @@
     digga.lib.mkFlake
       {
         inherit self inputs;
-
+        supportedSystems = [ "x86_64-linux" ];
         channelsConfig = {
           allowUnfree = true;
           allowBroken = true;
@@ -140,7 +140,18 @@
           imports = [ (digga.lib.importHosts ./hosts) ];
           hosts = {
             /* set host specific properties here */
-            NixOS = { };
+            NixOS = {
+              tests = [
+                {
+                  name = "Test";
+                  machine = { ... }: { };
+                  testScript = ''
+                    start_all()
+                    NixOS.wait_for_unit("multi-user.target")
+                  '';
+                }
+              ];
+            };
           };
 
           importables = rec {
@@ -223,9 +234,20 @@
         templates.flk.path = ./.;
         templates.flk.description = "flk template";
 
-
+        ########################
+        # # Builder Packages   #
+        ########################
         outputsBuilder = channels: {
-          packages = { };
+          packages = {
+            #nix develop .#sops-shell --impure
+            sops-shell = with channels.nixos; mkShell {
+              sopsPGPKeyDirs = [
+                "./secrets/keys/hosts"
+                "./secrets/keys/users"
+              ];
+              nativeBuildInputs = [ sops-import-keys-hook ];
+            };
+          };
         };
       } // { };
 }

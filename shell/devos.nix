@@ -29,11 +29,6 @@ in
     unset _PATH
   '');
 
-  devshell.startup = {
-    sops.text = ''
-      source ${pkgs.sops-import-keys-hook.outPath}/nix-support/setup-hook
-    '';
-  };
   packages = with pkgs; [
     nixopsUnstable
   ];
@@ -59,6 +54,5 @@ in
   ++ lib.optional
     (system != "i686-linux")
     (devos cachix)
-
   ;
 }

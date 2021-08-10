@@ -1,24 +1,14 @@
 [devshell]
 packages = [
   "sops-init-gpg-key",
-  "sops",
-  "ssh-to-pgp",
-  "gnupg"
+  "ssh-to-pgp"
 ]
 
 [[commands]]
-name = "sops-edit"
+name = "sops"
 category = "secrets"
-command = "sops $@"
-help = "sops-edit <secretFileName>.yaml | Edit secretFile with sops-nix"
-
-[[env]]
-name = "sopsPGPKeyDirs"
-value = "./secrets/keys/hosts ./secrets/keys/users"
-
-[[env]]
-name = "SOPS_GPG_KEYSERVER"
-value = "https://keys.openpgp.org"
+command = "nix develop .#sops-shell --impure --command sops $@"
+help = "launch sops with sops-shell"
 
 [[commands]]
 name = "sops-new"
