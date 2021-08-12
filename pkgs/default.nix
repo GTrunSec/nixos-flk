@@ -2,6 +2,8 @@ final: prev:
 with prev;
 {
   # AppImages
+  sources = callPackage ./_sources/generated.nix { };
+
   magnetw = callPackage ./appimage/magnetw.nix { };
   motrix = callPackage ./appimage/Motrix.nix { };
   chord = callPackage ./appimage/chord.nix { };

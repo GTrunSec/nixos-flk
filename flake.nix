@@ -103,7 +103,6 @@
         sharedOverlays = [
           (final: prev:
             {
-              sources = (import ./pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; };
               machlib = import mach-nix {
                 pkgs = prev;
                 pypiData = pypi-deps-db;
@@ -147,7 +146,6 @@
                   machine = { ... }: { };
                   testScript = ''
                     start_all()
-                    NixOS.wait_for_unit("multi-user.target")
                   '';
                 }
               ];
@@ -242,7 +240,7 @@
             #nix develop .#sops-shell --impure
             sops-shell = with channels.nixos; mkShell {
               sopsPGPKeyDirs = [
-                "./secrets/keys/hosts"
+                #"./secrets/keys/hosts"
                 "./secrets/keys/users"
               ];
               nativeBuildInputs = [ sops-import-keys-hook ];
