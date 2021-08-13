@@ -5,8 +5,6 @@
     home.enableNixpkgsReleaseCheck = false;
   };
 
-
-
   networking.firewall = {
     allowedTCPPorts = [ 8888 8889 ];
     allowedUDPPorts = [ 8888 8889 ];

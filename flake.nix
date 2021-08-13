@@ -16,7 +16,7 @@
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       bud.url = "github:divnix/bud";
       #bud.url = "/home/gtrun/src/bud";
-      quick-nix-registry.url = "github:divnix/quick-nix-registry";
+      qnr.url = "github:divnix/quick-nix-registry";
       ####################
       # Default Features #
       ####################
@@ -130,7 +130,7 @@
               agenix.nixosModules.age
               (bud.nixosModules.bud)
               sops-nix.nixosModules.sops
-              quick-nix-registry.nixosModules.local-registry
+              qnr.nixosModules.local-registry
               #User's custom modules
               photoprism2nix.nixosModules.photoprism
             ];

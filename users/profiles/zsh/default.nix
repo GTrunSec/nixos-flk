@@ -1,7 +1,4 @@
 { config, lib, pkgs, ... }:
-let
-  home_directory = builtins.getEnv "HOME";
-in
 {
   config = with lib; mkMerge [
     ({
@@ -51,14 +48,11 @@ in
           cp = "cp -i";
           mv = "mv -i";
           ##update Nixpkgs
-          un = "~/.config/nixpkgs  && git fetch && git pull";
-          overlay-go = "cd ~/.config/nixpkgs/nixos/overlays/go";
-          overlay-python = "cd ~/.config/nixpkgs/nixos/overlays/python";
-          overlay-custom = "cd ~/.config/nixpkgs/nixos/overlays/custom";
+          fp = "git fetch && git pull";
           ag0 = "rg --max-depth=1";
           pcat = "${python3Packages.pygments}/bin/pygmentize";
-          so = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*usb/{if (a != \"\") print a;} {a=$NF}\\\')";
-          si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";
+          # so = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*usb/{if (a != \"\") print a;} {a=$NF}\\\')";
+          # si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";
         };
 
         initExtraBeforeCompInit = (builtins.readFile ../../dotfiles/pre-zsh-Compinit) + ''
@@ -75,15 +69,25 @@ in
         plugins =
           [
             {
-              name = "bd";
-              src = pkgs.fetchFromGitHub {
-                owner = "Tarrasch";
-                repo = "zsh-bd";
-                rev = "d4a55e661b4c9ef6ae4568c6abeff48bdf1b1af7";
-                sha256 = "020f8nq86g96cps64hwrskppbh2dapfw2m9np1qbs5pgh16z4fcb";
-              };
+              name = "fzf-zsh";
+              src = pkgs.fzf-zsh;
             }
-
+            {
+              name = "fzf-zsh";
+              src = pkgs.fzf-zsh;
+            }
+            {
+              name = "zsh-fast-syntax-highlighting";
+              src = pkgs.zsh-fast-syntax-highlighting;
+            }
+            {
+              name = "zsh-bd";
+              src = pkgs.zsh-bd;
+            }
+            {
+              name = "nix-zsh-completions";
+              src = pkgs.nix-zsh-completions;
+            }
             {
               name = "zsh-256color";
               src = pkgs.fetchFromGitHub {
@@ -91,15 +95,6 @@ in
                 repo = "zsh-256color";
                 rev = "9d8fa1015dfa895f2258c2efc668bc7012f06da6";
                 sha256 = "14pfg49mzl32ia9i9msw9412301kbdjqrm7gzcryk4wh6j66kps1";
-              };
-            }
-            {
-              name = "fast-syntax-highlighting";
-              src = pkgs.fetchFromGitHub {
-                owner = "zdharma";
-                repo = "fast-syntax-highlighting";
-                rev = "a3242a93399535faccda4896ab5c61a7a6dca1fe";
-                sha256 = "17f8ysyvp0bpr6hbcg32mqpy91da6m9xgd3b5kdyk4mp8scwfbn1";
               };
             }
             (mkIf pkgs.stdenv.isLinux {
@@ -111,40 +106,21 @@ in
                 sha256 = "0habry3r6wfbd9xbhw10qfdar3h5chjffr5pib4bx7j4iqcl8lw8";
               };
             })
-            {
-              name = "fzf-z";
-              src = pkgs.fetchFromGitHub {
-                owner = "andrewferrier";
-                repo = "fzf-z";
-                rev = "2db04c704360b5b303fb5708686cbfd198c6bf4f";
-                sha256 = "1ib98j7v6hy3x43dcli59q5rpg9bamrg335zc4fw91hk6jcxvy45";
-              };
-            }
-            {
-              name = "nix-zsh-completions";
-              src = pkgs.fetchFromGitHub
-                {
-                  owner = "Ma27";
-                  repo = "nix-zsh-completions";
-                  rev = "939c48c182e9d018eaea902b1ee9d00a415dba86";
-                  sha256 = "sha256-3HVYez/wt7EP8+TlhTppm968Wl8x5dXuGU0P+8xNDpo=";
-                };
-            }
           ];
       };
     })
-
-
-    (mkIf pkgs.stdenv.isLinux {
-      programs.zsh.initExtra = ''
-        SPACESHIP_TIME_SHOW=true
-        SPACESHIP_EXIT_CODE_SHOW=true
-        SPACESHIP_VI_MODE_SHOW=false
-        SPACESHIP_BATTERY_THRESHOLD=30
-        setopt HIST_IGNORE_ALL_DUPS
-        setopt no_extendedglob
-      '';
-    })
+    (mkIf
+      pkgs.stdenv.isLinux
+      {
+        programs.zsh.initExtra = ''
+          SPACESHIP_TIME_SHOW=true
+          SPACESHIP_EXIT_CODE_SHOW=true
+          SPACESHIP_VI_MODE_SHOW=false
+          SPACESHIP_BATTERY_THRESHOLD=30
+          setopt HIST_IGNORE_ALL_DUPS
+          setopt no_extendedglob
+        '';
+      })
     (mkIf pkgs.stdenv.isDarwin {
       programs.zsh.sessionVariables = {
         PATH = "$HOME/.nix-profile/bin:/bin:/usr/bin:/run/current-system/sw/bin/:/usr/local/bin:/Applications/kitty.app/Contents/MacOS:/sbin/:/usr/sbin/:/run/current-system/etc/profiles/per-user/gtrun/bin/";

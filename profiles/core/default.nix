@@ -111,13 +111,18 @@ in
     };
   };
 
+
   nix = {
     package = pkgs.nixUnstable;
 
-    # localRegistry = {
-    #   enable = true;
-    #   noGlobalRegistry = true;
-    # };
+    localRegistry =
+      {
+        enable = true;
+
+        cacheGlobalRegistry = true;
+
+        noGlobalRegistry = false;
+      };
 
     autoOptimiseStore = true;
 
@@ -138,6 +143,8 @@ in
       fallback = true
     '';
   };
+
+  systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = 500;
 
   programs.bash = {
     promptInit = ''
