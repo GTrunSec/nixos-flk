@@ -144,7 +144,7 @@ in
     '';
   };
 
-  systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = 500;
+  systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;
 
   programs.bash = {
     promptInit = ''

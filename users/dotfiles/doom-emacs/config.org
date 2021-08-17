@@ -55,6 +55,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ivy               ; a search engine for love and life
+       ;;vertico
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
@@ -114,7 +115,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        direnv
        ;;docker
-       ;;editorconfig      ; let someone else argue about tabs vs spaces
+       editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        ;;flycheck          ; tasing you for every semicolon you forget
@@ -177,7 +178,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
         +dragndrop       ; drag & drop files/images into org buffers
-        +hugo            ; use Emacs for hugo blogging
         +ipython         ; ipython/jupyter support for babel
         +pandoc          ; export-with-pandoc support
         +journal
@@ -596,6 +596,39 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! find-dupes-dired)
 #+end_src
+
+** dogears.el
+:PROPERTIES:
+:ID:       0808fd9c-9fb5-43a7-bb48-0edab111c0ae
+:END:
+
+- [2021-08-14 Sat 13:08] <- [[id:b03289e1-0024-474c-8284-918099c3a071][Buffer]]
+- https://github.com/alphapapa/dogears.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! dogears :recipe (:host github
+                                 :repo "alphapapa/dogears.el"))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! dogears
+:hook (text-mode . dogears-mode)
+:config
+  :bind (:map global-map
+              ("M-g d" . dogears-go)
+              ("M-g M-b" . dogears-back)
+              ("M-g M-f" . dogears-forward)
+              ("M-g M-d" . dogears-list)
+              ("M-g M-D" . dogears-sidebar)))
+#+end_src
+
+** consult-dir
+:PROPERTIES:
+:ID:       1849e2c7-d7d1-4a2c-a913-c4d34857d666
+:END:
+
+ - [2021-08-16 Mon 00:20] <- [[id:1fe04d86-bcaa-4236-93b2-7eac1de6e05f][define global-set-key]]
 
 * Autoload
 
@@ -1128,6 +1161,8 @@ In that case, insert the number."
         completion-category-overrides '((file (styles . (partial-completion))))))
 #+end_src
 
+** vertico
+- https://github.com/minad/vertico
 ** Edition
 
 *** maple-iedit
@@ -1399,8 +1434,11 @@ FACE defaults to inheriting from default and highlight."
     ("a" adq/helm-bm-list-all :exit t)
     ("l" helm-bm :exit t)
     ("L" bm-show-all :exit t))
-  (bind-key "C-c m" #'adq/hydra-bm/body))
+)
 #+end_src
+
+#+RESULTS:
+: t
 
 
 ** Scrolling
@@ -2406,12 +2444,12 @@ a separator ' -> '."
 #+end_src
 
 
-** org-html-theme
+** Org Html Theme
 
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! org-html-themify :recipe (:host github :repo "DogLooksGood/org-html-themify"
-                                    :files ("*.el" "*.js" "*.css")))
+;; (package! org-html-themify :recipe (:host github :repo "DogLooksGood/org-html-themify"
+;;                                     :files ("*.el" "*.js" "*.css")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -2425,11 +2463,24 @@ a separator ' -> '."
 
 #+end_src
 
-** org-clones
+** Org Clones
 
 1.
 
    [[https://github.com/legalnonsense/org-clones][legalnonsense/org-clones: Prototype for method of cloning orgmore headers]]
+
+** Org Tables
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! valign :recipe (:host github :repo "casouri/valign"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! valign
+  :hook (org-mode . valign-mode)
+  )
+#+end_src
+
 
 ** [[https://github.com/stardiviner/org-link-beautify][stardiviner/org-link-beautify: Beautify org links with colors and icons.]]
 
@@ -2982,7 +3033,10 @@ Used in :switch-buffer-functions slot."
 * Visualization
 
 ** Buffer
-
+:PROPERTIES:
+:ID:       b03289e1-0024-474c-8284-918099c3a071
+:END:
+ - [2021-08-14 Sat 13:08] -> [[id:0808fd9c-9fb5-43a7-bb48-0edab111c0ae][dogears.el]]
 *** Parenthesis
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -3375,7 +3429,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (unpin! nix-mode)
 (unpin! org-journal)
 (unpin! lsp-mode)
-(unpin! ox-hugo)
 #+end_src
 * misc
 
@@ -3394,6 +3447,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 (set-popup-rule! "^\\*julia:main"
   :side 'right :size 0.3 :quit nil :select nil :ttl 0)
+
+(set-popup-rule! "^\\*Org Src"
+  :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)
 
 (set-popup-rule! "^\\*Ilist"
   :side 'right :size 35 :quit nil :select nil :ttl 0)
@@ -3512,8 +3568,8 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
       :config
       (eaf-setq eaf-browser-default-zoom "2.0")
 
-      (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-      (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+      ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+      ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
 
       (defun eaf-open-google ()
         "Open Google using EAF."
