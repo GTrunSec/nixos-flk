@@ -11,8 +11,6 @@
     discord
     element-desktop
     signal-desktop
-    keybase
-    keybase-gui
     slack
     # fcitx does not work
     # kotatogram-desktop

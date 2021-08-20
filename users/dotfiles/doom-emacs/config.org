@@ -1,17 +1,17 @@
-#+TITLE: GuangTao's Doom Emacs Config
-#+EMAIL: gtrunsec@hardenedlinux.org
-#+AUTHOR: GuangTao
-#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
-#+TAGS: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
+#+title: GuangTao's Doom Emacs Config
+#+email: gtrunsec@hardenedlinux.org
+#+author: GuangTao
+#+options: H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
+#+tags: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 
 - [[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
 - [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
 - [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
 - https://github.com/zzamboni/dot-doom/blob/master/doom.org
 
-#+BEGIN_QUOTE
+#+begin_quote
 HTML them READ org
-#+END_QUOTE
+#+end_quote
 
 - [[https://www.gtrun.org/custom/config.html][My Doom Emacs config]]
 
@@ -22,7 +22,7 @@ HTML them READ org
 * Emacs
 :PROPERTIES:
 :original-authors: David A. Moon, Guy L. Steele Jr.
-:developers: Various free/libre software developers, including volunteers and commercial developers
+:developers: Various free/li"ibre software developers, including volunteers and commercial developers
 :initial-release: 1976; 44 years ago (1976)
 :stable-release: 27.1 (August 10, 2020; 2 months ago (2020-08-10))
 :written-in: Lisp, C
@@ -244,20 +244,15 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;; packages.el -*- lexical-binding: t; -*-
 (package! discover :recipe (:host github :repo "mickeynp/discover.el"))
-(package! maple-iedit :recipe (:host github :repo "honmaple/emacs-maple-iedit"))
-(package! scrollkeeper :recipe (:host github :repo "alphapapa/scrollkeeper.el"))
-(package! awesome-tab :recipe (:host github :repo "manateelazycat/awesome-tab"))
 (package! ob-session-async :recipe (:host github :repo "jackkamm/ob-session-async"))
-(package! maple-explorer :recipe (:host github :repo "honmaple/emacs-maple-explorer"))
 (package! sunrise-commander :recipe (:host github :repo "sunrise-commander/sunrise-commander"))
-(package! awesome-pair :recipe (:host github :repo "manateelazycat/awesome-pair"))
 (package! meow :recipe (:host github :repo "DogLooksGood/meow"))
 ;; (package! berrys-theme)
 #+end_src
 
--  [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
+- [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
 
--  [[https://github.com/Overdr0ne/sfs][GitHub - Overdr0ne/sfs: Search File System for Emacs]]
+- [[https://github.com/Overdr0ne/sfs][GitHub - Overdr0ne/sfs: Search File System for Emacs]]
 * Config.el
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -273,7 +268,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 )
 #+end_src
 
-#+RESULTS:
+#+results:
 : doom-city-lights
 
 * Use Packages
@@ -304,7 +299,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 )
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 ** Pinyin
@@ -334,19 +329,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ** Hydra
 
 - https://github.com/abo-abo/hydra/wiki/Projectile
-
-** maple-explorer
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! maple-explorer
-  :commands (maple-explorer-file maple-explorer-buffer maple-explorer-imenu maple-explorer-recentf)
-  :config
-  (setq maple-explorer-file-display-alist '((side . left) (slot . -1)))
-  (add-hook 'maple-explorer-imenu-mode-hook
-            (lambda() (setq cursor-type 'box
-                            cursor-in-non-selected-windows t)))
-)
-#+end_src
 
 ** imenu-list
 
@@ -579,7 +561,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! fd-dired :recipe (:host github
                                  :repo "yqrashawn/fd-dired"))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -590,7 +571,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! find-dupes-dired :recipe (:host github
                                  :repo "ShuguangSun/find-dupes-dired"))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -608,7 +588,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! dogears :recipe (:host github
                                  :repo "alphapapa/dogears.el"))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -628,7 +607,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 :ID:       1849e2c7-d7d1-4a2c-a913-c4d34857d666
 :END:
 
- - [2021-08-16 Mon 00:20] <- [[id:1fe04d86-bcaa-4236-93b2-7eac1de6e05f][define global-set-key]]
+- [2021-08-16 Mon 00:20] <- [[id:1fe04d86-bcaa-4236-93b2-7eac1de6e05f][define global-set-key]]
 
 * Autoload
 
@@ -893,10 +872,9 @@ appropriate.  In tables, insert a new row or end the table."
  delete-by-moving-to-trash t                      ;; Delete files to trash
  window-combination-resize t                      ;; take new window space from all other windows (not just current)
  x-stretch-cursor t)                              ;; Stretch cursor to the glyph width
-
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 ** Auto Save Buffer
@@ -925,7 +903,7 @@ appropriate.  In tables, insert a new row or end the table."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 * Completion
@@ -1024,7 +1002,7 @@ In that case, insert the number."
 #+end_src
 ** Customize completion-at-point
 
- - [[https://with-emacs.com/posts/tutorials/customize-completion-at-point/][with-emacs · Customize completion-at-point]]
+- [[https://with-emacs.com/posts/tutorials/customize-completion-at-point/][with-emacs · Customize completion-at-point]]
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;; First try to indent the current line, and if the line
@@ -1071,7 +1049,6 @@ In that case, insert the number."
           company-pseudo-tooltip-frontend
           company-echo-metadata-frontend))
   )
-
 #+end_src
 
 ** company-math
@@ -1139,10 +1116,9 @@ In that case, insert the number."
                               :separate
                               company-tabnine
                               ))
-
 #+end_src
 
-#+RESULTS:
+#+results:
 | company-capf | company-files | company-yasnippet | :separate | company-tabnine |
 
 ** Ordless
@@ -1166,6 +1142,10 @@ In that case, insert the number."
 ** Edition
 
 *** maple-iedit
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! maple-iedit :recipe (:host github :repo "honmaple/emacs-maple-iedit"))
+#+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! maple-iedit
@@ -1193,8 +1173,10 @@ In that case, insert the number."
   ("p" maple-iedit-match-previous "prev"))
 #+end_src
 
-#+RESULTS:
+#+results:
 : maple/iedit/body
+
+
 
 *** highlight
 
@@ -1206,7 +1188,6 @@ In that case, insert the number."
 (set-face-background 'highlight-indent-guides-even-face "dimgray")
 (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
 )
-
 #+end_src
 
 *** parentheses
@@ -1279,6 +1260,11 @@ FACE defaults to inheriting from default and highlight."
 
 *** awesome-pair
 
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! awesome-pair :recipe (:host github :repo "manateelazycat/awesome-pair"))
+#+end_src
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! awesome-pair)
 #+end_src
@@ -1321,7 +1307,7 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 ** Bookmarks/bm
@@ -1335,30 +1321,17 @@ FACE defaults to inheriting from default and highlight."
   :demand t
   :init
   (setq bm-restore-repository-on-load t)
-  :config
-
-  (bind-keys
-   :map bm-show-mode-map
+  :bind
+  (:map bm-show-mode-map
    ("j" . next-line)
    ("k" . previous-line))
+  :config
 
   (setq bm-cycle-all-buffers t
         bm-highlight-style 'bm-highlight-only-fringe
         bm-repository-size 1000)
   (setq-default bm-buffer-persistence t)
 
-  (defun adq/bm-save ()
-    "Save bookmarks to persistent repository."
-    (interactive)
-    (bm-buffer-save-all)
-    (bm-repository-save))
-
-  (advice-add 'bm-bookmark-add
-              :after (lambda (&rest args)
-                       (adq/bm-save)))
-  (advice-add 'bm-bookmark-remove
-              :after (lambda (&rest args)
-                       (adq/bm-save)))
   (add-hook 'after-init-hook #'bm-repository-load)
   (add-hook 'find-file-hooks #'bm-buffer-restore)
   (add-hook 'after-rever-hook #'bm-buffer-restore)
@@ -1368,80 +1341,20 @@ FACE defaults to inheriting from default and highlight."
             (lambda ()
               (bm-buffer-save-all)
               (bm-repository-save)))
-
-  (defun adq/bm-list-all-bookmarks ()
-    "Generate a list of all bookmarks from all files."
-    (let ((bookmarks '()))
-      (cl-loop for entry in bm-repository
-               when (and (listp entry) (f-readable-p (car entry)))
-               do
-               (with-temp-buffer
-                 (insert-file-contents-literally (car entry))
-                 (cl-letf (((symbol-function 'bm-bookmark-add)
-                            (lambda (&optional annotation time temporary)
-                              (!cons (list (car entry)
-                                           (point)
-                                           (line-number-at-pos)
-                                           (string-trim (thing-at-point 'line t)))
-                                     bookmarks)))
-                           ((symbol-function 'message)
-                            (lambda (&rest _))))
-                   (bm-buffer-restore-2 (cdr entry)))))
-      bookmarks))
-
-  (defun adq/helm-bm-all-format-bookmark (bookmark)
-    "Format bookmark for display."
-    (let ((file (f-filename (car bookmark)))
-          (line (caddr bookmark))
-          (contents (cadddr bookmark)))
-      (cons
-       (format "%s:%s: %s"
-               (propertize file 'face compilation-info-face)
-               (propertize (format "%d" line) 'face compilation-line-face)
-               contents)
-       bookmark)))
-
-  (defvar adq/helm-bm-all-source
-    (helm-build-sync-source "Helm All Bookmarks"
-      :candidates
-      (lambda ()
-        (mapcar #'adq/helm-bm-all-format-bookmark
-                (adq/bm-list-all-bookmarks)))
-      :action
-      '(("Switch to buffer" .
-         (lambda (bookmark)
-           (find-file (car bookmark))
-           (goto-char (cadr bookmark))))))
-    "Helm source with all the bookmarks.")
-
-  (defun adq/helm-bm-list-all ()
-    "List all bookmarks usin Helm."
-    (interactive)
-    (helm :sources 'adq/helm-bm-all-source
-          :buffer "*helm bm all*"))
-
-  (defhydra adq/hydra-bm nil
-    "
-  Bookmarks
-  ^^^^------------------------------------------------
-  _m_: Toggle      _l_: Bookmarks from Buffers
-  _n_: Next        _a_: Bookmarks form All Files
-  _p_: Previous    _L_: List
-  "
-    ("m" bm-toggle)
-    ("n" bm-next)
-    ("p" bm-previous)
-    ("a" adq/helm-bm-list-all :exit t)
-    ("l" helm-bm :exit t)
-    ("L" bm-show-all :exit t))
 )
 #+end_src
 
-#+RESULTS:
-: t
+#+results:
+| (lambda nil (bm-buffer-save-all) (bm-repository-save)) | tramp-archive-cleanup-hash | amx-save-to-file | flycheck-global-teardown | save-place-kill-emacs-hook | recentf-save-list | recentf-cleanup | savehist-autosave | (closure (t) nil (bm-buffer-save-all) (bm-repository-save)) | fd-dired-cleanup | persp-kill-emacs-h | doom-cleanup-project-cache-h | lsp--global-teardown | bookmark-exit-hook-internal | reftex-kill-emacs-hook | transient-maybe-save-history | org-roam-db--close-all | org-id-locations-save | org-babel-remove-temporary-directory | doom-persist-scratch-buffers-h |
 
 
 ** Scrolling
+
+*** scrollkeeper
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! scrollkeeper :recipe (:host github :repo "alphapapa/scrollkeeper.el"))
+#+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;; (use-package! fast-scroll
@@ -1452,9 +1365,11 @@ FACE defaults to inheriting from default and highlight."
 ;; (fast-scroll-config)
 ;; (fast-scroll-mode 1)
 ;; )
-(use-package! scrollkeeper)
-(global-set-key [remap scroll-up-command] #'scrollkeeper-contents-up)
-(global-set-key [remap scroll-down-command] #'scrollkeeper-contents-down)
+(use-package! scrollkeeper
+  :config
+  (global-set-key [remap scroll-up-command] #'scrollkeeper-contents-up)
+  (global-set-key [remap scroll-down-command] #'scrollkeeper-contents-down)
+)
 #+end_src
 
 
@@ -1495,7 +1410,7 @@ FACE defaults to inheriting from default and highlight."
 (setq enable-local-variables :all)
 #+end_src
 
-#+RESULTS:
+#+results:
 : :all
 
 ** Laod Default Org Packages
@@ -1519,11 +1434,11 @@ FACE defaults to inheriting from default and highlight."
 :PROPERTIES:
 :ID:       e4386f66-eaeb-470f-9ea0-992e583a5909
 :END:
- - [2021-07-27 Tue 12:44] -> [[id:51647023-c013-40c4-83de-c2ba20e3a9c7][Org Mode Map => map!]]
- - [2021-07-27 Tue 13:07] -> [[id:26a87c3a-375b-4bfb-9520-845641ec1335][Org Mode Hydra Key Map]]
+- [2021-07-27 Tue 12:44] -> [[id:51647023-c013-40c4-83de-c2ba20e3a9c7][Org Mode Map => map!]]
+- [2021-07-27 Tue 13:07] -> [[id:26a87c3a-375b-4bfb-9520-845641ec1335][Org Mode Hydra Key Map]]
 
 
- - [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][zzamboni.org | Beautifying Org Mode in Emacs]]
+- [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][zzamboni.org | Beautifying Org Mode in Emacs]]
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (after! org
@@ -1570,7 +1485,7 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : /home/gtrun/.myscript/plantuml
 
 *** Org Mode Hook!
@@ -1585,7 +1500,7 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
-** org-starter
+** Org Starter
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-starter)
@@ -1654,12 +1569,12 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : org-starter-select-file
 
 
 
-** org-superstar
+** Org Superstar
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-superstar)
@@ -1674,7 +1589,7 @@ FACE defaults to inheriting from default and highlight."
 )
 #+end_src
 
-** org-ql
+** Org Ql
 :PROPERTIES:
 :ID:       13ea46d9-4bc3-49fd-b776-e0259d977b03
 :END:
@@ -1700,7 +1615,21 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 
-** org-book
+** Org Sync
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-sync)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-sync)
+#+end_src
+
+#+results:
+: org-sync
+
+
+** Org Book
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-books :recipe (:host github :repo "lepisma/org-books"))
@@ -1722,7 +1651,7 @@ FACE defaults to inheriting from default and highlight."
 :ID:       a9083e79-5da7-4721-817d-6a19760e3800
 :END:
 :BACKLINKS:
-[2020-10-13 Tue 15:05] <- [[*\[\[https://www.nongnu.org/org-edna-el/#org2421cd7\]\[Org Edna\]\]][Org Edna]]
+[2020-10-13 Tue 15:05] <- [[*[[https://www.nongnu.org/org-edna-el/#org2421cd7][Org Edna]]][Org Edna]]
 :END:
 
 **** Sexp Entries and the Fancy Diary Display
@@ -1795,7 +1724,7 @@ FACE defaults to inheriting from default and highlight."
           ))
 #+end_src
 
-#+RESULTS:
+#+results:
 : ((TODO :foreground #ff39a3 :weight bold) (DOING . orangered) (✘ CANCELED :foreground white :background #4d4d4d :weight bold) (⚑ WAITING . pink) (☕ BREAK . gray) (❤ LOVE :foreground VioletRed4 :weight bold) (☟ NEXT :foreground DeepSkyBlue :weight bold) (✰ IMPORTANT :foreground greenyellow :weight bold) (DONE . #008080) (FIXME . IndianRed))
 
 
@@ -1881,7 +1810,7 @@ FACE defaults to inheriting from default and highlight."
 [2020-10-13 Tue 15:05] -> [[id:a9083e79-5da7-4721-817d-6a19760e3800][Org Mode - Organize Your Life In Plain Text!]]
 :END:
 
-  - native-compiler-error
+- native-compiler-error
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
 (package! org-edna :recipe (:build (:not compile)))
 #+end_src
@@ -1916,7 +1845,7 @@ FACE defaults to inheriting from default and highlight."
 
 *** TODO [[https://github.com/Trevoke/org-gtd.el][Trevoke/org-gtd.el: A package for using GTD using org-mode (beta)]] :GTD:
 
-** Org-babel
+** Org Babel
 
 - [doc] [[https://orgmode.org/manual/Results-of-Evaluation.html][Results of Evaluation (The Org Manual)]]
 
@@ -1943,11 +1872,11 @@ FACE defaults to inheriting from default and highlight."
 (setq org-babel-C-compiler 'clang)
 #+end_src
 
-#+RESULTS:
+#+results:
 : gcc-9
 
 
-** org-publish
+** Org Publish
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/setting.el"
 ;;; setting.el -*- lexical-binding: t; -*-
@@ -1962,7 +1891,7 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 
-** org-crypt
+** Org Crypt
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 ;; 當被加密的部份要存入硬碟時，自動加密回去
@@ -1978,9 +1907,9 @@ FACE defaults to inheriting from default and highlight."
   (setq org-crypt-key nil)
 #+end_src
 
-#+RESULTS:
+#+results:
 
-** org-notdeft
+** Org Notdeft
 
 - [[https://jingsi.space/post/2017/04/05/organizing-a-complex-directory-for-emacs-org-mode-and-deft/#configuring-deft][Organizing a Complex Directory for Emacs Org Mode and Deft]]
 
@@ -2017,7 +1946,7 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 
 - build
 
@@ -2025,30 +1954,30 @@ cd ~/.emacs.d/.local/straight/repos/notdeft/xapian
 make
 
 
-** org-protocol
+** Org Protocol
 
-+ [[https://www.diegoberrocal.com/blog/2015/08/19/org-protocol/][Using org-capture with org-protocol be like - Diego Berrocal]]
+- [[https://www.diegoberrocal.com/blog/2015/08/19/org-protocol/][Using org-capture with org-protocol be like - Diego Berrocal]]
 
-+ [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html: Capture HTML from the browser selection into Emacs as org-mode content]]
+- [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html: Capture HTML from the browser selection into Emacs as org-mode content]]
 
-** org-properties
+** Org Properties
 
 - [[https://emacs.stackexchange.com/questions/7607/export-properties-blocks-with-org-mode][Export :PROPERTIES: blocks with org-mode? - Emacs Stack Exchange]]
 #+begin_src emacs-lisp :tangle "config.el"
 (setq org-export-with-broken-links t)
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 
-** org-timestramp
+** Org Timestramp
 
 *** export
 
 - org-export-with-planning ~#+OPTIONS: p:t~
 
-** org-roam
+** Org Roam
 
 - [[https://github.com/nobiot/Zero-to-Emacs-and-Org-roam][nobiot/Zero-to-Emacs-and-Org-roam: Step by step guide from zero to installing and setting up Emacs and Org-roam on Windows 10]]
 - [[https://www.orgroam.com/manual/][Top (Org-roam User Manual)]]
@@ -2081,7 +2010,7 @@ easy way to display org-ref with tree view instead of org-mode ?
   ;;)
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 
@@ -2166,34 +2095,16 @@ easy way to display org-ref with tree view instead of org-mode ?
 ;;                                  "* %?\n")))
 #+end_src
 
-** org-journal
+** Org Journal
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-journal
   :config
   (setq org-journal-dir "~/Documents/org-notes/braindump/journals")
   (setq org-journal-file-format "%Y_%m_%d.org")
   )
-
 #+end_src
 
-** gkroam
-#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-;;(package! gkroam :recipe (:host github :repo "Kinneyzhang/gkroam"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-;; (use-package gkroam
-;;   :hook (after-init . gkroam-mode)
-;;   :init
-;;   (setq gkroam-root-dir "~/Documents/org-notes/braindump")
-;;   (setq gkroam-prettify-page-p t
-;;         gkroam-show-brackets-p nil
-;;         gkroam-use-default-filename t
-;;         gkroam-window-margin 4)
-;;   )
-#+end_src
-
-** org-brain
+** Org Brain
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-brain :recipe (:build (:not compile)))
@@ -2210,7 +2121,7 @@ easy way to display org-ref with tree view instead of org-mode ?
   )
 #+end_src
 
-** ob-mermaid
+** Ob Mermaid
 
 - [[https://github.com/arnm/ob-mermaid][GitHub - arnm/ob-mermaid: Generate mermaid diagrams within Emacs org-mode babel]]
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
@@ -2279,7 +2190,7 @@ title."
 #+end_src
 
 
-** org-spacer :edit:
+** Org Spacer :edit:
 
 - [[https://github.com/dustinlacewell/org-spacer.el][dustinlacewell/org-spacer.el: Enforce the number of blank lines between elements in an org-mode document]]
 
@@ -2297,7 +2208,7 @@ title."
 #+end_src
 
 
-** org-density.el :summary:statistic:
+** org density.el :summary:statistic:
 
 - [[https://github.com/mtekman/org-density.el][mtekman/org-density.el: Examine the density of org headings]]
 
@@ -2310,11 +2221,10 @@ title."
   :config
   (define-key org-mode-map (kbd "C-c d") 'org-treeusage-mode)
   )
-
 #+end_src
 
 
-** org-format
+** Org Format
 
 *** org-link-type
 
@@ -2341,7 +2251,7 @@ title."
 *** [[https://github.com/ianxm/emacs-scrum][ianxm/emacs-scrum: dynamic scrum report generation for org-mode buffers]]
 
 
-** org-super-links
+** Org Super Links
 :PROPERTIES:
 :ID:       1761cf4f-5d3a-4e22-adb1-6b1e4114830b
 :END:
@@ -2399,10 +2309,10 @@ a separator ' -> '."
         org-super-links-backlink-into-drawer nil
         org-super-links-link-prefix 'org-super-links-link-prefix-timestamp)
   )
-  #+end_src
+#+end_src
 
 
-** org-wiki
+** Org Wiki
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! wikinfo :recipe (:host github
@@ -2412,7 +2322,6 @@ a separator ' -> '."
 (package! wikinforg :recipe (:host github
                              :repo "progfolio/wikinforg"
                              ))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -2421,7 +2330,7 @@ a separator ' -> '."
 #+end_src
 
 
-** org-noter-plus
+** Org Noter Plus
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-noter-plus :recipe (:host github :repo "yuchen-lea/org-noter-plus"))
@@ -2434,7 +2343,9 @@ a separator ' -> '."
 )
 #+end_src
 
-** org-ipynb
+** Org Ipynb
+
+
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
 #+end_src
@@ -2460,7 +2371,6 @@ a separator ' -> '."
 ;;    '((dark . doom-one)
 ;;      (light . doom-one)))
 ;;   )
-
 #+end_src
 
 ** Org Clones
@@ -2488,7 +2398,6 @@ a separator ' -> '."
 (package! org-link-beautify :recipe (:host github
                              :repo "stardiviner/org-link-beautify"
                              ))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -2496,7 +2405,6 @@ a separator ' -> '."
   :config
   (add-hook! 'org-mode-hook 'org-link-beautify-mode)
   )
-
 #+end_src
 
 ** TODO [[https://github.com/marcIhm/org-working-set][marcIhm/org-working-set: Manage a working-set of org-nodes]] :manage:
@@ -2533,7 +2441,6 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
 ;; (package! org-graph-view :recipe (:host github :repo "alphapapa/org-graph-view"))
-
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -2556,13 +2463,13 @@ a separator ' -> '."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 
-** org-parse
+** Org Parser
 
- - [[http://ergoemacs.org/emacs/elisp_parse_org_mode.html][Elisp: Parse Org Mode]]
+- [[http://ergoemacs.org/emacs/elisp_parse_org_mode.html][Elisp: Parse Org Mode]]
 
 * My Langs
 
@@ -2584,7 +2491,7 @@ a separator ' -> '."
 
 *** auctex
 
-*** chinese-latex
+*** Chinese Latex
 
 
 "./modules/private/my-code/my-latex.el"
@@ -2660,7 +2567,7 @@ a separator ' -> '."
 )
 #+end_src
 
-*** org-latex-instant-preview
+*** Org Latex Instant Preview
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-code/packages.el"
 (package! org-latex-impatient :recipe (:host github :repo "yangsheng6810/org-latex-impatient"))
@@ -2687,7 +2594,7 @@ a separator ' -> '."
 
 ** Haskell
 
-*** lsp-haskell
+*** Lsp Haskell
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 (package! lsp-haskell)
@@ -2713,7 +2620,7 @@ a separator ' -> '."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 ** Poly Mode
@@ -2876,8 +2783,8 @@ Used in :switch-buffer-functions slot."
 
 - pin "716e7d99a30b26012e5711fb2f33bea71a7bc5ab" to master
   #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
-#+end_src
+  (package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
+  #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! lsp-julia
@@ -2889,7 +2796,7 @@ Used in :switch-buffer-functions slot."
 #+end_src
 
 *** [[https://github.com/gcv/julia-snail][gcv/julia-snail: An Emacs development environment for Julia]]
-  #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 (package! julia-snail :recipe (:host github
                                    :repo "gcv/julia-snail"
                                    :files ("*")
@@ -3027,7 +2934,7 @@ Used in :switch-buffer-functions slot."
   )
 #+end_src
 
-#+RESULTS:
+#+results:
 | tree-sitter-hl-mode |
 
 * Visualization
@@ -3036,7 +2943,7 @@ Used in :switch-buffer-functions slot."
 :PROPERTIES:
 :ID:       b03289e1-0024-474c-8284-918099c3a071
 :END:
- - [2021-08-14 Sat 13:08] -> [[id:0808fd9c-9fb5-43a7-bb48-0edab111c0ae][dogears.el]]
+- [2021-08-14 Sat 13:08] -> [[id:0808fd9c-9fb5-43a7-bb48-0edab111c0ae][dogears.el]]
 *** Parenthesis
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -3052,7 +2959,6 @@ Used in :switch-buffer-functions slot."
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 ;; highlight brackets
   )
-
 #+end_src
 
 *** eysbrowse
@@ -3072,10 +2978,14 @@ Used in :switch-buffer-functions slot."
   (define-key eyebrowse-mode-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
   (setq eyebrowse-new-workspace t)
 )
- #+end_src
+#+end_src
 ** Window
 
 *** awesome-tab
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! awesome-tab :recipe (:host github :repo "manateelazycat/awesome-tab"))
+#+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! awesome-tab
@@ -3295,7 +3205,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 1. [[https://github.com/seagle0128/grip-mode][seagle0128/grip-mode: Instant Github-flavored Markdown/Org preview using grip]]
 
-** windown manager
+** Windown Manager
 
 1. [[https://github.com/nex3/perspective-el][nex3/perspective-el: Perspectives for Emacs.]]
 
@@ -3303,9 +3213,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 ** [[https://github.com/ashton314/emacs-writer][ashton314/emacs-writer: An elegant Emacs setup optimized for non-technical writers]]
 
-* chinese
+* Chinese
 
-** pinyinlib
+** Pinyinlib
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! pinyinlib
@@ -3369,7 +3279,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
   )
 #+end_src
 
-** helm-pinyin
+** Helm Pinyin
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;; (package! helm-pinyin :recipe (:host github :repo "twlz0ne/helm-pinyin"))
@@ -3382,7 +3292,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 ;;   )
 #+end_src
 
-* minor mode and major mode
+* Minor Mode And Major Mode
 
 ** [[https://github.com/rnkn/binder][rnkn/binder: Emacs global minor mode facilitating multi-file writing projects]]
 
@@ -3390,7 +3300,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 * Writing
 
-** grammarly
+** Grammarly
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;(package! flycheck-grammarly :recipe (:host github :repo "jcs-elpa/flycheck-grammarly"))
@@ -3411,9 +3321,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 ** TODO [[https://github.com/rnkn/binder][rnkn/binder: Emacs global minor mode facilitating multi-file writing projects]]
 
-* unload packages & unpin packages
+* Unload Packages & Unpin Packages
 
-** disbale-packages
+** Disbale Packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (disable-packages! pyim)
@@ -3430,9 +3340,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (unpin! org-journal)
 (unpin! lsp-mode)
 #+end_src
-* misc
+* Misc
 
-** emacs-music
+** Emacs Music
 
 *** [[https://github.com/SpringHan/netease-cloud-music.el][SpringHan/netease-cloud-music.el: A netease music client for emacs.]]
 
@@ -3466,7 +3376,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 )
 #+end_src
 
-#+RESULTS:
+#+results:
 
 * Warning
 
@@ -3474,7 +3384,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 #+end_src
 
-#+RESULTS:
+#+results:
 | yasnippet | backquote-change |
 | :warning  |                  |
 
@@ -3607,7 +3517,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+end_src
 *** Mode Map -> Linux
 
-****  Org Mode Map
+**** Org Mode Map
 
 #+begin_src emacs-lisp :tangle "linux.el"
 (map! :map org-mode-map
@@ -3619,9 +3529,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 - cursor
 
   #+begin_src emacs-lisp :tangle "macos.el"
-  (setq-default cursor-type 'box)
-  (blink-cursor-mode -1)
-  (set-cursor-color "yellow1")
+    (setq-default cursor-type 'box)
+    (blink-cursor-mode -1)
+    (set-cursor-color "yellow1")
   #+end_src
 
   - bookmark
@@ -3630,8 +3540,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
       (concat doom-private-dir "etc/bookmark-macos-default.el"))
 (bookmark-load bookmark-default-file t)
 (setq bm-repository-file (f-join doom-private-dir "etc/bm-macos-data"))
-
-
 #+end_src
 
 - variables

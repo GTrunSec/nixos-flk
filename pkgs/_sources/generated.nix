@@ -11,14 +11,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "687628a6c348b6e8e29b0c15f13dd687141be50e";
+    version = "47f42718fcdf353a82e7834c0163068fcf3d4ae4";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "687628a6c348b6e8e29b0c15f13dd687141be50e";
+      rev = "47f42718fcdf353a82e7834c0163068fcf3d4ae4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "0aa8dg7fj10az9klik6aqmqndhpzn2n6g230qibb0dyaxxd8f7yl";
+      sha256 = "067m9wwvb03hzg408bxi9bfd21q5a1ljkwnni4qp8rijx9q58qzx";
     };
   };
   adguardhome = {
@@ -39,10 +39,10 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.3.3";
+    version = "0.3.4";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.3.3/logseq-linux-x64-0.3.3.AppImage";
-      sha256 = "1anisam6vyv33ynkh2awxnx01rgygm3b6j6q6187vw65xdbql1rv";
+      url = "https://github.com/logseq/logseq/releases/download/0.3.4/logseq-linux-x64-0.3.4.AppImage";
+      sha256 = "1ifgik8q0ns1v4xrkl3physas2cv5sm2w4xkilsghna58f8bp767";
     };
   };
   magnetw = {

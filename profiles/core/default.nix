@@ -31,6 +31,7 @@ in
       usbutils
       utillinux
       whois
+      cachix
     ];
 
     shellInit = ''
