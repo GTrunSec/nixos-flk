@@ -8,6 +8,7 @@ channels: final: prev: {
     discord
     #element-desktop
     manix
+    zsh
     nixpkgs-fmt
     brave
     signal-desktop

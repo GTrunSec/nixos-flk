@@ -62,16 +62,11 @@
         initExtra = (builtins.readFile ../../dotfiles/zshrc) +
           ''
             ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#fdf6e3,bg=#586e75,bold,underline"
-            source ${pkgs.nixUnstable.src}/misc/zsh/completion.zsh
           ''
         ;
 
         plugins =
           [
-            {
-              name = "fzf-zsh";
-              src = pkgs.fzf-zsh;
-            }
             {
               name = "fzf-zsh";
               src = pkgs.fzf-zsh;
