@@ -128,7 +128,7 @@
               ci-agent.nixosModules.agent-profile
               home.nixosModules.home-manager
               agenix.nixosModules.age
-              (bud.nixosModules.bud)
+              bud.nixosModules.bud
               sops-nix.nixosModules.sops
               qnr.nixosModules.local-registry
               #User's custom modules
@@ -155,7 +155,8 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
               users = digga.lib.rakeLeaves ./users;
-              virtual = digga.lib.rakeLeaves ./profiles/virtualisation;
+              virtualisation = digga.lib.rakeLeaves ./profiles/virtualisation;
+              registry = digga.lib.rakeLeaves ./profiles/registry;
             };
             suites = with profiles; rec {
               base = [ core users.gtrun users.root ];
@@ -171,8 +172,9 @@
                 search
                 ssh
                 nsm
-                virtual.docker
-                virtual.libvirtd
+                virtualisation.docker
+                virtualisation.libvirtd
+                registry.nixos
               ];
             };
           };

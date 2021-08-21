@@ -163,7 +163,7 @@
 : magit-status
 * Meeow Mode State List
 
-#+begin_src meowemacs-lisp :tangle "meow.el"
+#+begin_src emacs-lisp :tangle "meow.el"
 (add-to-list 'meow-mode-state-list '(zeek-mode . normal))
 (add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
 (add-hook 'notdeft-mode-hook (lambda () (meow-insert-mode 1)))

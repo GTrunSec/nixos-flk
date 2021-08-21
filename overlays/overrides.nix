@@ -4,7 +4,6 @@ channels: final: prev: {
 
   inherit (channels.latest)
     cachix
-    nixUnstable
     dhall
     discord
     #element-desktop
