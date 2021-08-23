@@ -47,6 +47,7 @@
           em = "emacs";
           cp = "cp -i";
           mv = "mv -i";
+          gst = "${pkgs.gst}/bin/gst";
           ##update Nixpkgs
           fp = "git fetch && git pull";
           ag0 = "rg --max-depth=1";

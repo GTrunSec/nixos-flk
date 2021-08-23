@@ -69,162 +69,29 @@
     digga.lib.mkFlake
       {
         inherit self inputs;
+
         supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
+
         channelsConfig = {
           allowUnfree = true;
           allowBroken = true;
           allowUnsupportedSystem = true;
         };
 
-        channels = {
-          nixos = {
-            imports = [ (digga.lib.importOverlays ./overlays) ];
-            overlays = [
-              ./pkgs/default.nix
-              (final: prev: {
-                emacsNg = emacs-ng.defaultPackage.x86_64-linux;
-                beautysh = beautysh.defaultPackage."${final.system}";
-              })
-              nur.overlay
-              digga.overlays.patchedNix
-              agenix.overlay
-              nvfetcher.overlay
-              tenvideo.overlay
-              rust-overlay.overlay
-              sops-nix.overlay
-              nixpkgs-hardenedliux.overlay
-            ];
-          };
-          latest = { };
-        };
+        channels = import ./channels { inherit self inputs; };
 
         lib = import ./lib { lib = digga.lib // nixos.lib; };
 
-        sharedOverlays = [
-          (final: prev:
-            {
-              machlib = import mach-nix {
-                pkgs = prev;
-                pypiData = pypi-deps-db;
-              };
-              lib = prev.lib.extend (lfinal: lprev: {
-                our = self.lib;
-              });
-            })
-          gomod2nix.overlay
-        ];
-
+        sharedOverlays = import ./overlays/share { inherit self inputs; };
 
         devshell = ./shell;
 
-        nixos = {
-          hostDefaults = {
-            system = "x86_64-linux";
-            channelName = "nixos";
-            imports = [ (digga.lib.importModules ./modules) ];
-            externalModules = [
-              { _module.args.ourLib = self.lib; }
-              digga.nixosModules.nixConfig
-              ci-agent.nixosModules.agent-profile
-              home.nixosModules.home-manager
-              agenix.nixosModules.age
-              bud.nixosModules.bud
-              sops-nix.nixosModules.sops
-              qnr.nixosModules.local-registry
-              #User's custom modules
-              photoprism2nix.nixosModules.photoprism
-            ];
-          };
+        nixos = ./nixos;
 
-          imports = [ (digga.lib.importHosts ./hosts) ];
-          hosts = {
-            /* set host specific properties here */
-            NixOS = {
-              tests = [
-                {
-                  name = "Test";
-                  machine = { ... }: { };
-                  testScript = ''
-                    start_all()
-                  '';
-                }
-              ];
-            };
-          };
+        home = ./nixos/home;
 
-          importables = rec {
-            profiles = digga.lib.rakeLeaves ./profiles // {
-              users = digga.lib.rakeLeaves ./users;
-              virtualisation = digga.lib.rakeLeaves ./profiles/virtualisation;
-              registry = digga.lib.rakeLeaves ./profiles/registry;
-            };
-            suites = with profiles; rec {
-              base = [ core users.gtrun users.root ];
-              graphics = base ++ [
-                core-custom
-                graphical
-                code
-                application
-                data
-                fonts
-                devices
-                network
-                search
-                ssh
-                nsm
-                virtualisation.docker
-                virtualisation.libvirtd
-                registry.nixos
-              ];
-            };
-          };
-        };
-
-        hosts."MacBook" = {
-          # This host will be exported under the flake's `darwinConfigurations` output
-          output = "darwinConfigurations";
-
-          # Build host with darwinSystem
-          builder = darwin.lib.darwinSystem;
-
-          # This host uses `channels.unstable.{input,overlaysBuilder,config,patches}` attributes instead of `channels.nixpkgs.<...>`
-          channelName = "nixpkgs";
-
-          # Host specific configuration. Same as `sharedModules`
-          modules = [
-            (import ./hosts/MacBook)
-            ci-agent.darwinModules.agent-profile
-            home.darwinModules.home-manager
-          ];
-        };
-
-        home = {
-          imports = [
-            (digga.lib.importModules ./users/modules)
-          ];
-          externalModules = [ ];
-          importables = rec {
-            profiles = digga.lib.rakeLeaves ./users/profiles;
-            suites = with profiles; rec {
-              base = [
-                home-services
-                direnv
-                git
-                feh
-                zsh
-                doom-emacs
-                cursor
-                alacritty
-                tmux
-                link-home-file
-                home-packages
-                randr
-                gpg
-              ] ++ services;
-              services = [ lorri ];
-            };
-          };
-        };
+        #WIP macos support
+        hosts = import ./nixos/hosts { inherit self inputs; };
 
         homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
@@ -237,17 +104,6 @@
         ########################
         # # Builder Packages   #
         ########################
-        outputsBuilder = channels: {
-          packages = {
-            #nix develop .#sops-shell --impure
-            sops-shell = with channels.nixos; mkShell {
-              sopsPGPKeyDirs = [
-                #"./secrets/keys/hosts"
-                "./secrets/keys/users"
-              ];
-              nativeBuildInputs = [ sops-import-keys-hook ];
-            };
-          };
-        };
+        outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
       } // { };
 }

@@ -27,7 +27,7 @@
     extraConfig = {
 
       github = {
-        user = "gtrunsec";
+        user = "GTrunSec";
       };
 
       pull = {

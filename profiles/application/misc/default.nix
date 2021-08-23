@@ -55,5 +55,10 @@
     #office
     #video
     tenvideo
+
+    #git workflow manager
+    gst
+    ghq
+    peco
   ];
 }

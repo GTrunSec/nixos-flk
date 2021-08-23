@@ -216,7 +216,7 @@
 #+begin_src emacs-lisp :tangle "meow.el"
 (defhydra hydra/org-roam (:columns 4 :hint nil)
   "Org Roam Hydra"
-  ("f" org-roam-node-find "Node Findd")
+  ("f" org-roam-node-find "Node Find")
   ("n" org-roam-ref-find "Ref Find")
   ("i" org-roam-node-insert "Node Insert")
   ("b" org-roam-buffer-display-dedicated "Buffer Display")

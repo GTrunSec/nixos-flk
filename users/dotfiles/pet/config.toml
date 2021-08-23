@@ -1,6 +1,6 @@
 [General]
   snippetfile = "/home/gtrun/.config/nixpkgs/nixos-flk/users/dotfiles/pet/snippet.toml"
-  editor = "emacs"
+  editor = "emacsclient -nw"
   column = 40
   selectcmd = "fzf --ansi"
   backend = "gist"

@@ -178,7 +178,7 @@ exec --no-startup-id dropbox start
 
 # applcation
 exec --no-startup-id polar-desktop-app
-exec --no-startup-id emacs
+# exec --no-startup-id emacs
 # exec --no-startup-id gitkraken
 # nextcloud-client
 exec --no-startup-id nextcloud

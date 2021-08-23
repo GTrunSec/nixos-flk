@@ -7,6 +7,7 @@ channels: final: prev: {
     dhall
     discord
     #element-desktop
+    tdesktop
     manix
     zsh
     nixpkgs-fmt
