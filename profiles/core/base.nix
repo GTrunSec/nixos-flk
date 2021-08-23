@@ -1,18 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ];
-
-  nix = {
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-  };
-
-
   # environment.pathsToLink = [
   #   "/share/nix-direnv"
   # ];

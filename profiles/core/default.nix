@@ -2,7 +2,7 @@
 let inherit (lib) fileContents;
 in
 {
-  imports = [ ../cachix ];
+  imports = [ ../cachix ./base.nix ];
 
   nix.systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 
@@ -100,18 +100,6 @@ in
       };
   };
 
-  fonts = {
-    fonts = with pkgs; [ powerline-fonts dejavu_fonts ];
-
-    fontconfig.defaultFonts = {
-
-      monospace = [ "DejaVu Sans Mono for Powerline" ];
-
-      sansSerif = [ "DejaVu Sans" ];
-
-    };
-  };
-
 
   nix = {
     package = pkgs.nixUnstable;
@@ -127,7 +115,11 @@ in
 
     autoOptimiseStore = true;
 
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
 
     optimise.automatic = true;
 

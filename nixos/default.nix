@@ -36,31 +36,5 @@ with inputs.nixos;
       ];
     };
   };
-
-  importables = rec {
-    profiles = digga.lib.rakeLeaves ../profiles // {
-      users = digga.lib.rakeLeaves ../users;
-      virtualisation = digga.lib.rakeLeaves ../profiles/virtualisation;
-      registry = digga.lib.rakeLeaves ../profiles/registry;
-    };
-    suites = with profiles; rec {
-      base = [ core users.gtrun users.root ];
-      graphics = base ++ [
-        core-custom
-        graphical
-        code
-        application
-        data
-        fonts
-        devices
-        network
-        search
-        ssh
-        nsm
-        virtualisation.docker
-        virtualisation.libvirtd
-        registry.nixos
-      ];
-    };
-  };
+  importables = import ./suites { inherit self inputs; };
 }
