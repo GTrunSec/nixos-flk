@@ -11,11 +11,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    digga.url = "github:divnix/digga/develop";
+    nixpkgs-hardenedliux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
   };
 
 
-  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home, digga }:
+  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home, nixpkgs-hardenedliux }:
     let
       inherit (nixpkgs) lib;
     in
@@ -30,7 +30,8 @@
           # Overlay imported from `./overlays`. (Defined above)
           self.overlay
           (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
-          (import ../../overlays/my-node-packages.nix)
+          (import ../../overlays/nixos/my-node-packages.nix)
+          nixpkgs-hardenedliux.overlay
         ];
 
       # Channel definitions. `channels.<name>.{input,overlaysBuilder,config,patches}`
