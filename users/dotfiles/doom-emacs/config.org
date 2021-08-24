@@ -1075,24 +1075,26 @@ In that case, insert the number."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! icomplete-vertical
-  :demand t
+  :after icomplete
+  :config
+  (icomplete-mode)
+  (icomplete-vertical-mode)
   :custom
   (completion-styles '(partial-completion substring))
   (completion-category-overrides '((file (styles basic substring))))
   (read-file-name-completion-ignore-case t)
   (read-buffer-completion-ignore-case t)
   (completion-ignore-case t)
-  :config
-  (icomplete-mode)
-  (icomplete-vertical-mode)
-  ;;:bind (:map icomplete-minibuffer-map
-              ;; ("<down>" . icomplete-forward-completions)
-              ;; ("C-n" . icomplete-forward-completions)
-              ;; ("<up>" . icomplete-backward-completions)
-              ;; ("C-p" . icomplete-backward-completions)
-              ;; ("C-v" . icomplete-vertical-toggle))
   )
+
+(use-package! icomplete
+  :custom
+  (icomplete-show-matches-on-no-input t)
+  (icomplete-hide-common-prefix nil))
 #+end_src
+
+#+RESULTS:
+: t
 
 ** company-backend
 

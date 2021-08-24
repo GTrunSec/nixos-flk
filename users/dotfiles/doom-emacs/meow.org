@@ -176,7 +176,7 @@
 
 #+begin_src emacs-lisp :tangle "meow.el"
 (global-set-key [remap list-buffers] #'+ivy/switch-buffer)
-#+end_src
+#+END_SRC
 
 * advice-add [[https://github.com/DogLooksGood/meow/blob/master/meow-shims.el#L86-L115][meow/meow-shims.el at master · DogLooksGood/meow]]
 * Setting map! keys in specific mode
