@@ -1065,6 +1065,34 @@ In that case, insert the number."
   )
 #+end_src
 
+** icomplete-vertical
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! icomplete-vertical :recipe (:host github :repo "oantolin/icomplete-vertical"))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! icomplete-vertical
+  :demand t
+  :custom
+  (completion-styles '(partial-completion substring))
+  (completion-category-overrides '((file (styles basic substring))))
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
+  (completion-ignore-case t)
+  :config
+  (icomplete-mode)
+  (icomplete-vertical-mode)
+  ;;:bind (:map icomplete-minibuffer-map
+              ;; ("<down>" . icomplete-forward-completions)
+              ;; ("C-n" . icomplete-forward-completions)
+              ;; ("<up>" . icomplete-backward-completions)
+              ;; ("C-p" . icomplete-backward-completions)
+              ;; ("C-v" . icomplete-vertical-toggle))
+  )
+#+end_src
 
 ** company-backend
 
