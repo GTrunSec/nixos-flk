@@ -12,6 +12,7 @@
     libnotify
     ffmpegthumbnailer
   ] ++ [
+    coreutils
     #misc
     git
     fd

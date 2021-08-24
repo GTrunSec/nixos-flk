@@ -31,7 +31,9 @@
           self.overlay
           (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
           (import ../../overlays/nixos/my-node-packages.nix)
-          nixpkgs-hardenedliux.overlay
+          (final: prev: {
+            gst = nixpkgs-hardenedliux.packages.${prev.system}.gst;
+          })
         ];
 
       # Channel definitions. `channels.<name>.{input,overlaysBuilder,config,patches}`

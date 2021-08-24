@@ -26,8 +26,20 @@
   );
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixUnstable.overrideAttrs
+      (o: {
+        patches = (o.patches or [ ]) ++ [
+          # fixes nested `inputs.<name>.follows` syntax
+          (pkgs.fetchpatch {
+            name = "fix-follows.diff";
+            url = "https://patch-diff.githubusercontent.com/raw/NixOS/nix/pull/4641.patch";
+            sha256 = "sha256-0xNgbyWFmD3UIHPNFrgKiSejGJfuVj1OjqbS1ReLJRc=";
+          })
+        ];
+      });
+
     registry.nixpkgs.flake = inputs.nixpkgs;
+
     readOnlyStore = true;
 
     extraOptions = ''
@@ -41,13 +53,13 @@
       automatic = false;
 
       # Run the collector as the current user.
-      user = config.my.username;
+      user = "gtrun";
 
       options = "--delete-older-than 7d";
     };
   };
 
-  programs.zsh.enable = true;
+  #programs.zsh.enable = true;
 
   #environment.shells = [ pkgs.zsh ];
 }
