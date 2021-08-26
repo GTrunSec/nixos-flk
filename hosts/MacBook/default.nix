@@ -5,25 +5,11 @@
   users.nix.configureBuildUsers = true;
   services.nix-daemon.enable = true;
 
-  # system.build.applications = pkgs.lib.mkForce (pkgs.buildEnv {
-  #   name = "applications";
-  #   paths = config.environment.systemPackages ++ config.home-manager.users."gtrun".home.packages;
-  #   pathsToLink = "/Applications";
-  # });
-  system.activationScripts.applications.text = pkgs.lib.mkForce (
-    ''
-        echo "setting up /Applications/Nix..."
-        rm -rf /Applications/Nix
-        mkdir -p /Applications/Nix
-        chown gtrun /Applications/Nix
-        echo "Looking for files in ${config.system.build.applications}/Applications"
-        find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
-          src="$(/usr/bin/stat -f%Y $f)"
-          appname="$(basename $src)"
-          osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
-      done
-    ''
-  );
+  system.build.applications = pkgs.lib.mkForce (pkgs.buildEnv {
+    name = "applications";
+    paths = config.environment.systemPackages ++ config.home-manager.users."gtrun".home.packages;
+    pathsToLink = "/Applications";
+  });
 
   nix = {
     package = pkgs.nixUnstable.overrideAttrs

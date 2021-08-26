@@ -1,6 +1,15 @@
 {
   description = "Darwin OS - A highly awesome system configuration";
 
+  nixConfig = {
+    extra-trusted-public-keys = [
+      "emacs.cachix.org-1:b1SMJNLY/mZF6GxQE+eDBeps7WnkT0Po55TAyzwOxTY="
+    ];
+    extra-substituters = [
+      "https://emacs.cachix.org"
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "nixpkgs/release-21.05";
     latest.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,10 +21,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-hardenedliux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
+
+    emacs.url = "github:cmacrae/emacs";
+
   };
 
 
-  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home, nixpkgs-hardenedliux }:
+  outputs = inputs@{ self, nixpkgs, latest, utils, nix-darwin, home, nixpkgs-hardenedliux, emacs }:
     let
       inherit (nixpkgs) lib;
     in
@@ -29,10 +41,11 @@
         [
           # Overlay imported from `./overlays`. (Defined above)
           self.overlay
+          emacs.overlay
           (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
           (import ../../overlays/nixos/my-node-packages.nix)
           (final: prev: {
-            gst = nixpkgs-hardenedliux.packages.${prev.system}.gst;
+            gst = nixpkgs-hardenedliux.packages.${final.system}.gst;
           })
         ];
 
@@ -94,6 +107,18 @@
         ];
       };
 
-      overlay = import ../../pkgs;
+      overlay = import
+        ../../pkgs;
+
+
+      outputsBuilder = channels: {
+        packages = {
+          #nix develop .#sops-shell --impure
+          devShell = with channels.nixpkgs;
+            mkShell {
+              buildInputs = [ cachix ];
+            };
+        };
+      };
     };
 }
