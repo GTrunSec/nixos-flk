@@ -44,6 +44,7 @@
           emacs.overlay
           (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
           (import ../../overlays/nixos/my-node-packages.nix)
+          (import ../../overlays/nixos/apps.nix)
           (final: prev: {
             gst = nixpkgs-hardenedliux.packages.${final.system}.gst;
           })
@@ -107,8 +108,7 @@
         ];
       };
 
-      overlay = import
-        ../../pkgs;
+      overlay = import ../../pkgs;
 
 
       outputsBuilder = channels: {

@@ -74,5 +74,10 @@
     )
     vips
   ] ++ [
+    # darwin Applications
+    logseq-darwin
+    polar-darwin
+    tencentVideo-darwin
+    kitty
   ];
 }

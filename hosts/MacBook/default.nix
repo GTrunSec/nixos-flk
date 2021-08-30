@@ -3,6 +3,7 @@
 {
 
   users.nix.configureBuildUsers = true;
+
   services.nix-daemon.enable = true;
 
   system.build.applications = pkgs.lib.mkForce (pkgs.buildEnv {
