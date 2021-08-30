@@ -37,6 +37,14 @@
       sha256 = "02wzfdpz7sj38smdkwa18hpcnz2s0arf5dg2kjq46jxjqz2y92np";
     };
   };
+  kitty-darwin = {
+    pname = "kitty-darwin";
+    version = "0.23.1";
+    src = fetchurl {
+      url = "https://github.com/kovidgoyal/kitty/releases/download/v0.23.1/kitty-0.23.1.dmg";
+      sha256 = "03wyhddbsj16rp1j5hxb61bib5ma50qpl3wrwx8j4yj901ypm650";
+    };
+  };
   logseq = {
     pname = "logseq";
     version = "0.3.6";
@@ -97,6 +105,14 @@
       sha256 = "093j542l7drl3bn42bnpgmvya2983q22vpydahhv1wdxds2v9jld";
     };
   };
+  polar-darwin = {
+    pname = "polar-darwin";
+    version = "2.0.103";
+    src = fetchurl {
+      url = "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/Polar-2.0.103.dmg";
+      sha256 = "0wmdq9c6av89vsw4m59k1a7xyfd8a36spqzyyjbd6wd05adkja0c";
+    };
+  };
   promnesia = {
     pname = "promnesia";
     version = "03f46b7e0740790ef091e6f48d0ac2e6bf05bcb7";
@@ -107,6 +123,14 @@
       deepClone = false;
       leaveDotGit = false;
       sha256 = "1v36s0kd0375zv70gpqqdk0ngx4m98jjcwa3kpgbsbmmpvqvch95";
+    };
+  };
+  tencentVideo-darwin = {
+    pname = "tencentVideo-darwin";
+    version = "2.23.0.53015";
+    src = fetchurl {
+      url = "http://dldir1.qq.com/qqtv/mac/TencentVideo_V2.23.0.53015.dmg";
+      sha256 = "1bs7ixs2yl0i4yvja5kcf3impda99yxjmdg1lcbzc1gxiw44k2rz";
     };
   };
 }
