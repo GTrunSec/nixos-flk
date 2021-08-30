@@ -274,11 +274,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1629432302,
-        "narHash": "sha256-fUIbihCkSnIvY85vkRA5BTAo60fs8KXsdYZ+Jq6/Cio=",
+        "lastModified": 1630170111,
+        "narHash": "sha256-1VRC4wSJ577ZtkhsdzwLzzz5OFbvwxuAxJUIFITkVuk=",
         "owner": "emacs-ng",
         "repo": "emacs-ng",
-        "rev": "7e5d6b208b6a2b6ef86d97e9ae2d3beec8a965c3",
+        "rev": "1b63e048eb7c48b755245863601d4b94652ed378",
         "type": "github"
       },
       "original": {
@@ -984,11 +984,11 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1629346024,
-        "narHash": "sha256-9eAyyO3dR2L5HcQS3g5cRLR7unWM/5mKwbfEp2hH4lY=",
+        "lastModified": 1629975973,
+        "narHash": "sha256-ziVq6UO408cfvVSjsjdctaRw/hatrCD/vlOtXdkvWcM=",
         "ref": "release-21.05",
-        "rev": "c7315b77efd33429f432117a98c2ba958f088cfa",
-        "revCount": 294012,
+        "rev": "9d6766c0f0b3b03bd63ffc08b2e23e476145719d",
+        "revCount": 294215,
         "type": "git",
         "url": "file:///nix/nixpkgs"
       },

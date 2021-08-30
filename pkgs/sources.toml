@@ -3,6 +3,11 @@
 src.git = "https://github.com/StevenBlack/hosts"
 fetch.github = "StevenBlack/hosts"
 
+
+[logseq-darwin]
+src.github = "logseq/logseq"
+fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
+
 [logseq]
 src.github = "logseq/logseq"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"

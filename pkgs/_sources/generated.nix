@@ -11,14 +11,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "e23366c1c785bef1537e34985525390025bbd507";
+    version = "6f75f8cfe9569aff68e45edaa5d860dfdaea0e5a";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "e23366c1c785bef1537e34985525390025bbd507";
+      rev = "6f75f8cfe9569aff68e45edaa5d860dfdaea0e5a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "101pl5ykfa3fk8qqcn4c1yv0kk3qlrvinf1n8zi60kwbr1nmydp7";
+      sha256 = "0f77hlgnfi3z03k7310zwfp00n0kslzrma5ka7rs3xpyqzr42rdh";
     };
   };
   adguardhome = {
@@ -39,10 +39,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.3.5";
+    version = "0.3.6";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.3.5/logseq-linux-x64-0.3.5.AppImage";
-      sha256 = "1yg4zr0yrndkn9rrypg9xx13lz95x1ffa9y03dq06q9l08n41qmf";
+      url = "https://github.com/logseq/logseq/releases/download/0.3.6/logseq-linux-x64-0.3.6.AppImage";
+      sha256 = "0zm6hd2a8lj4f83yzs3mcwm4qrx8hvc680n9rmzgbpijsc4im475";
+    };
+  };
+  logseq-darwin = {
+    pname = "logseq-darwin";
+    version = "0.3.6";
+    src = fetchurl {
+      url = "https://github.com/logseq/logseq/releases/download/0.3.6/logseq-darwin-x64-0.3.6.dmg";
+      sha256 = "1v9z0100cdbrw7jpfj9xlf2xyvn8699hbd9jjid722fq6yqjag99";
     };
   };
   magnetw = {

@@ -7,6 +7,8 @@ channels: final: prev: {
     dhall
     discord
     #element-desktop
+    _1password-gui
+    _1password
     tdesktop
     manix
     zsh

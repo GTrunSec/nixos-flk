@@ -2937,11 +2937,11 @@ Used in :switch-buffer-functions slot."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
-    :load-path "~/src/emacs-plugin/emacs-tree-sitter/lisp"
+    :load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
     :hook (rustic-mode . tree-sitter-mode)
     :init
-    (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/core")
-    (add-to-list 'load-path "~/src/emacs-plugin/emacs-tree-sitter/langs")
+    (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
+    (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
     :config

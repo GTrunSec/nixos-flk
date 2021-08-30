@@ -48,10 +48,11 @@
           cp = "cp -i";
           mv = "mv -i";
           gst = "${pkgs.gst}/bin/gst";
+          cdghq = "cd $(ghq root)/$(ghq list | peco)";
+          cdgst = "cd $(gst --short | peco)";
           ##update Nixpkgs
           fp = "git fetch && git pull";
           ag0 = "rg --max-depth=1";
-          pcat = "${python3Packages.pygments}/bin/pygmentize";
           # so = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*usb/{if (a != \"\") print a;} {a=$NF}\\\')";
           # si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";
         };

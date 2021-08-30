@@ -60,5 +60,8 @@
     gst
     ghq
     peco
+
+    # pdf reader
+    okular
   ];
 }
