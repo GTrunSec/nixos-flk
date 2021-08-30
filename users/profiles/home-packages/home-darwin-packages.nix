@@ -14,6 +14,7 @@
   ] ++ [
     coreutils
     #misc
+    ghq
     git
     fd
     wget
@@ -77,7 +78,6 @@
     # darwin Applications
     logseq-darwin
     polar-darwin
-    tencentVideo-darwin
     kitty
   ];
 }

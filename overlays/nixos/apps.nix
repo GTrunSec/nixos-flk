@@ -1,7 +1,5 @@
 final: prev:
-let
-  installApp = import ../../lib/installApp.nix prev;
-in
+with final.lib;
 {
   logseq-darwin = installApp rec {
     inherit (final.sources.logseq-darwin) pname version src;

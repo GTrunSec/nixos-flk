@@ -42,11 +42,18 @@
           # Overlay imported from `./overlays`. (Defined above)
           self.overlay
           emacs.overlay
-          (final: prev: { sources = (import ../../pkgs/_sources/generated.nix) { inherit (final) fetchurl fetchgit; }; })
+
+
           (import ../../overlays/nixos/my-node-packages.nix)
           (import ../../overlays/nixos/apps.nix)
+
+
           (final: prev: {
+            sources = prev.callPackage ../../pkgs/_sources/generated.nix { };
             gst = nixpkgs-hardenedliux.packages.${final.system}.gst;
+            lib = prev.lib.extend (lfinal: lprev: {
+              installApp = import ../../lib/installApp.nix prev;
+            });
           })
         ];
 
