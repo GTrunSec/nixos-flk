@@ -9,6 +9,7 @@ with inputs;
       };
       lib = prev.lib.extend (lfinal: lprev: {
         our = self.lib;
+        installApp = import ../../lib/installApp.nix prev;
       });
     })
   gomod2nix.overlay

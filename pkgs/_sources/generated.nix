@@ -11,14 +11,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "6f75f8cfe9569aff68e45edaa5d860dfdaea0e5a";
+    version = "df8d4ba1b54e040372ca83e64eaa6dbebcedb94a";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "6f75f8cfe9569aff68e45edaa5d860dfdaea0e5a";
+      rev = "df8d4ba1b54e040372ca83e64eaa6dbebcedb94a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "0f77hlgnfi3z03k7310zwfp00n0kslzrma5ka7rs3xpyqzr42rdh";
+      sha256 = "0r4vxprg4dkpzl95y0cdqpfdczlcl92bd2002yj3p78w74jc1gqb";
     };
   };
   adguardhome = {
@@ -35,14 +35,6 @@
     src = fetchurl {
       url = "https://github.com/PeterDing/chord/releases/download/v0.2.38/chord-0.2.38-linux-x86_64.AppImage";
       sha256 = "02wzfdpz7sj38smdkwa18hpcnz2s0arf5dg2kjq46jxjqz2y92np";
-    };
-  };
-  kitty-darwin = {
-    pname = "kitty-darwin";
-    version = "0.23.1";
-    src = fetchurl {
-      url = "https://github.com/kovidgoyal/kitty/releases/download/v0.23.1/kitty-0.23.1.dmg";
-      sha256 = "03wyhddbsj16rp1j5hxb61bib5ma50qpl3wrwx8j4yj901ypm650";
     };
   };
   logseq = {
@@ -123,14 +115,6 @@
       deepClone = false;
       leaveDotGit = false;
       sha256 = "1v36s0kd0375zv70gpqqdk0ngx4m98jjcwa3kpgbsbmmpvqvch95";
-    };
-  };
-  tencentVideo-darwin = {
-    pname = "tencentVideo-darwin";
-    version = "2.23.0.53015";
-    src = fetchurl {
-      url = "http://dldir1.qq.com/qqtv/mac/TencentVideo_V2.23.0.53015.dmg";
-      sha256 = "1bs7ixs2yl0i4yvja5kcf3impda99yxjmdg1lcbzc1gxiw44k2rz";
     };
   };
 }
