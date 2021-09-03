@@ -8,7 +8,7 @@
   description = "Rust crate deploy-rs";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstbale";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -36,10 +36,10 @@
 
       in
       rec {
-        defaultPackage = packages."deploy-rs";
+        defaultPackage = packages."$1";
         defaultApp = defaultPackage.bin;
 
-        packages."deploy-rs" = pkgs.nocargo.buildRustCrateFromSrcAndLock {
+        packages."$2" = pkgs.nocargo.buildRustCrateFromSrcAndLock {
           src = ./.;
           inherit rustc;
         };

@@ -2,4 +2,3 @@
 #+AUTHOR: `user-full-name`
 #+EMAIL: `user-mail-address`
 #+DATE: `(format-time-string "%Y-%m-%d %a %H:%M")`
-#+OPTIONS:   H:3 num:t toc:t

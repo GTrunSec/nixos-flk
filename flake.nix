@@ -14,8 +14,8 @@
       digga = { url = "github:divnix/digga"; };
       naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "latest"; };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-      bud.url = "github:divnix/bud";
-      #bud.url = "/home/gtrun/src/bud";
+      #bud.url = "github:divnix/bud";
+      bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
       qnr.url = "github:divnix/quick-nix-registry";
       ####################
       # Default Features #

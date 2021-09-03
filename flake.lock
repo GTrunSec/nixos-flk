@@ -83,17 +83,13 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1629689713,
-        "narHash": "sha256-8+SyKdhpMRI+qyARjnP3DQjYS7fIHb5DZU5fJS0KOSI=",
-        "owner": "divnix",
-        "repo": "bud",
-        "rev": "fcbd142f22e587d6a5f82e363956d9631dc71561",
-        "type": "github"
+        "narHash": "sha256-MrpjNlD/sQH7HLtiDP3WCbF1Ss5d/lb0dm2dZsUUcR8=",
+        "path": "/home/gtrun/ghq/github.com/GTrunSec/bud",
+        "type": "path"
       },
       "original": {
-        "owner": "divnix",
-        "repo": "bud",
-        "type": "github"
+        "path": "/home/gtrun/ghq/github.com/GTrunSec/bud",
+        "type": "path"
       }
     },
     "ci-agent": {
@@ -816,11 +812,11 @@
     },
     "latest": {
       "locked": {
-        "lastModified": 1629292755,
-        "narHash": "sha256-5xMo32NVLnloY9DveqwJO/Cab1+PbTMPqU4WMmawX5M=",
+        "lastModified": 1630338749,
+        "narHash": "sha256-J1LsmwGtlYpqIMYEi/amMKkk0VfRrwHaEs/uylugGnE=",
         "ref": "nixos-unstable",
-        "rev": "253aecf69ed7595aaefabde779aa6449195bebb7",
-        "revCount": 309670,
+        "rev": "8a2ec31e224de9461390cdd03e5e0b0290cdad0b",
+        "revCount": 312407,
         "type": "git",
         "url": "file:///nix/nixpkgs"
       },
