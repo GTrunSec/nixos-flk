@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ xapian emacs tclap pkg-config ];
 
-  #  phases = [ "installPhase" ];
+  phases = [ "installPhase" ];
 
   installPhase = ''
     mkdir -p $out/bin

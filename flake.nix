@@ -1,8 +1,14 @@
 {
   description = "A highly structured configuration database => User:Guangtao";
   nixConfig.extra-experimental-features = "nix-command flakes ca-references";
-  nixConfig.extra-substituters = "https://nrdxp.cachix.org https://nix-community.cachix.org";
-  nixConfig.extra-trusted-public-keys = "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+  nixConfig.extra-substituters = [
+    "https://nrdxp.cachix.org
+    https://nix-community.cachix.org"
+  ];
+  nixConfig.extra-trusted-public-keys = [
+    "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
 
   inputs =
     {
@@ -11,11 +17,18 @@
       ##################
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs/nixos-unstable";
-      digga = { url = "github:divnix/digga"; };
-      naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "latest"; };
+      digga = {
+        url = "github:divnix/digga";
+        inputs.nixpkgs.follows = "nixos";
+      };
+      bud = {
+        url = "github:divnix/bud";
+        inputs.nixpkgs.follows = "nixos";
+        inputs.devshell.follows = "digga/devshell";
+      };
+      #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
+      naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "nixos"; };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-      #bud.url = "github:divnix/bud";
-      bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
       qnr.url = "github:divnix/quick-nix-registry";
       ####################
       # Default Features #
@@ -26,11 +39,7 @@
       };
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
-        inputs = { nix-darwin.follows = "darwin"; nixos-20_09.follows = "nixos"; nixos-unstable.follows = "latest"; };
-      };
-      darwin = {
-        url = "github:LnL7/nix-darwin";
-        inputs.nixpkgs.follows = "latest";
+        inputs = { nixos-20_09.follows = "nixos"; nixos-unstable.follows = "nixos"; };
       };
       home = {
         url = "github:nix-community/home-manager";
@@ -42,7 +51,7 @@
       agenix.url = "github:ryantm/agenix";
       nvfetcher = {
         url = "github:berberman/nvfetcher";
-        inputs.nixpkgs.follows = "latest";
+        inputs.nixpkgs.follows = "nixos";
       };
       beautysh = { url = "github:lovesegfault/beautysh"; };
       ######################
@@ -61,11 +70,11 @@
       tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
-      nixpkgs-hardenedliux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
-      gomod2nix = { url = "github:tweag/gomod2nix"; };
+      nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
+      gomod2nix.follows = "nixpkgs-hardenedlinux/gomod2nix";
     };
 
-  outputs = inputs: with builtins; with inputs; with inputs.darwin;
+  outputs = inputs: with builtins; with inputs;
     digga.lib.mkFlake
       {
         inherit self inputs;

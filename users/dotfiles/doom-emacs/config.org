@@ -2331,24 +2331,6 @@ a separator ' -> '."
 #+end_src
 
 
-** Org Wiki
-
-#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! wikinfo :recipe (:host github
-                             :repo "progfolio/wikinfo"
-                             ))
-
-(package! wikinforg :recipe (:host github
-                             :repo "progfolio/wikinforg"
-                             ))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! wikinfo)
-(use-package! wikinforg)
-#+end_src
-
-
 ** Org Noter Plus
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"

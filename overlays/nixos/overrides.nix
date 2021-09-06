@@ -29,7 +29,7 @@ channels: final: prev: {
         {
           # same for haskell packages, matching ghc versions
           inherit (channels.latest.haskell.packages."ghc${version}")
-            haskell-language-server;
+            ;
         });
     });
 }

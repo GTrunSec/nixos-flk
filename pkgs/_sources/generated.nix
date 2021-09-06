@@ -11,14 +11,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "c2403d7e75b19b2294f162d1120879d05edd2bd1";
+    version = "f17ce97e53985753bd1f6b4c725d84fc21e9aa20";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "c2403d7e75b19b2294f162d1120879d05edd2bd1";
+      rev = "f17ce97e53985753bd1f6b4c725d84fc21e9aa20";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "0bkhkd5bsjhx1aijfyv8bq1ry1cbl5zajai9i8jr8r1pvnknbl6c";
+      sha256 = "07vr4kw7lwrdbcdnh7g5p597xqr73df14y87rd8paygs5ca6825h";
     };
   };
   adguardhome = {

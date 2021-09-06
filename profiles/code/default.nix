@@ -13,14 +13,12 @@ in
     ./rust.nix
     ./haskell.nix
     ./python.nix
+    ./nix.nix
   ];
   environment.systemPackages = with pkgs; [
     customVscode
     gnumake
     cmake
-    rnix-lsp
-    nixfmt
-    nixpkgs-fmt
     sbcl
     beautysh
     tree-sitter
