@@ -19,6 +19,7 @@ channels: final: prev: {
     electron_13
     appimage-run
     i3-gaps
+    onlyoffice-bin
     starship;
 
   haskellPackages = prev.haskellPackages.override

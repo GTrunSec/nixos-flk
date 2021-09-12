@@ -26,6 +26,7 @@ rec {
       nsm
       virtualisation.docker
       virtualisation.libvirtd
+      virtualisation.oci-containers
       registry.nixos
     ];
   };

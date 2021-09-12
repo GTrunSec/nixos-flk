@@ -63,5 +63,6 @@
 
     # pdf reader
     okular
+    onlyoffice-bin
   ];
 }
