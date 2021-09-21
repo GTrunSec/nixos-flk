@@ -11,14 +11,14 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "11fc36fbaf36b6a9bb83465eb08602fcbe8a7083";
+    version = "9c6a21b65fa1e3bfb33d914b413ea51a04ad3dff";
     src = fetchgit {
       url = "https://github.com/StevenBlack/hosts";
-      rev = "11fc36fbaf36b6a9bb83465eb08602fcbe8a7083";
+      rev = "9c6a21b65fa1e3bfb33d914b413ea51a04ad3dff";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "1g7jdz8142yfdpi6m5gqzmb5jbv6ddclh9fh6ns49bb3ykqki5q8";
+      sha256 = "177ayjxay4y9v3d59dbfkds190j0x0bihd2nyxw9ajlqs7kyk49i";
     };
   };
   adguardhome = {
@@ -39,18 +39,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.3.8";
+    version = "0.3.9";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.3.8/logseq-linux-x64-0.3.8.AppImage";
-      sha256 = "07hxs0a3b6k2gw6s1pxrs13zjqljbpdclnssxk3cpaw463jyd7s3";
+      url = "https://github.com/logseq/logseq/releases/download/0.3.9/logseq-linux-x64-0.3.9.AppImage";
+      sha256 = "1jjyvgiclcf412m6cpaq2dvmyzxqcc6g1iiagzyq39yirj0k57m8";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.3.8";
+    version = "0.3.9";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.3.8/logseq-darwin-x64-0.3.8.dmg";
-      sha256 = "1ch9m6firsvi8cj09n5aldf98mgz823a171lnhp2bzvwjsf2c2m3";
+      url = "https://github.com/logseq/logseq/releases/download/0.3.9/logseq-darwin-x64-0.3.9.dmg";
+      sha256 = "08p0k5zwnqc0d4ac8kwaj66ww5g1d19yaan6qfkk33jr93rf7445";
     };
   };
   magnetw = {
@@ -107,14 +107,14 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "03f46b7e0740790ef091e6f48d0ac2e6bf05bcb7";
+    version = "bc9d9034aa7d83c12e24c60aac50c965513ef9ae";
     src = fetchgit {
       url = "https://github.com/karlicoss/promnesia";
-      rev = "03f46b7e0740790ef091e6f48d0ac2e6bf05bcb7";
+      rev = "bc9d9034aa7d83c12e24c60aac50c965513ef9ae";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "1v36s0kd0375zv70gpqqdk0ngx4m98jjcwa3kpgbsbmmpvqvch95";
+      sha256 = "0993hc1bh2rlkdcqc9k39hr15fxdj27l0vqr9d9m3cq1rim22czz";
     };
   };
 }

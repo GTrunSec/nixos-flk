@@ -5,7 +5,10 @@ with inputs.nixos;
   hostDefaults = {
     system = "x86_64-linux";
     channelName = "nixos";
-    imports = [ (digga.lib.importModules ./modules) ];
+    imports = [
+      (digga.lib.importModules ./modules)
+
+    ];
     externalModules = [
       { _module.args.ourLib = self.lib; }
       digga.nixosModules.nixConfig
@@ -25,6 +28,10 @@ with inputs.nixos;
   hosts = {
     /* set host specific properties here */
     NixOS = {
+      modules = [
+        # { disabledModules = [ "services/misc/geoip-updater.nix" ]; }
+        # (import (inputs.latest + "/nixos/modules/services/misc/geoipupdate.nix"))
+      ];
       tests = [
         {
           name = "Test";

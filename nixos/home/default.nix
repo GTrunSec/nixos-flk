@@ -27,4 +27,7 @@ with inputs;
       services = [ lorri ];
     };
   };
+  users = {
+    gtrun = { suites, ... }: { imports = suites.base; };
+  }; # digga.lib.importers.rakeLeaves ./users/hm;
 }

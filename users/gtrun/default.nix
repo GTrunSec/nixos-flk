@@ -1,9 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ hmUsers, ... }:
 {
-  home-manager.users.gtrun = { suites, ... }: {
-    imports = suites.base;
-    home.enableNixpkgsReleaseCheck = false;
-  };
+  home-manager.users = { inherit (hmUsers) gtrun; };
 
   networking.firewall = {
     allowedTCPPorts = [ 8888 8889 ];

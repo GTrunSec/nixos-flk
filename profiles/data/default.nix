@@ -13,8 +13,14 @@
     enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    rocksdb
-    sqlite
-  ];
+  # services.geoipupdate = {
+  #   enable = true;
+  #   AccountID = "";
+  # };
+
+  environment.systemPackages = with pkgs;
+    [
+      rocksdb
+      sqlite
+    ];
 }

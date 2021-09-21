@@ -95,6 +95,7 @@ python3Packages.buildPythonPackage rec {
 
   postPatch = ''
     substituteInPlace setup.py \
-        --replace "idna<3" "idna"
+        --replace "idna<3" "idna" \
+        --replace "tzlocal>=3.0" "tzlocal"
   '';
 }
