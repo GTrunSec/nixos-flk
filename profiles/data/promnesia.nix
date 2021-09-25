@@ -5,19 +5,13 @@ let
   configFile = pkgs.writeScript "config.py" readConfig;
 
   watcherPath = "/home/gtrun/Dropbox/org-notes/braindump";
-
-  PreShell = pkgs.writeScript "preRun-promnesia" ''
-    if [ ! -d "$HOME/.local/share/promnesia.sqlite" ];then
-       ${pkgs.promnesia}/bin/promnesia index --config ${configFile}
-       fi
-  '';
 in
 {
   systemd.user.services.promnesia = {
     description = "promnesia Daemon";
     wantedBy = [ "graphical-session.target" ];
     preStart = ''
-      ${pkgs.bash}/bin/bash ${PreShell}
+      ${pkgs.promnesia}/bin/promnesia index --config ${configFile}
     '';
     serviceConfig = {
       ExecStart = ''
@@ -30,7 +24,7 @@ in
   systemd.user.paths.promnesia-watcher = {
     wantedBy = [ "promnesia.service" ];
     pathConfig = {
-      PathModified = watcherPath;
+      PathChanged = [ watcherPath ];
       Unit = "promnesia-restarter.service";
     };
   };

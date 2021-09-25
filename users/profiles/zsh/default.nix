@@ -106,8 +106,7 @@
           ];
       };
     })
-    (mkIf
-      pkgs.stdenv.isLinux
+    (mkIf pkgs.stdenv.isLinux
       {
         programs.zsh.initExtra = ''
           SPACESHIP_TIME_SHOW=true
@@ -120,7 +119,7 @@
       })
     (mkIf pkgs.stdenv.isDarwin {
       programs.zsh.sessionVariables = {
-        PATH = "/usr/bin:/run/current-system/sw/bin/:/usr/local/bin:/Applications/kitty.app/Contents/MacOS:/sbin/:/usr/sbin/:/run/current-system/etc/profiles/per-user/gtrun/bin/";
+        PATH = "/usr/bin:/run/current-system/sw/bin/:/usr/local/bin:/sbin/:/usr/sbin/:/run/current-system/etc/profiles/per-user/gtrun/bin/";
         TMUX_TMPDIR = "$HOME/.config/.";
         LANG = "en_US.UTF-8";
         export = "LC_ALL=en_US.UTF-8";

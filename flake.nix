@@ -1,5 +1,6 @@
 {
   description = "A highly structured configuration database => User:Guangtao";
+
   nixConfig.extra-experimental-features = "nix-command flakes ca-references";
   nixConfig.extra-substituters = [
     "https://nrdxp.cachix.org
@@ -79,7 +80,7 @@
       {
         inherit self inputs;
 
-        supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
+        supportedSystems = [ "x86_64-linux" ];
 
         channelsConfig = {
           allowUnfree = true;

@@ -18,7 +18,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Los_Angeles";
 
-
   # sudo cp -r ~/.gnupg /var/lib/sops
   sops.gnupgHome = "/home/gtrun/.gnupg";
   sops.sshKeyPaths = [ ];

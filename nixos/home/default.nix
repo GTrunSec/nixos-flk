@@ -28,6 +28,10 @@ with inputs;
     };
   };
   users = {
-    gtrun = { suites, ... }: { imports = suites.base; };
-  }; # digga.lib.importers.rakeLeaves ./users/hm;
+    # digga.lib.importers.rakeLeaves ./users/hm;
+    gtrun = { suites, ... }: {
+      imports = suites.base;
+      home.enableNixpkgsReleaseCheck = false;
+    };
+  };
 }
