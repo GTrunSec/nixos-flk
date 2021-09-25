@@ -14,11 +14,12 @@
     psmisc # pkill, killall, pstree, fuser
     lsd
     nix-index
-    #remote
+    # remote
     rxvt_unicode.terminfo
     ncurses.dev # infocmp/tic/etc
-
-    #password
+    # Linux/OSX/FreeBSD resource monitor
+    bpytop
+    # password
     pwgen
     git-crypt
     wget

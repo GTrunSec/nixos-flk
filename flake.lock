@@ -498,11 +498,11 @@
     },
     "flake-utils_13": {
       "locked": {
-        "lastModified": 1610051610,
-        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "lastModified": 1631561581,
+        "narHash": "sha256-3VQMV5zvxaVLvqqUrNz3iJelLw30mIVSfZmAaauM3dA=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "rev": "7e5bf3925f6fbdfaf50a2a7ca0be2879c4261d19",
         "type": "github"
       },
       "original": {
@@ -1121,12 +1121,13 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1628460690,
-        "narHash": "sha256-aLwCbAug2OmPiRCsQ71JZIcUHL/4t3gstLirBGB5D1g=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9d5f7324c281905c114975e193357f40c9d345a0",
-        "type": "github"
+        "lastModified": 1632523841,
+        "narHash": "sha256-tNAF2+yBX5F3pHEhYv+ge7FSx2ygrwhdPkD5ekGQAWE=",
+        "ref": "release-21.05",
+        "rev": "02b76b051510e4b2b2a25acea194c35fddf712e2",
+        "revCount": 294836,
+        "type": "git",
+        "url": "file:///nix/nixpkgs"
       },
       "original": {
         "id": "nixpkgs",
@@ -1233,11 +1234,11 @@
     "photoprism": {
       "flake": false,
       "locked": {
-        "lastModified": 1628436482,
-        "narHash": "sha256-kP0rsFQpTDj2MCSkXJRgcsjVB8sMnR3RslQ+QUsrXo8=",
+        "lastModified": 1632588139,
+        "narHash": "sha256-oDkB3x3VsvYhV4F9a5ky2E0gPmnf29DBILLjWSG4O+k=",
         "owner": "photoprism",
         "repo": "photoprism",
-        "rev": "e19632349b5dd9a95ddc2899dfdb6630c4340083",
+        "rev": "96168e4b36cfd95520267e6dadc7ccee1b69ec31",
         "type": "github"
       },
       "original": {
@@ -1256,11 +1257,11 @@
         "ranz2nix": "ranz2nix"
       },
       "locked": {
-        "lastModified": 1628481294,
-        "narHash": "sha256-TGr93X9Ei0FDl8DatPXdauWUtu5SlT3PvPGQjBKiLhk=",
+        "lastModified": 1632598951,
+        "narHash": "sha256-/B8XYGEU/8nzyNw8q6ubzTUKTDA+/g1t999XsnXBxb4=",
         "owner": "GTrunSec",
         "repo": "photoprism2nix",
-        "rev": "60ab647b179b3d775bfc94e430f98621864d568f",
+        "rev": "b9cd5ed8c2fe0bfe6bfa8a03c3d163b664a122e6",
         "type": "github"
       },
       "original": {
