@@ -11,9 +11,9 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/release-21.05";
+    nixpkgs.url = "nixpkgs/nixpkgs-21.05-darwin";
     latest.url = "github:nixos/nixpkgs/nixos-unstable";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     home = {
@@ -31,7 +31,7 @@
     let
       inherit (nixpkgs) lib;
     in
-    utils.lib.systemFlake {
+    utils.lib.mkFlake {
 
       # `self` and `inputs` arguments are REQUIRED!!!!!!!!!!!!!!
       inherit self inputs;
@@ -84,8 +84,7 @@
       # Shared modules/configurations between `hosts`
       hostDefaults = {
         modules = [
-          # Sets sane `nix.*` defaults. Please refer to implementation/readme for more details.
-          utils.nixosModules.saneFlakeDefaults
+          home.darwinModules.home-manager
           #(import rootDir + "/users/modules/darwin-module-list.nix")
           {
             home-manager.useGlobalPkgs = true;
@@ -109,7 +108,6 @@
 
         # Host specific configuration.
         modules = [
-          home.darwinModules.home-manager
           ./.
           ../../users/darwin/gtrun.nix
         ];

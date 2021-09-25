@@ -13,17 +13,7 @@
   });
 
   nix = {
-    package = pkgs.nixUnstable.overrideAttrs
-      (o: {
-        patches = (o.patches or [ ]) ++ [
-          # fixes nested `inputs.<name>.follows` syntax
-          (pkgs.fetchpatch {
-            name = "fix-follows.diff";
-            url = "https://patch-diff.githubusercontent.com/raw/NixOS/nix/pull/4641.patch";
-            sha256 = "sha256-0xNgbyWFmD3UIHPNFrgKiSejGJfuVj1OjqbS1ReLJRc=";
-          })
-        ];
-      });
+    package = pkgs.nixUnstable;
 
     registry.nixpkgs.flake = inputs.nixpkgs;
 
@@ -42,7 +32,7 @@
       # Run the collector as the current user.
       user = "gtrun";
 
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 3d";
     };
   };
 
