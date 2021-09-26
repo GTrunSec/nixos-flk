@@ -1464,23 +1464,21 @@ FACE defaults to inheriting from default and highlight."
     ("posts/myself/love.org"         :key "l" :refile (:maxlevel . 5 ))
     ("posts/myself/qing.org"         :key "q" :refile (:maxlevel . 5 ))
     ("posts/myself/plan.org"         :key "p" :refile (:maxlevel . 5 ))
-    )
-  (org-starter-def "~/Documents/org-notes/braindump"
-    :files
-    ("myself/" :agenda t)
-    ("myself/GTD/gtd.org"    :key "g" :refile (:maxlevel . 5))
-    ("myself/GTD/notes.org"  :key "n" :refile (:maxlevel . 5 ))
-    ("myself/GTD/myself.org" :key "m" :refile (:maxlevel . 5 ))
-    ("myself/GTD/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
+    ("braindump/" :agenda t)
+    ("braindump/myself/" :agenda t)
+    ("braindump/myself/GTD/gtd.org"    :key "g" :refile (:maxlevel . 5))
+    ("braindump/myself/GTD/notes.org"  :key "n" :refile (:maxlevel . 5 ))
+    ("braindump/myself/GTD/myself.org" :key "m" :refile (:maxlevel . 5 ))
+    ("braindump/myself/GTD/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
     ;;
-    ("guangtao/"                     :agenda t)
-    ("guangtao/learn_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
-    ("guangtao/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao/"                     :agenda t)
+    ("braindump/guangtao/learn_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
-    ("journals/" :agenda t)
-    ("nix/" :agenda t)
-    ("security/" :agenda t)
+    ("braindump/journals/" :agenda t)
+    ("braindump/nix/" :agenda t)
+    ("braindump/security/" :agenda t)
     )
   (org-starter-def "~/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/"
     :files
@@ -2263,12 +2261,28 @@ a separator ' -> '."
 
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
+;;(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! ox-ipynb)
+;;(use-package! ox-ipynb)
 #+end_src
+
+
+** Org Appear
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-appear
+;;   :config
+;;   (add-hook 'org-mode-hook 'org-appear-mode)
+;; )
+#+end_src
+
 
 
 ** Org Html Theme
