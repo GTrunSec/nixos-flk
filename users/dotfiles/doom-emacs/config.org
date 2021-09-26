@@ -1478,21 +1478,9 @@ FACE defaults to inheriting from default and highlight."
     ("guangtao/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
     ("guangtao/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
-    ("life/" :agenda t)
-    ("life/life_goods.org"     :key "s" :refile (:maxlevel . 5 ))
-    ("gaming/" :agenda t)
     ("journals/" :agenda t)
-    ("hardware/" :agenda t)
-    ("system/" :agenda t)
-    ("deployment/" :agenda t)
-    ("cs/" :agenda t)
-    ("programming/" :agenda t)
     ("nix/" :agenda t)
-    ("emacs/" :agenda t)
     ("security/" :agenda t)
-    ("financial/" :agenda t)
-    ("network/" :agenda t)
-    ("data-science/" :agenda t)
     )
   (org-starter-def "~/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/"
     :files
