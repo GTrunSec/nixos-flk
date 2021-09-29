@@ -18,9 +18,11 @@
       ##################
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "nixpkgs/nixos-unstable";
+      nix.url = "github:nixos/nix";
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
+        inputs.nix.follows = "nix";
       };
       bud = {
         url = "github:divnix/bud";
@@ -28,7 +30,6 @@
         inputs.devshell.follows = "digga/devshell";
       };
       #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
-      naersk = { url = "github:nmattia/naersk"; inputs.nixpkgs.follows = "nixos"; };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       qnr.url = "github:divnix/quick-nix-registry";
       ####################

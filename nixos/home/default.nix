@@ -4,8 +4,8 @@ with inputs;
   #################################
   # home-manager Users's Profiles #
   #################################
-  imports = [ (digga.lib.importModules ../../users/modules) ];
-  externalModules = [ ];
+  imports = [ (digga.lib.importExportableModules ../../users/modules) ];
+  modules = [ ];
   importables = rec {
     profiles = digga.lib.rakeLeaves ../../users/profiles;
     suites = with profiles; rec {

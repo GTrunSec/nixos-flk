@@ -6,10 +6,10 @@ with inputs.nixos;
     system = "x86_64-linux";
     channelName = "nixos";
     imports = [
-      (digga.lib.importModules ./modules)
+      (digga.lib.importExportableModules ./modules)
 
     ];
-    externalModules = [
+    modules = [
       { _module.args.ourLib = self.lib; }
       digga.nixosModules.nixConfig
       ci-agent.nixosModules.agent-profile
