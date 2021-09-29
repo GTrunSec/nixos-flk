@@ -11,7 +11,7 @@ with inputs.nixos;
       nvfetcher-bin = nvfetcher.defaultPackage.x86_64-linux;
     })
     nur.overlay
-    digga.overlays.patchedNix
+    nix.overlay
     agenix.overlay
     tenvideo.overlay
     rust-overlay.overlay
