@@ -1471,10 +1471,9 @@ FACE defaults to inheriting from default and highlight."
     ("braindump/myself/GTD/myself.org" :key "m" :refile (:maxlevel . 5 ))
     ("braindump/myself/GTD/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
     ;;
-    ("braindump/guangtao/"                     :agenda t)
-    ("braindump/guangtao/learn_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
-    ("braindump/guangtao/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
-    ("braindump/guangtao/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ("braindump/learning_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
     ("braindump/journals/" :agenda t)
     ("braindump/nix/" :agenda t)
@@ -1570,7 +1569,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-books
   :config
-  (setq org-books-file "~/Documents/org-notes/braindump/guangtao/guangtao_library.org")
+  (setq org-books-file "~/Documents/org-notes/braindump/guangtao_library.org")
   )
 #+end_src
 
