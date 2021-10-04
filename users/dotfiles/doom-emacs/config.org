@@ -1,3 +1,7 @@
+:PROPERTIES:
+:ID:       995c6482-f615-4319-b1b5-118d08629f7b
+:public: true
+:END:
 #+title: GuangTao's Doom Emacs Config
 #+email: gtrunsec@hardenedlinux.org
 #+author: GuangTao
@@ -39,76 +43,87 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "init.el"
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; Copy this file to ~/.doom.d/init.el or ~/.config/doom/init.el ('doom install'
-;; will do this for you). The `doom!' block below controls what modules are
-;; enabled and in what order they will be loaded. Remember to run 'doom refresh'
-;; after modifying it.
+;; This file controls what Doom modules are enabled and what order they load
+;; in. Remember to run 'doom sync' after modifying it!
+
+;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;;      documentation. There you'll find a "Module Index" link where you'll find
+;;      a comprehensive list of Doom's modules and what flags they support.
+
+;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
+;;      'C-c c k' for non-vim users) to view its documentation. This works on
+;;      flags as well (those symbols that start with a plus).
 ;;
-;; More information about these modules (and what flags they support) can be
-;; found in modules/README.org.
+;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
+;;      directory (for easy access to its source code).
 
 (doom! :input
        chinese
        ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+
        :completion
        company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ivy               ; a search engine for love and life
-       ;;vertico
+       ;;ivy               ; a search engine for love and life
+       vertico           ; the search engine of the future
+
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;;fill-column       ; a `fill-column' indicator
+       ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       hydra
+       ;;hydra
        indent-guides     ; highlighted indent columns
+       ;;ligatures         ; ligatures and symbols to make your code pretty again
+       ;;minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
-       nav-flash         ; blink the current line after jumping
+       ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;pretty-code       ; replace bits of code with pretty symbols
-       ;;tabs              ; an tab bar for Emacs
-       treemacs          ; a project drawer, like neotree but cooler
+       ;;tabs              ; a tab bar for Emacs
+       ;;treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
-       window-select     ; visually switch windows
+       ;;window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
+       ;;zen               ; distraction-free coding or writing
 
        :editor
        ;;(evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
-       ;;god               ; run Emacs commands without modifier keys
        fold              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
-       ;;lispy             ; vim for lisp, for people who dont like vim
+       ;;god               ; run Emacs commands without modifier keys
+       ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
-       rotate-text       ; cycle region at point between text candidates
+       ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ibuffer           ; interactive buffer management
+       ;;ibuffer         ; interactive buffer management
+       undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
-       undo
 
        :term
-       ;;eshell            ; a consistent, cross-platform shell (WIP)
-       ;;shell             ; a terminal REPL for Emacs
-       ;;term              ; terminals in Emacs
-       vterm             ; another terminals in Emacs
+       ;;eshell            ; the elisp shell that works everywhere
+       ;;shell             ; simple shell REPL for Emacs
+       ;;term              ; basic terminal emulator for Emacs
+       vterm             ; the best terminal emulation in Emacs
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;spell             ; tasing you for misspelling mispelling
+       ;;(spell +flyspell) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -118,75 +133,70 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;docker
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
-       (eval +overlay)     ; run code, run (also, repls)
-       ;;flycheck          ; tasing you for every semicolon you forget
-       ;;flyspell          ; tasing you for misspelling mispelling
+       ;;(eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
-       (lookup           ; helps you navigate your code and documentation
-        +docsets)        ; ...or in Dash docsets locally
-       lsp
-       ;;macos             ; MacOS-specific commands
+       lookup              ; navigate your code and its documentation
+       lsp               ; M-x vscode
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
+       ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;upload              ; map local to remote projects via ssh/ftp
-       ;;wakatime
+       ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;;tty               ; improve the terminal Emacs experience
 
        :lang
        ;;agda              ; types of types of types of types...
-       ;;assembly          ; assembly for fun or debugging
-       ;; (cc
-       ;;    +lsp)                              ; C/C++/Obj-C madness
+       ;;beancount         ; mind the GAAP
+       ;;cc                ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
-       data              ; config/data formats
-       yaml
-       ;;erlang            ; an elegant language for a more civilized age
+       ;;data              ; config/data formats
+       ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ess               ; emacs speaks statistics
+       ;;erlang            ; an elegant language for a more civilized age
+       ;;ess               ; emacs speaks statistics
+       ;;factor
        ;;faust             ; dsp, but you get to keep your soul
-       ;;fsharp           ; ML stands for Microsoft's Language
-       ;;go                ; the hipster dialect
-       json
-
-       haskell ; a language that's lazier than I am
+       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
+       ;;(go +lsp)         ; the hipster dialect
+       (haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
-       ;;idris             ;
+       ;;idris             ; a language you can depend on
+       ;;json              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
-       ;;lean
-       ;;ledger            ; an accounting system in Emacs
+       ;;lean              ; for folks with too much to prove
+       ;;ledger            ; be audit you can be
        ;;lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org              ; organize your plain life in plain text
-        +dragndrop       ; drag & drop files/images into org buffers
-        +ipython         ; ipython/jupyter support for babel
-        +pandoc          ; export-with-pandoc support
+       (org
+        +dragndrop
         +journal
         +roam2
-        ;;+helm-org
-        ;+pomodoro        ; be fruitful with the tomato technique
-        +present)        ; using org-mode for presentations
-       ;;perl              ; write code no one else can comprehend
+        )
+               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -195,50 +205,47 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
         +lsp
         +pyright)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       ;;racket            ; a DSL for DSL
-       ;;ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       ;;racket            ; a DSL for DSLs
+       ;;raku              ; the artist formerly known as perl6
+       ;;rest              ; Emacs as a REST client
+       ;;rst               ; ReST in peace
+       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       ;;scheme            ; a fully conniving family of lisps
+       ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
+       ;;sml
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
+       ;;yaml              ; JSON, but readable
+       ;;zig               ; C, but simpler
 
        :email
-       ;;(mu4e +gmail)       ; WIP
-       ;;notmuch             ; WIP
-       ;;(wanderlust +gmail) ; WIP
+       ;;(mu4e +org +gmail)
+       ;;notmuch
+       ;;(wanderlust +gmail)
 
-       ;; Applications are complex and opinionated modules that transform Emacs
-       ;; toward a specific purpose. They may have additional dependencies and
-       ;; should be loaded late.
        :app
-       everywhere
        ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
-       ;;(write            ; emacs for writers (fiction, notes, papers, etc.)
-       ;; +wordnut         ; wordnet (wn) search
-       ;; +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :config
-       ;; For literate config users. This will tangle+compile a config.org
-       ;; literate config in your `doom-private-dir' whenever it changes.
        literate
-
-       ;; The default module sets reasonable defaults for Emacs. It also
-       ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
-       ;; config. Use it as a reference for your own modules.
-       ;;(default +smartparens)
-         :private
-         spacemacs-default
-         my-org
-         my-code
-         )
+       (default +bindings +smartparens)
+       :private
+       spacemacs-default
+       my-org
+       my-code
+       )
 #+end_src
+
+#+RESULTS:
 
 * Packages.el
 
@@ -882,33 +889,6 @@ In that case, insert the number."
   (define-key map (kbd "<return>") nil)))
 #+end_src
 
-** Ivy / Counsel
-
-#+begin_src emacs-lisp :tangle "config.el"
-  (use-package! counsel
-    :hook
-    (after-init . ivy-mode)
-    (counsel-grep-post-action . better-jumper-set-jump)
-    :diminish ivy-mode
-    :config
-    (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
-          counsel-describe-function-function #'helpful-callable
-          ncounsel-describe-variable-function #'helpful-variable
-          ;; Add smart-casing (-S) to default command arguments:
-          counsel-rg-base-command "rg -S --no-heading --line-number --color never %s ."
-          counsel-ag-base-command "ag -S --nocolor --nogroup %s"
-          counsel-pt-base-command "pt -S --nocolor --nogroup -e %s"
-          counsel-find-file-at-point t)
-       )
-
-     (use-package! ivy-rich
-       :config
-       (ivy-rich-mode 1)
-       (setq ivy-format-function #'ivy-format-function-line))
-     ;;[[https://github.com/gilbertw1/better-jumper][gilbertw1/better-jumper: A configurable jump list implementation for Emacs]]
-#+end_src
-
-
 ** selectrum
 #+begin_src emacs-lisp :tangle "packages.el"
 ;; (package! selectrum)
@@ -981,7 +961,6 @@ In that case, insert the number."
 #+end_src
 
 ** company-math
-
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! company-math
   :config
@@ -1424,7 +1403,7 @@ FACE defaults to inheriting from default and highlight."
 ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
   (defun org-show-two-levels ()
     (interactive)
-    (org-content 2))
+    (org-content 1))
 
   (setq org-download-timestamp "%Y%m%d_%H%M%S")
   (setq org-plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
@@ -2525,10 +2504,6 @@ a separator ' -> '."
 
 *** Lsp Haskell
 
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(package! lsp-haskell)
-#+end_src
-
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! lsp-haskell
   :config
@@ -2710,7 +2685,6 @@ Used in :switch-buffer-functions slot."
 
 *** lsp-julia
 
-- pin "716e7d99a30b26012e5711fb2f33bea71a7bc5ab" to master
   #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
   (package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
   #+end_src
@@ -2968,41 +2942,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
        "OrgMode")
       (t
        (awesome-tab-get-group-name (current-buffer))))))
-
-  (defhydra awesome-fast-switch (:hint nil)
-    "
- ^^^^Fast Move             ^^^^Tab                    ^^Search            ^^Misc
--^^^^--------------------+-^^^^---------------------+-^^----------------+-^^---------------------------
-   ^_k_^   prev group    | _C-a_^^     select first | _b_ search buffer | _C-k_   kill buffer
- _h_   _l_  switch tab   | _C-e_^^     select last  | _g_ search group  | _C-S-k_ kill others in group
-   ^_j_^   next group    | _C-j_^^     ace jump     | ^^                | ^^
- ^^0 ~ 9^^ select window | _C-h_/_C-l_ move current | ^^                | ^^
--^^^^--------------------+-^^^^---------------------+-^^----------------+-^^---------------------------
-"
-    ("h" awesome-tab-backward-tab)
-    ("j" awesome-tab-forward-group)
-    ("k" awesome-tab-backward-group)
-    ("l" awesome-tab-forward-tab)
-    ("0" my-select-window)
-    ("1" my-select-window)
-    ("2" my-select-window)
-    ("3" my-select-window)
-    ("4" my-select-window)
-    ("5" my-select-window)
-    ("6" my-select-window)
-    ("7" my-select-window)
-    ("8" my-select-window)
-    ("9" my-select-window)
-    ("C-a" awesome-tab-select-beg-tab)
-    ("C-e" awesome-tab-select-end-tab)
-    ("C-j" awesome-tab-ace-jump)
-    ("C-h" awesome-tab-move-current-tab-to-left)
-    ("C-l" awesome-tab-move-current-tab-to-right)
-    ("b" ivy-switch-buffer)
-    ("g" awesome-tab-counsel-switch-group)
-    ("C-k" kill-current-buffer)
-    ("C-S-k" awesome-tab-kill-other-buffers-in-current-group)
-    ("q" nil "quit"))
   )
 ;; (setq awesome-tab-style "bar")
 ;; (setq awesome-tab-set-icons t)
@@ -3015,6 +2954,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (global-set-key (kbd "C-c k") 'awesome-tab-backward-tab)
 (global-set-key (kbd "C-c o") 'awesome-tab-switch-group)
 #+end_src
+
+#+RESULTS:
+: awesome-tab-switch-group
 
 *** Dimming Unused Windows
 
@@ -3144,70 +3086,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 * Chinese
 
-** Pinyinlib
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! pinyinlib
-  :config
-  (defun re-builder-extended-pattern (str)
-    (let* ((len (length str)))
-      (cond
-       ;; do nothing
-       ((<= (length str) 0))
-
-       ;; If the first charater of input in ivy is ":",
-       ;; remaining input is converted into Chinese pinyin regex.
-       ((string= (substring str 0 1) ":")
-        (setq str (pinyinlib-build-regexp-string (substring str 1 len) t)))
-
-       ;; If the first charater of input in ivy is "/",
-       ;; remaining input is converted to pattrn to search camel case word
-       ((string= (substring str 0 1) "/")
-        (let* ((rlt "")
-               (i 0)
-               (subs (substring str 1 len))
-               c)
-          (when (> len 2)
-            (setq subs (upcase subs))
-            (while (< i (length subs))
-              (setq c (elt subs i))
-              (setq rlt (concat rlt (cond
-                                     ((and (< c ?a) (> c ?z) (< c ?A) (> c ?Z))
-                                      (format "%c" c))
-                                     (t
-                                      (concat (if (= i 0) (format "[%c%c]" (+ c 32) c)
-                                                (format "%c" c))
-                                              "[a-z]+")))))
-              (setq i (1+ i))))
-          (setq str rlt))))
-      (ivy--regex-plus str)))
-
-  (eval-after-load 'ivy
-    '(progn
-       ;; better performance on everything (especially windows), ivy-0.10.0 required
-       ;; @see https://github.com/abo-abo/swiper/issues/1218
-       (setq ivy-dynamic-exhibit-delay-ms 250)
-
-       ;; Press C-p and Enter to select current input as candidate
-       ;; https://oremacs.com/2017/11/30/ivy-0.10.0/
-       (setq ivy-use-selectable-prompt t)
-
-       (setq ivy-re-builders-alist
-             '((t . re-builder-extended-pattern)))
-       ;; set actions when running C-x b
-       ;; replace "frame" with window to open in new window
-       (ivy-set-actions
-        'ivy-switch-buffer-by-pinyin
-        '(("j" switch-to-buffer-other-frame "other frame")
-          ("k" kill-buffer "kill")
-          ("r" ivy--rename-buffer-action "rename")))))
-  (with-eval-after-load "swiper-isearch"
-    (setq ivy-re-builders-alist
-          '((t . re-builder-extended-pattern)
-            (t . ivy-prescient-re-builder))))
-  )
-#+end_src
-
 ** Helm Pinyin
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -3220,6 +3098,17 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 ;;   (after-init . turn-on-helm-pinyin)
 ;;   )
 #+end_src
+
+** 让 vertico, selectrum 等补全框架，通过 orderless 支持拼音搜索候选项功能。
+
+#+begin_src emacs-lisp :tangle "config.el"
+(defun my-orderless-regexp (orig_func component)
+  (let ((result (funcall orig_func component)))
+    (pyim-cregexp-build result)))
+
+(advice-add 'orderless-regexp :around #'my-orderless-regexp)
+#+end_src
+
 
 * Minor Mode And Major Mode
 
@@ -3255,7 +3144,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 ** Disbale Packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(disable-packages! pyim)
 (disable-packages! company-go)
 (disable-packages! lsp-python-ms)
 #+end_src

@@ -109,51 +109,52 @@
 #+begin_src emacs-lisp :tangle "meow.el"
 (meow-leader-define-key
  '("df" . fd-dired)
-  '("r" . counsel-recentf)
-  '("f" . find-file)
-  '("F" . +ivy/projectile-find-file)
-  '("a" . counsel-rg)
-  '("s" . counsel-M-x)
-  '("w" . ace-window)
-  '("oi" . org-roam-node-insert)
-  '("os" . org-roam-buffer)
-  '("od" . org-roam-buffer-display-dedicated)
-  '("of" . org-roam-buffer-node-find)
-  '("oB" . org-brain-visualize)
-  '("ob" . org-brain-visualize-dwim)
-  '("ti" . insert-current-date-time-inactive)
-  '("ta" . insert-current-date-time-active)
-  '("tc" . insert-current-date-time)
-  '("bs" . bookmark-set)
-  '("bm" . bookmark-bmenu-list)
-  '("bt" . bm-toggle)
-  '("bb" . +ivy/switch-buffer)
-  '("bw" . +ivy/switch-workspace-buffer)
-  '("jr" . helm-register)
-  '("js" . point-to-register)
+ '("r" . consult-recent-file )
+ '("f" . +vertico/find-file-in)
+ '("F" . consult-find)
+ '("a" . consult-ripgrep)
+ '("s" . meow-M-x)
+ '("w" . ace-window)
+ '("oi" . org-roam-node-insert)
+ '("os" . org-roam-buffer)
+ '("od" . org-roam-buffer-display-dedicated)
+ '("of" . org-roam-buffer-node-find)
+ '("oB" . org-brain-visualize)
+ '("ob" . org-brain-visualize-dwim)
+ '("ti" . insert-current-date-time-inactive)
+ '("ta" . insert-current-date-time-active)
+ '("tc" . insert-current-date-time)
+ '("bs" . bookmark-set)
+ '("bm" . bookmark-bmenu-list)
+ '("bt" . bm-toggle)
+ '("bb" . switch-to-buffer)
+ '("bw" . +vertico/switch-workspace-buffer)
+ '("jr" . helm-register)
+ '("js" . point-to-register)
 
 
-  '("RET" . counsel-bookmark)
-)
+ '("RET" . bookmark-jump)
+ )
 #+end_src
 
 #+RESULTS:
-| fd-dired | counsel-recentf | find-file | +ivy/projectile-find-file | counsel-rg | counsel-M-x | ace-window | org-roam-node-insert | org-roam-buffer | org-roam-buffer-display-dedicated | org-brain-visualize | org-brain-visualize-dwim | insert-current-date-time-inactive | insert-current-date-time-active | insert-current-date-time | bookmark-set | bookmark-bmenu-list | bm-toggle | +ivy/switch-buffer | +ivy/switch-workspace-buffer | helm-register | point-to-register | counsel-bookmark |
+| fd-dired | consult-recent-file | +vertico/find-file-in | consult-find | consult-ripgrep | meow-M-x | ace-window | org-roam-node-insert | org-roam-buffer | org-roam-buffer-display-dedicated | org-roam-buffer-node-find | org-brain-visualize | org-brain-visualize-dwim | insert-current-date-time-inactive | insert-current-date-time-active | insert-current-date-time | bookmark-set | bookmark-bmenu-list | bm-toggle | switch-to-buffer | +vertico/switch-workspace-buffer | helm-register | point-to-register | bookmark-jump |
 
 * Define global-set-key
 :PROPERTIES:
 :ID:       1fe04d86-bcaa-4236-93b2-7eac1de6e05f
 :END:
  - [2021-08-16 Mon 00:20] -> [[id:1849e2c7-d7d1-4a2c-a913-c4d34857d666][consult-dir]]
+
 #+begin_src emacs-lisp :tangle "meow.el"
 (global-set-key (kbd "<f2>") 'hydra/org-roam/body)
 (global-set-key (kbd "<f4>") 'org-starter-find-file-by-key)
 (global-set-key (kbd "<f5>") 'org-agenda)
 (global-set-key (kbd "<f3>") 'notdeft)
-(global-set-key (kbd "C-s") 'swiper-isearch)
+(global-set-key (kbd "C-s") '+vertico/search-symbol-at-point)
 (global-set-key (kbd "<f9>") 'save-buffer)
 (global-set-key (kbd "C-c w") 'doom/save-and-kill-buffer)
-(global-set-key (kbd "C-c i") 'counsel-imenu)
+(global-set-key (kbd "C-c i") 'consult-imenu)
 (global-set-key (kbd "C-x g") 'magit-status)
 #+end_src
 
@@ -223,8 +224,6 @@
   ("r" revert-buffer "Revert buffer")
 
   ("w" org-id-get-create "Id Create")
-  ("k" counsel-org-goto-all "Goto")
-  ("j" counsel-org-goto "Goto All")
   ("." org-super-links-insert-link "SL Insert")
   ("," org-super-links-store-link "Link Store")
   (";" org-super-links-quick-insert-inline-link "SL Inline Insert")

@@ -5,7 +5,7 @@ packages = []
 name = "darwin-MacBook"
 category = "nix-darwin"
 command = '''
-        darwin-rebuild $@ --flake $DEVSHELL_ROOT/hosts/MacBook/#MacBook
+        darwin-rebuild $@ --flake $PRJ_ROOT/hosts/MacBook/#MacBook
         '''
 help = "darwin-MacBook rebuild"
 
