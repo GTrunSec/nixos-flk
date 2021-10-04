@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+  imports = [ ./binaryCaches.nix ];
 
   users.nix.configureBuildUsers = true;
 

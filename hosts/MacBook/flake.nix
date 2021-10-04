@@ -99,7 +99,7 @@
         output = "darwinConfigurations";
 
         # Build host with darwinSystem. `removeAttrs` workaround due to https://github.com/LnL7/nix-darwin/issues/319
-        builder = args: nix-darwin.lib.darwinSystem (builtins.removeAttrs args [ "system" ]);
+        builder = args: nix-darwin.lib.darwinSystem (builtins.removeAttrs args [ ]);
 
         system = "x86_64-darwin";
 
