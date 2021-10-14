@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 {
+  home.packages = with pkgs;[
+    git-absorb
+  ];
   programs.git = {
     enable = true;
     userName = "GTrunSec";

@@ -68,8 +68,8 @@
       #################
       # Custom Flakes #
       #################
-      photoprism2nix = { url = "github:GTrunSec/photoprism2nix"; };
-      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; };
+      photoprism2nix = { url = "github:GTrunSec/photoprism2nix"; inputs.nixpkgs.follows = "nixos"; };
+      tenvideo = { url = "github:GTrunSec/Tenvideo-nix-flake"; inputs.nixpkgs.follows = "nixos"; };
       rust-overlay = { url = "github:oxalica/rust-overlay"; };
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
