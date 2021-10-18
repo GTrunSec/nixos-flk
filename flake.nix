@@ -55,7 +55,8 @@
         url = "github:berberman/nvfetcher";
         inputs.nixpkgs.follows = "nixos";
       };
-      beautysh = { url = "github:lovesegfault/beautysh"; };
+      #beautysh = { url = "github:lovesegfault/beautysh"; inputs.nixpkgs.follows = "nixos"; };
+      beautysh = { url = "github:gtrunsec/beautysh/flattenTree"; inputs.nixpkgs.follows = "nixos"; };
       ######################
       # Python Environment #
       ######################

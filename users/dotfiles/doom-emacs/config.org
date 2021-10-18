@@ -773,7 +773,7 @@ appropriate.  In tables, insert a new row or end the table."
 ** Global Setting
 
 #+begin_src emacs-lisp :tangle "config.el"
-(setq user-full-name "GuangTao"
+(setq user-full-name "GuangTao Zhang"
       user-mail-address "gtrunsec@hardenedlinux.org")
 ;; (setq auth-sources '("~/.authinfo.gpg")
 ;;       auth-source-cache-expiry nil) ; default is 7200 (2h)
@@ -800,6 +800,9 @@ appropriate.  In tables, insert a new row or end the table."
 
 (setq plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
 #+end_src
+
+#+RESULTS:
+: /home/gtrun/.myscript/plantuml
 
 ** Better default Setting
 
