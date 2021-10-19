@@ -98,7 +98,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;(evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format +onsave)  ; automated prettiness
+       ;;(format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
@@ -1212,6 +1212,10 @@ FACE defaults to inheriting from default and highlight."
 
 *** format-all
 
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! format-all)
+#+end_src
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! format-all
   :config
@@ -1227,9 +1231,10 @@ FACE defaults to inheriting from default and highlight."
                  ))
     (add-hook hook 'format-all-mode))
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
-  (setq format-all-default-formatters (cons '("Haskell" ormolu) format-all-default-formatters))
-  (setq format-all-default-formatters (cons '("Shell" beautysh) format-all-default-formatters))
+  (prependq! format-all-default-formatters '(("Haskell" ormolu)
+                                             ("Shell" beautysh)))
   )
+
 #+end_src
 
 #+results:
@@ -2787,6 +2792,7 @@ Used in :switch-buffer-functions slot."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! nix-mode
   :config
+  (setq nix-nixfmt-bin "nixpkgs-fmt")
   (setq-hook! 'nix-mode-hook company-idle-delay t)
   )
 #+end_src
@@ -3150,13 +3156,19 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 ** Unpin Packages
 #+begin_src emacs-lisp :tangle "packages.el"
-(unpin! doom-modeline)
-(unpin! doom-themes) ;; BUG https://github.com/hlissner/emacs-doom-themes/issues/631
 (unpin! magit)
 (unpin! nix-mode)
 (unpin! org-journal)
 (unpin! lsp-mode)
 #+end_src
+
+** Pinned Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;https://github.com/hlissner/doom-emacs/issues/5637
+(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
+#+end_src
+
 * Misc
 
 ** Emacs Music
