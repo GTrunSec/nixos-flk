@@ -12,15 +12,16 @@ src.prefix = "v"
 src.github = "logseq/logseq"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
 
+# [logseq]
+# src.github = "logseq/logseq"
+# fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
 [logseq]
-src.github = "logseq/logseq"
+src.manual = "0.4.5"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
-
 
 [chord]
 src.manual = "0.2.38"
 fetch.url = "https://github.com/PeterDing/chord/releases/download/v$ver/chord-$ver-linux-x86_64.AppImage"
-
 
 [magnetw]
 src.github = "xiandanin/magnetW"
@@ -40,7 +41,6 @@ src.prefix = "v"
 src.github = "AdguardTeam/AdGuardHome"
 fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/AdGuardHome_linux_amd64.tar.gz"
 
-
 [notdeft]
 src.git = "https://github.com/hasu/notdeft"
 fetch.github = "hasu/notdeft"
@@ -48,7 +48,6 @@ fetch.github = "hasu/notdeft"
 [promnesia]
 src.git = "https://github.com/karlicoss/promnesia"
 fetch.github = "karlicoss/promnesia"
-
 
 [HPI]
 src.pypi = "HPI"

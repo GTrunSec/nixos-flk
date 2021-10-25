@@ -2888,6 +2888,23 @@ Used in :switch-buffer-functions slot."
   (setq eyebrowse-new-workspace t)
 )
 #+end_src
+*** vertico-posframe
+- [2021-10-24 Sun 23:00] -> https://github.com/tumashu/vertico-posframe
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! vertico-posframe :recipe (:host github :repo "tumashu/vertico-posframe"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! vertico-posframe
+  :config
+  (when (display-graphic-p)
+    (vertico-posframe-mode 1)
+    )
+)
+#+end_src
+
 ** Window
 
 *** awesome-tab
