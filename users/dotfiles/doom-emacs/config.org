@@ -253,7 +253,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ;;; packages.el -*- lexical-binding: t; -*-
 (package! discover :recipe (:host github :repo "mickeynp/discover.el"))
 (package! ob-session-async :recipe (:host github :repo "jackkamm/ob-session-async"))
-(package! sunrise-commander :recipe (:host github :repo "sunrise-commander/sunrise-commander"))
 (package! meow :recipe (:host github :repo "DogLooksGood/meow"))
 ;; (package! berrys-theme)
 #+end_src
@@ -544,6 +543,15 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 :END:
 
 - [2021-08-16 Mon 00:20] <- [[id:1fe04d86-bcaa-4236-93b2-7eac1de6e05f][define global-set-key]]
+
+** efar
+:PROPERTIES:
+:ID:       c66ca163-7a10-4abe-b7fd-67616c94a03f
+:END:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! efar :recipe (:host github :repo "suntsov/efar"))
+#+end_src
 
 * Autoload
 
@@ -1067,6 +1075,18 @@ In that case, insert the number."
 
 ** vertico
 - https://github.com/minad/vertico
+
+*** disable case-sensitivity for file and buffer
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t)
+#+end_src
+
+#+RESULTS:
+: t
+
 ** Edition
 
 *** maple-iedit
@@ -1406,10 +1426,9 @@ FACE defaults to inheriting from default and highlight."
     '(require 'ox-md nil t))
 
 ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
-  (defun org-show-two-levels ()
+  (defun org-only-show-headings ()
     (interactive)
-    (org-content 1))
-
+    (org-content -1))
   (setq org-download-timestamp "%Y%m%d_%H%M%S")
   (setq org-plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
   )
@@ -1424,7 +1443,7 @@ FACE defaults to inheriting from default and highlight."
 (after! org
   (add-hook! 'org-mode-hook 'auto-revert-mode)
   (add-hook! 'dired-mode-hook 'org-download-enable)
-  (add-hook! 'org-mode-hook 'org-show-two-levels)
+  (add-hook! 'org-mode-hook 'org-only-show-headings)
   (add-hook! 'doom-init-ui-hook 'org-id-update-id-locations)
   (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
   )
@@ -3183,7 +3202,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;https://github.com/hlissner/doom-emacs/issues/5637
-(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
+;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
 #+end_src
 
 * Misc
