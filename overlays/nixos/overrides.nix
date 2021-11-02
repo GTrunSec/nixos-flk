@@ -21,6 +21,7 @@ channels: final: prev: {
     appimage-run
     i3-gaps
     onlyoffice-bin
+    texmacs
     starship;
 
   haskellPackages = prev.haskellPackages.override

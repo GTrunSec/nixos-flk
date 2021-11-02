@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: nix-install
-# uuid:
-# key: install_url
-# condition: t
-# --
-install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.5pre20211008_6bd74a6/install

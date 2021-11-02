@@ -3,21 +3,21 @@
 {
   HPI = {
     pname = "HPI";
-    version = "0.3.20210220";
+    version = "0.3.20211031";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/H/HPI/HPI-0.3.20210220.tar.gz";
-      sha256 = "sha256-lu422dIXMwJD7Q2kNql+tVOkEN820XRBfo/zOOmALkQ=";
+      url = "https://pypi.io/packages/source/H/HPI/HPI-0.3.20211031.tar.gz";
+      sha256 = "sha256-pkLLEqdMXhVFI2vmtPO5nRciQ8SS/7T0cGZXgl6Gni8=";
     };
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "a17811938e16c6dab3396fc463fa48c48228b487";
+    version = "d367c94d2ac43f86b7c85cbf25d5d710188c4a8d";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "a17811938e16c6dab3396fc463fa48c48228b487";
+      rev = "d367c94d2ac43f86b7c85cbf25d5d710188c4a8d";
       fetchSubmodules = false;
-      sha256 = "sha256-aQ090Q0MNFZkqwIgUsfUaP3Z87+bfiRj0C2gtTKc4+Y=";
+      sha256 = "sha256-BMP+Zq5vSCXEd6jHFPYde6o9Q3X8CwZ8gf4isO1FpGM=";
     });
   };
   adguardhome = {
@@ -81,10 +81,10 @@
   };
   orgparse = {
     pname = "orgparse";
-    version = "0.2.4";
+    version = "0.3.0";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/o/orgparse/orgparse-0.2.4.tar.gz";
-      sha256 = "sha256-W2wwEs9FmwIB1C9Y3QLalr7u0JE/ZAgPFQsmZmVbTXQ=";
+      url = "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.0.tar.gz";
+      sha256 = "sha256-4VjRMlOphyb8IKppnSsTuRLQB0kcPHqBKUnVPN4lO5I=";
     };
   };
   polar-bookshelf = {
@@ -105,13 +105,13 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "bc9d9034aa7d83c12e24c60aac50c965513ef9ae";
+    version = "4d61e0206b587fa6f58dfc2c61a16d4644ca00eb";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "bc9d9034aa7d83c12e24c60aac50c965513ef9ae";
+      rev = "4d61e0206b587fa6f58dfc2c61a16d4644ca00eb";
       fetchSubmodules = false;
-      sha256 = "sha256-/zMhaswBs1FTSxlvQI+QrbsSMkxjJoZZmzQLuAKDIyU=";
+      sha256 = "sha256-6a6REoJa88MbSg4lgWGi/l6ckh2FLoicVf8vEkO6Ibo=";
     });
   };
 }

@@ -1,7 +1,7 @@
 {
   description = "A highly structured configuration database => User:Guangtao";
 
-  nixConfig.extra-experimental-features = "nix-command flakes ca-references";
+  nixConfig.extra-experimental-features = "nix-command flakes";
   nixConfig.extra-substituters = [
     "https://nrdxp.cachix.org
     https://nix-community.cachix.org"
