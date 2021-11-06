@@ -275,6 +275,28 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "statix",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1635661416,
+        "narHash": "sha256-8Bu1EdrPpGl4w1qlGGxlnEgYdkGkQpT4/4ZTq3z+1as=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "1b311df00378e8e9ddc824983220e5ce644a8215",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -662,6 +684,27 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "gitignore": {
+      "inputs": {
+        "nixpkgs": [
+          "statix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1635165013,
+        "narHash": "sha256-o/BdVjNwcB6jOmzZjOH703BesSkkS5O7ej3xhyO8hAY=",
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "rev": "5b9e0ff9d3b551234b4f3eb3983744fa354b17f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
         "type": "github"
       }
     },
@@ -1443,7 +1486,25 @@
         "qnr": "qnr",
         "rust-overlay": "rust-overlay_2",
         "sops-nix": "sops-nix",
+        "statix": "statix",
         "tenvideo": "tenvideo"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635274542,
+        "narHash": "sha256-Cew1/WUozM3jalItPuj4cNN8GIFMvCaJ1KXoj6wrHwE=",
+        "owner": "rust-analyzer",
+        "repo": "rust-analyzer",
+        "rev": "dd43f3f2d13a32199828e758ddf13176df1f17f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-analyzer",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "rust-overlay": {
@@ -1519,6 +1580,28 @@
         "id": "nixpkgs",
         "ref": "release-20.09",
         "type": "indirect"
+      }
+    },
+    "statix": {
+      "inputs": {
+        "fenix": "fenix",
+        "gitignore": "gitignore",
+        "nixpkgs": [
+          "latest"
+        ]
+      },
+      "locked": {
+        "lastModified": 1636043413,
+        "narHash": "sha256-7nwfSRVrIhONhWQaFK34SnT9lTPIuHUoOpGpJbSnRtU=",
+        "owner": "nerdypepper",
+        "repo": "statix",
+        "rev": "96a404acfcd628bc23279df1d95698c111b22a02",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nerdypepper",
+        "repo": "statix",
+        "type": "github"
       }
     },
     "tenvideo": {

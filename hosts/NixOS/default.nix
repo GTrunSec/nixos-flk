@@ -34,4 +34,6 @@
     };
   };
 
+  bud.enable = true;
+  bud.localFlakeClone = "/home/gtrun/.config/nixpkgs/nixos-flk";
 }

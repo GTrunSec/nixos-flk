@@ -41,7 +41,7 @@
     version = "0.4.5";
     src = fetchurl {
       url = "https://github.com/logseq/logseq/releases/download/0.4.5/logseq-linux-x64-0.4.5.AppImage";
-      sha256 = "sha256-EMybZH3heUWeCP74KdFr6zJY1R3hePo6RssbJXrkd9g=";
+      sha256 = "sha256-g44wFcQCu0t8D2qQ0FH/1cCNR3I0WgDvZzw+HEhJjjU=";
     };
   };
   logseq-darwin = {

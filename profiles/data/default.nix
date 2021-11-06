@@ -5,7 +5,7 @@
     ./promnesia.nix
     ./miniflux.nix
     ./nextcloud.nix
-    ./postgresql.nix
+    ./airflow_db.nix
     #./filestash.nix
     ./cassandra.nix
   ];
