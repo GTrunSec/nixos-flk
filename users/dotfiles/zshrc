@@ -51,9 +51,6 @@ bindkey -M emacs '^N' history-substring-search-down
 export TERM=xterm-256color
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    export NIX_PATH="$HOME/.nix-defexpr/channels"
-    export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-    source /run/current-system/etc/profiles/per-user/gtrun/etc/profile.d/hm-session-vars.sh ~
 fi
 
 export EDITOR="emacsclient -nw"
