@@ -253,7 +253,8 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ;;; packages.el -*- lexical-binding: t; -*-
 (package! discover :recipe (:host github :repo "mickeynp/discover.el"))
 (package! ob-session-async :recipe (:host github :repo "jackkamm/ob-session-async"))
-(package! meow :recipe (:host github :repo "DogLooksGood/meow"))
+(package! meow :recipe (:host github :repo "DogLooksGood/meow")
+:pin "cd72d0f2f2d49533326802b7912491769270136a")
 ;; (package! berrys-theme)
 #+end_src
 
@@ -3156,6 +3157,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+end_src
 
 ** Linux only
+:PROPERTIES:
+:ID:       67346cde-f31f-420f-9e1e-c46f3c176d27
+:END:
 
 - cursor
 

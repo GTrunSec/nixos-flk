@@ -185,8 +185,15 @@
       "-" 'vinegar/up-directory
       "/" 'vinegar/dired-diff
       "," 'xah-open-in-external-app
+      "R" 'dired-async-do-rename
+      "C" 'dired-async-do-copy
+      "H" 'dired-async-do-hardlink
+      "S" 'dired-async-do-symlink
       )
 #+end_src
+
+#+RESULTS:
+
 ** Org Mode Map => map!
 :PROPERTIES:
 :ID:       51647023-c013-40c4-83de-c2ba20e3a9c7

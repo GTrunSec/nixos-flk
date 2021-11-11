@@ -58,8 +58,7 @@ export VISUAL=$EDITOR
 
 [[ -n "$key[Up]" ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
 [[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
-# nix direnv hook
-eval "$(direnv hook zsh)"
+
 unalias z
 eval "$(zoxide init zsh)"
 

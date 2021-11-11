@@ -117,5 +117,7 @@
         # # Builder Packages   #
         ########################
         outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
-      } // { };
+      } // {
+      budModules = { devos = import ./pkgs/bud; };
+    };
 }
