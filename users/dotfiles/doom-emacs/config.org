@@ -178,7 +178,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        (haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       ;;json              ; At least it ain't XML
+       json              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        julia             ; a better, faster MATLAB
@@ -253,8 +253,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ;;; packages.el -*- lexical-binding: t; -*-
 (package! discover :recipe (:host github :repo "mickeynp/discover.el"))
 (package! ob-session-async :recipe (:host github :repo "jackkamm/ob-session-async"))
-(package! meow :recipe (:host github :repo "DogLooksGood/meow")
-:pin "cd72d0f2f2d49533326802b7912491769270136a")
+(package! meow :recipe (:host github :repo "DogLooksGood/meow"))
 ;; (package! berrys-theme)
 #+end_src
 
@@ -3044,12 +3043,9 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;(package! flycheck-grammarly :recipe (:host github :repo "jcs-elpa/flycheck-grammarly"))
-(package! company-english-helper :recipe (:host github :repo "manateelazycat/company-english-helper"))
-(package! emacs-powerthesaurus :recipe (:host github :repo "SavchenkoValeriy/emacs-powerthesaurus"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! company-english-helper)
 ;;(use-package! flycheck-grammarly)
 #+end_src
 

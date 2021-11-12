@@ -4,6 +4,8 @@ in
 {
   imports = [ ../cachix ./base.nix ];
 
+  boot.kernelPackages = pkgs.linuxPackages_5_14;
+
   nix.systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 
   environment = {
