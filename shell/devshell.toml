@@ -9,14 +9,6 @@ command = '''
         '''
 help = "darwin-MacBook rebuild"
 
-
-[[commands]]
-name = "ae"
-category = "secrets"
-command = "agenix -e $@"
-help = "agenix edit file"
-
-
 [[commands]]
 name = "update"
 category = "bumpup"

@@ -969,6 +969,7 @@
       },
       "original": {
         "id": "nixpkgs",
+        "ref": "master",
         "type": "indirect"
       }
     },
