@@ -13,7 +13,6 @@ with inputs.nixos;
       digga.nixosModules.nixConfig
       ci-agent.nixosModules.agent-profile
       home.nixosModules.home-manager
-      agenix.nixosModules.age
       bud.nixosModules.bud
       sops-nix.nixosModules.sops
       qnr.nixosModules.local-registry

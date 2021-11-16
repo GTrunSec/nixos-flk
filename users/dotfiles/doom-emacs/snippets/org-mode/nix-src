@@ -4,6 +4,6 @@
 # key: no
 # condition: t
 # --
-#+begin_src nix :async t :exports both :results output
+#+begin_src nix :async :exports both :results output
 $1
 #+end_src

@@ -2,6 +2,6 @@
 # name: sh
 # key: sh
 # --
-#+begin_src sh :async t :exports both :results output
+#+begin_src sh :async :exports both :results output
 $1
 #+end_src

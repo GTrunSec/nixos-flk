@@ -5,16 +5,12 @@
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en cn
-#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
-#+hugo_publishdate: (0 5)
-#+hugo_auto_set_lastmod: t
-#+HUGO_categories:
-#+HUGO_tags:
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
-#+begin_src sh :async t :exports both :results output
+
+#+begin_src sh :async :exports both :results output
 systemctl --user start promnesia.service
 systemctl --user status promnesia.service
 #+end_src
@@ -22,43 +18,86 @@ systemctl --user status promnesia.service
 #+RESULTS:
 #+begin_example
 ● promnesia.service - promnesia Daemon
-     Loaded: loaded (/nix/store/xksd2yj543858bjvs92ryy7gg6q1g9y3-unit-promnesia.service/promnesia.service; enabled; vendor preset: enabled)
-     Active: active (running) since Sat 2020-09-12 18:34:44 PDT; 9ms ago
-    Process: 29971 ExecStartPre=/nix/store/n81yhbq57fsk7v85w99xhrfisplax54a-unit-script-promnesia-pre-start/bin/promnesia-pre-start (code=exited, status=0/SUCCESS)
-   Main PID: 30102 (.promnesia-wrap)
-     CGroup: /user.slice/user-1000.slice/user@1000.service/promnesia.service
-             └─30102 /nix/store/9hdzs3g6rb76grwzlsbxyxwxg2n0fl4a-python3-3.7.8/bin/python3.7 /nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/bin/.promnesia-wrapped serve
+     Loaded: loaded (/nix/store/ma93f0fyx8gjb7ng1rdqr79krnvkd8a1-unit-promnesia.service/promnesia.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-11-14 23:05:03 PST; 15h ago
+    Process: 465313 ExecStartPre=/nix/store/16ss31df6wb3lmg4fydqrmnkqiy89iqz-unit-script-promnesia-pre-start/bin/promnesia-pre-start (code=exited, status=0/SUCCESS)
+   Main PID: 465343 (.promnesia-wrap)
+      Tasks: 2 (limit: 77096)
+     Memory: 39.3M
+        CPU: 7min 33.344s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/promnesia.service
+             └─465343 /nix/store/32q6ryrb860sksdi1al5djg3pgcpq92l-python3-3.8.11/bin/python3.8 /nix/store/wn4azfqp5ki4x5sn9k62bm66fb8f2ml5-python3.8-promnesia-4d61e0206b587fa6f58dfc2c61a16d4644ca00eb/bin/.promnesia-wrapped serve
 
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/compile.el: user ignore rules
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/nix.el: user ignore rules
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,509 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/lisp/update.el: user ignore rules
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,649 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/snippets/org-mode/config.el: user ignore rules
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,788 promnesia auto.py:274] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/xah-fly_diagram.png: user ignore rules
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,789 promnesia auto.py:328] file type suppressed: /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/config_diagram.svg
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [DEBUG   2020-09-12 18:34:43,844 promnesia auto.py:328] file type suppressed: /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs/config_diagram.pdf
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [INFO    2020-09-12 18:34:43,848 promnesia common.py:443] extracting via promnesia.sources.auto:index ('/home/gtrun/.config/nixpkgs/dotfiles/doom-emacs',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc']} ...: got 81 visits
-Sep 12 18:34:43 NixOS promnesia-pre-start[29973]: [INFO    2020-09-12 18:34:43,985 promnesia dump.py:51] saved database to /home/gtrun/.local/share/promnesia/promnesia.sqlite
-Sep 12 18:34:44 NixOS systemd[1254]: Started promnesia Daemon.
-Sep 12 18:34:44 NixOS promnesia[30102]: [INFO    2020-09-12 18:34:44,423 promnesia server.py:305] Running server: ['python3', '-m', 'hug', '-p', '13131', '-f', '/nix/store/0h6ppl7729j8n3w3i46k7hyxca2bvd7s-python3.7-promnesia-0.11.20200605/lib/python3.7/site-packages/promnesia/server.py']
+Nov 14 23:05:03 NixOS promnesia-pre-start[465314]: [INFO    2021-11-14 23:05:03 promnesia extract.py:82] extracting via promnesia.sources.auto:index ('~/Dropbox/org-notes/braindump',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc', '*.bib', '*Z']} ...: got 2734 visits
+Nov 14 23:05:03 NixOS promnesia-pre-start[465314]: [INFO    2021-11-14 23:05:03 promnesia dump.py:96] updated database "/home/gtrun/.local/share/promnesia/promnesia.sqlite". 2734 total (2734 OK, 2734 cleared, +0 more)
+Nov 14 23:05:03 NixOS systemd[1965]: Started promnesia Daemon.
+Nov 14 23:05:04 NixOS promnesia[465343]: [INFO    2021-11-14 23:05:04 promnesia __main__.py:378] CLI args: Namespace(db=PosixPath('/home/gtrun/.local/share/promnesia/promnesia.sqlite'), mode='serve', port='13131', quiet=False, timezone=<DstTzInfo 'America/Los_Angeles' LMT-1 day, 16:07:00 STD>)
+Nov 14 23:05:04 NixOS promnesia[465343]: [INFO    2021-11-14 23:05:04 promnesia.server server.py:404] Running hug with ServerConfig(db=PosixPath('/home/gtrun/.local/share/promnesia/promnesia.sqlite'), timezone=<DstTzInfo 'America/Los_Angeles' LMT-1 day, 16:07:00 STD>)
+Nov 15 14:07:54 NixOS systemd[1965]: Stopping promnesia Daemon...
+Nov 15 14:07:54 NixOS systemd[1965]: promnesia.service: Succeeded.
+Nov 15 14:07:54 NixOS systemd[1965]: Stopped promnesia Daemon.
+Nov 15 14:07:54 NixOS systemd[1965]: promnesia.service: Consumed 7min 33.346s CPU time.
+Nov 15 14:07:54 NixOS systemd[1965]: Starting promnesia Daemon...
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [INFO    2021-11-15 14:07:55 promnesia __main__.py:378] CLI args: Namespace(config=PosixPath('/nix/store/ikkycfds7kcc76nj562ydx928zz87axs-config.py'), dry=False, intermediate=None, mode='index', overwrite=False, sources=None)
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [INFO    2021-11-15 14:07:55 promnesia extract.py:49] extracting via promnesia.sources.auto:index ('~/.config/nixpkgs/dotfiles/doom-emacs',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc']} ... ...
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:231] ignoring /home/gtrun/.config/nixpkgs/dotfiles/doom-emacs: broken symlink?
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [INFO    2021-11-15 14:07:55 promnesia extract.py:82] extracting via promnesia.sources.auto:index ('~/.config/nixpkgs/dotfiles/doom-emacs',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc']} ...: got 0 visits
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [INFO    2021-11-15 14:07:55 promnesia extract.py:49] extracting via promnesia.sources.auto:index ('~/Dropbox/org-notes/braindump',) {'ignored': ['*.html', '*.glass', '*.jpeg', '*.png', '*.jpg', '*.el', '*.elc', '*.bib', '*Z']} ... ...
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: /nix/store/wn4azfqp5ki4x5sn9k62bm66fb8f2ml5-python3.8-promnesia-4d61e0206b587fa6f58dfc2c61a16d4644ca00eb/lib/python3.8/site-packages/promnesia/common.py:474: UserWarning: 'fdfind' is recommended for the best indexing performance. See https://github.com/sharkdp/fd#installation. Falling back to 'find'
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:   warnings.warn("'fdfind' is recommended for the best indexing performance. See https://github.com/sharkdp/fd#installation. Falling back to 'find'")
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia common.py:476] running: ['find', '-L', '/home/gtrun/Dropbox/org-notes/braindump', '-type', 'd', '-a', '(', '-name', '.idea', '-o', '-name', 'venv', '-o', '-name', '.git', '-o', '-name', '.eggs', '-o', '-name', '.mypy_cache', '-o', '-name', '.pytest_cache', '-o', '-name', 'node_modules', '-o', '-name', '__pycache__', '-o', '-name', '.tox', '-o', '-name', '.stack-work', '-o', '-name', '.gitignore', '-o', '-name', '.babelrc', ')', '-prune', '-false', '-o', '-type', 'f', '-a', '-not', '(', '-name', '.idea', '-o', '-name', 'venv', '-o', '-name', '.git', '-o', '-name', '.eggs', '-o', '-name', '.mypy_cache', '-o', '-name', '.pytest_cache', '-o', '-name', 'node_modules', '-o', '-name', '__pycache__', '-o', '-name', '.tox', '-o', '-name', '.stack-work', '-o', '-name', '.gitignore', '-o', '-name', '.babelrc', ')']
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/gas_detetion.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: /nix/store/wn4azfqp5ki4x5sn9k62bm66fb8f2ml5-python3.8-promnesia-4d61e0206b587fa6f58dfc2c61a16d4644ca00eb/lib/python3.8/site-packages/promnesia/common.py:80: UserWarning: No xdg-mime on your OS! If you're on OSX, perhaps you can help me! https://github.com/karlicoss/open-in-editor/issues/1
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:   warnings.warn("No xdg-mime on your OS! If you're on OSX, perhaps you can help me! https://github.com/karlicoss/open-in-editor/issues/1")
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: /nix/store/wn4azfqp5ki4x5sn9k62bm66fb8f2ml5-python3.8-promnesia-4d61e0206b587fa6f58dfc2c61a16d4644ca00eb/lib/python3.8/site-packages/promnesia/common.py:80: UserWarning: No xdg-mime on your OS! If you're on OSX, perhaps you can help me! https://github.com/karlicoss/open-in-editor/issues/1
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:   warnings.warn("No xdg-mime on your OS! If you're on OSX, perhaps you can help me! https://github.com/karlicoss/open-in-editor/issues/1")
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: /nix/store/wn4azfqp5ki4x5sn9k62bm66fb8f2ml5-python3.8-promnesia-4d61e0206b587fa6f58dfc2c61a16d4644ca00eb/lib/python3.8/site-packages/promnesia/common.py:103: UserWarning:
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:         You might want to install https://github.com/karlicoss/open-in-editor
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:         So you can jump to your text files straight from the browser
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]:   warnings.warn('''
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/luks.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/食材.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/radio.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/macos.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/agriculture_robot.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/jupyter_data_science.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/统计学.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/org_roam.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/remarkable.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/virtual_machine.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/braindump_style.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/project_collect.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/PlanetCoaster.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/aircraft_design.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/concrete_mathmatics.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/guangtao_game.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/mitmath_18337.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/data_science.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/logging_parser.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/org_brain.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/media_resources.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/linux.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _org: /home/gtrun/Dropbox/org-notes/braindump/haskell.org
+Nov 15 14:07:55 NixOS promnesia-pre-start[1129406]: [DEBUG   2021-11-15 14:07:55 promnesia auto.py:290] indexing via _html: /home/gtrun/Dropbox/org-notes/braindump/theme-readtheorg.setup
 #+end_example
 
 
-#+begin_src sh :async t :exports both :results output
+#+begin_src sh :async :exports both :results output
 systemctl --user start promnesia-watcher.path
 systemctl --user status promnesia-watcher.path
 #+end_src
 
 #+RESULTS:
 : ● promnesia-watcher.path
-:      Loaded: loaded (/nix/store/ilak6xpvc5pg0kbf8ixpcir478z40jwg-unit-promnesia-watcher.path/promnesia-watcher.path; enabled; vendor preset: enabled)
-:      Active: active (waiting) since Sat 2020-09-12 18:34:41 PDT; 1min 23s ago
+:      Loaded: loaded (/nix/store/3h2gry4g9xv4gi0qyl85x4fw7c785ydk-unit-promnesia-watcher.path/promnesia-watcher.path; enabled; vendor preset: enabled)
+:      Active: active (waiting) since Sun 2021-11-14 13:53:07 PST; 24h ago
 :    Triggers: ● promnesia-restarter.service
 :
-: Sep 12 18:34:41 NixOS systemd[1254]: Started promnesia-watcher.path.
+: Nov 14 13:53:07 NixOS systemd[1965]: Started promnesia-watcher.path.
 
 
 
-#+begin_src sh :async t :exports both :results output
+#+begin_src sh :async :exports both :results output
 systemctl --user start promnesia-restarter.service
 systemctl --user status promnesia-restarter.service
 #+end_src
@@ -66,13 +105,14 @@ systemctl --user status promnesia-restarter.service
 #+RESULTS:
 #+begin_example
 ● promnesia-restarter.service
-     Loaded: loaded (/nix/store/9ndizhwbpcwfa88v0h9ldqkm7rbf8q5v-unit-promnesia-restarter.service/promnesia-restarter.service; static; vendor preset: enabled)
-     Active: inactive (dead) since Sat 2020-09-12 18:36:29 PDT; 6ms ago
+     Loaded: loaded (/nix/store/fnh4cq9cgwzcc1b035bm9xfxg3xkhim2-unit-promnesia-restarter.service/promnesia-restarter.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Mon 2021-11-15 14:08:08 PST; 4ms ago
 TriggeredBy: ● promnesia-watcher.path
-    Process: 31438 ExecStart=/nix/store/rqxj5qsm49cplnrl3vmg0ix1mj0hzb78-unit-script-promnesia-restarter-start/bin/promnesia-restarter-start (code=exited, status=0/SUCCESS)
-   Main PID: 31438 (code=exited, status=0/SUCCESS)
+    Process: 1129460 ExecStart=/nix/store/8cja4s9whwnz0fs4kz64qknmiffzyy2g-unit-script-promnesia-restarter-start/bin/promnesia-restarter-start (code=exited, status=0/SUCCESS)
+   Main PID: 1129460 (code=exited, status=0/SUCCESS)
+        CPU: 4ms
 
-Sep 12 18:36:27 NixOS systemd[1254]: Starting promnesia-restarter.service...
-Sep 12 18:36:29 NixOS systemd[1254]: promnesia-restarter.service: Succeeded.
-Sep 12 18:36:29 NixOS systemd[1254]: Finished promnesia-restarter.service.
+Nov 15 14:08:05 NixOS systemd[1965]: Starting promnesia-restarter.service...
+Nov 15 14:08:08 NixOS systemd[1965]: promnesia-restarter.service: Succeeded.
+Nov 15 14:08:08 NixOS systemd[1965]: Finished promnesia-restarter.service.
 #+end_example

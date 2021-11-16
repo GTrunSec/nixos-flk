@@ -3,11 +3,9 @@
 
   nixConfig.extra-experimental-features = "nix-command flakes";
   nixConfig.extra-substituters = [
-    "https://nrdxp.cachix.org
-    https://nix-community.cachix.org"
+    "https://nix-community.cachix.org"
   ];
   nixConfig.extra-trusted-public-keys = [
-    "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
@@ -17,12 +15,12 @@
       # Default Flakes #
       ##################
       nixos.url = "nixpkgs/release-21.05";
-      latest.url = "nixpkgs/nixos-unstable";
+      latest.url = "nixpkgs";
       nix.url = "github:nixos/nix";
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
-        inputs.nix.follows = "nix";
+        inputs.nixlib.follows = "nixos";
       };
       bud = {
         url = "github:divnix/bud";
@@ -50,13 +48,11 @@
       nixos-hardware.url = "github:nixos/nixos-hardware";
       nur.url = "github:nix-community/NUR";
       sops-nix.url = "github:Mic92/sops-nix";
-      agenix.url = "github:ryantm/agenix";
       nvfetcher = {
         url = "github:berberman/nvfetcher";
         inputs.nixpkgs.follows = "nixos";
       };
-      #beautysh = { url = "github:lovesegfault/beautysh"; inputs.nixpkgs.follows = "nixos"; };
-      beautysh = { url = "github:gtrunsec/beautysh/flattenTree"; inputs.nixpkgs.follows = "nixos"; };
+      beautysh = { url = "github:lovesegfault/beautysh"; inputs.nixpkgs.follows = "nixos"; };
       ######################
       # Python Environment #
       ######################
@@ -118,6 +114,8 @@
         ########################
         outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
       } // {
-      budModules = { devos = import ./pkgs/bud; };
+      budModules = {
+        devos = import ./pkgs/bud;
+      };
     };
 }

@@ -195,6 +195,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
         +dragndrop
         +journal
         +roam2
+        +noter
         )
                ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
@@ -2247,9 +2248,15 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-noter-plus
+  :commands (org-noter-plus--follow-nov-link)
   :config
-  (setq org-noter-plus-image-dir "~/Documents/org-notes/braindump/.attach")
+  (setq org-noter-plus-image-dir "~/Dropbox/org-notes/braindump/.attach")
 )
+(after! nov
+  (org-link-set-parameters "nov"
+                           ;; Replace the default nov link to work better with org-noter
+                           :follow 'org-noter-plus--follow-nov-link)
+  )
 #+end_src
 
 ** Org Ipynb
