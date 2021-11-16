@@ -961,16 +961,16 @@
       "locked": {
         "lastModified": 1637019778,
         "narHash": "sha256-/eJI5eNB4rnuDr8GYhCTkJsTEPfrXAZaZ+dcXxhLeM0=",
-        "ref": "master",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
         "rev": "e31f392946cfce8a6ded8716f438bf670b0ce0da",
-        "revCount": 331607,
-        "type": "git",
-        "url": "file:///nix/nixpkgs"
+        "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
+        "owner": "NixOS",
         "ref": "master",
-        "type": "indirect"
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "latest_3": {

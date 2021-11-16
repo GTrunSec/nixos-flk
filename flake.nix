@@ -15,7 +15,7 @@
       # Default Flakes #
       ##################
       nixos.url = "nixpkgs/release-21.05";
-      latest.url = "nixpkgs/master";
+      latest.url = "github:NixOS/nixpkgs/master";
       nix.url = "github:nixos/nix";
       digga = {
         url = "github:divnix/digga";
