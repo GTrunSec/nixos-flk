@@ -144,7 +144,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
-       ;;terraform         ; infrastructure as code
+       terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
 
@@ -295,7 +295,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   (setq create-lockfiles nil)
   (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
                                         /sshx:gtrun@10.220.170.112:/home/gtrun/.config/nixpkgs
-                                        /sshx:admin@192.168.122.28:~/
+                                        /sshx:root192.168.122.236:~/
                                         /sshx:test@10.220.170.134:/home/test/))
 
 
@@ -2673,6 +2673,18 @@ a separator ' -> '."
   ;;                ))
   ;;   (add-hook hook '(lambda () (nox-ensure))))
   ;; )
+#+end_src
+
+** CUE
+
+- [2021-11-16 Tue 13:41] -> https://github.com/russell/cue-mode
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! cue-mode :recipe (:host github :repo "russell/cue-mode"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! cue-mode)
 #+end_src
 
 ** Zeek Mode

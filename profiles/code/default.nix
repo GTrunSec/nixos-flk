@@ -22,5 +22,6 @@ in
     sbcl
     beautysh
     tree-sitter
+    cue
   ];
 }

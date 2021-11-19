@@ -3,6 +3,7 @@ with inputs;
 [
   (final: prev:
     {
+      __dontExport = true;
       machlib = import mach-nix {
         pkgs = prev;
         pypiData = pypi-deps-db;

@@ -11,13 +11,13 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "b318187d3d6e02c45c476cd7a8e1e2aa6d2d01ad";
+    version = "bd2d8d623618b472dcaf81db9180a25cee1743fb";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "b318187d3d6e02c45c476cd7a8e1e2aa6d2d01ad";
+      rev = "bd2d8d623618b472dcaf81db9180a25cee1743fb";
       fetchSubmodules = false;
-      sha256 = "sha256-N4jaDIvzFjll/oeu8CW6QclRDZVq5tz/yXibARmqP10=";
+      sha256 = "sha256-bJqOwdL0ZU5tsajSbBeHU04016aLeSnHvjcGeh6eKCs=";
     });
   };
   adguardhome = {
@@ -38,18 +38,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.4.5";
+    version = "0.4.9";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.4.5/logseq-linux-x64-0.4.5.AppImage";
-      sha256 = "sha256-HyOLZ/6yHdnnQZ2bQwOry8JLZaKdz7WpennwNguQIXM=";
+      url = "https://github.com/logseq/logseq/releases/download/0.4.9/logseq-linux-x64-0.4.9.AppImage";
+      sha256 = "sha256-fd0jPzaH9But+gdH8oVbW+7SGeBMo1aY4on5xDqf5TQ=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.4.5";
+    version = "0.4.9";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.4.5/logseq-darwin-x64-0.4.5.dmg";
-      sha256 = "sha256-T2wrD6L7E1O8wffbXH50LEHl/K43XXKpfJDxM5GreXE=";
+      url = "https://github.com/logseq/logseq/releases/download/0.4.9/logseq-darwin-x64-0.4.9.dmg";
+      sha256 = "sha256-GP/KD8i746kgMSkzLDfYXWckVx3FHAMTMXjpvenvngk=";
     };
   };
   magnetw = {
@@ -105,13 +105,13 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "4d61e0206b587fa6f58dfc2c61a16d4644ca00eb";
+    version = "5b8fb0121e1499782a95f5de775bc61c0f95342f";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "4d61e0206b587fa6f58dfc2c61a16d4644ca00eb";
+      rev = "5b8fb0121e1499782a95f5de775bc61c0f95342f";
       fetchSubmodules = false;
-      sha256 = "sha256-6a6REoJa88MbSg4lgWGi/l6ckh2FLoicVf8vEkO6Ibo=";
+      sha256 = "sha256-AVx7zaLDBIy/3ivilZqkOjxW1OaEniL9kSEFGyfcaAM=";
     });
   };
 }
