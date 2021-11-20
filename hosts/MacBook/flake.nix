@@ -76,7 +76,9 @@
       channels.nixpkgs.overlaysBuilder = channels: [
         (final: prev: {
           # Overwrites specified packages to be used from unstable channel.
-          inherit (channels.latest) alacritty;
+          inherit (channels.latest)
+            alacritty
+            nix-direnv;
         })
       ];
 
