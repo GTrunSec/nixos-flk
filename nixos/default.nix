@@ -10,8 +10,6 @@ with inputs.nixos;
     ];
     modules = [
       { _module.args.ourLib = self.lib; }
-      digga.nixosModules.nixConfig
-      ci-agent.nixosModules.agent-profile
       home.nixosModules.home-manager
       bud.nixosModules.bud
       sops-nix.nixosModules.sops

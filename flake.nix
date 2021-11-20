@@ -1,7 +1,6 @@
 {
   description = "A highly structured configuration database => User:Guangtao";
 
-  nixConfig.extra-experimental-features = "nix-command flakes";
   nixConfig.extra-substituters = [
     "https://nix-community.cachix.org"
   ];
@@ -17,10 +16,13 @@
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "github:NixOS/nixpkgs/master";
       nix.url = "github:nixos/nix";
+      flake-utils-plus = { url = "github:GTrunSec/flake-utils-plus/ca-references"; };
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
         inputs.nixlib.follows = "nixos";
+        inputs.nix.follows = "nix";
+        inputs.flake-utils-plus.follows = "flake-utils-plus";
       };
       bud = {
         url = "github:divnix/bud";
@@ -43,7 +45,7 @@
       };
       home = {
         url = "github:nix-community/home-manager";
-        inputs.nixpkgs.follows = "nixos";
+        inputs.nixpkgs.follows = "latest";
       };
       nixos-hardware.url = "github:nixos/nixos-hardware";
       nur.url = "github:nix-community/NUR";

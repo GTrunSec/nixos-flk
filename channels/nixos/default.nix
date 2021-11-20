@@ -9,7 +9,6 @@ with inputs.nixos;
       emacsNg = emacs-ng.defaultPackage.x86_64-linux;
       beautysh = beautysh.packages.x86_64-linux."beautysh-python3.8";
       nvfetcher-bin = nvfetcher.defaultPackage.x86_64-linux;
-      nix = prev.nixUnstable;
     })
     nur.overlay
     tenvideo.overlay

@@ -12,6 +12,8 @@ with inputs;
         our = self.lib;
         installApp = import ../../lib/installApp.nix prev;
       });
+      nixUnstable = inputs.nix.defaultPackage."${prev.system}";
+      nix = prev.nixUnstable;
     })
   gomod2nix.overlay
 ]

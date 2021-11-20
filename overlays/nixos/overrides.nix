@@ -22,7 +22,12 @@ channels: final: prev: {
     i3-gaps
     onlyoffice-bin
     texmacs
+    nix-direnv
     starship;
+
+  nixos-rebuild = prev.nixos-rebuild.override {
+    nix = channels.latest.nixUnstable;
+  };
 
   haskellPackages = prev.haskellPackages.override
     (old: {
