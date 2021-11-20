@@ -45,7 +45,7 @@ in
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = (pkgs.emacsNg.override ({ })).overrideAttrs (old: rec {
+  programs.emacs.package = (pkgs.emacsNG.override ({ })).overrideAttrs (old: rec {
     configureFlags = (old.configureFlags or [ ]) ++ [ ];
   });
 

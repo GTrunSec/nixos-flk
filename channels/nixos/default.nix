@@ -6,7 +6,7 @@ with inputs.nixos;
   overlays = [
     ../../pkgs/default.nix
     (final: prev: {
-      emacsNg = emacs-ng.defaultPackage.x86_64-linux;
+      emacsNG = emacs-ng.defaultPackage.x86_64-linux;
       beautysh = beautysh.packages.x86_64-linux."beautysh-python3.8";
       nvfetcher-bin = nvfetcher.defaultPackage.x86_64-linux;
     })
