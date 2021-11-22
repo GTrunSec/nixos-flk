@@ -294,7 +294,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   (setq make-backup-files nil)
   (setq create-lockfiles nil)
   (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
-                                        /sshx:gtrun@10.220.170.112:/home/gtrun/.config/nixpkgs
+                                        /sshx:gtrun@10.220.170.112:/home/gtrun/.config/guangtao
                                         /sshx:root192.168.122.236:~/
                                         /sshx:test@10.220.170.134:/home/test/))
 
@@ -1483,7 +1483,7 @@ FACE defaults to inheriting from default and highlight."
     ("braindump/nix/" :agenda t)
     ("braindump/security/" :agenda t)
     )
-  (org-starter-def "~/.config/nixpkgs/nixos-flk/users/dotfiles/doom-emacs/"
+  (org-starter-def "~/.config/guangtao/nixos-flk/users/dotfiles/doom-emacs/"
     :files
     ("config.org" :key "c" :refile (:maxlevel . 5))
     ("meow.org" :key "w" :refile (:maxlevel . 5))
@@ -1818,7 +1818,7 @@ FACE defaults to inheriting from default and highlight."
 (setq org-publish-project-alist
       '(
         ("init"
-         :base-directory "~/.config/nixpkgs/dotfiles/doom-emacs"
+         :base-directory "~/.config/guangtao/dotfiles/doom-emacs"
          :publishing-function org-html-publish-to-html
          :publishing-directory "~/Documents/my-blog/public/custom"
          )

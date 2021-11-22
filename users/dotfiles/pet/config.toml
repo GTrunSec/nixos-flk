@@ -1,5 +1,5 @@
 [General]
-  snippetfile = "/home/gtrun/.config/nixpkgs/nixos-flk/users/dotfiles/pet/snippet.toml"
+  snippetfile = "/home/gtrun/.config/guangtao/nixos-flk/users/dotfiles/pet/snippet.toml"
   editor = "emacsclient -nw"
   column = 40
   selectcmd = "fzf --ansi"

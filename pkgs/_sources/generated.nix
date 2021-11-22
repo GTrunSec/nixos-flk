@@ -114,15 +114,4 @@
       sha256 = "sha256-AVx7zaLDBIy/3ivilZqkOjxW1OaEniL9kSEFGyfcaAM=";
     });
   };
-  vscode-extensions-nickel-syntax = {
-    pname = "vscode-extensions-nickel-syntax";
-    version = "0.0.1";
-    src = fetchurl {
-      url = "https://kubukoz.gallery.vsassets.io/_apis/public/gallery/publisher/kubukoz/extension/nickel-syntax/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      sha256 = "sha256-eti0BGhehQJIdKwwsY/lNxQdlffe0dqvFKvNJFGxHwQ=";
-    };
-    license = "mit";
-    description = "none";
-    homepage = "none";
-  };
 }

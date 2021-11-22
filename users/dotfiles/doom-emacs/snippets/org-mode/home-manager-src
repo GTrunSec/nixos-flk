@@ -3,6 +3,6 @@
 # key: hm
 # condition: t
 # --
-#+begin_src nix :exports both :tangle "~/.config/nixpkgs/home-manager/"
+#+begin_src nix :exports both :tangle "~/.config/guangtao/home-manager/"
 $1
 #+end_src

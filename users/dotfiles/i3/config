@@ -167,9 +167,9 @@ exec_always --no-startup-id lsyncd-rsync
 
 exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
 # Compton
-exec_always --no-startup-id bash $HOME/.config/nixpkgs/nixos-flk/users/dotfiles/polybar/compton.sh
+exec_always --no-startup-id bash $HOME/.config/guangtao/nixos-flk/users/dotfiles/polybar/compton.sh
 # adguard-home
-#exec --no-startup-id bash $HOME/.config/nixpkgs/sh/adguard-home.sh
+#exec --no-startup-id bash $HOME/.config/guangtao/sh/adguard-home.sh
 
 # dropbox client
 exec --no-startup-id dropbox start

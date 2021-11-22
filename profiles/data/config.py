@@ -20,7 +20,7 @@ SOURCES = [
     Source(
         auto.index,
         # just some arbitrary directory with html files
-        "~/.config/nixpkgs/dotfiles/doom-emacs",
+        "~/.config/guangtao/dotfiles/doom-emacs",
         name="doom-emacs",
         ignored=["*.html", "*.glass", "*.jpeg", "*.png", "*.jpg", "*.el", "*.elc"],
     ),
