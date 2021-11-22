@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ];
+
   environment.systemPackages = with pkgs; [
     rnix-lsp
     (pkgs.writeShellScriptBin "repl" ''

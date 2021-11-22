@@ -1,10 +1,5 @@
 { lib, pkgs, ... }:
-let
-  inherit (builtins) readFile;
-in
 {
-  imports = [ ./i3.nix ./xdg.nix ./nvidia.nix ];
-
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
 

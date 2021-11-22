@@ -1,12 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    ./hound.nix
-  ];
+  networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #mail client
-    #thunderbird
+    bc
+    dnsutils
   ];
 }

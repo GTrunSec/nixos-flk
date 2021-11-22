@@ -1,7 +1,7 @@
 { suites, pkgs, ... }:
 {
   ### root password is empty by default ###
-  imports = suites.graphics ++ [
+  imports = suites.nixos ++ [
     ./NixOS-hardware-configuration.nix
   ];
 

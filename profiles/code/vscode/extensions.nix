@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
-
+{ pkgs }:
 pkgs.vscode-with-extensions.override {
   # When the extension is already available in the default extensions set.
   vscodeExtensions = with pkgs.vscode-extensions; [
