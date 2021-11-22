@@ -1,0 +1,7 @@
+[common]
+user = "gtrun"
+ip = "10.220.170.112"
+
+
+[services.syncthing]
+port = "8384"

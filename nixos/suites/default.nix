@@ -30,6 +30,7 @@ rec {
       data.promnesia
       data.nextcloud
       data.miniflux
+      data.syncthing
 
       code.nix
       code.go
