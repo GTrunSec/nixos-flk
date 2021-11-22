@@ -2352,19 +2352,16 @@
     },
     "vs-ext": {
       "inputs": {
-        "devshell": [
-          "devshell"
-        ],
         "nixpkgs": [
           "latest"
         ]
       },
       "locked": {
-        "lastModified": 1637550444,
-        "narHash": "sha256-mgyhHqh0rN9TdpTGhDG1NxDJn0SaEe8/o15fBJEjvVE=",
+        "lastModified": 1637552408,
+        "narHash": "sha256-I4nOt5Pjx+qqz18reKPgsnQXIA4pwKQ4oSI7SjsJXHM=",
         "owner": "gtrunsec",
         "repo": "vs-ext",
-        "rev": "7ef47eaa29aef001fd9e08fbb6113cf2a4e1eb69",
+        "rev": "f071da7cde21190355bfe40627d7a7fe08f4c929",
         "type": "github"
       },
       "original": {

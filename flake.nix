@@ -28,14 +28,14 @@
       };
       bud = {
         url = "github:divnix/bud";
+        #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
         inputs.nixpkgs.follows = "nixos";
         inputs.devshell.follows = "devshell";
       };
-      #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
       vs-ext = {
         url = "github:gtrunsec/vs-ext/lib";
+        #url = "/home/gtrun/ghq/github.com/divnix/vs-ext";
         inputs.nixpkgs.follows = "latest";
-        inputs.devshell.follows = "devshell";
       };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       qnr.url = "github:divnix/quick-nix-registry";
