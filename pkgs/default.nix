@@ -1,7 +1,8 @@
 final: prev:
 with prev;
 let
-  sources = callPackage ./_sources/generated.nix { };
+  sources = callPackage ./_sources/generated.nix { } // (callPackage ./_sources_vscode/generated.nix { });
+
   mkVscodeExtension = extension:
     final.vscode-utils.mkVscodeExtension extension { };
 
