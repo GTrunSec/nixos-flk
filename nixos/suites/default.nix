@@ -9,9 +9,9 @@ rec {
     registry = digga.lib.rakeLeaves ../../profiles/registry;
     application = digga.lib.rakeLeaves ../../profiles/application;
     data = digga.lib.rakeLeaves ../../profiles/data;
-    code = digga.lib.rakeLeaves ../../profiles/code;
-    network = digga.lib.rakeLeaves ../../profiles/network;
-    search = digga.lib.rakeLeaves ../../profiles/search;
+    coding = digga.lib.rakeLeaves ../../profiles/coding;
+    networking = digga.lib.rakeLeaves ../../profiles/networking;
+    searching = digga.lib.rakeLeaves ../../profiles/searching;
     graphical = digga.lib.rakeLeaves ../../profiles/graphical;
   };
   suites = with profiles; rec {
@@ -32,25 +32,24 @@ rec {
       data.miniflux
       data.syncthing
 
-      code.nix
-      code.go
-      code.common
-      code.library
-      code.haskell
-      code.python
-      code.rust
-      code.tex
-      code.vscode
-      code.node
+      coding.nix
+      coding.go
+      coding.common
+      coding.library
+      coding.haskell
+      coding.python
+      coding.rust
+      coding.tex
+      coding.vscoding
+      coding.node
 
 
-      network.common
-      network.adguardhome
-      network.adblocking
+      networking.common
+      networking.adguardhome
+      networking.adblocking
 
 
-      search.hound
-
+      searching.hound
 
       fonts
       devices
