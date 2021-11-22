@@ -1488,7 +1488,7 @@ FACE defaults to inheriting from default and highlight."
     ("config.org" :key "c" :refile (:maxlevel . 5))
     ("meow.org" :key "w" :refile (:maxlevel . 5))
     )
-  (org-starter-def "~/.config/nixpkgs"
+  (org-starter-def "~/.config/guangtao"
     :files
     ("README.org")
     ("global-readme.org")
@@ -3209,16 +3209,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (setq org-crypt-key "24945FE0DBD04F4C045025F96F92B3E8F942D425")
 #+end_src
 
-
-
-#+begin_src emacs-lisp :tangle "linux.el"
-;; (add-hook! 'emacs-startup-hook 'doom-modeline-mode)
-;;fix post hook only linux
-;; (require 'savehist)
-;; (setq jupyter-runtime-directory "~/.local/share/jupyter/runtime")
-#+end_src
-
-
 *** eaf
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -3347,12 +3337,14 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-MAC
   (package! exec-path-from-shell)
+  (package! org-mac-link :recipe (:host gitlab :repo "aimebertrand/org-mac-link"))
 )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;;; my-macos.el -*- lexical-binding: t; -*-
 (when IS-MAC
+  (use-package! org-mac-link)
   (use-package! exec-path-from-shell
     :config
     (when (memq window-system '(mac ns x))
