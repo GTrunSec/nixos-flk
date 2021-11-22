@@ -30,6 +30,12 @@
         inputs.devshell.follows = "digga/devshell";
       };
       #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
+      #
+      vs-ext = {
+        url = "github:divnix/vs-ext";
+        inputs.digga.follows = "digga";
+        inputs.bud.follows = "bud";
+      };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       qnr.url = "github:divnix/quick-nix-registry";
       ####################
@@ -52,7 +58,7 @@
       sops-nix.url = "github:Mic92/sops-nix";
       nvfetcher = {
         url = "github:berberman/nvfetcher";
-        inputs.nixpkgs.follows = "nixos";
+        inputs.nixpkgs.follows = "latest";
       };
       beautysh = { url = "github:lovesegfault/beautysh"; inputs.nixpkgs.follows = "nixos"; };
       ######################
@@ -117,7 +123,7 @@
         outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
       } // {
       budModules = {
-        devos = import ./pkgs/bud;
+        bud = import ./shell/bud;
       };
     };
 }

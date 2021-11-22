@@ -56,3 +56,11 @@ fetch.pypi = "HPI"
 [orgparse]
 src.pypi = "orgparse"
 fetch.pypi = "orgparse"
+
+
+# VSCODE
+
+[vscode-extensions-nickel-syntax]
+src.vsmarketplace = "kubukoz.nickel-syntax"
+fetch.vsmarketplace = "kubukoz.nickel-syntax"
+passthru = { license = "mit", homepage = "none", description = "none"}

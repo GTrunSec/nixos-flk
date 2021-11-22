@@ -11,13 +11,13 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "bd2d8d623618b472dcaf81db9180a25cee1743fb";
+    version = "56312e0607d9057689c93825c4a2f82d657eaabf";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "bd2d8d623618b472dcaf81db9180a25cee1743fb";
+      rev = "56312e0607d9057689c93825c4a2f82d657eaabf";
       fetchSubmodules = false;
-      sha256 = "sha256-bJqOwdL0ZU5tsajSbBeHU04016aLeSnHvjcGeh6eKCs=";
+      sha256 = "sha256-XrLwEdVlFg+7g9+JnMoezHimYSKUJsFFxtkcIZj8NAY=";
     });
   };
   adguardhome = {
@@ -113,5 +113,16 @@
       fetchSubmodules = false;
       sha256 = "sha256-AVx7zaLDBIy/3ivilZqkOjxW1OaEniL9kSEFGyfcaAM=";
     });
+  };
+  vscode-extensions-nickel-syntax = {
+    pname = "vscode-extensions-nickel-syntax";
+    version = "0.0.1";
+    src = fetchurl {
+      url = "https://kubukoz.gallery.vsassets.io/_apis/public/gallery/publisher/kubukoz/extension/nickel-syntax/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      sha256 = "sha256-eti0BGhehQJIdKwwsY/lNxQdlffe0dqvFKvNJFGxHwQ=";
+    };
+    license = "mit";
+    description = "none";
+    homepage = "none";
   };
 }
