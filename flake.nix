@@ -16,25 +16,26 @@
       nixos.url = "nixpkgs/release-21.05";
       latest.url = "github:NixOS/nixpkgs/master";
       nix.url = "github:nixos/nix";
+      devshell = { url = "github:numtide/devshell"; inputs.nixpkgs.follows = "nixos"; };
       flake-utils-plus = { url = "github:GTrunSec/flake-utils-plus/ca-references"; };
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
         inputs.nixlib.follows = "nixos";
         inputs.nix.follows = "nix";
+        inputs.devshell.follows = "devshell";
         inputs.flake-utils-plus.follows = "flake-utils-plus";
       };
       bud = {
         url = "github:divnix/bud";
         inputs.nixpkgs.follows = "nixos";
-        inputs.devshell.follows = "digga/devshell";
+        inputs.devshell.follows = "devshell";
       };
       #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
-      #
       vs-ext = {
-        url = "github:divnix/vs-ext";
-        inputs.digga.follows = "digga";
-        inputs.bud.follows = "bud";
+        url = "github:gtrunsec/vs-ext/lib";
+        inputs.nixpkgs.follows = "latest";
+        inputs.devshell.follows = "devshell";
       };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
       qnr.url = "github:divnix/quick-nix-registry";

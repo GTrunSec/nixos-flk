@@ -2,26 +2,11 @@ final: prev:
 with prev;
 let
   sources = callPackage ./_sources/generated.nix { } // (callPackage ./_sources_vscode/generated.nix { });
-
-  mkVscodeExtension = extension:
-    final.vscode-utils.mkVscodeExtension extension { };
-
-  newPkgsSet = pkgSet:
-    let
-      prefix = "${pkgSet}-";
-
-      pkgSetBuilder = {
-        "vscode-extensions" = mkVscodeExtension;
-      }.${pkgSet};
-      pkgsInSources = final.lib.mapAttrs' (name: value: final.lib.nameValuePair (final.lib.removePrefix prefix name) (value)) (final.lib.filterAttrs (n: v: final.lib.hasPrefix prefix n) sources);
-    in
-    final.lib.mapAttrs (n: v: pkgSetBuilder v) pkgsInSources;
-
 in
 {
   inherit sources;
 
-  vscode-extensions = prev.vscode-extensions // (newPkgsSet "vscode-extensions");
+  vscode-extensions = prev.vscode-extensions // (final.lib.vscodePkgsSet "vscode-extensions" sources);
   # AppImages
 
   magnetw = callPackage ./appimage/magnetw.nix { };

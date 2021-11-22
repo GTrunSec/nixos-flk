@@ -38,7 +38,7 @@ in
     {
       category = "devos";
       name = pkgs.nvfetcher-bin.pname + "-vscode";
-      help = pkgs.nvfetcher-bin.meta.description + "-vscode";
+      help = pkgs.nvfetcher-bin.meta.description + " to vscode";
       command = "cd $PRJ_ROOT/pkgs; ${pkgs.nvfetcher-bin}/bin/nvfetcher -c ./sources-vscode.toml -o ./_sources_vscode $@";
     }
     {
