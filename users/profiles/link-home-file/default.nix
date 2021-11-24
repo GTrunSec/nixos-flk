@@ -13,10 +13,7 @@
       # compton
       home.file.".compton.conf".source = ../../dotfiles/.compton.conf;
       # rofi
-      home.file.".config/rofi/config".source = ../../dotfiles/rofi/config;
-      home.file.".config/rofi/powermenu.sh".source = ../../dotfiles/rofi/powermenu.sh;
-      # theme
-      home.file.".config/rofi/rofi-themes/themes/arthur.rasi".source = ../../dotfiles/rofi/rofi-themes/themes/arthur.rasi;
+      home.file.".config/rofi".source = ../../dotfiles/rofi;
       # termite
       home.file.".config/termite/config".source = ../../dotfiles/termite/config;
       # kitty

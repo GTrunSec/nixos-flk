@@ -2,7 +2,7 @@
 let inherit (lib) fileContents;
 in
 {
-  imports = [ ../cachix ./base.nix ./nix.nix ];
+  imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ];
 
   boot.kernelPackages = pkgs.linuxPackages_5_14;
 

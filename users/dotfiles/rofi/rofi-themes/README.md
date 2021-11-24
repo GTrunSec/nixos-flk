@@ -1,1 +1,0 @@
-## Official rofi-themes repository
