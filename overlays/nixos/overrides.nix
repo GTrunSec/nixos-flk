@@ -13,7 +13,6 @@ channels: final: prev: {
     manix
     zsh
     nixpkgs-fmt
-    nextcloud22
     brave
     signal-desktop
     tmux

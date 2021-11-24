@@ -15,6 +15,6 @@ with inputs.nixos;
     rust-overlay.overlay
     sops-nix.overlay
     nixpkgs-hardenedlinux.overlay
-    vs-ext.overlay
+    vs-ext.overlay.vscode
   ];
 }

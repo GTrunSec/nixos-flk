@@ -1490,8 +1490,7 @@ FACE defaults to inheriting from default and highlight."
     )
   (org-starter-def "~/.config/guangtao"
     :files
-    ("README.org")
-    ("global-readme.org")
+    ("profiles.org")
     ("dotfiles/wallpaper/wallpaper.org" :agenda nil)
     )
   :commands org-starter-load-all-files-in-path
@@ -2540,11 +2539,16 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! lsp-mode
   :config
-  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
+)
+  ;; (lsp-register-client
+  ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+  ;;                   :major-modes '(nix-mode)
+  ;;                   :server-id 'nix))
   (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-                    :major-modes '(nix-mode)
-                    :server-id 'nix))
+   (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
+                    :activation-fn (lsp-activate-on "nickel")
+                    :server-id 'nls))
   )
 #+end_src
 
@@ -2580,6 +2584,43 @@ a separator ' -> '."
   :config
   (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown-mode))
 )
+#+end_src
+
+** Nickel
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! nickel-mode
+  :load-path "~/.doom.d"
+  )
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "nickel-mode.el"
+;;; nickel-mode.el -*- lexical-binding: t; -*-
+(defvar nickel-mode-font-lock-keywords)
+(setq nickel-mode-font-lock-keywords
+      `(
+        ("\\(//\\)\\(.*\\)$"
+         (1 font-lock-comment-delimiter-face t)
+         (2 font-lock-comment-face t))
+        ("\\([\\{\\}\(\)]\\)"  (1 font-lock-keyword-face))
+        ("\\(let\\|if\\|then\\|else\\|fun\\)"  (1 font-lock-keyword-face))
+        ("\\([A-Za-z0-1\\ ]+= \\)"   (1 font-lock-variable-name-face))
+        ("\\([A-Za-z0-1\\ ]+| \\)"   (1 font-lock-variable-name-face))
+        ("\\([A-Za-z0-1\\ ]+=> \\)"  (1 font-lock-constant-face))))
+
+;;;###autoload
+(define-derived-mode nickel-mode prog-mode "Nickel Lang"
+  "Major mode for nickel."
+  (set (make-local-variable 'font-lock-defaults) '(nickel-mode-font-lock-keywords))
+  (setq mode-name "nickel"
+        indent-line-function 'rustic-indent-line))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.ncl\\'" . nickel-mode))
+
+(provide 'nickel-mode)
 #+end_src
 
 ** Elisp
@@ -3207,6 +3248,13 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 (setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam.db")
 (setq org-crypt-key "24945FE0DBD04F4C045025F96F92B3E8F942D425")
+#+end_src
+
+
+- emacs-ng
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(setq ng-straight-bootstrap-at-startup t)
 #+end_src
 
 *** eaf

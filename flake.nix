@@ -13,11 +13,11 @@
       ##################
       # Default Flakes #
       ##################
-      nixos.url = "nixpkgs/release-21.05";
+      nixos.url = "nixpkgs/release-21.11";
       latest.url = "github:NixOS/nixpkgs/master";
       nix.url = "github:nixos/nix";
       devshell = { url = "github:numtide/devshell"; inputs.nixpkgs.follows = "nixos"; };
-      flake-utils-plus = { url = "github:GTrunSec/flake-utils-plus/ca-references"; };
+      flake-utils-plus = { url = "github:gytis-ivaskevicius/flake-utils-plus"; };
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
@@ -61,7 +61,7 @@
         url = "github:berberman/nvfetcher";
         inputs.nixpkgs.follows = "latest";
       };
-      beautysh = { url = "github:lovesegfault/beautysh"; inputs.nixpkgs.follows = "nixos"; };
+      beautysh = { url = "github:lovesegfault/beautysh"; };
       ######################
       # Python Environment #
       ######################
@@ -70,7 +70,6 @@
         url = "github:DavHau/pypi-deps-db";
         flake = false;
       };
-
       #################
       # Custom Flakes #
       #################

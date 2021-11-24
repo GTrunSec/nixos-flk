@@ -21,15 +21,14 @@ let
   };
 
   hug = python3Packages.buildPythonPackage rec {
-    pname = "hug";
-    version = "2.6.1";
-    src = python3Packages.fetchPypi {
-      inherit pname version;
-      sha256 = "1jdfxfgxvz00awpjc8jwz7z59nv5j77nxkn9g4vqf65nmkiarvdh";
-    };
+    inherit (sources.hug) pname version src;
     doCheck = false;
     nativeBuildInputs = with python3Packages; [ pytestrunner ];
     propagatedBuildInputs = with python3Packages; [ falcon requests ];
+    postPatch = ''
+      substituteInPlace setup.py \
+          --replace "falcon==2.0.0" "falcon"
+    '';
   };
 
 
@@ -40,7 +39,6 @@ let
       inherit pname version;
       sha256 = "sha256-0GkXoCPOnt43Ef+rCe0aPsRHVRaq3oSjHdwXw50rLuU=";
     };
-
     doCheck = false;
     propagatedBuildInputs = with python3Packages; [
       sqlalchemy

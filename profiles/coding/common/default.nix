@@ -7,5 +7,7 @@
     beautysh
     tree-sitter
     cue
+    gcc
+    clang
   ];
 }

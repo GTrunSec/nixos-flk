@@ -36,20 +36,28 @@
       sha256 = "sha256-14rkxceyS0OwnOK14rICWnzLLkRB8dmqRkPq829znws=";
     };
   };
+  hug = {
+    pname = "hug";
+    version = "2.6.1";
+    src = fetchurl {
+      url = "https://pypi.io/packages/source/h/hug/hug-2.6.1.tar.gz";
+      sha256 = "sha256-sO2s4qy2GIc3ecnObs+RZdtU/vlcIiYvVwD83Z/rrsk=";
+    };
+  };
   logseq = {
     pname = "logseq";
-    version = "0.4.9";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.4.9/logseq-linux-x64-0.4.9.AppImage";
-      sha256 = "sha256-fd0jPzaH9But+gdH8oVbW+7SGeBMo1aY4on5xDqf5TQ=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.0/logseq-linux-x64-0.5.0.AppImage";
+      sha256 = "sha256-+siGErpAL0vPVxXLwboNg/Z+ToW08eSLGrZr9EOPQ4o=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.4.9";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.4.9/logseq-darwin-x64-0.4.9.dmg";
-      sha256 = "sha256-GP/KD8i746kgMSkzLDfYXWckVx3FHAMTMXjpvenvngk=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.0/logseq-darwin-x64-0.5.0.dmg";
+      sha256 = "sha256-GTaIeC0QtzOW7n9dqp85413iYGdkRWJvKFZiZeKbMlI=";
     };
   };
   magnetw = {

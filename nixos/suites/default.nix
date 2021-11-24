@@ -40,7 +40,7 @@ rec {
       coding.python
       coding.rust
       coding.tex
-      coding.vscoding
+      coding.vscode
       coding.node
 
 

@@ -15,10 +15,10 @@ fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darw
 [logseq]
 src.github = "logseq/logseq"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
+
 # [logseq]
 # src.manual = "0.4.6"
 # fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
-
 [chord]
 src.manual = "0.2.38"
 fetch.url = "https://github.com/PeterDing/chord/releases/download/v$ver/chord-$ver-linux-x86_64.AppImage"
@@ -52,6 +52,10 @@ fetch.github = "karlicoss/promnesia"
 [HPI]
 src.pypi = "HPI"
 fetch.pypi = "HPI"
+
+[hug]
+src.pypi = "hug"
+fetch.pypi = "hug"
 
 [orgparse]
 src.pypi = "orgparse"

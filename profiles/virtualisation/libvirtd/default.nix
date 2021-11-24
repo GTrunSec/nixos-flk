@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   virtualisation.libvirtd = {
     enable = true;
-    qemuRunAsRoot = false;
+    qemu = {
+      runAsRoot = false;
+    };
   };
   # virtualisation = {
   #   virtualbox = {

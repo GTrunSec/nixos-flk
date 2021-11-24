@@ -35,7 +35,7 @@
       dbname = "nextcloud";
 
       adminpassFile = "${config.sops.secrets."services/nextcloud/admin".path}";
-      adminuser = "admin";
+      adminuser = "guangtao";
     };
   };
 }
