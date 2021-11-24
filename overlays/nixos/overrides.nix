@@ -12,6 +12,7 @@ channels: final: prev: {
     tdesktop
     manix
     zsh
+    nixUnstable
     nixpkgs-fmt
     brave
     signal-desktop
