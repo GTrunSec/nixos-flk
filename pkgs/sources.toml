@@ -16,6 +16,12 @@ fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darw
 src.github = "logseq/logseq"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
 
+
+[drawio]
+src.github = "jgraph/drawio-desktop"
+fetch.url = "https://github.com/jgraph/drawio-desktop/releases/download/v$ver/drawio-x86_64-$ver.rpm"
+src.prefix = "v"
+
 # [logseq]
 # src.manual = "0.4.6"
 # fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"

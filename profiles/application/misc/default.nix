@@ -6,6 +6,8 @@
     goldendict
     flameshot
     du-dust
+    # graph
+    drawio
     #downloader
     magnetw
     got

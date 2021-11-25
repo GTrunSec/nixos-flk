@@ -36,6 +36,14 @@
       sha256 = "sha256-14rkxceyS0OwnOK14rICWnzLLkRB8dmqRkPq829znws=";
     };
   };
+  drawio = {
+    pname = "drawio";
+    version = "15.8.4";
+    src = fetchurl {
+      url = "https://github.com/jgraph/drawio-desktop/releases/download/v15.8.4/drawio-x86_64-15.8.4.rpm";
+      sha256 = "sha256-RwjHJ7Uchaa3ehtypAdaGyRiiq5CMCID5m9wQgNpJhY=";
+    };
+  };
   hug = {
     pname = "hug";
     version = "2.6.1";
@@ -46,18 +54,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.5.0";
+    version = "0.5.1";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.0/logseq-linux-x64-0.5.0.AppImage";
-      sha256 = "sha256-+siGErpAL0vPVxXLwboNg/Z+ToW08eSLGrZr9EOPQ4o=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.1/logseq-linux-x64-0.5.1.AppImage";
+      sha256 = "sha256-/ZI9kK/9bYRJL8jOyRKpdMcy4Cbau+a28AO+kTUl+SE=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.5.0";
+    version = "0.5.1";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.0/logseq-darwin-x64-0.5.0.dmg";
-      sha256 = "sha256-GTaIeC0QtzOW7n9dqp85413iYGdkRWJvKFZiZeKbMlI=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.1/logseq-darwin-x64-0.5.1.dmg";
+      sha256 = "sha256-V05vQ1PjOyKuh8bNogCEmQmZLsHD5Q6p+gxrCuQFWvY=";
     };
   };
   magnetw = {
