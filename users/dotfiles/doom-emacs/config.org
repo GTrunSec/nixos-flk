@@ -1281,10 +1281,20 @@ FACE defaults to inheriting from default and highlight."
                     :height 140
                     :italic t)))
   :config
-  (global-blamer-mode 1))
+  ;;(global-blamer-mode 1)
+)
+#+end_src
+
+*** aggressive-ident
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! aggressive-indent)
 #+end_src
 
 
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! aggressive-indent)
+#+end_src
 ** Bookmarks/bm
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -2669,10 +2679,13 @@ a separator ' -> '."
 (use-package! lsp-julia
   :config
   ;;(add-hook 'julia-mode-hook #'lsp)
-  ;;(setq lsp-julia-default-environment "~/.julia/environments/v1.5")
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.6")
   (setq lsp-folding-range-limit 100)
 )
 #+end_src
+
+#+RESULTS:
+: t
 
 *** [[https://github.com/gcv/julia-snail][gcv/julia-snail: An Emacs development environment for Julia]]
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
@@ -2690,13 +2703,37 @@ a separator ' -> '."
   )
 #+end_src
 
-*** Julia conf
+*** Julia config
 
 #+begin_src emacs-lisp :tangle "config.el"
 (add-hook 'ob-async-pre-execute-src-block-hook
           '(lambda ()
              (setq inferior-julia-program-name "julia")))
 #+end_src
+
+*** julia formatter
+
+  #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! julia-formatter :recipe (:host nil
+                                   :repo "https://codeberg.org/FelipeLema/julia-formatter.el.git"
+                                   :files ("*")
+                                   )
+  )
+  #+end_src
+
+- - Pkg.add("JuliaFormatter")
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! julia-formatter
+  :init
+  (julia-formatter-setup-aggressive-hooks)
+)
+#+end_src
+
+#+RESULTS:
+: julia-formatter
+
+
 
 ** Python
 
@@ -2811,7 +2848,7 @@ a separator ' -> '."
 (when IS-LINUX
   (use-package! emacs-tree-sitter
     :load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
-    :hook (rustic-mode . tree-sitter-mode)
+    :hook ((rustic-mode haskell-mode julia-mode)  . tree-sitter-mode)
     :init
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
@@ -3186,8 +3223,8 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 (set-popup-rule! "^\\*org-graph-view" :side 'right :size 70 :quit nil :select t :ttl 0)
 
-(set-popup-rule! "^\\*julia:main"
-  :side 'right :size 0.3 :quit nil :select nil :ttl 0)
+(set-popup-rule! "^\\*julia"
+  :side 'bottom :size 0.3 :quit nil :select nil :ttl 0)
 
 (set-popup-rule! "^\\*Org Src"
   :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)
