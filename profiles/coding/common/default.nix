@@ -7,7 +7,8 @@
     beautysh
     tree-sitter
     cue
-    gcc
     clang
+    gcc
+    julia_16-bin
   ];
 }

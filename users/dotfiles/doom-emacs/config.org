@@ -1197,15 +1197,23 @@ FACE defaults to inheriting from default and highlight."
 (show-paren-mode 1)
 #+end_src
 
-*** awesome-pair
-
+*** grammatical-edit
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! awesome-pair :recipe (:host github :repo "manateelazycat/awesome-pair"))
+(package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! awesome-pair)
+(use-package! grammatical-edit
+  :config
+  :bind (:map grammatical-edit-mode-map
+         ("(" . grammatical-edit-open-round)
+         ("[" . grammatical-edit-open-bracket)
+         ("M-l" . grammatical-edit-jump-right)
+         ("M-j" . grammatical-edit-jump-left)
+         ("M-'" . grammatical-edit-jump-out-pair-and-newline)
+         )
+  )
 #+end_src
 
 *** hungry-delete
@@ -1231,7 +1239,6 @@ FACE defaults to inheriting from default and highlight."
 (use-package! format-all
   :config
   (dolist (hook (list
-                 'js-mode-hook
                  'rustic-mode-hook
                  'python-mode-hook
                  'java-mode-hook
@@ -1240,7 +1247,10 @@ FACE defaults to inheriting from default and highlight."
                  'haskell-mode-hook
                  'emacs-lisp-mode-hook
                  ))
-    (add-hook hook 'format-all-mode))
+    (add-hook hook 'format-all-mode)
+    (add-hook hook '(lambda ()
+                       (setq grammatical-edit-mode t)))
+    )
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   (prependq! format-all-default-formatters '(("Haskell" ormolu)
                                              ("Shell" beautysh)))
@@ -1250,6 +1260,30 @@ FACE defaults to inheriting from default and highlight."
 
 #+results:
 : t
+
+*** Git blamer
+
+- https://github.com/Artawower/blamer.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! blamer :recipe (:host github :repo "artawower/blamer.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! blamer
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                    :background nil
+                    :height 140
+                    :italic t)))
+  :config
+  (global-blamer-mode 1))
+#+end_src
+
 
 ** Bookmarks/bm
 
@@ -2529,6 +2563,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! lsp-mode
   :config
+  (setq max-specpdl-size 10000)
   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
 )
   ;; (lsp-register-client
@@ -2782,11 +2817,15 @@ a separator ' -> '."
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
+    ;;load extra langs support
+    (tree-sitter-load 'haskell "haskell")
+    (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
+    )
     :config
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
     (tree-sitter-require 'julia)
-    )
+    ;; load haskell
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   )
 #+end_src
