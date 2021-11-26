@@ -211,7 +211,8 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (rust
+         +lsp) ;Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
@@ -278,6 +279,29 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 
 #+results:
 : doom-city-lights
+
+* dolist mode hooks
+:PROPERTIES:
+:ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
+:END:
+
+- [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
+- [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
+#+begin_src emacs-lisp :tangle "config.el"
+(dolist (hook (list
+               'rustic-mode-hook
+               'python-mode-hook
+               'sh-mode-hook
+               'julia-mode-hook
+               'nix-mode-hook
+               'haskell-mode-hook
+               'emacs-lisp-mode-hook
+               ))
+  (add-hook hook 'format-all-mode)
+  (add-hook hook '(lambda ()
+                    (setq grammatical-edit-mode 1)))
+  )
+#+end_src
 
 * Use Packages
 
@@ -1198,23 +1222,50 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 *** grammatical-edit
-
+:PROPERTIES:
+:ID:       05534ff6-447b-4497-b170-5626edc8bacf
+:END:
+ - [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
+ - [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
 #+end_src
+- [2021-11-26 Fri 12:52] -> https://github.com/manateelazycat/grammatical-edit
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! grammatical-edit
   :config
-  :bind (:map grammatical-edit-mode-map
-         ("(" . grammatical-edit-open-round)
-         ("[" . grammatical-edit-open-bracket)
-         ("M-l" . grammatical-edit-jump-right)
-         ("M-j" . grammatical-edit-jump-left)
-         ("M-'" . grammatical-edit-jump-out-pair-and-newline)
-         )
+(define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
+(define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
+(define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
+(define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
+(define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
+(define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
+(define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
+
+(define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
+(define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
+
+(define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
+(define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
+
+(define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
+(define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
+(define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
+
+(define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
+(define-key grammatical-edit-mode-map (kbd "M-[") 'grammatical-edit-wrap-bracket)
+(define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
+(define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
+(define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
+
+(define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-right)
+(define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-left)
+(define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
   )
 #+end_src
+
+#+RESULTS:
 
 *** hungry-delete
 
@@ -1230,7 +1281,10 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 *** format-all
-
+:PROPERTIES:
+:ID:       b7b76dc7-dbd9-42be-a22c-71eea6e12f7d
+:END:
+ - [2021-11-26 Fri 12:27] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! format-all)
 #+end_src
@@ -1238,24 +1292,10 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! format-all
   :config
-  (dolist (hook (list
-                 'rustic-mode-hook
-                 'python-mode-hook
-                 'java-mode-hook
-                 'sh-mode-hook
-                 'nix-mode-hook
-                 'haskell-mode-hook
-                 'emacs-lisp-mode-hook
-                 ))
-    (add-hook hook 'format-all-mode)
-    (add-hook hook '(lambda ()
-                       (setq grammatical-edit-mode t)))
-    )
   (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   (prependq! format-all-default-formatters '(("Haskell" ormolu)
                                              ("Shell" beautysh)))
   )
-
 #+end_src
 
 #+results:
@@ -2726,8 +2766,17 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! julia-formatter
   :init
-  (julia-formatter-setup-aggressive-hooks)
-)
+  (add-hook 'julia-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (julia-formatter-format-region
+                           (point-min)
+                           (point-max)))
+                        nil
+                        t)))
+  ;;(julia-formatter-setup-aggressive-hooks)
+  )
 #+end_src
 
 #+RESULTS:
@@ -2843,12 +2892,16 @@ a separator ' -> '."
 #+end_src
 
 ** Tree Sitter
+:PROPERTIES:
+:ID:       4bfe18f0-70f6-4f5d-9188-01c19c7a6304
+:END:
 
+- [2021-11-26 Fri 12:54] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
     :load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
-    :hook ((rustic-mode haskell-mode julia-mode)  . tree-sitter-mode)
+    :hook ((rustic-mode haskell-mode julia-mode nix-mode)  . tree-sitter-mode)
     :init
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
@@ -2856,15 +2909,17 @@ a separator ' -> '."
     (require 'tree-sitter-langs)
     ;;load extra langs support
     (tree-sitter-load 'haskell "haskell")
+    (tree-sitter-load 'nix "nix")
+    ;;(tree-sitter-load 'elisp "elisp")
     (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
-    )
+    (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
     :config
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
     (tree-sitter-require 'julia)
     ;; load haskell
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-  )
+  ))
 #+end_src
 
 #+results:

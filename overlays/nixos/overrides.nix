@@ -23,6 +23,7 @@ channels: final: prev: {
     onlyoffice-bin
     texmacs
     nix-direnv
+    tree-sitter
     starship;
 
   nixos-rebuild = prev.nixos-rebuild.override {
