@@ -280,6 +280,13 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+results:
 : doom-city-lights
 
+** Performance
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq gcmh-high-cons-threshold most-positive-fixnum)
+(setq max-specpdl-size 100000)
+#+end_src
+
 * dolist mode hooks
 :PROPERTIES:
 :ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
@@ -507,6 +514,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! helm-rg)
 #+end_src
+
 ** fd-dired
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! fd-dired :recipe (:host github
@@ -1235,37 +1243,40 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! grammatical-edit
   :config
-(define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
-(define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
-(define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
-(define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
-(define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
-(define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
-(define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
+  (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
+  (define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
+  (define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
+  (define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
+  (define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
+  (define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
+  (define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
 
-(define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
-(define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
+  (define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
+  (define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
 
-(define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
-(define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
+  (define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
+  (define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
 
-(define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
-(define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
-(define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
+  (define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
+  (define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
+  (define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
 
-(define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
-(define-key grammatical-edit-mode-map (kbd "M-[") 'grammatical-edit-wrap-bracket)
-(define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
-(define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
-(define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
+  (define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
+  (define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
+  (define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
+  (define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
 
-(define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-right)
-(define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-left)
-(define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
+  (define-key grammatical-edit-mode-map (kbd "M-<left>") 'drag-stuff-left)
+  (define-key grammatical-edit-mode-map (kbd "M-<right>") 'drag-stuff-right)
+
+  (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-right)
+  (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-left)
+  (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
   )
 #+end_src
 
 #+RESULTS:
+: t
 
 *** hungry-delete
 
@@ -2613,7 +2624,6 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! lsp-mode
   :config
-  (setq max-specpdl-size 10000)
   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
 )
   ;; (lsp-register-client
@@ -2663,39 +2673,17 @@ a separator ' -> '."
 
 ** Nickel
 
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! nickel-mode
-  :load-path "~/.doom.d"
-  )
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! nickel-mode
+  :recipe (:local-repo "/home/gtrun/ghq/github.com/GTrunSec/nickel-mode"
+))
 #+end_src
 
 
-#+begin_src emacs-lisp :tangle "nickel-mode.el"
-;;; nickel-mode.el -*- lexical-binding: t; -*-
-(defvar nickel-mode-font-lock-keywords)
-(setq nickel-mode-font-lock-keywords
-      `(
-        ("\\(//\\)\\(.*\\)$"
-         (1 font-lock-comment-delimiter-face t)
-         (2 font-lock-comment-face t))
-        ("\\([\\{\\}\(\)]\\)"  (1 font-lock-keyword-face))
-        ("\\(let\\|if\\|then\\|else\\|fun\\)"  (1 font-lock-keyword-face))
-        ("\\([A-Za-z0-1\\ ]+= \\)"   (1 font-lock-variable-name-face))
-        ("\\([A-Za-z0-1\\ ]+| \\)"   (1 font-lock-variable-name-face))
-        ("\\([A-Za-z0-1\\ ]+=> \\)"  (1 font-lock-constant-face))))
-
-;;;###autoload
-(define-derived-mode nickel-mode prog-mode "Nickel Lang"
-  "Major mode for nickel."
-  (set (make-local-variable 'font-lock-defaults) '(nickel-mode-font-lock-keywords))
-  (setq mode-name "nickel"
-        indent-line-function 'rustic-indent-line))
-
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.ncl\\'" . nickel-mode))
-
-(provide 'nickel-mode)
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (use-package! nickel-mode)
+)
 #+end_src
 
 ** Elisp
@@ -2901,18 +2889,21 @@ a separator ' -> '."
 (when IS-LINUX
   (use-package! emacs-tree-sitter
     :load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
-    :hook ((rustic-mode haskell-mode julia-mode nix-mode)  . tree-sitter-mode)
+    :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode)  . tree-sitter-mode)
     :init
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
     (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
-    ;;load extra langs support
+    ;;haskell
     (tree-sitter-load 'haskell "haskell")
-    (tree-sitter-load 'nix "nix")
-    ;;(tree-sitter-load 'elisp "elisp")
     (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
+    ;;nix
+    (tree-sitter-load 'nix "nix")
     (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
+    ;;elisp
+    (tree-sitter-load 'elisp "elisp")
+    (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
     :config
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
