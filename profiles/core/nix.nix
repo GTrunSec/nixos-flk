@@ -38,4 +38,5 @@
 
     systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
   };
+  systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;
 }

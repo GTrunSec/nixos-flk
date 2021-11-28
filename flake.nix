@@ -102,7 +102,7 @@
 
         nixos = ./nixos;
 
-        home = ./nixos/home;
+        home = ./users;
 
         #WIP macos support
         hosts = import ./nixos/hosts { inherit self inputs; };

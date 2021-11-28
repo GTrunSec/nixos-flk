@@ -23,6 +23,7 @@ channels: final: prev: {
     onlyoffice-bin
     texmacs
     nix-direnv
+    direnv
     tree-sitter
     starship;
 

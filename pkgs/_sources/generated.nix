@@ -130,4 +130,15 @@
       sha256 = "sha256-AVx7zaLDBIy/3ivilZqkOjxW1OaEniL9kSEFGyfcaAM=";
     });
   };
+  spaceship-prompt = {
+    pname = "spaceship-prompt";
+    version = "68fcf09462d01628348efa4b5baeefc78e319743";
+    src = fetchFromGitHub ({
+      owner = "spaceship-prompt";
+      repo = "spaceship-prompt";
+      rev = "68fcf09462d01628348efa4b5baeefc78e319743";
+      fetchSubmodules = false;
+      sha256 = "sha256-sXnL57g5e7KboLXHzXxSD0+8aKPNnTX6Q2yVft+Pr7w=";
+    });
+  };
 }

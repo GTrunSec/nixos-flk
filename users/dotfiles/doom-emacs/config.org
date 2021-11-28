@@ -292,7 +292,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 :ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
 :END:
 
-- [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
 - [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
 #+begin_src emacs-lisp :tangle "config.el"
 (dolist (hook (list
@@ -305,8 +304,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
                'emacs-lisp-mode-hook
                ))
   (add-hook hook 'format-all-mode)
-  (add-hook hook '(lambda ()
-                    (setq grammatical-edit-mode 1)))
   )
 #+end_src
 
@@ -325,8 +322,8 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   (setq make-backup-files nil)
   (setq create-lockfiles nil)
   (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
-                                        /sshx:gtrun@10.220.170.112:/home/gtrun/.config/guangtao
-                                        /sshx:root192.168.122.236:~/
+                                        /sshx:gtrun@10.220.170.112:~/.config/guangtao
+                                        /sshx:root192.168.122.236:/root/
                                         /sshx:test@10.220.170.134:/home/test/))
 )
 #+end_src
@@ -833,7 +830,7 @@ appropriate.  In tables, insert a new row or end the table."
 #+end_src
 
 #+RESULTS:
-: /home/gtrun/.myscript/plantuml
+: ~/.myscript/plantuml
 
 ** Better default Setting
 
@@ -1233,7 +1230,6 @@ FACE defaults to inheriting from default and highlight."
 :PROPERTIES:
 :ID:       05534ff6-447b-4497-b170-5626edc8bacf
 :END:
- - [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
  - [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
@@ -1243,6 +1239,8 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! grammatical-edit
   :config
+  (add-hook 'tree-sitter-mode-hook '(lambda ()
+                    (setq grammatical-edit-mode 1)))
   (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
   (define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
   (define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
@@ -1269,8 +1267,8 @@ FACE defaults to inheriting from default and highlight."
   (define-key grammatical-edit-mode-map (kbd "M-<left>") 'drag-stuff-left)
   (define-key grammatical-edit-mode-map (kbd "M-<right>") 'drag-stuff-right)
 
-  (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-right)
-  (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-left)
+  (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-right)
+  (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-left)
   (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
   )
 #+end_src
@@ -1521,7 +1519,7 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 #+results:
-: /home/gtrun/.myscript/plantuml
+: ~/.myscript/plantuml
 
 *** Org Mode Hook!
 
@@ -2675,7 +2673,7 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! nickel-mode
-  :recipe (:local-repo "/home/gtrun/ghq/github.com/GTrunSec/nickel-mode"
+  :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
 ))
 #+end_src
 
@@ -2888,11 +2886,11 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
-    :load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
-    :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode)  . tree-sitter-mode)
+    :load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
+    :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode hcl-mode)  . tree-sitter-mode)
     :init
-    (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
-    (add-to-list 'load-path "/home/gtrun/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
+    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
+    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)
     ;;haskell
@@ -2904,6 +2902,9 @@ a separator ' -> '."
     ;;elisp
     (tree-sitter-load 'elisp "elisp")
     (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
+    ;;hcl
+    (tree-sitter-load 'hcl "elisp")
+    (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
     :config
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
@@ -2914,7 +2915,7 @@ a separator ' -> '."
 #+end_src
 
 #+results:
-| tree-sitter-hl-mode |
+| tree-sitter-mode | overseer-enable-mode | (lambda nil (setq grammatical-edit-mode 1)) | format-all-mode | ert--activate-font-lock-keywords | outline-minor-mode | rainbow-delimiters-mode | highlight-quoted-mode | +emacs-lisp-extend-imenu-h | +emacs-lisp-init-straight-maybe-h | doom--setq-lisp-indent-function-for-emacs-lisp-mode-h | doom--setq-outline-regexp-for-emacs-lisp-mode-h | doom--setq-mode-name-for-emacs-lisp-mode-h | doom--setq-tab-width-for-emacs-lisp-mode-h | +lookup--init-emacs-lisp-mode-handlers-h | doom--enable-+emacs-lisp-ert-mode-in-emacs-lisp-mode-h | (closure ((hook . emacs-lisp-mode-hook) (--dolist-tail--) t) (&rest _) (add-hook 'flycheck-mode-hook #'flycheck-cask-setup nil t)) |
 
 * Visualization
 
@@ -3269,8 +3270,11 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 (set-popup-rule! "^\\*org-graph-view" :side 'right :size 70 :quit nil :select t :ttl 0)
 
-(set-popup-rule! "^\\*julia"
-  :side 'bottom :size 0.3 :quit nil :select nil :ttl 0)
+(after! julia
+  (set-popup-rule! "^\\*julia"
+    :side 'bottom :size 0.4 :quit nil :select nil :ttl 0)
+)
+
 
 (set-popup-rule! "^\\*Org Src"
   :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)

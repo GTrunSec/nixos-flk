@@ -51,6 +51,12 @@ fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/A
 src.git = "https://github.com/hasu/notdeft"
 fetch.github = "hasu/notdeft"
 
+[spaceship-prompt]
+src.git = "https://github.com/spaceship-prompt/spaceship-prompt"
+fetch.github = "spaceship-prompt/spaceship-prompt"
+
+
+
 [promnesia]
 src.git = "https://github.com/karlicoss/promnesia"
 fetch.github = "karlicoss/promnesia"

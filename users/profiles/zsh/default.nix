@@ -17,7 +17,6 @@
         autocd = true;
         enableAutosuggestions = true;
         enableCompletion = true;
-        dotDir = ".config/zsh";
         oh-my-zsh = {
           enable = true;
           plugins = [
@@ -33,7 +32,6 @@
         };
         history = {
           share = true;
-          path = config.programs.zsh.dotDir + "/.zsh_history";
           save = 10000000;
           ignoreDups = true;
           extended = true;
@@ -95,13 +93,9 @@
               };
             }
             (mkIf pkgs.stdenv.isLinux {
-              name = "spaceship";
+              inherit (pkgs.sources.spaceship-prompt) src;
+              name = pkgs.sources.spaceship-prompt.pname;
               file = "spaceship.zsh";
-              src = pkgs.fetchgit {
-                url = "https://github.com/denysdovhan/spaceship-prompt";
-                rev = "v3.11.1";
-                sha256 = "0habry3r6wfbd9xbhw10qfdar3h5chjffr5pib4bx7j4iqcl8lw8";
-              };
             })
           ];
       };

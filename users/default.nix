@@ -4,10 +4,10 @@ with inputs;
   #################################
   # home-manager Users's Profiles #
   #################################
-  imports = [ (digga.lib.importExportableModules ../../users/modules) ];
+  imports = [ (digga.lib.importExportableModules ./modules) ];
   modules = [ ];
   importables = rec {
-    profiles = digga.lib.rakeLeaves ../../users/profiles;
+    profiles = digga.lib.rakeLeaves ./profiles;
     suites = with profiles; rec {
       base = [
         home-services
