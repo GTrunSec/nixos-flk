@@ -15,6 +15,7 @@
       programs.zsh = {
         enable = true;
         autocd = true;
+        dotDir = ".config/zsh";
         enableAutosuggestions = true;
         enableCompletion = true;
         oh-my-zsh = {
@@ -31,6 +32,7 @@
           theme = "xiong-chiamiov-plus";
         };
         history = {
+          path = config.programs.zsh.dotDir + "/.zsh_history";
           share = true;
           save = 10000000;
           ignoreDups = true;

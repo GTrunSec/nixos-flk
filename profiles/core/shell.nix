@@ -1,13 +1,13 @@
 { pkgs, config, lib, self, ... }:
 {
-  shellInit = ''
+  environment.shellInit = ''
     export STARSHIP_CONFIG=${
     pkgs.writeText "starship.toml"
     (lib.fileContents ./starship.toml)
     }
   '';
 
-  shellAliases =
+  environment.shellAliases =
     let ifSudo = lib.mkIf config.security.sudo.enable;
     in
     {

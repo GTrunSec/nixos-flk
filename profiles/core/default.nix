@@ -2,7 +2,7 @@
 let inherit (lib) fileContents;
 in
 {
-  imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ];
+  imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ./shell.nix ];
 
   boot.kernelPackages = pkgs.linuxPackages_5_14;
 
@@ -48,6 +48,7 @@ in
       pwgen
       wget
       nix-output-monitor
+      zsh
     ];
   };
 }
