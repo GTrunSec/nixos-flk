@@ -31,8 +31,8 @@
         inputs.nixpkgs.follows = "nixos";
         inputs.devshell.follows = "devshell";
       };
-      vs-ext = {
-        url = "github:gtrunsec/vs-ext/lib";
+      devos-ext-lib = {
+        url = "github:divnix/devos-ext-lib";
         #url = "/home/gtrun/ghq/github.com/divnix/vs-ext";
         inputs.nixpkgs.follows = "latest";
       };
@@ -44,10 +44,6 @@
       nix-dram = {
         url = "github:dramforever/nix-dram";
         inputs.nixpkgs.follows = "nixos";
-      };
-      ci-agent = {
-        url = "github:hercules-ci/hercules-ci-agent";
-        inputs = { nixos-20_09.follows = "nixos"; nixos-unstable.follows = "nixos"; };
       };
       home = {
         url = "github:nix-community/home-manager";

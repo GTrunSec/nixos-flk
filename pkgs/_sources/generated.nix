@@ -11,13 +11,13 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "56312e0607d9057689c93825c4a2f82d657eaabf";
+    version = "9ac56f6b39644cb9a30451cf5195a80714eba3c2";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "56312e0607d9057689c93825c4a2f82d657eaabf";
+      rev = "9ac56f6b39644cb9a30451cf5195a80714eba3c2";
       fetchSubmodules = false;
-      sha256 = "sha256-XrLwEdVlFg+7g9+JnMoezHimYSKUJsFFxtkcIZj8NAY=";
+      sha256 = "sha256-O3992kJadzNyT4CPS4Hv9BNShx6Qmst9LMzqANlUMvM=";
     });
   };
   adguardhome = {
@@ -38,10 +38,10 @@
   };
   drawio = {
     pname = "drawio";
-    version = "15.8.4";
+    version = "15.8.7";
     src = fetchurl {
-      url = "https://github.com/jgraph/drawio-desktop/releases/download/v15.8.4/drawio-x86_64-15.8.4.rpm";
-      sha256 = "sha256-RwjHJ7Uchaa3ehtypAdaGyRiiq5CMCID5m9wQgNpJhY=";
+      url = "https://github.com/jgraph/drawio-desktop/releases/download/v15.8.7/drawio-x86_64-15.8.7.rpm";
+      sha256 = "sha256-Uy+ZJrSwVcu3Qad41X30LGXFr4LQqIKehzJOteggJeM=";
     };
   };
   hug = {
