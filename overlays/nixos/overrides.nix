@@ -17,8 +17,6 @@ channels: final: prev: {
     brave
     signal-desktop
     tmux
-    electron_13
-    appimage-run
     i3-gaps
     onlyoffice-bin
     texmacs

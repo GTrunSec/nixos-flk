@@ -15,7 +15,7 @@ in
 
   notdeft = callPackage ./packages/notdeft { };
   StevenBlack-hosts = callPackage ./packages/StevenBlack-hosts { };
-  logseq = callPackage ./packages/logseq { electron = final.electron_13; };
+  logseq = callPackage ./packages/logseq { electron = final.electron_15; };
 
   #go packages
   horcrux = callPackage ./go/horcrux { };

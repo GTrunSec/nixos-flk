@@ -1087,11 +1087,11 @@
     },
     "latest_2": {
       "locked": {
-        "lastModified": 1637952480,
-        "narHash": "sha256-hWp5LSmcuaNzUbmx77FO6+wBD4cw3ZTjTDwGwdi90QU=",
+        "lastModified": 1638122475,
+        "narHash": "sha256-ktmE6n20fjDuHdhZMybEoVvEIsJH4LFpu94M9M+WXPw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "de46ae8f404f65a1cf4074eb123dc91b08f8ebd2",
+        "rev": "f6053b7c826d4927e1d9460027b15281b8211d79",
         "type": "github"
       },
       "original": {
@@ -1279,11 +1279,11 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1637967327,
-        "narHash": "sha256-tKbTRTHv5Mc5zxs08TABufb9aVCbca8MHq/qRAP2yiU=",
+        "lastModified": 1638077343,
+        "narHash": "sha256-g9FhG0tkmue1Tv7OYcLEWa8K5fn79WvY6TXOWABqqZs=",
         "ref": "release-21.11",
-        "rev": "4963187a1454201721e05b96a9c5400fa8e086ad",
-        "revCount": 333696,
+        "rev": "cf7b7d404e4f5c5d8fe0cd50c3dea33dc5ef844e",
+        "revCount": 333724,
         "type": "git",
         "url": "file:///nix/nixpkgs"
       },
@@ -2073,6 +2073,7 @@
         "qnr": "qnr",
         "rust-overlay": "rust-overlay_3",
         "sops-nix": "sops-nix",
+        "stable": "stable_2",
         "tenvideo": "tenvideo",
         "vs-ext": "vs-ext"
       }
@@ -2182,6 +2183,22 @@
       "original": {
         "id": "nixpkgs",
         "ref": "release-20.09",
+        "type": "indirect"
+      }
+    },
+    "stable_2": {
+      "locked": {
+        "lastModified": 1638037469,
+        "narHash": "sha256-O9wII52E44yv1GX5qsGaxXBby4EIhS62VbnTZhIRPs8=",
+        "ref": "release-21.05",
+        "rev": "9b2fd29751d7cd28f6e0b0921e71bb098ce86b90",
+        "revCount": 295872,
+        "type": "git",
+        "url": "file:///nix/nixpkgs"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "release-21.05",
         "type": "indirect"
       }
     },

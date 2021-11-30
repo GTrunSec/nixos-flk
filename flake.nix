@@ -15,6 +15,7 @@
       ##################
       nixos.url = "nixpkgs/release-21.11";
       latest.url = "github:NixOS/nixpkgs/master";
+      stable.url = "nixpkgs/release-21.05";
       devshell = { url = "github:numtide/devshell"; inputs.nixpkgs.follows = "nixos"; };
       flake-utils-plus = { url = "github:gytis-ivaskevicius/flake-utils-plus"; };
       digga = {

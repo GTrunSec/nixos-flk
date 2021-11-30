@@ -2674,9 +2674,11 @@ a separator ' -> '."
 ** Nickel
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! nickel-mode
-  :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
-))
+(when IS-LINUX
+  (package! nickel-mode
+    :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
+             ))
+)
 #+end_src
 
 
@@ -2913,8 +2915,6 @@ a separator ' -> '."
   ))
 #+end_src
 
-#+results:
-| tree-sitter-mode | overseer-enable-mode | (lambda nil (setq grammatical-edit-mode 1)) | format-all-mode | ert--activate-font-lock-keywords | outline-minor-mode | rainbow-delimiters-mode | highlight-quoted-mode | +emacs-lisp-extend-imenu-h | +emacs-lisp-init-straight-maybe-h | doom--setq-lisp-indent-function-for-emacs-lisp-mode-h | doom--setq-outline-regexp-for-emacs-lisp-mode-h | doom--setq-mode-name-for-emacs-lisp-mode-h | doom--setq-tab-width-for-emacs-lisp-mode-h | +lookup--init-emacs-lisp-mode-handlers-h | doom--enable-+emacs-lisp-ert-mode-in-emacs-lisp-mode-h | (closure ((hook . emacs-lisp-mode-hook) (--dolist-tail--) t) (&rest _) (add-hook 'flycheck-mode-hook #'flycheck-cask-setup nil t)) |
 
 * Visualization
 
