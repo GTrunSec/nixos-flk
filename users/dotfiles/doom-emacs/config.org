@@ -1236,11 +1236,14 @@ FACE defaults to inheriting from default and highlight."
  - [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
  - [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
+(when IS-LINUX
+  (package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
+)
 #+end_src
 - [2021-11-26 Fri 12:52] -> https://github.com/manateelazycat/grammatical-edit
 
 #+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
 (use-package! grammatical-edit
   :config
   (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
@@ -1273,6 +1276,7 @@ FACE defaults to inheriting from default and highlight."
   (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-left)
   (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
   )
+)
 #+end_src
 
 #+RESULTS:

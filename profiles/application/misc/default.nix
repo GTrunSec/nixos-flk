@@ -41,7 +41,6 @@
     gitAndTools.delta
     ##
     sshfs
-    logseq
     zotero
     # export permission issue
     (pkgs.writeShellScriptBin "logseq-run" ''
