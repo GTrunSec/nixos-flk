@@ -2893,10 +2893,18 @@ a separator ' -> '."
 :END:
 
 - [2021-11-26 Fri 12:54] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
+
+
+#+begin_src elisp :tangle "./modules/private/my-code/packages.el"
+(when IS-LINUX
+  (package! emacs-tree-sitter :recipe (:local-repo "~/ghq/github.com/GTrunSec/emacs-tree-sitter"
+))
+)
+#+end_src
+
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
-    :load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/lisp"
     :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode)  . tree-sitter-mode)
     :init
     (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
@@ -2909,6 +2917,7 @@ a separator ' -> '."
     ;;nix
     (tree-sitter-load 'nix "nix")
     (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
+    (add-to-list 'tree-sitter-major-mode-language-alist '(envrc-file-mode . bash))
     ;;elisp
     (tree-sitter-load 'elisp "elisp")
     (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))

@@ -4,7 +4,7 @@
 # key: nix
 # condiixtion: t
 # --
-watch_file flake.nix
+watch_file flake.nix flake.lock
 {
     # shell gc root dir
     mkdir -p "$(direnv_layout_dir)"
