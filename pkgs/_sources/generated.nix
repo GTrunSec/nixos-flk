@@ -11,13 +11,13 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "9ac56f6b39644cb9a30451cf5195a80714eba3c2";
+    version = "71def412efc8225bb8aa01c9ba867607bd5b347c";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "9ac56f6b39644cb9a30451cf5195a80714eba3c2";
+      rev = "71def412efc8225bb8aa01c9ba867607bd5b347c";
       fetchSubmodules = false;
-      sha256 = "sha256-O3992kJadzNyT4CPS4Hv9BNShx6Qmst9LMzqANlUMvM=";
+      sha256 = "sha256-y0GpSlUBJb7qbXdLm7m5dSGk4gKYw25MWoSg4RS/m90=";
     });
   };
   adguardhome = {
@@ -54,18 +54,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.5.1";
+    version = "0.5.2";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.1/logseq-linux-x64-0.5.1.AppImage";
-      sha256 = "sha256-/ZI9kK/9bYRJL8jOyRKpdMcy4Cbau+a28AO+kTUl+SE=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.2/logseq-linux-x64-0.5.2.AppImage";
+      sha256 = "sha256-IP3Yh+/iWZ5XbMGNs5NKJQcp9DyRWCWKGJuTvuegHUU=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.5.1";
+    version = "0.5.2";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.1/logseq-darwin-x64-0.5.1.dmg";
-      sha256 = "sha256-V05vQ1PjOyKuh8bNogCEmQmZLsHD5Q6p+gxrCuQFWvY=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.2/logseq-darwin-x64-0.5.2.dmg";
+      sha256 = "sha256-95OhciWFo2U/SWpn9JqbCG4CYsxtS7dOqajQMxOOt4E=";
     };
   };
   magnetw = {
@@ -86,13 +86,13 @@
   };
   notdeft = {
     pname = "notdeft";
-    version = "35917b422c8a59db6cdaa2ca665ffa90745b2378";
+    version = "1b7054dcfc3547a7cafeb621552cec01d0540478";
     src = fetchFromGitHub ({
       owner = "hasu";
       repo = "notdeft";
-      rev = "35917b422c8a59db6cdaa2ca665ffa90745b2378";
+      rev = "1b7054dcfc3547a7cafeb621552cec01d0540478";
       fetchSubmodules = false;
-      sha256 = "sha256-7VFCtl2Luv8zvVFMsoNFRMXY9CMzn8UNp4rHcpSKN5E=";
+      sha256 = "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=";
     });
   };
   orgparse = {
@@ -121,13 +121,13 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "5b8fb0121e1499782a95f5de775bc61c0f95342f";
+    version = "4807ebfe7bac92d6c0a7dad9b1569fa0a63bb4d3";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "5b8fb0121e1499782a95f5de775bc61c0f95342f";
+      rev = "4807ebfe7bac92d6c0a7dad9b1569fa0a63bb4d3";
       fetchSubmodules = false;
-      sha256 = "sha256-AVx7zaLDBIy/3ivilZqkOjxW1OaEniL9kSEFGyfcaAM=";
+      sha256 = "sha256-91Zp0WI6C/7wSjkgQYMACj/GhGDBAzj4dFKMUxiuuaU=";
     });
   };
   spaceship-prompt = {

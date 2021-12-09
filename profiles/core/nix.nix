@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  nix.generateRegistryFromInputs = lib.mkDefault true;
+
   nix = {
     package = pkgs.nixUnstable;
 

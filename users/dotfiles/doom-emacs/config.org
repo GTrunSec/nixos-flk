@@ -1025,6 +1025,7 @@ In that case, insert the number."
 
 ** company-backend
 
+
 #+begin_src emacs-lisp :tangle "config.el"
 (set-company-backend! '(org-mode)
   '(
@@ -2015,6 +2016,7 @@ easy way to display org-ref with tree view instead of org-mode ?
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
 (unpin! org-roam);;
+;;(package! org-roam :pin "8c3c216191314ac674a9753836402032b3d33266")
 #+end_src
 
 

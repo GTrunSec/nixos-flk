@@ -9,11 +9,13 @@ fetch.url = "https://github.com/burtonator/polar-bookshelf/releases/download/v$v
 src.prefix = "v"
 
 [logseq-darwin]
-src.github = "logseq/logseq"
+#src.github = "logseq/logseq"
+src.manual = "0.5.2"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
 
 [logseq]
-src.github = "logseq/logseq"
+#src.github = "logseq/logseq"
+src.manual = "0.5.2"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
 
 # [logseq]

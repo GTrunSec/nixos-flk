@@ -17,7 +17,7 @@
       latest.url = "github:NixOS/nixpkgs/master";
       stable.url = "nixpkgs/release-21.05";
       devshell = { url = "github:numtide/devshell"; inputs.nixpkgs.follows = "nixos"; };
-      flake-utils-plus = { url = "github:gytis-ivaskevicius/flake-utils-plus"; };
+      flake-utils-plus = { url = "github:divnix/flake-utils-plus"; };
       digga = {
         url = "github:divnix/digga";
         inputs.nixpkgs.follows = "nixos";
@@ -33,7 +33,7 @@
       };
       devos-ext-lib = {
         url = "github:divnix/devos-ext-lib";
-        #url = "/home/gtrun/ghq/github.com/divnix/vs-ext";
+        #url = "/home/gtrun/ghq/github.com/divnix/devos-ext-lib";
         inputs.nixpkgs.follows = "latest";
       };
       flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };

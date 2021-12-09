@@ -1,5 +1,7 @@
 #+TITLE: Meow
 
+- [2021-12-05 Sun 18:05] -> https://www.youtube.com/watch?v=HhuAlAcWWeU
+
 
 * [[https://github.com/DogLooksGood/meow][DogLooksGood/meow: modular Emacs on wish]]
 * use-package with meow
@@ -206,7 +208,7 @@
 (map! :map org-mode-map
       "C-c ;" #'org-time-stamp-inactive
       "RET"   #'unpackaged/org-return-dwim
-      "C-c m"   #'completion-at-point
+      "C-c m"   #'org-roam-complete-link-at-point
       )
 #+end_src
 

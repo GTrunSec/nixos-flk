@@ -1,4 +1,7 @@
-{ hmUsers, ... }:
+{ hmUsers, config, ... }:
+let
+  user = builtins.baseNameOf ./.;
+in
 {
   home-manager.users = { inherit (hmUsers) gtrun; };
 
@@ -7,9 +10,11 @@
     allowedUDPPorts = [ 8888 8889 ];
   };
 
+  sops.secrets."users/${user}".neededForUsers = true;
+
   users.users.gtrun = {
     home = "/home/gtrun";
-    password = "nixos";
+    passwordFile = config.sops.secrets."users/${user}".path;
     isNormalUser = true;
     extraGroups = [
       "wheel"
