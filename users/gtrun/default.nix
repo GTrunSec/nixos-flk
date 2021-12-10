@@ -12,6 +12,9 @@ in
 
   sops.secrets."users/${user}".neededForUsers = true;
 
+  #Unstbale issue
+  security.sudo.wheelNeedsPassword = false;
+
   users.users.gtrun = {
     home = "/home/gtrun";
     passwordFile = config.sops.secrets."users/${user}".path;

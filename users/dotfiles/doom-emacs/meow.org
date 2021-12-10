@@ -208,7 +208,7 @@
 (map! :map org-mode-map
       "C-c ;" #'org-time-stamp-inactive
       "RET"   #'unpackaged/org-return-dwim
-      "C-c m"   #'org-roam-complete-link-at-point
+      "C-c m"   #'completion-at-point
       )
 #+end_src
 
