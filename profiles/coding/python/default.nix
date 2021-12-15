@@ -23,7 +23,6 @@ let
     #voila
     pygments
     #orgbabelhelper
-    jupyter
     jupyterlab
     pdftotext
   ])).override (args: { ignoreCollisions = true; });

@@ -91,10 +91,10 @@
   };
   vscode-extensions-tabnine-vscode = {
     pname = "vscode-extensions-tabnine-vscode";
-    version = "3.5.1";
+    version = "3.5.5";
     src = fetchurl {
-      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.5.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      sha256 = "sha256-zP16zX/VT3tWmvlJZHjCjO42R0jdLTBUtT0dsrRPlBo=";
+      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.5.5/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      sha256 = "sha256-HYHEhjsSfUhl/VML7svxP0aPoYCVb4n+V69O/eXiKeA=";
     };
     homepage = "none";
     license = "mit";
@@ -102,10 +102,10 @@
   };
   vscode-extensions-tokyo-night = {
     pname = "vscode-extensions-tokyo-night";
-    version = "0.8.2";
+    version = "0.8.3";
     src = fetchurl {
-      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.8.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      sha256 = "sha256-q9QKbMYSOY4u7Aao5oh1ykH34QNJ76ZASBZqwq8ynIk=";
+      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.8.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      sha256 = "sha256-n31RDWs2pocpWr0DKDGbTSmK4kUc7+E8cd2CywjpQtY=";
     };
     homepage = "none";
     license = "mit";

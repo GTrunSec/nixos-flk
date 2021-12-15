@@ -8,9 +8,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  environment.etc = {
-    "resolv.conf".text = "nameserver 10.220.170.112";
-  };
+  #networking.nameservers = [ "10.220.170.94" ];
 
   ## ssd
   services.fstrim.enable = true;
