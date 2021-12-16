@@ -10,13 +10,14 @@ src.prefix = "v"
 
 [logseq-darwin]
 #src.github = "logseq/logseq"
-src.manual = "0.5.2"
+src.manual = "0.5.4"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
 
 [logseq]
-#src.github = "logseq/logseq"
-src.manual = "0.5.2"
+src.github = "logseq/logseq"
+# src.manual = "0.5.4"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
+#https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x64-0.5.4+nightly.20211216.AppImage
 
 # [logseq]
 # src.manual = "0.4.6"

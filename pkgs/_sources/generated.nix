@@ -54,18 +54,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.5.2";
+    version = "0.5.4";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.2/logseq-linux-x64-0.5.2.AppImage";
-      sha256 = "sha256-ZlyteVTwP5oM32G+yUzCOmu6b/b19RVLmlEvyOz5hu0=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.4/logseq-linux-x64-0.5.4.AppImage";
+      sha256 = "sha256-PGrx2JBYmp5vQ8jLpOfiT1T1+SNeRt0W5oHUjHNKuBE=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.5.2";
+    version = "0.5.4";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.2/logseq-darwin-x64-0.5.2.dmg";
-      sha256 = "sha256-xY/2cXBwBfVSQFm2laPZwd6V9KxKAZRMNwe66SgdoV4=";
+      url = "https://github.com/logseq/logseq/releases/download/0.5.4/logseq-darwin-x64-0.5.4.dmg";
+      sha256 = "sha256-WjQ4M9GTwKCe9y6eMBmGrBAAGidtauxPsgzsnOxe1bk=";
     };
   };
   magnetw = {

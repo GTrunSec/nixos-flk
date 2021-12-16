@@ -4,7 +4,7 @@ in
 {
   imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ./shell.nix ];
 
-  boot.kernelPackages = pkgs.linuxPackages_5_14;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
 
   environment = {
 
