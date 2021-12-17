@@ -11,7 +11,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixpkgs-21.05-darwin";
+    nixpkgs.url = "nixpkgs/release-21.11";
     latest.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
