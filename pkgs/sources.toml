@@ -9,19 +9,14 @@ fetch.url = "https://github.com/burtonator/polar-bookshelf/releases/download/v$v
 src.prefix = "v"
 
 [logseq-darwin]
-#src.github = "logseq/logseq"
-src.manual = "0.5.4"
-fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
+src.github = "logseq/logseq"
+#src.manual = "0.5.4"
+fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-darwin-x64-$ver+nightly.20211225.dmg"
 
 [logseq]
 src.github = "logseq/logseq"
 # src.manual = "0.5.4"
-fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
-#https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x64-0.5.4+nightly.20211216.AppImage
-
-# [logseq]
-# src.manual = "0.4.6"
-# fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
+fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-$ver+nightly.20211225.AppImage"
 
 [drawio]
 src.github = "jgraph/drawio-desktop"

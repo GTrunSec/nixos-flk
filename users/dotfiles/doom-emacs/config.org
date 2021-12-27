@@ -811,13 +811,11 @@ appropriate.  In tables, insert a new row or end the table."
 
 (setq-default history-length 1000)
 (setq create-lockfiles nil)
-(require 'org-protocol)
-
 ;; (setq browse-url-browser-function 'browse-url-Chrome)
 ;; https://emacs.stackexchange.com/questions/5603/how-to-quickly-copy-move-file-in-emacs-dired
 (setq dired-dwim-target t)
 
-(add-hook! 'dired-mode 'dired-async-mode)
+(add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
 
 (defun gtrun/truncate-lines-hook ()
   (setq-local truncate-lines nil)
@@ -833,7 +831,7 @@ appropriate.  In tables, insert a new row or end the table."
 #+end_src
 
 #+RESULTS:
-: ~/.myscript/plantuml
+: /home/gtrun/.myscript/plantuml
 
 ** Better default Setting
 
@@ -2757,21 +2755,14 @@ a separator ' -> '."
   )
   #+end_src
 
-- - Pkg.add("JuliaFormatter")
+- Pkg.add("JuliaFormatter")
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! julia-formatter
-  :init
-  (add-hook 'julia-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook
-                        (lambda ()
-                          (julia-formatter-format-region
-                           (point-min)
-                           (point-max)))
-                        nil
-                        t)))
+  :config
   ;;(julia-formatter-setup-aggressive-hooks)
+  (add-hook 'julia-mode-hook #'julia-formatter--ensure-server)
+  (add-hook 'julia-mode-hook #'julia-formatter-mode)
   )
 #+end_src
 

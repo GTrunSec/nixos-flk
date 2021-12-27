@@ -11,21 +11,21 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "91a63bf3b46053a7c3bd374f7354ac52ff6b947e";
+    version = "b6fd01f620ad79dbee93f4fff42f1923e7c25a54";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "91a63bf3b46053a7c3bd374f7354ac52ff6b947e";
+      rev = "b6fd01f620ad79dbee93f4fff42f1923e7c25a54";
       fetchSubmodules = false;
-      sha256 = "sha256-G6XL1Kx8UamRTVW6mkwNm1hMJD5SL261nqA1RX89zC4=";
+      sha256 = "sha256-+qTmSQBsE2nGLrP3TztfRWomZwG20ynPSkZu2JLKcYs=";
     });
   };
   adguardhome = {
     pname = "adguardhome";
-    version = "v0.106.3";
+    version = "v0.107.0";
     src = fetchurl {
-      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.106.3/AdGuardHome_linux_amd64.tar.gz";
-      sha256 = "sha256-qJMymTxmoPlIhuJD6zFBWWwzz+CFx+9+MOrRiFtA4IY=";
+      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.0/AdGuardHome_linux_amd64.tar.gz";
+      sha256 = "sha256-g2DIeXwaqTTfshYyyDNHbOU57YUbuxXDKJHFqKFrqzw=";
     };
   };
   chord = {
@@ -38,10 +38,10 @@
   };
   drawio = {
     pname = "drawio";
-    version = "15.8.7";
+    version = "16.0.2";
     src = fetchurl {
-      url = "https://github.com/jgraph/drawio-desktop/releases/download/v15.8.7/drawio-x86_64-15.8.7.rpm";
-      sha256 = "sha256-Uy+ZJrSwVcu3Qad41X30LGXFr4LQqIKehzJOteggJeM=";
+      url = "https://github.com/jgraph/drawio-desktop/releases/download/v16.0.2/drawio-x86_64-16.0.2.rpm";
+      sha256 = "sha256-mAr2DqU/0MJVz6P6qUB7FGZYB06kEbxJH1OgRzUrW2Y=";
     };
   };
   hug = {
@@ -54,18 +54,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.5.4";
+    version = "0.5.5";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.4/logseq-linux-x64-0.5.4.AppImage";
-      sha256 = "sha256-PGrx2JBYmp5vQ8jLpOfiT1T1+SNeRt0W5oHUjHNKuBE=";
+      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.5.5+nightly.20211225.AppImage";
+      sha256 = "sha256-nQ31JkqgzLC1b8lTcH7h/AkiuLiyIH2aQCr0gSruyfM=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.5.4";
+    version = "0.5.5";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.5.4/logseq-darwin-x64-0.5.4.dmg";
-      sha256 = "sha256-WjQ4M9GTwKCe9y6eMBmGrBAAGidtauxPsgzsnOxe1bk=";
+      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-darwin-x64-0.5.5+nightly.20211225.dmg";
+      sha256 = "sha256-F7z6Vy2vb/Wx926Ynga6P5tyL8eASKZ2SKxK6DHnUow=";
     };
   };
   magnetw = {
@@ -121,24 +121,24 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "4807ebfe7bac92d6c0a7dad9b1569fa0a63bb4d3";
+    version = "570cce0d1717885893128b28030080ec0bc2657a";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "4807ebfe7bac92d6c0a7dad9b1569fa0a63bb4d3";
+      rev = "570cce0d1717885893128b28030080ec0bc2657a";
       fetchSubmodules = false;
-      sha256 = "sha256-91Zp0WI6C/7wSjkgQYMACj/GhGDBAzj4dFKMUxiuuaU=";
+      sha256 = "sha256-W6b289Z3sUdsiKITH8TQd8hsgJu5mN6nuw4rmAkTOeA=";
     });
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "68fcf09462d01628348efa4b5baeefc78e319743";
+    version = "07d71d162f135cc7c7d58103bc3a605d9a43977a";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "68fcf09462d01628348efa4b5baeefc78e319743";
+      rev = "07d71d162f135cc7c7d58103bc3a605d9a43977a";
       fetchSubmodules = false;
-      sha256 = "sha256-sXnL57g5e7KboLXHzXxSD0+8aKPNnTX6Q2yVft+Pr7w=";
+      sha256 = "sha256-2ZQBN+AOZvkSbV3qlUTNOu2UULHoEz26/RnZEB6bs5Y=";
     });
   };
 }
