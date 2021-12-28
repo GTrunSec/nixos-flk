@@ -251,67 +251,24 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 
 * Packages.el
 
-#+begin_src emacs-lisp :tangle "packages.el"
-;;; packages.el -*- lexical-binding: t; -*-
-(package! discover :recipe (:host github :repo "mickeynp/discover.el"))
-(package! ob-session-async :recipe (:host github :repo "jackkamm/ob-session-async"))
-(package! meow :recipe (:host github :repo "DogLooksGood/meow"))
-;; (package! berrys-theme)
-#+end_src
-
 - [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
 
 - [[https://github.com/Overdr0ne/sfs][GitHub - Overdr0ne/sfs: Search File System for Emacs]]
-* Config.el
 
-#+begin_src emacs-lisp :tangle "config.el"
-;;; config.el -*- lexical-binding: t; -*-
-(load! "show-parentheses.el")
-(load! "meow.el")
-#+end_src
-- native compile
-#+begin_src emacs-lisp :tangle "config.el"
-;;(setq comp-async-jobs-number 24)
-(when (not (display-graphic-p))
-  (setq doom-theme 'doom-city-lights)
-)
+#+begin_src emacs-lisp :tangle "packages.el"
+;;; packages.el -*- lexical-binding: t; -*-
 #+end_src
 
-#+results:
-: doom-city-lights
-
-** Performance
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq gcmh-high-cons-threshold most-positive-fixnum)
-(setq max-specpdl-size 100000)
+** discover
+#+begin_src emacs-lisp :tangle "packages.el"
+;;; packages.el -*- lexical-binding: t; -*-
+(package! discover :recipe (:host github :repo "mickeynp/discover.el"))
+;; (package! berrys-theme)
 #+end_src
-
-* dolist mode hooks
-:PROPERTIES:
-:ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
-:END:
-
-- [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
-- [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
-#+begin_src emacs-lisp :tangle "config.el"
-(dolist (hook (list
-               'rustic-mode-hook
-               'python-mode-hook
-               'sh-mode-hook
-               'julia-mode-hook
-               'nix-mode-hook
-               'haskell-mode-hook
-               'emacs-lisp-mode-hook
-               ))
-  (add-hook hook 'format-all-mode)
-  (add-hook hook '(lambda ()
-                    (setq grammatical-edit-mode 1)))
-  )
+** meow
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! meow :recipe (:host github :repo "DogLooksGood/meow"))
 #+end_src
-
-* Use Packages
-
 ** helm-tramp
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -574,6 +531,70 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! efar :recipe (:host github :repo "suntsov/efar"))
+#+end_src
+
+** session-async.el
+
+- https://codeberg.org/FelipeLema/session-async.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! session-async :recipe (:host nil
+                                   :repo "https://codeberg.org/FelipeLema/session-async.el.git"
+                                   :files ("*")
+                                   )
+  )
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! session-async)
+#+end_src
+
+* Config.el
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;; config.el -*- lexical-binding: t; -*-
+(load! "show-parentheses.el")
+(load! "meow.el")
+#+end_src
+- doom-theme
+#+begin_src emacs-lisp :tangle "config.el"
+;;(setq comp-async-jobs-number 24)
+(when (not (display-graphic-p))
+  (setq doom-theme 'doom-city-lights)
+)
+#+end_src
+
+#+results:
+: doom-city-lights
+
+** Performance
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq gcmh-high-cons-threshold most-positive-fixnum)
+(setq max-specpdl-size 100000)
+#+end_src
+
+* dolist mode hooks
+:PROPERTIES:
+:ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
+:END:
+
+- [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
+- [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
+#+begin_src emacs-lisp :tangle "config.el"
+(dolist (hook (list
+               'rustic-mode-hook
+               'python-mode-hook
+               'sh-mode-hook
+               'julia-mode-hook
+               'nix-mode-hook
+               'haskell-mode-hook
+               'emacs-lisp-mode-hook
+               ))
+  (add-hook hook 'format-all-mode)
+  (add-hook hook '(lambda ()
+                    (setq grammatical-edit-mode 1)))
+  )
 #+end_src
 
 * Autoload
@@ -1454,7 +1475,7 @@ FACE defaults to inheriting from default and highlight."
 
 ** Laod Default Org Packages
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! ob-session-async)
+
 #+end_src
 
 
