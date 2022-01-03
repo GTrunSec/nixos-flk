@@ -3270,7 +3270,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 (unpin! magit)
 (unpin! nix-mode)
 (unpin! org-journal)
-(unpin! lsp-mode)
+;;(unpin! lsp-mode)
 (unpin! github-review)
 #+end_src
 
