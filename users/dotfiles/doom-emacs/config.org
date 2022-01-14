@@ -549,6 +549,48 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 (use-package! session-async)
 #+end_src
 
+** dirvish
+
+- https://github.com/alexluigit/dirvish
+
+
+
+  #+begin_src emacs-lisp :tangle "packages.el"
+(package! dirvish :recipe (:host github
+                                   :repo "alexluigit/dirvish"
+                                   )
+  )
+#+end_src
+
+
+
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! dirvish
+  :config
+  ;; Override dired with dirvish globally
+  (dirvish-override-dired-mode)
+
+  ;; Load `dirvish-yank' command
+  ;; (require 'dirvish-yank)
+
+  ;; Enable file preview when narrowing files in minibuffer.
+  ;; This feature only support `vertico/selectrum' for now.
+  ;; (require 'dirvish-minibuffer-preview)
+  ;; (dirvish-minibuf-preview-mode)
+  :bind
+  (nil
+   :map dirvish-mode-map
+   ("SPC" . dirvish-show-history)
+   ;; need to require it first, see above
+   ;; ([remap dired-do-copy] . dirvish-yank)
+   ("o" . dirvish-other-buffer)))
+#+end_src
+
+** harpoon :bookmark:
+- https://github.com/otavioschwanck/harpoon.el
+
 * Config.el
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -581,6 +623,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 
 - [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
 - [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
+
 #+begin_src emacs-lisp :tangle "config.el"
 (dolist (hook (list
                'rustic-mode-hook

@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  nix.generateRegistryFromInputs = lib.mkDefault true;
+  #nix.generateRegistryFromInputs = lib.mkDefault true;
 
   nix = {
     package = pkgs.nixUnstable;
 
     localRegistry =
       {
-        enable = true;
+        enable = false;
 
         cacheGlobalRegistry = true;
 
@@ -40,5 +40,5 @@
 
     systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
   };
-  systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;
+  #systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;
 }

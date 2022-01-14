@@ -38,7 +38,6 @@ in
       pciutils # lspci
       psmisc # pkill, killall, pstree, fuser
       lsd
-      nix-index
       # remote
       rxvt_unicode.terminfo
       ncurses.dev # infocmp/tic/etc
@@ -48,6 +47,7 @@ in
       pwgen
       wget
       nix-output-monitor
+      nix-top
       zsh
     ];
   };

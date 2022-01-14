@@ -32,7 +32,7 @@
         inputs.devshell.follows = "devshell";
       };
       devos-ext-lib = {
-        url = "github:divnix/devos-ext-lib";
+        url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
         #url = "/home/gtrun/ghq/github.com/divnix/devos-ext-lib";
         inputs.nixpkgs.follows = "latest";
       };
@@ -57,14 +57,6 @@
         inputs.nixpkgs.follows = "latest";
       };
       beautysh = { url = "github:lovesegfault/beautysh"; };
-      ######################
-      # Python Environment #
-      ######################
-      mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixos"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
-      pypi-deps-db = {
-        url = "github:DavHau/pypi-deps-db";
-        flake = false;
-      };
       #################
       # Custom Flakes #
       #################
