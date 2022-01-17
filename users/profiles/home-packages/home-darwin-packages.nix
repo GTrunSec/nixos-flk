@@ -76,7 +76,7 @@
     vips
   ] ++ [
     # darwin Applications
-    logseq-darwin
+    # logseq-darwin
     polar-darwin
     kitty
   ];

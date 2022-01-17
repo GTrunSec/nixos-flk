@@ -21,7 +21,6 @@
     readOnlyStore = true;
 
     extraOptions = ''
-      experimental-features = nix-command flakes ca-references
       keep-derivations = true
       keep-outputs = true
     '';

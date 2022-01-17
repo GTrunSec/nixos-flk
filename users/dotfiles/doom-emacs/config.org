@@ -2479,16 +2479,16 @@ a separator ' -> '."
 ** [[https://github.com/stardiviner/org-link-beautify][stardiviner/org-link-beautify: Beautify org links with colors and icons.]]
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! org-link-beautify :recipe (:host github
-                             :repo "stardiviner/org-link-beautify"
-                             ))
+;; (package! org-link-beautify :recipe (:host github
+;;                              :repo "stardiviner/org-link-beautify"
+;;                              ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! org-link-beautify
-  :config
-  (add-hook! 'org-mode-hook 'org-link-beautify-mode)
-  )
+;; (use-package! org-link-beautify
+;;   :config
+;;   (add-hook! 'org-mode-hook 'org-link-beautify-mode)
+;;   )
 #+end_src
 
 ** TODO [[https://github.com/marcIhm/org-working-set][marcIhm/org-working-set: Manage a working-set of org-nodes]] :manage:
