@@ -33,6 +33,7 @@
 
     extraOptions = ''
       min-free = 536870912
+      accept-flake-config = true
       keep-outputs = true
       keep-derivations = true
       fallback = true
@@ -40,5 +41,6 @@
 
     systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
   };
+
   #systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;
 }

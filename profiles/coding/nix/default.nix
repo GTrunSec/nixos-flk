@@ -14,5 +14,6 @@
        fi
     '')
     nixpkgs-fmt
+    alejandra
   ];
 }

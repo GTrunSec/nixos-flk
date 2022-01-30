@@ -17,6 +17,7 @@ in
       dosfstools
       fd
       git
+      git-town
       gotop
       gptfdisk
       iputils

@@ -66,6 +66,7 @@
       emacs-ng = { url = "github:emacs-ng/emacs-ng"; };
       nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux"; };
       gomod2nix.follows = "nixpkgs-hardenedlinux/gomod2nix";
+      alejandra = { url = "github:kamadorueda/alejandra"; };
     };
 
   outputs = inputs: with builtins; with inputs;

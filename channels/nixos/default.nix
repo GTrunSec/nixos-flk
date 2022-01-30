@@ -9,6 +9,7 @@ with inputs.nixos;
       emacsNG = emacs-ng.defaultPackage.x86_64-linux;
       beautysh = beautysh.packages.x86_64-linux."beautysh-python3.8";
       nvfetcher-bin = nvfetcher.defaultPackage.x86_64-linux;
+      alejandra = alejandra.defaultPackage."${prev.stdenv.hostPlatform.system}";
     })
     nur.overlay
     tenvideo.overlay

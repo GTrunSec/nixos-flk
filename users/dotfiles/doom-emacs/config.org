@@ -136,7 +136,8 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;(eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       lsp               ; M-x vscode
+       (lsp               ; M-x vscode
+        +eglot)
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -175,7 +176,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
-       (haskell +lsp)    ; a language that's lazier than I am
+       (haskell)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
@@ -2681,28 +2682,28 @@ a separator ' -> '."
 *** Lsp Haskell
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! lsp-haskell
-  :config
-  (add-hook 'haskell-mode-hook #'lsp)
-  (add-hook 'haskell-literate-mode-hook #'lsp)
-)
+;; (use-package! lsp-haskell
+;;   :config
+;;   (add-hook 'haskell-mode-hook #'lsp)
+;;   (add-hook 'haskell-literate-mode-hook #'lsp)
+;; )
 #+end_src
 
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! lsp-mode
-  :config
-  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
-)
-  ;; (lsp-register-client
-  ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-  ;;                   :major-modes '(nix-mode)
-  ;;                   :server-id 'nix))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
-                    :activation-fn (lsp-activate-on "nickel")
-                    :server-id 'nls))
-  )
+;; (use-package! lsp-mode
+;;   :config
+;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
+;; )
+;;   ;; (lsp-register-client
+;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+;;   ;;                   :major-modes '(nix-mode)
+;;   ;;                   :server-id 'nix))
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
+;;                     :activation-fn (lsp-activate-on "nickel")
+;;                     :server-id 'nls))
+;;   )
 #+end_src
 
 #+results:
@@ -3042,6 +3043,9 @@ a separator ' -> '."
   (when (display-graphic-p)
     (vertico-posframe-mode 1)
     )
+  (setq vertico-posframe-parameters
+        '((left-fringe . 8)
+          (right-fringe . 8)))
 )
 #+end_src
 
