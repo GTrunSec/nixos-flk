@@ -1371,9 +1371,10 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! format-all
   :config
-  (add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
+  ;;(add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   (prependq! format-all-default-formatters '(("Haskell" ormolu)
-                                             ("Shell" beautysh)))
+                                             ("Shell" beautysh)
+                                             ))
   )
 #+end_src
 
