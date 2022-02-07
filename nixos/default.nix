@@ -1,10 +1,9 @@
 { self, inputs, ... }:
 with inputs;
-with inputs.nixos;
 {
   hostDefaults = {
     system = "x86_64-linux";
-    channelName = "nixos";
+    channelName = "nixpkgs";
     imports = [
       (digga.lib.importExportableModules ./modules)
     ];
@@ -39,5 +38,5 @@ with inputs.nixos;
       ];
     };
   };
-  importables = import ./suites { inherit self inputs; };
+  importables = import ./suites.nix { inherit self inputs; };
 }

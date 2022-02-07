@@ -1,8 +1,5 @@
 { self, inputs, ... }:
-with inputs;
-with inputs.nixos;
 {
-  nixos = import ./nixos { inherit self inputs; };
-  stable = { };
+  nixpkgs = import ./nixpkgs.nix { inherit self inputs; };
   latest = { };
 }

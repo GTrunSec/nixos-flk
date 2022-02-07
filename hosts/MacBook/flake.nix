@@ -44,8 +44,8 @@
           emacs.overlay
 
 
-          (import ../../overlays/nixos/my-node-packages.nix)
-          (import ../../overlays/nixos/apps.nix)
+          (import ../../overlays/nixpkgs/my-node-packages.nix)
+          (import ../../overlays/nixpkgs/apps.nix)
 
 
           (final: prev: {

@@ -1,18 +1,17 @@
 { self, inputs, ... }:
 with inputs;
-with inputs.nixos;
 
 rec {
-  profiles = digga.lib.rakeLeaves ../../profiles // {
-    users = digga.lib.rakeLeaves ../../users;
-    virtualisation = digga.lib.rakeLeaves ../../profiles/virtualisation;
-    registry = digga.lib.rakeLeaves ../../profiles/registry;
-    application = digga.lib.rakeLeaves ../../profiles/application;
-    data = digga.lib.rakeLeaves ../../profiles/data;
-    coding = digga.lib.rakeLeaves ../../profiles/coding;
-    networking = digga.lib.rakeLeaves ../../profiles/networking;
-    searching = digga.lib.rakeLeaves ../../profiles/searching;
-    graphical = digga.lib.rakeLeaves ../../profiles/graphical;
+  profiles = digga.lib.rakeLeaves ../profiles // {
+    users = digga.lib.rakeLeaves ../users;
+    virtualisation = digga.lib.rakeLeaves ../profiles/virtualisation;
+    registry = digga.lib.rakeLeaves ../profiles/registry;
+    application = digga.lib.rakeLeaves ../profiles/application;
+    data = digga.lib.rakeLeaves ../profiles/data;
+    coding = digga.lib.rakeLeaves ../profiles/coding;
+    networking = digga.lib.rakeLeaves ../profiles/networking;
+    searching = digga.lib.rakeLeaves ../profiles/searching;
+    graphical = digga.lib.rakeLeaves ../profiles/graphical;
   };
   suites = with profiles; rec {
     base = [ core users.gtrun users.root ];
