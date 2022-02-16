@@ -1,4 +1,6 @@
-{ pkgs }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; });
+{ pkgs }:
+with pkgs;
+with (import ./build-appimage.nix { inherit pkgs; });
 buildAppImage {
   inherit (sources.chord) pname version src;
   icon = fetchurl {

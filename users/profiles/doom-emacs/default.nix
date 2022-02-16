@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   updatefont = ''fc-cache -f -v'';
   onChange = ''
@@ -45,14 +50,17 @@ in
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = (pkgs.emacsNG.override ({ })).overrideAttrs (old: rec {
-    configureFlags = (old.configureFlags or [ ]) ++ [ ];
-  });
+  programs.emacs.package = (pkgs.emacsNG.override ({ })).overrideAttrs (
+    old: rec {
+      configureFlags = (old.configureFlags or [ ]) ++ [ ];
+    }
+  );
 
-  programs.emacs.extraPackages = epkgs: with epkgs;[
-    vterm
-    grab-x-link
-  ];
+  programs.emacs.extraPackages = epkgs:
+    with epkgs; [
+      vterm
+      grab-x-link
+    ];
 
   # services.emacs.enable = true;
   services.emacs.client.enable = true;

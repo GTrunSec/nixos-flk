@@ -1,14 +1,19 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     rofi
-    (polybar.override {
-      i3Support = true;
-      githubSupport = true;
-      pulseSupport = true;
-      mpdSupport = true;
-      alsaSupport = true;
-    })
+    (
+      polybar.override {
+        i3Support = true;
+        githubSupport = true;
+        pulseSupport = true;
+        mpdSupport = true;
+        alsaSupport = true;
+      }
+    )
   ];
 
   services.xserver = {

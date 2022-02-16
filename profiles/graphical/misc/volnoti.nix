@@ -1,5 +1,9 @@
-{ pkgs, ... }:
-let inherit (pkgs) alsaUtils bash gnugrep volnoti;
+{
+  pkgs,
+  ...
+}:
+let
+  inherit (pkgs) alsaUtils bash gnugrep volnoti;
 in
 pkgs.writeScript "volnoti.sh" ''
   #!${bash}/bin/bash

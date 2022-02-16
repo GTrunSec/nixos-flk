@@ -1,5 +1,8 @@
-{ pkgs, ... }: {
-
+{
+  pkgs,
+  ...
+}:
+{
   networking.firewall = {
     allowedTCPPorts = [ 9004 ];
     allowedUDPPorts = [ 9004 ];

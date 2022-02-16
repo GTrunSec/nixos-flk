@@ -1,5 +1,12 @@
-{ self, config, lib, pkgs, ... }:
-let inherit (lib) fileContents;
+{
+  self,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  inherit (lib) fileContents;
 in
 {
   imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ./shell.nix ];
@@ -7,7 +14,6 @@ in
   boot.kernelPackages = pkgs.linuxPackages_5_15;
 
   environment = {
-
     systemPackages = with pkgs; [
       binutils
       coreutils
@@ -36,12 +42,15 @@ in
       zstd
       unzip
       zip
-      pciutils # lspci
-      psmisc # pkill, killall, pstree, fuser
+      pciutils
+      # lspci
+      psmisc
+      # pkill, killall, pstree, fuser
       lsd
       # remote
       rxvt_unicode.terminfo
-      ncurses.dev # infocmp/tic/etc
+      ncurses.dev
+      # infocmp/tic/etc
       # Linux/OSX/FreeBSD resource monitor
       bpytop
       # password

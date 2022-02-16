@@ -1,14 +1,14 @@
-{ sources
-, stdenv
-, lib
-, fetchgit
-, xapian
-, emacs
-, tclap
-, pkg-config
+{
+  sources,
+  stdenv,
+  lib,
+  fetchgit,
+  xapian,
+  emacs,
+  tclap,
+  pkg-config,
 }:
 stdenv.mkDerivation rec {
-
   inherit (sources.notdeft) pname src version;
 
   nativeBuildInputs = [ xapian emacs tclap pkg-config ];

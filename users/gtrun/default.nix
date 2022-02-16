@@ -1,4 +1,8 @@
-{ hmUsers, config, ... }:
+{
+  hmUsers,
+  config,
+  ...
+}:
 let
   user = builtins.baseNameOf ./.;
 in
@@ -27,7 +31,8 @@ in
       "libvirtd"
       "video"
       "docker"
-    ]; # Enable ‘sudo’ for the user.
+    ];
+    # Enable ‘sudo’ for the user.
     shell = "/run/current-system/sw/bin/zsh";
     uid = 1000;
     openssh.authorizedKeys.keys = [

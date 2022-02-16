@@ -1,8 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (import ../bin-scripts/clean-nix-store.nix {
-    home-manager = pkgs.home-manager;
-  });
+  clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (
+    import ../bin-scripts/clean-nix-store.nix {
+      home-manager = pkgs.home-manager;
+    }
+  );
 
   et = pkgs.writeScriptBin "et" (builtins.readFile ../bin-scripts/et.sh);
 
@@ -22,60 +29,75 @@ let
   '';
 
   clj2nix = pkgs.callPackage
-    (pkgs.fetchFromGitHub {
+  (
+    pkgs.fetchFromGitHub {
       owner = "hlolli";
       repo = "clj2nix";
       rev = "89d1cda232175b588c7774e638c9ebfaaedea0e3";
       sha256 = "sha256-IOJOxcox3/ArMpRU4oZd2PgIX6OiW+TTr4z6JvyIXPY=";
-    })
-    { };
+    }
+  )
+  { };
 in
 {
-  config = with lib; mkMerge [
-    ##public pkgs
-    (mkIf (pkgs.stdenv.isLinux || pkgs.stdenv.isDarwin) {
-      home.packages = with pkgs;[
-        clean-nix-store
-        ls-colors
-        et
-      ] ++ [
-        nodePackages.node2nix
-        yarn2nix
-      ] ++ [
-        #misc
-        poetry
-        fdupes
-        asciinema
-        bat
-        nixpkgs-review
-        notdeft
-        poppler_utils
-        dnsperf
-        pet
-        php
-      ] ++ [
-        (hunspellWithDicts [
-          hunspellDicts.en-us
-        ])
-        aspell
-        aspellDicts.en
-        aspellDicts.en-computers
-        aspellDicts.en-science
-        opencc
-      ];
-    })
+  config =
+    with lib;
+    mkMerge [
+      ##public pkgs
+      (
+        mkIf (pkgs.stdenv.isLinux || pkgs.stdenv.isDarwin) {
+          home.packages =
+            with pkgs;
+            [
+              clean-nix-store
+              ls-colors
+              et
+            ]
+            ++ [
+              nodePackages.node2nix
+              yarn2nix
+            ]
+            ++ [
+              #misc
+              poetry
+              fdupes
+              asciinema
+              bat
+              nixpkgs-review
+              notdeft
+              poppler_utils
+              dnsperf
+              pet
+              php
+            ]
+            ++ [
+              (
+                hunspellWithDicts [
+                  hunspellDicts.en-us
+                ]
+              )
+              aspell
+              aspellDicts.en
+              aspellDicts.en-computers
+              aspellDicts.en-science
+              opencc
+            ];
+        }
+      )
 
-    (mkIf pkgs.stdenv.isLinux {
-      home.packages = with pkgs;[
-        dive
-        clojure
-        lsyncd
-        compton
-        lsyncd-rsync
-        #clj2nix
-        ffmpegthumbnailer
-        python-language-server
-      ];
-    })
-  ];
+      (
+        mkIf pkgs.stdenv.isLinux {
+          home.packages = with pkgs; [
+            dive
+            clojure
+            lsyncd
+            compton
+            lsyncd-rsync
+            #clj2nix
+            ffmpegthumbnailer
+            python-language-server
+          ];
+        }
+      )
+    ];
 }

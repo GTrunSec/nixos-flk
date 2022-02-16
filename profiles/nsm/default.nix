@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-
+{
+  pkgs,
+  ...
+}:
 {
   imports = [ ];
 
@@ -16,5 +18,6 @@
     enable = true;
   };
 
-  programs.dconf.enable = true; #for brim to dfconf service
+  programs.dconf.enable = true;
+  #for brim to dfconf service
 }

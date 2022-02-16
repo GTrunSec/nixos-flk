@@ -923,7 +923,7 @@ appropriate.  In tables, insert a new row or end the table."
   (setq auto-save-silent t)   ; quietly save
   ;; after foraml-buffer
   (setq auto-save-idle 5)
-  (setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
+  (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
 ;;; custom predicates if you don't want auto save.
 ;;; disable auto save mode when current filetype is an gpg file.
   (setq auto-save-disable-predicates
@@ -3315,31 +3315,6 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 ** TODO [[https://github.com/rnkn/binder][rnkn/binder: Emacs global minor mode facilitating multi-file writing projects]]
 
-* Unload Packages & Unpin Packages
-
-** Disbale Packages
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(disable-packages! company-go)
-(disable-packages! lsp-python-ms)
-#+end_src
-
-** Unpin Packages
-#+begin_src emacs-lisp :tangle "packages.el"
-(unpin! magit)
-(unpin! nix-mode)
-(unpin! org-journal)
-;;(unpin! lsp-mode)
-(unpin! github-review)
-#+end_src
-
-** Pinned Packages
-
-#+begin_src emacs-lisp :tangle "packages.el"
-;;https://github.com/hlissner/doom-emacs/issues/5637
-;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
-#+end_src
-
 * Misc
 
 ** Emacs Music
@@ -3399,6 +3374,31 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! cnfonts)
+#+end_src
+
+* Unload Packages & Unpin Packages
+
+** Disbale Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(disable-packages! company-go)
+(disable-packages! lsp-python-ms)
+#+end_src
+
+** Unpin Packages
+#+begin_src emacs-lisp :tangle "packages.el"
+(unpin! magit)
+(unpin! nix-mode)
+(unpin! org-journal)
+;;(unpin! lsp-mode)
+(unpin! github-review)
+#+end_src
+
+** Pinned Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;https://github.com/hlissner/doom-emacs/issues/5637
+;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
 #+end_src
 
 * Linux & MacOS

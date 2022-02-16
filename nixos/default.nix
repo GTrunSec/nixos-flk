@@ -1,6 +1,9 @@
-{ self, inputs, ... }:
-with inputs;
 {
+  self,
+  inputs,
+  ...
+}:
+with inputs; {
   hostDefaults = {
     system = "x86_64-linux";
     channelName = "nixpkgs";
@@ -21,7 +24,9 @@ with inputs;
   imports = [ (digga.lib.importHosts ../hosts) ];
 
   hosts = {
-    /* set host specific properties here */
+    /*
+     set host specific properties here
+     */
     NixOS = {
       modules = [
         # { disabledModules = [ "services/misc/geoip-updater.nix" ]; }

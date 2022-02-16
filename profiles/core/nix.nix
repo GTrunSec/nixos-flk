@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   #nix.generateRegistryFromInputs = lib.mkDefault true;
 

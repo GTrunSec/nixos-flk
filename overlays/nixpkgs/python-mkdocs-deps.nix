@@ -1,5 +1,4 @@
-final: prev:
-{
+final: prev: {
   # python-packages-mkdocs = prev.machlib.mkPython rec {
   #   ignoreDataOutdated = true;
   #   requirements = ''

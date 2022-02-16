@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
@@ -19,11 +23,11 @@
             gtk-cursor-theme-size ="128"
           '';
         in
-        [
-          ("${pkgs.writeText "iconrc" "${gtk}"}")
-          "${pkgs.adapta-gtk-theme}/share/themes/Adapta/gtk-2.0/gtkrc"
-          "${pkgs.gnome3.gnome-themes-extra}/share/themes/Adwaita/gtk-2.0/gtkrc"
-        ];
+          [
+            ("${pkgs.writeText "iconrc" "${gtk}"}")
+            "${pkgs.adapta-gtk-theme}/share/themes/Adapta/gtk-2.0/gtkrc"
+            "${pkgs.gnome3.gnome-themes-extra}/share/themes/Adwaita/gtk-2.0/gtkrc"
+          ];
     };
 
     systemPackages = with pkgs; [

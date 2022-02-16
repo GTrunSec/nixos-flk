@@ -1,13 +1,24 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     # graph
     ditaa
     graphviz
-    (texmacs.override { chineseFonts = true; extraFonts = true; })
-    (texlive.combine # latex + packages
+    (
+      texmacs.override {
+        chineseFonts = true;
+        extraFonts = true;
+      }
+    )
+    (
+      texlive.combine
+      # latex + packages
       {
-        inherit (texlive)
+        inherit
+          (texlive)
           collection-plaingeneric
           collection-latexextra
           collection-fontsrecommended
@@ -21,7 +32,9 @@
           ctex
           xecjk
           dvipng
-          fontspec euenc;
+          fontspec
+          euenc
+          ;
       }
     )
   ];

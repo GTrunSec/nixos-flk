@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   updatefont = ''fc-cache -f -v'';
   onChange = ''
@@ -9,7 +13,6 @@ let
     $HOME/.emacs.d/bin/doom sync
   '';
 in
-
 {
   home.file.".doom.d/config.org" = {
     source = ../../dotfiles/doom-emacs/config.org;
@@ -25,7 +28,6 @@ in
     enable = true;
     package = pkgs.emacs;
   };
-
 
   home.activation.linkEmacsPrivate = config.lib.dag.entryAfter [ "writeBoundary" ] ''
      if [ ! -d "$HOME/.emacs.d" ];then

@@ -1,9 +1,15 @@
-{ suites, pkgs, ... }:
+{
+  suites,
+  pkgs,
+  ...
+}:
 {
   ### root password is empty by default ###
-  imports = suites.nixos ++ [
-    ./NixOS-hardware-configuration.nix
-  ];
+  imports =
+    suites.nixos
+    ++ [
+      ./NixOS-hardware-configuration.nix
+    ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

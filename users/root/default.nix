@@ -1,4 +1,7 @@
-{ config, ... }:
+{
+  config,
+  ...
+}:
 # recommend using `hashedPassword`
 let
   user = builtins.baseNameOf ./.;

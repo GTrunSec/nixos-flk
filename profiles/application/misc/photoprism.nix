@@ -1,5 +1,7 @@
-{ config, ... }:
-
+{
+  config,
+  ...
+}:
 {
   networking.firewall = {
     allowedTCPPorts = [ 2344 ];

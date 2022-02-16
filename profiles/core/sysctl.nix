@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot.kernel.sysctl = {
     "fs.inotify.max_queued_events" = 1048576;
@@ -11,5 +15,4 @@
     "net.ipv6.neigh.default.gc_thresh3" = 8192;
     "kernel.keys.maxkeys" = 2000;
   };
-
 }

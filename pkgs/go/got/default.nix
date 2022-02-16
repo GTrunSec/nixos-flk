@@ -1,5 +1,11 @@
-{ stdenv, buildGoPackage, fetchgit, fetchhg, fetchbzr, fetchsvn }:
-
+{
+  stdenv,
+  buildGoPackage,
+  fetchgit,
+  fetchhg,
+  fetchbzr,
+  fetchsvn,
+}:
 buildGoPackage rec {
   name = "got-${version}";
   version = "master";

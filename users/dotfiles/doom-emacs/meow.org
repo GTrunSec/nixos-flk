@@ -119,7 +119,6 @@
  '("F" . consult-find)
  '("da" . consult-ripgrep)
  '("dd" . meow-M-x)
- '("w" . ace-window)
  '("ti" . insert-current-date-time-inactive)
  '("ta" . insert-current-date-time-active)
  '("tc" . insert-current-date-time)
@@ -155,8 +154,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 #+end_src
 
-#+RESULTS:
-: magit-status
 * Meeow Mode State List
 
 #+begin_src emacs-lisp :tangle "meow.el"

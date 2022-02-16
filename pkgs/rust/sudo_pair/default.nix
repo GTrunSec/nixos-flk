@@ -1,8 +1,8 @@
-{ lib
-, fetchurl
-, rustPlatform
+{
+  lib,
+  fetchurl,
+  rustPlatform,
 }:
-
 rustPlatform.buildRustPackage rec {
   pname = "sudo-pair";
   version = "master";

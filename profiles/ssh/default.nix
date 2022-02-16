@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   services.openssh = {
     enable = true;
     challengeResponseAuthentication = false;

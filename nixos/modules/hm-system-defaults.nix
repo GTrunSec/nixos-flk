@@ -1,4 +1,8 @@
-{ config, ... }: {
+{
+  config,
+  ...
+}:
+{
   home-manager.sharedModules = [
     {
       home.sessionVariables = {

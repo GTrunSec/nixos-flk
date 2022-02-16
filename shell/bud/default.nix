@@ -1,4 +1,10 @@
-{ pkgs, lib, budUtils, ... }: {
+{
+  pkgs,
+  lib,
+  budUtils,
+  ...
+}:
+{
   bud.cmds = with pkgs; {
     vscode-ext-prefetch = {
       writer = budUtils.writeBashWithPaths [ curl jq ];

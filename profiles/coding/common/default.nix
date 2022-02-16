@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   imports = [ ];
   environment.systemPackages = with pkgs; [
@@ -10,5 +13,6 @@
     clang
     gcc
     julia_16-bin
+    shfmt
   ];
 }

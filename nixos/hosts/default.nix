@@ -1,7 +1,10 @@
-{ self, inputs, ... }:
-with inputs;
-with inputs.nixos;
 {
+  self,
+  inputs,
+  ...
+}:
+with inputs;
+with inputs.nixos; {
   "MacBook" = {
     # This host will be exported under the flake's `darwinConfigurations` output
     output = "darwinConfigurations";

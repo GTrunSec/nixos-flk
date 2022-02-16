@@ -1,7 +1,8 @@
-{ lib
-, python3Packages
-, fetchurl
-, sources
+{
+  lib,
+  python3Packages,
+  fetchurl,
+  sources,
 }:
 with python3Packages;
 python3Packages.buildPythonPackage rec {
@@ -19,5 +20,4 @@ python3Packages.buildPythonPackage rec {
     license = licenses.asl20;
     maintainers = with maintainers; [ gtrunsec ];
   };
-
 }

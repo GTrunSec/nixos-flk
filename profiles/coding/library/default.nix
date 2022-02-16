@@ -1,4 +1,8 @@
-{ pkgs, python3, ... }:
+{
+  pkgs,
+  python3,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     # emacs python

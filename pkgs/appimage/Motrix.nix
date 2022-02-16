@@ -1,4 +1,10 @@
-{ pkgs, sources, ... }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; });
+{
+  pkgs,
+  sources,
+  ...
+}:
+with pkgs;
+with (import ./build-appimage.nix { inherit pkgs; });
 buildAppImage {
   inherit (sources.motrix) pname src version;
   icon = fetchurl {

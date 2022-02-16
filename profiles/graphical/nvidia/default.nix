@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   services.xserver = {
     videoDrivers = [ "nvidia" "intel" ];
@@ -22,5 +26,4 @@
   };
 
   boot.blacklistedKernelModules = [ "nouveau" ];
-
 }

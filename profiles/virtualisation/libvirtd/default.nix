@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}:
+{
   virtualisation.libvirtd = {
     enable = true;
     allowedBridges = [ "all" ];
