@@ -12,7 +12,7 @@
     cue
     clang
     gcc
-    julia_16-bin
+    julia_17-bin
     shfmt
   ];
 }

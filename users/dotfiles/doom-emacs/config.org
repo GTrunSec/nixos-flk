@@ -2791,12 +2791,26 @@ a separator ' -> '."
 ;;   ;;(add-hook 'julia-mode-hook #'lsp)
 ;;   (setq lsp-julia-package-dir nil)
 ;;   (setq lsp-enable-folding t)
-;;   (setq lsp-julia-default-environment "~/.julia/environments/v1.6")
+;;   (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
 ;; )
 #+end_src
 
 #+RESULTS:
 : t
+
+
+*** eglot-julia
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! eglot-jl
+  :config
+  (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
+)
+#+end_src
+
+#+RESULTS:
+: t
+
+
 
 *** [[https://github.com/gcv/julia-snail][gcv/julia-snail: An Emacs development environment for Julia]]
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"

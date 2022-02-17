@@ -19,6 +19,7 @@ channels: final: prev: {
     tmux
     i3-gaps
     onlyoffice-bin
+    julia_17-bin
     texmacs
     nix-direnv
     direnv
