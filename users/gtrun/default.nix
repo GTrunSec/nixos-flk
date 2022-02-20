@@ -2,16 +2,14 @@
   hmUsers,
   config,
   ...
-}:
-let
+}: let
   user = builtins.baseNameOf ./.;
-in
-{
-  home-manager.users = { inherit (hmUsers) gtrun; };
+in {
+  home-manager.users = {inherit (hmUsers) gtrun;};
 
   networking.firewall = {
-    allowedTCPPorts = [ 8888 8889 ];
-    allowedUDPPorts = [ 8888 8889 ];
+    allowedTCPPorts = [8888 8889];
+    allowedUDPPorts = [8888 8889];
   };
 
   sops.secrets."users/${user}".neededForUsers = true;

@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.postgresql = {
     enable = true;
     enableTCPIP = true;

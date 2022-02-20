@@ -1,5 +1,4 @@
-{ }:
-''
+{}: ''
   killall -q lsyncd &
   PID=$!
   wait $PID

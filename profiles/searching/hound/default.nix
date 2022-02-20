@@ -3,14 +3,12 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   config = builtins.readFile ./config-hound.json;
-in
-{
+in {
   networking.firewall = {
-    allowedTCPPorts = [ 9003 ];
-    allowedUDPPorts = [ 9003 ];
+    allowedTCPPorts = [9003];
+    allowedUDPPorts = [9003];
   };
 
   services.hound = {

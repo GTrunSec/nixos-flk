@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     go
     #overlay
@@ -30,5 +26,5 @@
     hugo
     go-bindata
   ];
-  environment.variables = { GOROOT = [ "${pkgs.go.out}/share/go" ]; };
+  environment.variables = {GOROOT = ["${pkgs.go.out}/share/go"];};
 }

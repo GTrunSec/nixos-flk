@@ -2,8 +2,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
 
@@ -15,19 +14,17 @@
       # GDK_SCALE = "2";
       # GDK_DPI_SCALE = "0.5";
 
-      GTK2_RC_FILES =
-        let
-          gtk = ''
-            gtk-icon-theme-name="Papirus"
-            gtk-cursor-theme-name="Adwaita"
-            gtk-cursor-theme-size ="128"
-          '';
-        in
-          [
-            ("${pkgs.writeText "iconrc" "${gtk}"}")
-            "${pkgs.adapta-gtk-theme}/share/themes/Adapta/gtk-2.0/gtkrc"
-            "${pkgs.gnome3.gnome-themes-extra}/share/themes/Adwaita/gtk-2.0/gtkrc"
-          ];
+      GTK2_RC_FILES = let
+        gtk = ''
+          gtk-icon-theme-name="Papirus"
+          gtk-cursor-theme-name="Adwaita"
+          gtk-cursor-theme-size ="128"
+        '';
+      in [
+        ("${pkgs.writeText "iconrc" "${gtk}"}")
+        "${pkgs.adapta-gtk-theme}/share/themes/Adapta/gtk-2.0/gtkrc"
+        "${pkgs.gnome3.gnome-themes-extra}/share/themes/Adwaita/gtk-2.0/gtkrc"
+      ];
     };
 
     systemPackages = with pkgs; [

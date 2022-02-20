@@ -3,7 +3,7 @@ final: prev: {
     o: rec {
       inherit (prev.sources.polar-bookshelf) pname version src;
       buildInputs =
-        (o.buildInputs or [ ])
+        (o.buildInputs or [])
         ++ (
           with prev; [
             libdrm

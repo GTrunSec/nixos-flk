@@ -1,11 +1,7 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   networking.firewall = {
-    allowedTCPPorts = [ 2344 ];
-    allowedUDPPorts = [ 2344 ];
+    allowedTCPPorts = [2344];
+    allowedUDPPorts = [2344];
   };
 
   services.photoprism = {

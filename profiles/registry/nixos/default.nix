@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   nix = {
     registry = {
       nixpkgs-hardenedlinux = lib.mkForce {

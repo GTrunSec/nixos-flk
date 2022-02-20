@@ -6,9 +6,8 @@
   nix-gitignore,
   stdenv,
   lib,
-  globalBuildInputs ? [ ],
-}:
-let
+  globalBuildInputs ? [],
+}: let
   sources = {
     "@babel/code-frame-7.14.5" = {
       name = "_at_babel_slash_code-frame";
@@ -6023,8 +6022,7 @@ let
       };
     };
   };
-in
-{
+in {
   typescript-language-server = nodeEnv.buildNodePackage {
     name = "typescript-language-server";
     packageName = "typescript-language-server";

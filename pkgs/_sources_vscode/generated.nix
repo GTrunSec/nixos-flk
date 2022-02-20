@@ -3,8 +3,7 @@
   fetchgit,
   fetchurl,
   fetchFromGitHub,
-}:
-{
+}: {
   vscode-extensions-indent-rainbow = {
     pname = "vscode-extensions-indent-rainbow";
     version = "8.2.2";

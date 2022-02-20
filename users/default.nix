@@ -7,8 +7,8 @@ with inputs; {
   #################################
   # home-manager Users's Profiles #
   #################################
-  imports = [ (digga.lib.importExportableModules ./modules) ];
-  modules = [ ];
+  imports = [(digga.lib.importExportableModules ./modules)];
+  modules = [];
   importables = rec {
     profiles = digga.lib.rakeLeaves ./profiles;
     suites = with profiles; rec {
@@ -29,19 +29,14 @@ with inputs; {
           gpg
         ]
         ++ services;
-      services = [ lorri ];
+      services = [lorri];
     };
   };
   users = {
     # digga.lib.importers.rakeLeaves ./users/hm;
-    gtrun =
-      {
-        suites,
-        ...
-      }:
-      {
-        imports = suites.base;
-        home.enableNixpkgsReleaseCheck = false;
-      };
+    gtrun = {suites, ...}: {
+      imports = suites.base;
+      home.enableNixpkgsReleaseCheck = false;
+    };
   };
 }

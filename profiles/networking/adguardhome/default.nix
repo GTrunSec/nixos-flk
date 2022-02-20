@@ -3,11 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   networking.firewall = {
-    allowedTCPPorts = [ 9002 ];
-    allowedUDPPorts = [ 9002 ];
+    allowedTCPPorts = [9002];
+    allowedUDPPorts = [9002];
   };
 
   services.adguardhome = {

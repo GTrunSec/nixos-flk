@@ -3,12 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   DirNames = builtins.attrNames (builtins.readDir ./hosts);
   machine =
     (
-      { }
+      {}
       // (
         builtins.listToAttrs
         (
@@ -24,8 +23,7 @@ let
       )
     )
     ."${config.networking.hostName}";
-in
-{
+in {
   options = with lib; {
     machine = mkOption {
       default = machine;

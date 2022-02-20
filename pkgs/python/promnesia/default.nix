@@ -16,15 +16,15 @@ with python3.pkgs; let
       sha256 = "18z6hqfnfjqnrcgfgl5pkj9ggf9yx0yyy94azcn1qf7hqn6g3l14";
     };
     doCheck = false;
-    nativeBuildInputs = with python3Packages; [ ];
-    propagatedBuildInputs = with python3Packages; [ ];
+    nativeBuildInputs = with python3Packages; [];
+    propagatedBuildInputs = with python3Packages; [];
   };
 
   hug = python3Packages.buildPythonPackage rec {
     inherit (sources.hug) pname version src;
     doCheck = false;
-    nativeBuildInputs = with python3Packages; [ pytestrunner ];
-    propagatedBuildInputs = with python3Packages; [ falcon requests ];
+    nativeBuildInputs = with python3Packages; [pytestrunner];
+    propagatedBuildInputs = with python3Packages; [falcon requests];
     postPatch = ''
       substituteInPlace setup.py \
           --replace "falcon==2.0.0" "falcon"
@@ -66,7 +66,7 @@ in
   python3Packages.buildPythonPackage rec {
     inherit (sources.promnesia) pname version src;
 
-    makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
+    makeWrapperArgs = ["--prefix PYTHONPATH : $PYTHONPATH"];
 
     SETUPTOOLS_SCM_PRETEND_VERSION = version;
 

@@ -2,9 +2,8 @@
   self,
   inputs,
   ...
-}:
-{
-  imports = [ (inputs.digga.lib.importOverlays ../overlays/nixpkgs) ];
+}: {
+  imports = [(inputs.digga.lib.importOverlays ../overlays/nixpkgs)];
   overlays = [
     ../pkgs/default.nix
     (

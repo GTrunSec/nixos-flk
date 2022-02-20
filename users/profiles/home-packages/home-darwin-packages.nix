@@ -3,10 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-{
-  home.packages =
-    with pkgs;
+}: {
+  home.packages = with pkgs;
     [
       #customVscode
       #nixFlakes

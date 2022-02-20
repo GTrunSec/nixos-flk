@@ -1,5 +1,4 @@
-{ home-manager }:
-''
+{home-manager}: ''
   nix-env --delete-generations 3d
   ${home-manager} expire-generations 3d
   sudo nix-env -p /nix/var/nix/profiles/system --delete-generations 3d

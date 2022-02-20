@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-let
+{pkgs, ...}: let
   my-python-packages = (
     pkgs.python3.withPackages (
       ps:
@@ -34,9 +30,8 @@ let
         ]
     )
   )
-  .override (args: { ignoreCollisions = true; });
-in
-{
+  .override (args: {ignoreCollisions = true;});
+in {
   environment.systemPackages = with pkgs; [
     my-python-packages
     nodePackages.pyright

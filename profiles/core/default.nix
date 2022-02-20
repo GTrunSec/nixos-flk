@@ -4,12 +4,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) fileContents;
-in
-{
-  imports = [ ../cachix ./base.nix ./nix.nix ./sysctl.nix ./shell.nix ];
+in {
+  imports = [../cachix ./base.nix ./nix.nix ./sysctl.nix ./shell.nix];
 
   boot.kernelPackages = pkgs.linuxPackages_5_15;
 

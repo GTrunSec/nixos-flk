@@ -3,8 +3,7 @@
   fetchgit,
   fetchurl,
   fetchFromGitHub,
-}:
-{
+}: {
   HPI = {
     pname = "HPI";
     version = "0.3.20211031";

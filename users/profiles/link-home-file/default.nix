@@ -3,10 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-{
-  config =
-    with lib;
+}: {
+  config = with lib;
     mkMerge [
       (
         mkIf pkgs.stdenv.isLinux {
@@ -40,6 +38,6 @@
         }
       )
 
-      ({ })
+      ({})
     ];
 }

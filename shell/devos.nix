@@ -2,20 +2,18 @@
   pkgs,
   extraModulesPath,
   ...
-}:
-let
+}: let
   hooks = import ./hooks;
 
-  pkgWithCategory = category: package: { inherit package category; };
+  pkgWithCategory = category: package: {inherit package category;};
   linter = pkgWithCategory "linter";
   docs = pkgWithCategory "docs";
   devos = pkgWithCategory "devos";
-in
-{
+in {
   _file = toString ./.;
 
-  imports = [ "${extraModulesPath}/git/hooks.nix" ];
-  git = { inherit hooks; };
+  imports = ["${extraModulesPath}/git/hooks.nix"];
+  git = {inherit hooks;};
 
   # tempfix: remove when merged https://github.com/numtide/devshell/pull/123
   devshell.startup.load_profiles = pkgs.lib.mkForce (
@@ -38,8 +36,7 @@ in
     nixopsUnstable
   ];
 
-  commands =
-    with pkgs;
+  commands = with pkgs;
     [
       (devos nixUnstable)
       # {

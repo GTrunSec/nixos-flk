@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   nix.binaryCaches = [
     "https://cachix.org/api/v1/cache/emacs"
   ];

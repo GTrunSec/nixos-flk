@@ -11,9 +11,9 @@
 stdenv.mkDerivation rec {
   inherit (sources.notdeft) pname src version;
 
-  nativeBuildInputs = [ xapian emacs tclap pkg-config ];
+  nativeBuildInputs = [xapian emacs tclap pkg-config];
 
-  phases = [ "installPhase" ];
+  phases = ["installPhase"];
 
   installPhase = ''
     mkdir -p $out/bin

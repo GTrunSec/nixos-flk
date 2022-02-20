@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   updatefont = ''fc-cache -f -v'';
   onChange = ''
     export PATH=${config.programs.emacs.finalPackage}/bin/:$PATH
@@ -12,9 +11,8 @@ let
     emacs -Q -batch -l 'lisp/compile.el'
     $HOME/.emacs.d/bin/doom sync
   '';
-in
-{
-  home.activation.linkEmacsPrivate = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+in {
+  home.activation.linkEmacsPrivate = config.lib.dag.entryAfter ["writeBoundary"] ''
      if [ ! -d "$HOME/.emacs.d" ];then
         ${pkgs.git}/bin/git clone https://github.com/GTrunSec/doom-emacs.git -b my-doom ~/.emacs.d
      fi
@@ -50,9 +48,9 @@ in
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = (pkgs.emacsNG.override ({ })).overrideAttrs (
+  programs.emacs.package = (pkgs.emacsNG.override ({})).overrideAttrs (
     old: rec {
-      configureFlags = (old.configureFlags or [ ]) ++ [ ];
+      configureFlags = (old.configureFlags or []) ++ [];
     }
   );
 

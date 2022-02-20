@@ -4,9 +4,8 @@
   pkgs,
   inputs,
   ...
-}:
-{
-  imports = [ ./binaryCaches.nix ];
+}: {
+  imports = [./binaryCaches.nix];
 
   users.nix.configureBuildUsers = true;
 

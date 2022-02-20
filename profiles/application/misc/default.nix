@@ -1,9 +1,5 @@
-{
-  pkgs,
-  ...
-}:
-{
-  imports = [ ./mpd.nix ./photoprism.nix ./image.nix ];
+{pkgs, ...}: {
+  imports = [./mpd.nix ./photoprism.nix ./image.nix];
 
   environment.systemPackages = with pkgs; [
     goldendict

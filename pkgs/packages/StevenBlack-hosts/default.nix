@@ -4,8 +4,9 @@
   sources,
   ...
 }:
-with pkgs; with lib; let
-  whitelist = concatStringsSep "|" [ ".*pirate(bay|proxy).*" ];
+with pkgs;
+with lib; let
+  whitelist = concatStringsSep "|" [".*pirate(bay|proxy).*"];
 
   blacklist = concatStringsSep ''
     0.0.0.0 ''
@@ -19,7 +20,7 @@ in
   {
     inherit (sources.StevenBlack-hosts) src pname version;
 
-    nativeBuildInputs = [ gnugrep ];
+    nativeBuildInputs = [gnugrep];
 
     installPhase = ''
       mkdir -p $out/etc

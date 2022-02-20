@@ -3,19 +3,17 @@
 {
   flakePath,
   host,
-}:
-let
+}: let
   Flake =
     if builtins.pathExists flakePath
     then builtins.getFlake (toString flakePath)
-    else { };
+    else {};
 
-  Me = Flake.nixosConfigurations.${host} or { };
-  Channels = Flake.pkgs.${builtins.currentSystem} or { };
+  Me = Flake.nixosConfigurations.${host} or {};
+  Channels = Flake.pkgs.${builtins.currentSystem} or {};
 
   LoadFlake = path: builtins.getFlake (toString path);
-in
-{
+in {
   inherit
     Channels
     Flake

@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/square/sudo_pair/";
     description = "Plugin for sudo that requires another human to approve and monitor privileged sudo sessions";
     license = licenses.gpl3;
-    maintainers = [ maintainers.gtrunsec ];
+    maintainers = [maintainers.gtrunsec];
     platforms = platforms.linux;
   };
 }

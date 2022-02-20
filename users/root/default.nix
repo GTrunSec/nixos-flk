@@ -1,12 +1,8 @@
-{
-  config,
-  ...
-}:
+{config, ...}:
 # recommend using `hashedPassword`
 let
   user = builtins.baseNameOf ./.;
-in
-{
+in {
   sops.secrets."users/${user}" = {
     neededForUsers = true;
   };

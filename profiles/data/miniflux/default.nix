@@ -3,11 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   networking.firewall = {
-    allowedTCPPorts = [ 9005 9000 ];
-    allowedUDPPorts = [ 9005 9000 ];
+    allowedTCPPorts = [9005 9000];
+    allowedUDPPorts = [9005 9000];
   };
 
   services.miniflux = {

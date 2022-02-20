@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   updatefont = ''fc-cache -f -v'';
   onChange = ''
     export PATH=${pkgs.emacs}/bin:$PATH
@@ -12,8 +11,7 @@ let
     emacs -Q -batch -l 'lisp/compile.el'
     $HOME/.emacs.d/bin/doom sync
   '';
-in
-{
+in {
   home.file.".doom.d/config.org" = {
     source = ../../dotfiles/doom-emacs/config.org;
     inherit onChange;
@@ -29,7 +27,7 @@ in
     package = pkgs.emacs;
   };
 
-  home.activation.linkEmacsPrivate = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.linkEmacsPrivate = config.lib.dag.entryAfter ["writeBoundary"] ''
      if [ ! -d "$HOME/.emacs.d" ];then
         ${pkgs.git}/bin/git clone https://github.com/GTrunSec/doom-emacs.git -b my-doom ~/.emacs.d
      fi

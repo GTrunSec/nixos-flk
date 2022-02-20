@@ -18,7 +18,7 @@ with inputs; rec {
       graphical = digga.lib.rakeLeaves ../profiles/graphical;
     };
   suites = with profiles; rec {
-    base = [ core users.gtrun users.root ];
+    base = [core users.gtrun users.root];
     nixos =
       base
       ++ [

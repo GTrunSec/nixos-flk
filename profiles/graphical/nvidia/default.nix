@@ -3,10 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.xserver = {
-    videoDrivers = [ "nvidia" "intel" ];
+    videoDrivers = ["nvidia" "intel"];
   };
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -25,5 +24,5 @@
     ];
   };
 
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = ["nouveau"];
 }

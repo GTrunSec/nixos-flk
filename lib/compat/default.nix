@@ -13,4 +13,4 @@ let
     }
   );
 in
-flake
+  flake

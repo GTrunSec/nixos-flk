@@ -1,9 +1,5 @@
-{
-  pkgs,
-  ...
-}:
-{
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   environment.systemPackages = with pkgs; [
     #home

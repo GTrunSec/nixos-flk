@@ -1,6 +1,6 @@
-{ lib }:
+{lib}:
 lib.makeExtensible (
   self: {
-    hosts = import ./hosts { inherit lib; };
+    hosts = import ./hosts {inherit lib;};
   }
 )

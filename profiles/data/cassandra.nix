@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.cassandra = {
     enable = true;
     clusterName = "thp";

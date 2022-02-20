@@ -1,4 +1,6 @@
-{ pkgs }: with pkgs; with (import ./build-appimage.nix { inherit pkgs; }); let
+{pkgs}:
+with pkgs;
+with (import ./build-appimage.nix {inherit pkgs;}); let
   version = "3.0.1";
 in
   buildAppImage {

@@ -11,7 +11,7 @@ with inputs; {
       (digga.lib.importExportableModules ./modules)
     ];
     modules = [
-      { _module.args.ourLib = self.lib; }
+      {_module.args.ourLib = self.lib;}
       home.nixosModules.home-manager
       bud.nixosModules.bud
       sops-nix.nixosModules.sops
@@ -21,7 +21,7 @@ with inputs; {
     ];
   };
 
-  imports = [ (digga.lib.importHosts ../hosts) ];
+  imports = [(digga.lib.importHosts ../hosts)];
 
   hosts = {
     /*
@@ -35,7 +35,7 @@ with inputs; {
       tests = [
         {
           name = "Test";
-          machine = { ... }: { };
+          machine = {...}: {};
           testScript = ''
             start_all()
           '';
@@ -43,5 +43,5 @@ with inputs; {
       ];
     };
   };
-  importables = import ./suites.nix { inherit self inputs; };
+  importables = import ./suites.nix {inherit self inputs;};
 }

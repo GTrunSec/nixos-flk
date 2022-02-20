@@ -3,21 +3,19 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   #nix.generateRegistryFromInputs = lib.mkDefault true;
 
   nix = {
     package = pkgs.nixUnstable;
 
-    localRegistry =
-      {
-        enable = false;
+    localRegistry = {
+      enable = false;
 
-        cacheGlobalRegistry = true;
+      cacheGlobalRegistry = true;
 
-        noGlobalRegistry = false;
-      };
+      noGlobalRegistry = false;
+    };
 
     autoOptimiseStore = true;
 
@@ -31,9 +29,9 @@
 
     useSandbox = true;
 
-    allowedUsers = [ "@wheel" ];
+    allowedUsers = ["@wheel"];
 
-    trustedUsers = [ "root" "@wheel" ];
+    trustedUsers = ["root" "@wheel"];
 
     extraOptions = ''
       min-free = 536870912
@@ -43,7 +41,7 @@
       fallback = true
     '';
 
-    systemFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    systemFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
   };
 
   #systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;

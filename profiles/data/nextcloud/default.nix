@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}:
-{
-  imports = [ ./nextcloud_db.nix ];
+}: {
+  imports = [./nextcloud_db.nix];
 
   networking.firewall = {
-    allowedTCPPorts = [ 80 ];
-    allowedUDPPorts = [ 80 ];
+    allowedTCPPorts = [80];
+    allowedUDPPorts = [80];
   };
 
   environment.systemPackages = with pkgs; [

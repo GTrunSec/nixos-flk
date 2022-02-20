@@ -3,10 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-{
-  config =
-    with lib;
+}: {
+  config = with lib;
     mkMerge [
       (
         {
@@ -73,46 +71,44 @@
 
             initExtra =
               (builtins.readFile ../../dotfiles/zshrc)
-              +
-              ''
+              + ''
                 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#fdf6e3,bg=#586e75,bold,underline"
               '';
 
-            plugins =
-              [
-                {
-                  name = "fzf-zsh";
-                  src = pkgs.fzf-zsh;
+            plugins = [
+              {
+                name = "fzf-zsh";
+                src = pkgs.fzf-zsh;
+              }
+              {
+                name = "zsh-fast-syntax-highlighting";
+                src = pkgs.zsh-fast-syntax-highlighting;
+              }
+              {
+                name = "zsh-bd";
+                src = pkgs.zsh-bd;
+              }
+              {
+                name = "nix-zsh-completions";
+                src = pkgs.nix-zsh-completions;
+              }
+              {
+                name = "zsh-256color";
+                src = pkgs.fetchFromGitHub {
+                  owner = "chrissicool";
+                  repo = "zsh-256color";
+                  rev = "9d8fa1015dfa895f2258c2efc668bc7012f06da6";
+                  sha256 = "14pfg49mzl32ia9i9msw9412301kbdjqrm7gzcryk4wh6j66kps1";
+                };
+              }
+              (
+                mkIf pkgs.stdenv.isLinux {
+                  inherit (pkgs.sources.spaceship-prompt) src;
+                  name = pkgs.sources.spaceship-prompt.pname;
+                  file = "spaceship.zsh";
                 }
-                {
-                  name = "zsh-fast-syntax-highlighting";
-                  src = pkgs.zsh-fast-syntax-highlighting;
-                }
-                {
-                  name = "zsh-bd";
-                  src = pkgs.zsh-bd;
-                }
-                {
-                  name = "nix-zsh-completions";
-                  src = pkgs.nix-zsh-completions;
-                }
-                {
-                  name = "zsh-256color";
-                  src = pkgs.fetchFromGitHub {
-                    owner = "chrissicool";
-                    repo = "zsh-256color";
-                    rev = "9d8fa1015dfa895f2258c2efc668bc7012f06da6";
-                    sha256 = "14pfg49mzl32ia9i9msw9412301kbdjqrm7gzcryk4wh6j66kps1";
-                  };
-                }
-                (
-                  mkIf pkgs.stdenv.isLinux {
-                    inherit (pkgs.sources.spaceship-prompt) src;
-                    name = pkgs.sources.spaceship-prompt.pname;
-                    file = "spaceship.zsh";
-                  }
-                )
-              ];
+              )
+            ];
           };
         }
       )

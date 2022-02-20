@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   environment.etc = {
     "xdg/gtk-3.0/settings.ini" = {
       text = ''

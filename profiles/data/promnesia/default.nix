@@ -3,18 +3,16 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   readConfig = (builtins.readFile ./config.py);
 
   configFile = pkgs.writeScript "config.py" readConfig;
 
   watcherPath = "/home/gtrun/Dropbox/org-notes/braindump";
-in
-{
+in {
   systemd.user.services.promnesia = {
     description = "promnesia Daemon";
-    wantedBy = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
     preStart = ''
       ${pkgs.promnesia}/bin/promnesia index --config ${configFile}
     '';
@@ -27,16 +25,16 @@ in
   };
 
   systemd.user.paths.promnesia-watcher = {
-    wantedBy = [ "promnesia.service" ];
+    wantedBy = ["promnesia.service"];
     pathConfig = {
-      PathChanged = [ watcherPath ];
+      PathChanged = [watcherPath];
       Unit = "promnesia-restarter.service";
     };
   };
 
   systemd.user.services.promnesia-restarter = {
     serviceConfig.Type = "oneshot";
-    wantedBy = [ "promnesia.service" ];
+    wantedBy = ["promnesia.service"];
     script = ''
       systemctl --user restart promnesia.service
     '';

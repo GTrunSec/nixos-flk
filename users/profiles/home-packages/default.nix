@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (
     import ../bin-scripts/clean-nix-store.nix {
       home-manager = pkgs.home-manager;
@@ -13,7 +12,7 @@ let
 
   et = pkgs.writeScriptBin "et" (builtins.readFile ../bin-scripts/et.sh);
 
-  lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../bin-scripts/lsyncd-rsync.nix { });
+  lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../bin-scripts/lsyncd-rsync.nix {});
 
   LS_COLORS = pkgs.fetchgit {
     url = "https://github.com/trapd00r/LS_COLORS";
@@ -21,7 +20,7 @@ let
     sha256 = "0czqgizxq7ckmqw9xbjik7i1dfwgc1ci8fvp1fsddb35qrqi857a";
   };
 
-  ls-colors = pkgs.runCommand "ls-colors" { } ''
+  ls-colors = pkgs.runCommand "ls-colors" {} ''
     mkdir -p $out/bin $out/share
     ln -s ${pkgs.coreutils}/bin/ls $out/bin/ls
     ln -s ${pkgs.coreutils}/bin/dircolors $out/bin/dircolors
@@ -37,17 +36,14 @@ let
       sha256 = "sha256-IOJOxcox3/ArMpRU4oZd2PgIX6OiW+TTr4z6JvyIXPY=";
     }
   )
-  { };
-in
-{
-  config =
-    with lib;
+  {};
+in {
+  config = with lib;
     mkMerge [
       ##public pkgs
       (
         mkIf (pkgs.stdenv.isLinux || pkgs.stdenv.isDarwin) {
-          home.packages =
-            with pkgs;
+          home.packages = with pkgs;
             [
               clean-nix-store
               ls-colors

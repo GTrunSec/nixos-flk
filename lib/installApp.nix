@@ -5,31 +5,29 @@
   fetchurl,
   undmg,
   ...
-}:
-{
+}: {
   pname,
   version,
   src,
   postInstall ? "",
   sourceRoot ? ".",
-  extraBuildInputs ? [ ],
+  extraBuildInputs ? [],
   ...
 }:
-stdenv.mkDerivation
-{
-  inherit src pname version;
+  stdenv.mkDerivation
+  {
+    inherit src pname version;
 
-  buildInputs = [ undmg ] ++ extraBuildInputs;
+    buildInputs = [undmg] ++ extraBuildInputs;
 
-  sourceRoot = sourceRoot;
+    sourceRoot = sourceRoot;
 
-  phases = [
-    "unpackPhase"
-    "installPhase"
-  ];
+    phases = [
+      "unpackPhase"
+      "installPhase"
+    ];
 
-  installPhase =
-    let
+    installPhase = let
       appname = lib.removeSuffix "-darwin" pname;
     in
       ''
@@ -40,7 +38,7 @@ stdenv.mkDerivation
       ''
       + postInstall;
 
-  meta = {
-    platforms = lib.platforms.darwin;
-  };
-}
+    meta = {
+      platforms = lib.platforms.darwin;
+    };
+  }

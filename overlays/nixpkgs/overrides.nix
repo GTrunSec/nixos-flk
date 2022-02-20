@@ -34,15 +34,14 @@ channels: final: prev: {
   haskellPackages = prev.haskellPackages.override
   (
     old: {
-      overrides = prev.lib.composeExtensions (old.overrides or (_: _: { })) (hfinal: hprev: let
-        version = prev.lib.replaceChars [ "." ] [ "" ] prev.ghc.version;
-      in
-        {
-          # same for haskell packages, matching ghc versions
-          inherit
-            (channels.latest.haskell.packages."ghc${version}")
-            ;
-        });
+      overrides = prev.lib.composeExtensions (old.overrides or (_: _: {})) (hfinal: hprev: let
+        version = prev.lib.replaceChars ["."] [""] prev.ghc.version;
+      in {
+        # same for haskell packages, matching ghc versions
+        inherit
+          (channels.latest.haskell.packages."ghc${version}")
+          ;
+      });
     }
   );
 }
