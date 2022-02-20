@@ -103,9 +103,6 @@
 
         home = ./users;
 
-        #WIP macos support
-        hosts = import ./nixos/hosts {inherit self inputs;};
-
         homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
         deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {};
