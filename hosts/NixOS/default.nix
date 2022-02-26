@@ -36,6 +36,4 @@
       ];
     };
   };
-  bud.enable = true;
-  bud.localFlakeClone = "/home/gtrun/.config/guangtao/nixos-flk";
 }

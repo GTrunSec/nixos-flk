@@ -13,7 +13,6 @@ with inputs; {
     modules = [
       {_module.args.ourLib = self.lib;}
       home.nixosModules.home-manager
-      bud.nixosModules.bud
       sops-nix.nixosModules.sops
       qnr.nixosModules.local-registry
       #User's custom modules

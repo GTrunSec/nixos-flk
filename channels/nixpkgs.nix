@@ -23,5 +23,6 @@
     inputs.rust-overlay.overlay
     inputs.sops-nix.overlay
     inputs.devos-ext-lib.overlay.vscode
+    inputs.deploy.overlay
   ];
 }

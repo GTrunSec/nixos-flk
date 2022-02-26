@@ -27,15 +27,9 @@
       inputs.devshell.follows = "devshell";
       inputs.flake-utils-plus.follows = "flake-utils-plus";
     };
-    bud = {
-      url = "github:divnix/bud";
-      #bud.url = "/home/gtrun/ghq/github.com/GTrunSec/bud";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.devshell.follows = "devshell";
-    };
+    deploy = {url = "github:serokell/deploy-rs";};
     devos-ext-lib = {
       url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
-      #url = "/home/gtrun/ghq/github.com/divnix/devos-ext-lib";
       inputs.nixpkgs.follows = "latest";
     };
     flake-compat = {
@@ -105,7 +99,13 @@
 
         homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
-        deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {};
+        deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
+          NixOS = {
+            hostname = "10.220.170.112";
+            sshUser = "root";
+            fastConnect = true;
+          };
+        };
 
         defaultTemplate = self.templates.flk;
         templates.flk.path = ./.;
@@ -115,10 +115,5 @@
         # # Builder Packages   #
         ########################
         outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
-      }
-      // {
-        budModules = {
-          bud = import ./shell/bud;
-        };
       };
 }

@@ -11,12 +11,10 @@
     extraConfig =
       (
         if pkgs.stdenv.isLinux
-        then
-          ''
-          ''
-        else
-          ''
-          ''
+        then ''
+        ''
+        else ''
+        ''
       )
       + ''
         set -g prefix C-b
