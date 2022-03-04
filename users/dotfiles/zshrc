@@ -5,7 +5,7 @@ promptinit
 autoload colors
 colors
 autoload -Uz zmv # move function
-autoload -Uz zed # edit functions within zle
+#autoload -Uz zed # edit functions within zle
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.

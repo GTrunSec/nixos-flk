@@ -15,15 +15,13 @@
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
     version = "b6fd01f620ad79dbee93f4fff42f1923e7c25a54";
-    src = fetchFromGitHub (
-      {
-        owner = "StevenBlack";
-        repo = "hosts";
-        rev = "b6fd01f620ad79dbee93f4fff42f1923e7c25a54";
-        fetchSubmodules = false;
-        sha256 = "sha256-+qTmSQBsE2nGLrP3TztfRWomZwG20ynPSkZu2JLKcYs=";
-      }
-    );
+    src = fetchFromGitHub {
+      owner = "StevenBlack";
+      repo = "hosts";
+      rev = "b6fd01f620ad79dbee93f4fff42f1923e7c25a54";
+      fetchSubmodules = false;
+      sha256 = "sha256-+qTmSQBsE2nGLrP3TztfRWomZwG20ynPSkZu2JLKcYs=";
+    };
   };
   adguardhome = {
     pname = "adguardhome";
@@ -92,15 +90,13 @@
   notdeft = {
     pname = "notdeft";
     version = "1b7054dcfc3547a7cafeb621552cec01d0540478";
-    src = fetchFromGitHub (
-      {
-        owner = "hasu";
-        repo = "notdeft";
-        rev = "1b7054dcfc3547a7cafeb621552cec01d0540478";
-        fetchSubmodules = false;
-        sha256 = "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=";
-      }
-    );
+    src = fetchFromGitHub {
+      owner = "hasu";
+      repo = "notdeft";
+      rev = "1b7054dcfc3547a7cafeb621552cec01d0540478";
+      fetchSubmodules = false;
+      sha256 = "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=";
+    };
   };
   orgparse = {
     pname = "orgparse";
@@ -129,27 +125,23 @@
   promnesia = {
     pname = "promnesia";
     version = "570cce0d1717885893128b28030080ec0bc2657a";
-    src = fetchFromGitHub (
-      {
-        owner = "karlicoss";
-        repo = "promnesia";
-        rev = "570cce0d1717885893128b28030080ec0bc2657a";
-        fetchSubmodules = false;
-        sha256 = "sha256-W6b289Z3sUdsiKITH8TQd8hsgJu5mN6nuw4rmAkTOeA=";
-      }
-    );
+    src = fetchFromGitHub {
+      owner = "karlicoss";
+      repo = "promnesia";
+      rev = "570cce0d1717885893128b28030080ec0bc2657a";
+      fetchSubmodules = false;
+      sha256 = "sha256-W6b289Z3sUdsiKITH8TQd8hsgJu5mN6nuw4rmAkTOeA=";
+    };
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
     version = "07d71d162f135cc7c7d58103bc3a605d9a43977a";
-    src = fetchFromGitHub (
-      {
-        owner = "spaceship-prompt";
-        repo = "spaceship-prompt";
-        rev = "07d71d162f135cc7c7d58103bc3a605d9a43977a";
-        fetchSubmodules = false;
-        sha256 = "sha256-2ZQBN+AOZvkSbV3qlUTNOu2UULHoEz26/RnZEB6bs5Y=";
-      }
-    );
+    src = fetchFromGitHub {
+      owner = "spaceship-prompt";
+      repo = "spaceship-prompt";
+      rev = "07d71d162f135cc7c7d58103bc3a605d9a43977a";
+      fetchSubmodules = false;
+      sha256 = "sha256-2ZQBN+AOZvkSbV3qlUTNOu2UULHoEz26/RnZEB6bs5Y=";
+    };
   };
 }

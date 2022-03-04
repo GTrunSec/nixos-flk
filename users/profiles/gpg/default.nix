@@ -6,20 +6,18 @@
 }: {
   config = with lib;
     mkMerge [
-      (
-        {
-          programs.gpg = {
-            enable = true;
-            settings = {
-              cert-digest-algo = "SHA512";
-              disable-cipher-algo = "3DES";
-              default-recipient-self = true;
-              use-agent = true;
-              with-fingerprint = true;
-            };
+      {
+        programs.gpg = {
+          enable = true;
+          settings = {
+            cert-digest-algo = "SHA512";
+            disable-cipher-algo = "3DES";
+            default-recipient-self = true;
+            use-agent = true;
+            with-fingerprint = true;
           };
-        }
-      )
+        };
+      }
       (
         mkIf pkgs.stdenv.isLinux {
           programs.gpg = {

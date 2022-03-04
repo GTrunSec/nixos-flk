@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  readConfig = (builtins.readFile ./config.py);
+  readConfig = builtins.readFile ./config.py;
 
   configFile = pkgs.writeScript "config.py" readConfig;
 

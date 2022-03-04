@@ -14,7 +14,7 @@
     ##################
     nixpkgs.url = "nixpkgs/release-21.11";
     latest.url = "github:NixOS/nixpkgs/master";
-    stable.url = "nixpkgs/release-21.05";
+    nixpkgs_21_05.url = "nixpkgs/release-21.05";
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +24,7 @@
     digga = {
       url = "github:divnix/digga";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.deploy.follows = "deploy";
       inputs.devshell.follows = "devshell";
       inputs.flake-utils-plus.follows = "flake-utils-plus";
     };
@@ -66,12 +67,10 @@
     rust-overlay = {url = "github:oxalica/rust-overlay";};
     emacs-ng = {url = "github:emacs-ng/emacs-ng";};
     nixpkgs-hardenedlinux = {url = "github:hardenedlinux/nixpkgs-hardenedlinux";};
-    gomod2nix.follows = "nixpkgs-hardenedlinux/gomod2nix";
     alejandra = {url = "github:kamadorueda/alejandra";};
   };
 
   outputs = inputs:
-    with builtins;
     with inputs;
       digga.lib.mkFlake
       {

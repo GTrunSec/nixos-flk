@@ -9,8 +9,9 @@ let
     "x86_64-linux"
   ];
 
-  filterSystems = lib.filterAttrs
-  (system: _: lib.elem system ciSystems);
+  filterSystems =
+    lib.filterAttrs
+    (system: _: lib.elem system ciSystems);
 
   recurseIntoAttrsRecursive = lib.mapAttrs (
     _: v:

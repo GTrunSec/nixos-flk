@@ -14,5 +14,4 @@ with inputs; [
     );
     nix = final.nixUnstable;
   })
-  gomod2nix.overlay
 ]

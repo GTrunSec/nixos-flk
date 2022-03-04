@@ -8,13 +8,14 @@ with pkgs;
 with lib; let
   whitelist = concatStringsSep "|" [".*pirate(bay|proxy).*"];
 
-  blacklist = concatStringsSep ''
-    0.0.0.0 ''
-  [
-    "# auto-generated: must be first"
+  blacklist =
+    concatStringsSep ''
+      0.0.0.0 ''
+    [
+      "# auto-generated: must be first"
 
-    # starts here
-  ];
+      # starts here
+    ];
 in
   stdenv.mkDerivation
   {

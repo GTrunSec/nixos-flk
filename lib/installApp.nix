@@ -14,31 +14,31 @@
   extraBuildInputs ? [],
   ...
 }:
-  stdenv.mkDerivation
-  {
-    inherit src pname version;
+stdenv.mkDerivation
+{
+  inherit src pname version;
 
-    buildInputs = [undmg] ++ extraBuildInputs;
+  buildInputs = [undmg] ++ extraBuildInputs;
 
-    sourceRoot = sourceRoot;
+  sourceRoot = sourceRoot;
 
-    phases = [
-      "unpackPhase"
-      "installPhase"
-    ];
+  phases = [
+    "unpackPhase"
+    "installPhase"
+  ];
 
-    installPhase = let
-      appname = lib.removeSuffix "-darwin" pname;
-    in
-      ''
-        runHook preInstall
+  installPhase = let
+    appname = lib.removeSuffix "-darwin" pname;
+  in
+    ''
+      runHook preInstall
 
-        mkdir -p "$out/Applications"
-        cp -r "${appname}.app" "$out/Applications/${appname}.app"
-      ''
-      + postInstall;
+      mkdir -p "$out/Applications"
+      cp -r "${appname}.app" "$out/Applications/${appname}.app"
+    ''
+    + postInstall;
 
-    meta = {
-      platforms = lib.platforms.darwin;
-    };
-  }
+  meta = {
+    platforms = lib.platforms.darwin;
+  };
+}

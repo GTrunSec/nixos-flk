@@ -2720,6 +2720,17 @@ a separator ' -> '."
 #+results:
 : t
 
+** Eglot
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+ (use-package! eglot
+  :config
+  (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+)
+#+end_src
+
+#+RESULTS:
+: t
+
 ** Poly Mode
 
 - [[https://github.com/ShuguangSun/ess-view-data][ShuguangSun/ess-view-data: View data support for ESS]]

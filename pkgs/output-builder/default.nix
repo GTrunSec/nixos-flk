@@ -1,7 +1,7 @@
 channels: inputs: {
   packages = {
     #nix develop .#sops-shell --impure
-    sops-shell = with channels.nixos;
+    sops-shell = with channels.nixpkgs;
       mkShell {
         sopsPGPKeyDirs = [
           #"./secrets/keys/hosts"
