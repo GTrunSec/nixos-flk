@@ -24,5 +24,6 @@
     inputs.sops-nix.overlay
     inputs.devos-ext-lib.overlay.vscode
     inputs.deploy.overlay
+    inputs.gomod2nix.overlay
   ];
 }

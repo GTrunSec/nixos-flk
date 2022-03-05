@@ -58,9 +58,9 @@ with inputs; rec {
 
         ssh
         nsm
-        virtualisation.docker
+        virtualisation.podman
         virtualisation.libvirtd
-        virtualisation.oci-containers
+        # virtualisation.oci-containers
         # using extra registry
         #registry.nixos
       ];

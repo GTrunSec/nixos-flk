@@ -52,6 +52,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nur.url = "github:nix-community/NUR";
     sops-nix.url = "github:Mic92/sops-nix";
+    gomod2nix.url = "github:tweag/gomod2nix";
     beautysh = {url = "github:lovesegfault/beautysh";};
     #################
     # Custom Flakes #
@@ -68,6 +69,7 @@
     emacs-ng = {url = "github:emacs-ng/emacs-ng";};
     nixpkgs-hardenedlinux = {url = "github:hardenedlinux/nixpkgs-hardenedlinux";};
     alejandra = {url = "github:kamadorueda/alejandra";};
+    cells-lab = {url = "github:gtrunsec/DevSecOps-cells-lab";};
   };
 
   outputs = inputs:
@@ -90,7 +92,7 @@
 
         sharedOverlays = import ./overlays/share {inherit self inputs;};
 
-        devshell = ./shell;
+        devshell = ./devshell;
 
         nixos = ./nixos;
 

@@ -11,12 +11,12 @@ src.prefix = "v"
 [logseq-darwin]
 src.github = "logseq/logseq"
 #src.manual = "0.5.4"
-fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-darwin-x64-$ver+nightly.20211225.dmg"
+fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-darwin-x64-$ver+nightly.20220304.dmg"
 
 [logseq]
 src.github = "logseq/logseq"
 # src.manual = "0.5.4"
-fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-$ver+nightly.20211225.AppImage"
+fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-$ver+nightly.20220304.AppImage"
 
 [drawio]
 src.github = "jgraph/drawio-desktop"

@@ -1,0 +1,39 @@
+[devshell]
+packages = []
+
+[[commands]]
+name = "darwin-MacBook"
+category = "nix-darwin"
+command = '''
+        darwin-rebuild $@ --flake $PRJ_ROOT/hosts/MacBook/#MacBook
+        '''
+help = "darwin-MacBook rebuild"
+
+[[commands]]
+name = "run-nvfetcher"
+category = "Update"
+command = "nvfetcher-update ./pkgs/sources.toml"
+help = "run nvfetcher with local sources.toml"
+
+[[commands]]
+name = "run-nvfetcher-vscode"
+category = "Update"
+command = "nvfetcher -c $PRJ_ROOT/pkgs/sources-vscode.toml -o $PRJ_ROOT/pkgs/_sources_vscode"
+help = "run nvfetcher with local sources-vscode.toml"
+
+
+[[commands]]
+name = "update"
+category = "Update"
+command = "nix flake lock --update-input $@"
+help = "lock-update unstable"
+
+
+[[commands]]
+name = "rebuild"
+category = "devos"
+command = "sudo nixos-rebuild --flake .#NixOS switch"
+help = "rebuild current NixOS"
+# [[env]]
+# name = "GC_DONT_GC" #https://github.com/NixOS/nix/issues/4178
+# value = "1"
