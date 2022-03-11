@@ -2503,6 +2503,7 @@ a separator ' -> '."
 ;;   )
 #+end_src
 
+
 ** TODO [[https://github.com/marcIhm/org-working-set][marcIhm/org-working-set: Manage a working-set of org-nodes]] :manage:
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
@@ -3577,8 +3578,11 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
 #+begin_src emacs-lisp :tangle "macos.el"
 (setq insert-directory-program "/usr/local/bin/gls")
 (setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam-macos.db")
-(setq ispell-program-name "~/.nix-profile/bin/ispell")
+(setq ispell-program-name "ispell")
 #+end_src
+
+#+RESULTS:
+: ispell
 
 *** Mode Map -> MacOS
 
