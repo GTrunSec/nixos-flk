@@ -2775,7 +2775,10 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (when IS-LINUX
-  (use-package! nickel-mode)
+  (use-package! nickel-mode
+    :config
+    (add-hook 'nickel-mode-hook #'electric-align-mode)
+    )
 )
 #+end_src
 

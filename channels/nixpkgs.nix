@@ -15,7 +15,7 @@
           (inputs.nixpkgs-hardenedlinux.packages."${prev.stdenv.hostPlatform.system}")
           brim
           ;
-        nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
+        # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
       }
     )
     inputs.nur.overlay

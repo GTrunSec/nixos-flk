@@ -11,21 +11,25 @@ channels: final: prev: {
     
     _1password-gui
     _1password
-    tdesktop
     manix
-    zsh
-    nixpkgs-fmt
-    brave
-    signal-desktop
-    tmux
-    i3-gaps
-    onlyoffice-bin
-    julia_17-bin
-    texmacs
     nix-direnv
+    nixUnstable
     direnv
     tree-sitter
     starship
+    ;
+
+  inherit
+    (channels.unstable)
+    brave
+    signal-desktop
+    tdesktop
+    onlyoffice-bin
+    i3-gaps
+    tmux
+    julia_17-bin
+    texmacs
+    podman
     ;
 
   nixos-rebuild = prev.nixos-rebuild.override {

@@ -71,6 +71,7 @@
           initExtra =
             (builtins.readFile ../../dotfiles/zshrc)
             + ''
+              compdef _podman podman
               ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#fdf6e3,bg=#586e75,bold,underline"
             '';
 
@@ -86,6 +87,11 @@
             {
               name = "zsh-bd";
               src = pkgs.zsh-bd;
+            }
+            {
+              name = "podman";
+              src = pkgs.podman;
+              file = "/share/zsh/site-functions/_podman";
             }
             {
               name = "nix-zsh-completions";

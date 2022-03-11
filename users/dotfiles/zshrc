@@ -83,3 +83,4 @@ function _nix() {
 }
 
 compdef _nix nix
+

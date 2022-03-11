@@ -48,7 +48,6 @@
         ${pkgs.appimage-run}/bin/appimage-run ${pkgs.sources.logseq.src}
       ''
     )
-    #
     xclip
     screenfetch
     urxvt_perls

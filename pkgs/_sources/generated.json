@@ -18,7 +18,7 @@
         "pinned": false,
         "cargoLock": null,
         "name": "StevenBlack-hosts",
-        "version": "697dcc60f73ec882068c2b1505ca777f00c903e2",
+        "version": "218ce3c901a91528d04e9b5df07263a67faaa1e2",
         "passthru": null,
         "src": {
             "deepClone": false,
@@ -28,8 +28,8 @@
             "name": null,
             "repo": "hosts",
             "type": "github",
-            "sha256": "sha256-HGxktWIb22CwawqMvn2HMqBkFUxeN257KnmkuET4l3c=",
-            "rev": "697dcc60f73ec882068c2b1505ca777f00c903e2"
+            "sha256": "sha256-3i3E+oMJdHt5G4YqVaH0vlpjhOYwhP5RSH6q2i9GDOU=",
+            "rev": "218ce3c901a91528d04e9b5df07263a67faaa1e2"
         },
         "extract": null,
         "rustGitDeps": null
@@ -88,7 +88,7 @@
         "pinned": false,
         "cargoLock": null,
         "name": "spaceship-prompt",
-        "version": "9165b112ad1167c6076228ab7e5f173142bad644",
+        "version": "fd940840910ec2851c179520df7cba29a9ce53f8",
         "passthru": null,
         "src": {
             "deepClone": false,
@@ -98,8 +98,8 @@
             "name": null,
             "repo": "spaceship-prompt",
             "type": "github",
-            "sha256": "sha256-4G1+K6ENLwChtivR7Ura0vl6Ph9Wae3SOXCW1pNbgHI=",
-            "rev": "9165b112ad1167c6076228ab7e5f173142bad644"
+            "sha256": "sha256-SsW+J/NqvUB2nHJ3SyJ6DuEY481yzltG1Qm8BqXcEsw=",
+            "rev": "fd940840910ec2851c179520df7cba29a9ce53f8"
         },
         "extract": null,
         "rustGitDeps": null
@@ -214,21 +214,6 @@
         "extract": null,
         "rustGitDeps": null
     },
-    "logseq": {
-        "pinned": false,
-        "cargoLock": null,
-        "name": "logseq",
-        "version": "0.6.1",
-        "passthru": null,
-        "src": {
-            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.1+nightly.20220304.AppImage",
-            "name": null,
-            "type": "url",
-            "sha256": "sha256-2g2rwtfn465OdNLIuvz13r8Y4STFam3Jbyek1CcGe2s="
-        },
-        "extract": null,
-        "rustGitDeps": null
-    },
     "drawio": {
         "pinned": false,
         "cargoLock": null,
@@ -240,21 +225,6 @@
             "name": null,
             "type": "url",
             "sha256": "sha256-qOvyVggg0tBWd7mxb8hj9VXd6CNbPjSs15Fu7jVE6qk="
-        },
-        "extract": null,
-        "rustGitDeps": null
-    },
-    "logseq-darwin": {
-        "pinned": false,
-        "cargoLock": null,
-        "name": "logseq-darwin",
-        "version": "0.6.1",
-        "passthru": null,
-        "src": {
-            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-darwin-x64-0.6.1+nightly.20220304.dmg",
-            "name": null,
-            "type": "url",
-            "sha256": "sha256-PJlG0ci89az9tUg4LUkPZpg/AwLUFYFF5DXUFooXcUM="
         },
         "extract": null,
         "rustGitDeps": null

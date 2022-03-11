@@ -14,13 +14,14 @@
     ##################
     nixpkgs.url = "nixpkgs/release-21.11";
     latest.url = "github:NixOS/nixpkgs/master";
+    unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs_21_05.url = "nixpkgs/release-21.05";
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils-plus = {url = "github:divnix/flake-utils-plus";};
-    nix = {url = "github:NixOS/nix";};
+    # nix = {url = "github:NixOS/nix";};
     digga = {
       url = "github:divnix/digga";
       inputs.nixpkgs.follows = "nixpkgs";
