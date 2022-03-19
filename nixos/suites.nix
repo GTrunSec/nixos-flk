@@ -35,6 +35,7 @@ with inputs; rec {
         data.nextcloud
         data.miniflux
         data.syncthing
+        data.database
 
         coding.nix
         coding.go

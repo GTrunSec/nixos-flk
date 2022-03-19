@@ -9,11 +9,11 @@
     (
       final: prev: {
         emacsNG = inputs.emacs-ng.defaultPackage.x86_64-linux;
-        beautysh = inputs.beautysh.packages.x86_64-linux.beautysh-python39;
         alejandra = inputs.alejandra.defaultPackage."${prev.stdenv.hostPlatform.system}";
         inherit
           (inputs.nixpkgs-hardenedlinux.packages."${prev.stdenv.hostPlatform.system}")
           brim
+          zeekscript
           ;
         # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
       }

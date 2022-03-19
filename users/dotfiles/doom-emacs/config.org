@@ -136,8 +136,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;(eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       (lsp
-        +eglot)
+       lsp
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -1371,7 +1370,7 @@ FACE defaults to inheriting from default and highlight."
   :config
   ;;(add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
   (prependq! format-all-default-formatters '(("Haskell" ormolu)
-                                             ("Shell" beautysh)
+                                             ;;("Shell" beautysh)
                                              ))
   )
 #+end_src
@@ -2703,10 +2702,11 @@ a separator ' -> '."
 
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-mode
-;;   :config
-;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel")
-;; )
+(use-package! lsp-mode
+  :config
+  (add-hook 'terraform-mode-hook #'lsp)
+  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
+)
 ;;   ;; (lsp-register-client
 ;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
 ;;   ;;                   :major-modes '(nix-mode)
@@ -2723,10 +2723,10 @@ a separator ' -> '."
 
 ** Eglot
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
- (use-package! eglot
-  :config
-  (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
-)
+;;  (use-package! eglot
+;;   :config
+;;   (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+;; )
 #+end_src
 
 #+RESULTS:
@@ -2801,13 +2801,13 @@ a separator ' -> '."
   #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-julia
-;;   :config
-;;   ;;(add-hook 'julia-mode-hook #'lsp)
-;;   (setq lsp-julia-package-dir nil)
-;;   (setq lsp-enable-folding t)
-;;   (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
-;; )
+(use-package! lsp-julia
+  :config
+  ;;(add-hook 'julia-mode-hook #'lsp)
+  (setq lsp-julia-package-dir nil)
+  (setq lsp-enable-folding t)
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
+)
 #+end_src
 
 #+RESULTS:
@@ -2816,10 +2816,10 @@ a separator ' -> '."
 
 *** eglot-julia
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! eglot-jl
-  :config
-  (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
-)
+;; (use-package! eglot-jl
+;;   :config
+;;   (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
+;; )
 #+end_src
 
 #+RESULTS:
@@ -2935,7 +2935,7 @@ a separator ' -> '."
 ** Zeek Mode
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(package! zeek-mode :recipe (:host github :repo "ynadji/zeek-mode"))
+(package! zeek-mode :recipe (:host github :repo "zeek/emacs-zeek-mode"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"

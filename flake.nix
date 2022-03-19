@@ -20,8 +20,9 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils-plus = {url = "github:divnix/flake-utils-plus";};
+
     # nix = {url = "github:NixOS/nix";};
+    flake-utils-plus = {url = "github:gytis-ivaskevicius/flake-utils-plus";};
     digga = {
       url = "github:divnix/digga";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +55,6 @@
     nur.url = "github:nix-community/NUR";
     sops-nix.url = "github:Mic92/sops-nix";
     gomod2nix.url = "github:tweag/gomod2nix";
-    beautysh = {url = "github:lovesegfault/beautysh";};
     #################
     # Custom Flakes #
     #################
