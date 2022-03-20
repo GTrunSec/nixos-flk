@@ -1,8 +1,5 @@
 [devshell]
-packages = [
-  "sops-init-gpg-key",
-  "ssh-to-pgp"
-]
+packages = ["sops-init-gpg-key", "ssh-to-pgp"]
 
 [[commands]]
 name = "sops"

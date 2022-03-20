@@ -17,6 +17,7 @@ channels: final: prev: {
     direnv
     tree-sitter
     starship
+    treefmt
     ;
 
   inherit

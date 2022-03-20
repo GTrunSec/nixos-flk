@@ -1,5 +1,5 @@
 [devshell]
-packages = []
+packages = ["treefmt"]
 
 [[commands]]
 name = "darwin-MacBook"
@@ -10,24 +10,28 @@ command = '''
 help = "darwin-MacBook rebuild"
 
 [[commands]]
-name = "run-nvfetcher"
+name = "nvfetcher-default"
 category = "Update"
-command = "nvfetcher-update ./pkgs/sources.toml"
+command = "nvfetcher -c $PRJ_ROOT/pkgs/sources.toml -o $PRJ_ROOT/pkgs/_sources/default"
 help = "run nvfetcher with local sources.toml"
 
 [[commands]]
-name = "run-nvfetcher-vscode"
+name = "nvfetcher-vscode"
 category = "Update"
-command = "nvfetcher -c $PRJ_ROOT/pkgs/sources-vscode.toml -o $PRJ_ROOT/pkgs/_sources_vscode"
+command = "nvfetcher -c $PRJ_ROOT/pkgs/sources-vscode.toml -o $PRJ_ROOT/pkgs/_sources/vscode"
 help = "run nvfetcher with local sources-vscode.toml"
 
+[[commands]]
+name = "nvfetcher-app"
+category = "Update"
+command = "nvfetcher -c $PRJ_ROOT/pkgs/sources-app.toml -o $PRJ_ROOT/pkgs/_sources/app"
+help = "Update nvfetcher app part"
 
 [[commands]]
 name = "update"
 category = "Update"
 command = "nix flake lock --update-input $@"
 help = "lock-update unstable"
-
 
 [[commands]]
 name = "rebuild"

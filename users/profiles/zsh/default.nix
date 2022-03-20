@@ -94,6 +94,11 @@
               file = "/share/zsh/site-functions/_podman";
             }
             {
+              name = "sytemd";
+              src = pkgs.systemd;
+              file = "/share/zsh/site-functions";
+            }
+            {
               name = "nix-zsh-completions";
               src = pkgs.nix-zsh-completions;
             }

@@ -1,66 +1,64 @@
 [vscode-extensions-nickel-syntax]
 src.vsmarketplace = "kubukoz.nickel-syntax"
 fetch.vsmarketplace = "kubukoz.nickel-syntax"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-multi-cursor-case-preserve]
 src.vsmarketplace = "Cardinal90.multi-cursor-case-preserve"
 fetch.vsmarketplace = "Cardinal90.multi-cursor-case-preserve"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-tokyo-night]
 src.vsmarketplace = "enkia.tokyo-night"
 fetch.vsmarketplace = "enkia.tokyo-night"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-vscode-emacs-friendly]
 src.vsmarketplace = "lfs.vscode-emacs-friendly"
 fetch.vsmarketplace = "lfs.vscode-emacs-friendly"
-passthru = { license = "mit", homepage = "none", description = "none"}
-
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-zeek]
 src.vsmarketplace = "aeppert.bro"
 fetch.vsmarketplace = "aeppert.bro"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-readable-indent]
 src.vsmarketplace = "cnojima.readable-indent"
 fetch.vsmarketplace = "cnojima.readable-indent"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-indent-rainbow]
 src.vsmarketplace = "oderwat.indent-rainbow"
 fetch.vsmarketplace = "oderwat.indent-rainbow"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-tabnine-vscode]
 src.vsmarketplace = "TabNine.tabnine-vscode"
 fetch.vsmarketplace = "TabNine.tabnine-vscode"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-pdf]
 src.vsmarketplace = "tomoki1207.pdf"
 fetch.vsmarketplace = "tomoki1207.pdf"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-language-julia]
 src.vsmarketplace = "julialang.language-julia"
 fetch.vsmarketplace = "julialang.language-julia"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-julia-color-themes]
 src.vsmarketplace = "cameronbieganek.julia-color-themes"
 fetch.vsmarketplace = "cameronbieganek.julia-color-themes"
-passthru = { license = "mit", homepage = "none", description = "none"}
-
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-vscode-markdownlint]
 src.vsmarketplace = "DavidAnson.vscode-markdownlint"
 fetch.vsmarketplace = "DavidAnson.vscode-markdownlint"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-markdown-preview-enhanced]
 src.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
 fetch.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
-passthru = { license = "mit", homepage = "none", description = "none"}
+passthru = { license = "mit", homepage = "none", description = "none" }

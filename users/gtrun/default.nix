@@ -1,6 +1,7 @@
 {
   hmUsers,
   config,
+  pkgs,
   ...
 }: let
   user = builtins.baseNameOf ./.;
@@ -31,7 +32,7 @@ in {
       "docker"
     ];
     # Enable ‘sudo’ for the user.
-    shell = "/run/current-system/sw/bin/zsh";
+    shell = pkgs.zsh;
     uid = 1000;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDI2uDp51HMggnfz4Zn5ky4gb/XVdQiJR7pZyb/LcCLx macOSdeMBP.attlocal.net-gtrun-14-05-2021"

@@ -1,9 +1,9 @@
 final: prev:
 with prev; let
   sources =
-    callPackage ./_sources/generated.nix {}
-    // (callPackage ./_sources_vscode/generated.nix {})
-    // (callPackage ./_sources_app/generated.nix {});
+    callPackage ./_sources/default/generated.nix {}
+    // (callPackage ./_sources/app/generated.nix {})
+    // (callPackage ./_sources/vscode/generated.nix {});
 in {
   inherit sources;
 
