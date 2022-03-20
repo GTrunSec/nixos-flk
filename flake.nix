@@ -12,10 +12,10 @@
     ##################
     # Default Flakes #
     ##################
-    nixpkgs.url = "nixpkgs/release-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
     latest.url = "github:NixOS/nixpkgs/master";
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs_21_05.url = "nixpkgs/release-21.05";
+    nixpkgs_21_05.url = "github:NixOS/nixpkgs/release-21.05";
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,9 +73,8 @@
     cells-lab = {url = "github:gtrunsec/DevSecOps-cells-lab";};
   };
 
-  outputs = inputs:
-    with inputs;
-      digga.lib.mkFlake
+  outputs = { self, digga, ... }@inputs:
+  digga.lib.mkFlake
       {
         inherit self inputs;
 
@@ -89,7 +88,7 @@
 
         channels = import ./channels {inherit self inputs;};
 
-        lib = import ./lib {lib = digga.lib // nixos.lib;};
+        lib = import ./lib {lib = digga.lib // inputs.nixpkgs.lib;};
 
         sharedOverlays = import ./overlays/share {inherit self inputs;};
 
