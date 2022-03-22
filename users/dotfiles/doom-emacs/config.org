@@ -3079,15 +3079,17 @@ a separator ' -> '."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! vertico-posframe
-  :config
-  (when (display-graphic-p)
-    (vertico-posframe-mode 1)
+(when IS-LINUX
+  (use-package! vertico-posframe
+    :config
+    (when (display-graphic-p)
+      (vertico-posframe-mode 1)
+      )
+    (setq vertico-posframe-parameters
+          '((left-fringe . 8)
+            (right-fringe . 8)))
     )
-  (setq vertico-posframe-parameters
-        '((left-fringe . 8)
-          (right-fringe . 8)))
-)
+  )
 #+end_src
 
 ** Window
