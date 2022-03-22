@@ -11,14 +11,14 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/release-21.11";
-    latest.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    latest.url = "github:nixos/nixpkgs/master";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     home = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "latest";
     };
     nixpkgs-hardenedliux = {url = "github:hardenedlinux/nixpkgs-hardenedlinux";};
 
@@ -49,10 +49,8 @@
 
         (import ../../overlays/nixpkgs/my-node-packages.nix)
         (import ../../overlays/nixpkgs/apps.nix)
-
         (
           final: prev: {
-            sources = prev.callPackage ../../pkgs/_sources/generated.nix {};
             gst = nixpkgs-hardenedliux.packages.${final.system}.gst;
             lib = prev.lib.extend (
               lfinal: lprev: {
@@ -87,6 +85,11 @@
               (channels.latest)
               alacritty
               nix-direnv
+              nixUnstable
+              gnu-efi
+              libaio
+              gnupg
+              elfutils
               ;
           }
         )

@@ -3,6 +3,8 @@ up
 hosts/up-*
 .direnv
 
+.DS_Store
+
 doc/index.html
 my-org
 my-code
