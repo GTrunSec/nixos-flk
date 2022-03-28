@@ -86,10 +86,6 @@
               alacritty
               nix-direnv
               nixUnstable
-              gnu-efi
-              libaio
-              gnupg
-              elfutils
               ;
           }
         )
