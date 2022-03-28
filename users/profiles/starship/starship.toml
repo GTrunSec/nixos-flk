@@ -2,9 +2,9 @@
 symbol = " "
 
 [character]
-success_symbol = "[❯](bold purple) "
+success_symbol = "[λ](bold blue) "
 vicmd_symbol = "[V](bold green) "
-error_symbol = "[❯](bold red) "
+error_symbol = "[λ](bold red) "
 
 [battery]
 full_symbol = ""
