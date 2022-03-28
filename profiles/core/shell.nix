@@ -5,10 +5,12 @@
   self,
   ...
 }: {
+  programs.zsh.enable = true;
+
   environment.shellInit = ''
     export STARSHIP_CONFIG=${
       pkgs.writeText "starship.toml"
-      (lib.fileContents ./starship.toml)
+      (lib.fileContents ../../users/profiles/starship/starship.toml)
     }
   '';
 

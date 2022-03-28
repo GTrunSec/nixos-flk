@@ -73,48 +73,52 @@
     cells-lab = {url = "github:gtrunsec/DevSecOps-cells-lab";};
   };
 
-  outputs = { self, digga, ... }@inputs:
-  digga.lib.mkFlake
-      {
-        inherit self inputs;
+  outputs = {
+    self,
+    digga,
+    ...
+  } @ inputs:
+    digga.lib.mkFlake
+    {
+      inherit self inputs;
 
-        supportedSystems = ["x86_64-linux"];
+      supportedSystems = ["x86_64-linux"];
 
-        channelsConfig = {
-          allowUnfree = true;
-          allowBroken = true;
-          allowUnsupportedSystem = true;
-        };
-
-        channels = import ./channels {inherit self inputs;};
-
-        lib = import ./lib {lib = digga.lib // inputs.nixpkgs.lib;};
-
-        sharedOverlays = import ./overlays/share {inherit self inputs;};
-
-        devshell = ./devshell;
-
-        nixos = ./nixos;
-
-        home = ./users;
-
-        homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
-
-        deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
-          NixOS = {
-            hostname = "10.220.170.112";
-            sshUser = "root";
-            fastConnect = true;
-          };
-        };
-
-        defaultTemplate = self.templates.flk;
-        templates.flk.path = ./.;
-        templates.flk.description = "flk template";
-
-        ########################
-        # # Builder Packages   #
-        ########################
-        outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
+      channelsConfig = {
+        allowUnfree = true;
+        allowBroken = true;
+        allowUnsupportedSystem = true;
       };
+
+      channels = import ./channels {inherit self inputs;};
+
+      lib = import ./lib {lib = digga.lib // inputs.nixpkgs.lib;};
+
+      sharedOverlays = import ./overlays/share {inherit self inputs;};
+
+      devshell = ./devshell;
+
+      nixos = ./nixos;
+
+      home = ./users;
+
+      homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
+
+      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
+        NixOS = {
+          hostname = "10.220.170.112";
+          sshUser = "root";
+          fastConnect = true;
+        };
+      };
+
+      defaultTemplate = self.templates.flk;
+      templates.flk.path = ./.;
+      templates.flk.description = "flk template";
+
+      ########################
+      # # Builder Packages   #
+      ########################
+      outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
+    };
 }

@@ -2864,12 +2864,12 @@ a separator ' -> '."
 - Pkg.add("JuliaFormatter")
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! julia-formatter
-  :config
-  ;;(julia-formatter-setup-aggressive-hooks)
-  (add-hook 'julia-mode-hook #'julia-formatter--ensure-server)
-  (add-hook 'julia-mode-hook #'julia-formatter-mode)
-  )
+;; (use-package! julia-formatter
+;;   :config
+;;   ;;(julia-formatter-setup-aggressive-hooks)
+;;   (add-hook 'julia-mode-hook #'julia-formatter--ensure-server)
+;;   (add-hook 'julia-mode-hook #'julia-formatter-mode)
+;;   )
 #+end_src
 
 #+RESULTS:

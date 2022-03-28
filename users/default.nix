@@ -12,20 +12,23 @@ with inputs; {
   importables = rec {
     profiles = digga.lib.rakeLeaves ./profiles;
     suites = with profiles; rec {
+      shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
+      graphicalProfile = [cursor randr];
       base =
         [
+          shellProfile
           home-services
-          direnv
-          git
-          feh
-          zsh
-          doom-emacs
-          cursor
-          alacritty
-          tmux
+
+          graphicalProfile
+
           link-home-file
           home-packages
-          randr
+
+          git
+          feh
+          doom-emacs
+          alacritty
+
           gpg
         ]
         ++ services;

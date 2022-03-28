@@ -1,11 +1,7 @@
 #! /usr/bin/env zsh
-autoload -Uz promptinit
-promptinit
-# zsh-mime-setup
-autoload colors
-colors
-autoload -Uz zmv # move function
-#autoload -Uz zed # edit functions within zle
+
+# autoload -Uz zmv # move function
+# autoload -Uz zed # edit functions within zle
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -36,11 +32,6 @@ function pet-select() {
     zle redisplay
 }
 
-function jupyter-env() {
-    cd ~/data/Jupyter-data-science-environment
-    nix-shell my-default.nix --option build-use-sandbox false --command "jupyter lab --ip $1 --config jupyter_notebook_config.py"
-}
-
 zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
@@ -59,7 +50,6 @@ export VISUAL=$EDITOR
 [[ -n "$key[Up]" ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
 [[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
 
-unalias z
 eval "$(zoxide init zsh)"
 
 function _nix() {

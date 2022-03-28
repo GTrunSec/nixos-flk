@@ -2,8 +2,9 @@
 symbol = " "
 
 [character]
-success_symbol = "[❯](bold purple)"
-vicmd_symbol = "[❮](bold purple)"
+success_symbol = "[❯](bold purple) "
+vicmd_symbol = "[V](bold green) "
+error_symbol = "[❯](bold red) "
 
 [battery]
 full_symbol = ""
@@ -32,18 +33,7 @@ symbol = " "
 style = "bold dimmed white"
 
 [git_status]
-format = '([「$all_status$ahead_behind」]($style) )'
 conflicted = "⚠️"
-ahead = "⟫${count} "
-behind = "⟪${count}"
-diverged = "🔀 "
-untracked = "📁 "
-stashed = "↪ "
-modified = "𝚫 "
-staged = "✔ "
-renamed = "⇆ "
-deleted = "✘ "
-style = "bold bright-white"
 
 [golang]
 symbol = " "
@@ -65,10 +55,11 @@ disabled = false
 symbol = " "
 
 [nix_shell]
-format = '[$symbol$state]($style) '
+format = 'via [☃️ $state( \($name\))](bold blue) '
 symbol = " "
+impure_msg = "impure"
 pure_msg = "λ"
-impure_msg = "⎔"
+style = "cyan"
 
 [nodejs]
 symbol = " "
