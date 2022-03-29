@@ -12,6 +12,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     latest.url = "github:nixos/nixpkgs/master";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
@@ -28,6 +29,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    unstable,
     latest,
     utils,
     nix-darwin,
@@ -86,7 +88,10 @@
               alacritty
               nix-direnv
               nixUnstable
-              ;
+            ;
+              inherit
+              (channels.unstable)
+            ;
           }
         )
       ];
