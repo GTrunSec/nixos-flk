@@ -11,5 +11,6 @@
     shfmt
     zeekscript
     terraform-lsp
+    just
   ];
 }

@@ -88,10 +88,10 @@
               alacritty
               nix-direnv
               nixUnstable
-            ;
-              inherit
+              ;
+            inherit
               (channels.unstable)
-            ;
+              ;
           }
         )
       ];

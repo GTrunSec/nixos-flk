@@ -20,12 +20,16 @@ with inputs; {
     ];
   };
 
-  imports = [(digga.lib.importHosts ../hosts)];
+  imports = let
+    filtered = inputs.nix-filter.lib.filter {
+      root = ../hosts;
+      exclude = [
+        ../hosts/MacBook
+      ];
+    };
+  in [(digga.lib.importHosts filtered)];
 
   hosts = {
-    /*
-     set host specific properties here
-     */
     NixOS = {
       modules = [
         # { disabledModules = [ "services/misc/geoip-updater.nix" ]; }

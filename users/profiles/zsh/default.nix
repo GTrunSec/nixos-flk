@@ -22,6 +22,7 @@
             extended = true;
             size = 10000000;
           };
+          # kitty +kitten ssh myserver
           shellAliases = with pkgs; {
             l = "exa -lah";
             f = "rg --files";

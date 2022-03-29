@@ -2984,6 +2984,25 @@ a separator ' -> '."
   )
 #+end_src
 
+** justl -> justfile
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! justl :recipe (:host github :repo "psibi/justl.el"))
+(package! just-mode :recipe (:host github :repo "psibi/just-mode.el" :branch "format-feature"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! just-mode)
+(use-package! justl
+  :custom
+  (justl-executable "/run/current-system/sw/bin/just")
+  (justl-recipe-width 25)
+  )
+#+end_src
+
+#+RESULTS:
+: justl
+
 ** Tree Sitter
 :PROPERTIES:
 :ID:       4bfe18f0-70f6-4f5d-9188-01c19c7a6304

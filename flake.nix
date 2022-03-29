@@ -16,61 +16,56 @@
     latest.url = "github:NixOS/nixpkgs/master";
     unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs_21_05.url = "github:NixOS/nixpkgs/release-21.05";
-    devshell = {
-      url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
-    # nix = {url = "github:NixOS/nix";};
-    flake-utils-plus = {url = "github:gytis-ivaskevicius/flake-utils-plus";};
-    digga = {
-      url = "github:divnix/digga";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.deploy.follows = "deploy";
-      inputs.devshell.follows = "devshell";
-      inputs.flake-utils-plus.follows = "flake-utils-plus";
-    };
-    deploy = {url = "github:serokell/deploy-rs";};
-    devos-ext-lib = {
-      url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
-      inputs.nixpkgs.follows = "latest";
-    };
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
+    devshell.url = "github:numtide/devshell";
+    devshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    # nix.url = "github:NixOS/nix";}
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+    digga.url = "github:divnix/digga";
+    digga.inputs.nixpkgs.follows = "nixpkgs";
+    digga.inputs.deploy.follows = "deploy";
+    digga.inputs.devshell.follows = "devshell";
+    digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
+
+    deploy.url = "github:serokell/deploy-rs";
+
+    devos-ext-lib.url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
+    devos-ext-lib.inputs.nixpkgs.follows = "latest";
+
+    flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.flake = false;
     qnr.url = "github:divnix/quick-nix-registry";
     ####################
     # Default Features #
     ####################
-    # nix-dram = {
-    #   url = "github:dramforever/nix-dram";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    home = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "latest";
-    };
+
+    home.url = "github:nix-community/home-manager";
+    home.inputs.nixpkgs.follows = "latest";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
     nur.url = "github:nix-community/NUR";
     sops-nix.url = "github:Mic92/sops-nix";
+
     gomod2nix.url = "github:tweag/gomod2nix";
+
+    nix-filter.url = "github:numtide/nix-filter";
+    nix-filter.inputs.nixpkgs.follows = "nixpkgs";
     #################
     # Custom Flakes #
     #################
-    photoprism2nix = {
-      url = "github:GTrunSec/photoprism2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    tenvideo = {
-      url = "github:GTrunSec/Tenvideo-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rust-overlay = {url = "github:oxalica/rust-overlay";};
-    emacs-ng = {url = "github:emacs-ng/emacs-ng";};
-    nixpkgs-hardenedlinux = {url = "github:hardenedlinux/nixpkgs-hardenedlinux";};
-    alejandra = {url = "github:kamadorueda/alejandra";};
-    cells-lab = {url = "github:gtrunsec/DevSecOps-cells-lab";};
+    photoprism2nix.url = "github:GTrunSec/photoprism2nix";
+    photoprism2nix.inputs.nixpkgs.follows = "nixpkgs";
+    tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
+    tenvideo.inputs.nixpkgs.follows = "nixpkgs";
+    emacs-ng.url = "github:emacs-ng/emacs-ng";
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
+    nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+    alejandra.url = "github:kamadorueda/alejandra";
+    cells-lab.url = "github:gtrunsec/DevSecOps-cells-lab";
   };
 
   outputs = {
