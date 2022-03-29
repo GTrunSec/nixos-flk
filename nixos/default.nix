@@ -20,14 +20,7 @@ with inputs; {
     ];
   };
 
-  imports = let
-    filtered = inputs.nix-filter.lib.filter {
-      root = ../hosts;
-      exclude = [
-        ../hosts/MacBook
-      ];
-    };
-  in [(digga.lib.importHosts filtered)];
+  imports = [(digga.lib.importHosts ../hosts)];
 
   hosts = {
     NixOS = {
