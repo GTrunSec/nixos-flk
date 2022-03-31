@@ -85,7 +85,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;tabs              ; a tab bar for Emacs
+       tabs              ; a tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -3113,79 +3113,17 @@ a separator ' -> '."
 
 ** Window
 
-*** awesome-tab
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! awesome-tab :recipe (:host github :repo "manateelazycat/awesome-tab"))
-#+end_src
+*** tab-bar
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! awesome-tab
+(use-package! tab-bar
   :config
-  (awesome-tab-mode t)
-  (setq awesome-tab-style 'slant)
-  ;; winum users can use `winum-select-window-by-number' directly.
-  (defun my-select-window-by-number (win-id)
-    "Use `ace-window' to select the window by using window index.
-WIN-ID : Window index."
-    (let ((wnd (nth (- win-id 1) (aw-window-list))))
-      (if wnd
-          (aw-switch-to-window wnd)
-        (message "No such window."))))
-
-  (defun my-select-window ()
-    (interactive)
-    (let* ((event last-input-event)
-           (key (make-vector 1 event))
-           (key-desc (key-description key)))
-      (my-select-window-by-number
-       (string-to-number (car (nreverse (split-string key-desc "-")))))))
-
-  (when (not (display-graphic-p))
-    (setq frame-background-mode 'dark))
-  (defun awesome-tab-buffer-groups ()
-    "`awesome-tab-buffer-groups' control buffers' group rules.
-
-Group awesome-tab with mode if buffer is derived from `eshell-mode' `emacs-lisp-mode' `dired-mode' `org-mode' `magit-mode'.
-All buffer name start with * will group to \"Emacs\".
-Other buffer group by `awesome-tab-get-group-name' with project name."
-    (list
-     (cond
-      ((or (string-equal "*" (substring (buffer-name) 0 1))
-           (memq major-mode '(magit-process-mode
-                              magit-status-mode
-                              magit-diff-mode
-                              magit-log-mode
-                              magit-file-mode
-                              magit-blob-mode
-                              magit-blame-mode
-                              )))
-       "Emacs")
-      ((derived-mode-p 'eshell-mode)
-       "EShell")
-      ((derived-mode-p 'emacs-lisp-mode)
-       "Elisp")
-      ((derived-mode-p 'dired-mode)
-       "Dired")
-      ((memq major-mode '(org-mode org-agenda-mode diary-mode))
-       "OrgMode")
-      (t
-       (awesome-tab-get-group-name (current-buffer))))))
-  )
-;; (setq awesome-tab-style "bar")
-;; (setq awesome-tab-set-icons t)
-;; (setq awesome-tab-set-bar t)
-;; (setq awesome-tab-set-bar 'over)
-;; (setq awesome-tab-set-modified-marker t)
-;; (setq awesome-tab-set-close-button nil)
-;; (setq awesome-tab-modified-marker "*")
-(global-set-key (kbd "C-c j") 'awesome-tab-forward-tab)
-(global-set-key (kbd "C-c k") 'awesome-tab-backward-tab)
-(global-set-key (kbd "C-c o") 'awesome-tab-switch-group)
+  (tab-bar-mode t)
+)
 #+end_src
 
 #+RESULTS:
-: awesome-tab-switch-group
+: t
 
 *** Dimming Unused Windows
 

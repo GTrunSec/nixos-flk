@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # https://superuser.com/questions/427163/altarrow-moving-between-words-in-zsh-and-iterm2
-bindkey "\e[1;3C" forward-word
-bindkey "\e[1;3D" backward-word
+bindkey "\e[1;3C" emacs-forward-word
+bindkey "\e[1;3D" emacs-backward-word
 
 bindkey -M emacs '^x' fzf-cd-widget
 bindkey -M emacs '^P' history-substring-search-up
