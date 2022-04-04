@@ -85,7 +85,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       tabs              ; a tab bar for Emacs
+       ;;tabs              ; a tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -136,7 +136,8 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        ;;(eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       lsp
+       (lsp
+        +eglot)
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -1117,6 +1118,7 @@ In that case, insert the number."
                         go-mode
                         ruby-mode
                         rust-mode
+                        rustic-mode
                         js-mode
                         css-mode
                         web-mode
@@ -1124,6 +1126,7 @@ In that case, insert the number."
                         json-mode
                         )
   '(
+    company-capf
     company-files
     company-yasnippet
     :separate
@@ -1136,6 +1139,7 @@ In that case, insert the number."
                               :separate
                               company-tabnine
                               ))
+
 #+end_src
 
 #+results:
@@ -2702,11 +2706,11 @@ a separator ' -> '."
 
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! lsp-mode
-  :config
-  (add-hook 'terraform-mode-hook #'lsp)
-  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
-)
+;; (use-package! lsp-mode
+;;   :config
+;;   (add-hook 'terraform-mode-hook #'lsp)
+;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
+;; )
 ;;   ;; (lsp-register-client
 ;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
 ;;   ;;                   :major-modes '(nix-mode)
@@ -2723,10 +2727,10 @@ a separator ' -> '."
 
 ** Eglot
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;;  (use-package! eglot
-;;   :config
-;;   (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
-;; )
+ (use-package! eglot
+  :config
+  (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+)
 #+end_src
 
 #+RESULTS:
@@ -2801,13 +2805,13 @@ a separator ' -> '."
   #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! lsp-julia
-  :config
-  ;;(add-hook 'julia-mode-hook #'lsp)
-  (setq lsp-julia-package-dir nil)
-  (setq lsp-enable-folding t)
-  (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
-)
+;; (use-package! lsp-julia
+;;   :config
+;;   ;;(add-hook 'julia-mode-hook #'lsp)
+;;   (setq lsp-julia-package-dir nil)
+;;   (setq lsp-enable-folding t)
+;;   (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
+;; )
 #+end_src
 
 #+RESULTS:
@@ -2816,10 +2820,10 @@ a separator ' -> '."
 
 *** eglot-julia
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! eglot-jl
-;;   :config
-;;   (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
-;; )
+(use-package! eglot-jl
+  :config
+  (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
+)
 #+end_src
 
 #+RESULTS:
@@ -2961,13 +2965,20 @@ a separator ' -> '."
 
 ** Rust
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(after! rust
-  (seqpetq racer-cmd "racer")
-  (add-hook 'rustic-mode-hook (lambda () (setq-local +lsp-company-backends '(company-capf
-                                                                             company-tabnine))
-                                ))
+(after! rustic
+  (setq racer-cmd "racer")
+  (setq-default company-backends '(company-capf
+                                   company-files
+                                   company-yasnippet
+                                   :separate
+                                   company-tabnine
+                                   )
+                )
   )
 #+end_src
+
+#+RESULTS:
+| company-capf | company-files | company-yasnippet | :separate | company-tabnine |
 
 ** separedit.el
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
@@ -3116,10 +3127,8 @@ a separator ' -> '."
 *** tab-bar
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! tab-bar
-  :config
-  (tab-bar-mode t)
-)
+;;(add-hook 'dired-mode-hook (lambda () (tab-bar-mode 1)))
+(tab-bar-mode t)
 #+end_src
 
 #+RESULTS:

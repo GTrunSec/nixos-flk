@@ -11035,11 +11035,11 @@
     },
     "latest_56": {
       "locked": {
-        "lastModified": 1647659706,
-        "narHash": "sha256-QvULD725gvmL0TqccFYmSLkbNj97Zxh3pMtWDiIplUc=",
+        "lastModified": 1648924654,
+        "narHash": "sha256-yKsAjw1Oqcr1TuCt+yK11QW4CIYcXc/AcLftK2ol1Vw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6b121672777edda9c67593fb317ad6cc78a62bc4",
+        "rev": "38b945824742d594b55709409179a62a3a2b9ffb",
         "type": "github"
       },
       "original": {
@@ -22315,11 +22315,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1609538072,
-        "narHash": "sha256-oj5j5LkQai3VpNoOYCWSWTQfAeIAr1w6K6LrT3TCwrA=",
+        "lastModified": 1649032376,
+        "narHash": "sha256-lyNwv+U40DiknulOt3Zkq3HaNfBHsiB32NHh/1KHudc=",
         "owner": "GTrunSec",
         "repo": "Tenvideo-nix-flake",
-        "rev": "e8bc66e35bcfead56ed32a85cb687a0c7435e34a",
+        "rev": "05ec039e977896aa3ab68ad7be15d6dd97103158",
         "type": "github"
       },
       "original": {
@@ -22621,11 +22621,11 @@
     },
     "unstable": {
       "locked": {
-        "lastModified": 1647350163,
-        "narHash": "sha256-OcMI+PFEHTONthXuEQNddt16Ml7qGvanL3x8QOl2Aao=",
+        "lastModified": 1648219316,
+        "narHash": "sha256-Ctij+dOi0ZZIfX5eMhgwugfvB+WZSrvVNAyAuANOsnQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3eb07eeafb52bcbf02ce800f032f18d666a9498d",
+        "rev": "30d3d79b7d3607d56546dd2a6b49e156ba0ec634",
         "type": "github"
       },
       "original": {

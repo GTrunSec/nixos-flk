@@ -5,7 +5,7 @@
     sbcl
     tree-sitter
     cue
-    clang
+    clang_11
     gcc
     julia_17-bin
     shfmt
