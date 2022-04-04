@@ -633,11 +633,13 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
                'haskell-mode-hook
                'emacs-lisp-mode-hook
                ))
-  (add-hook hook 'format-all-mode)
+  ;;(add-hook hook 'format-all-mode)
   (add-hook hook '(lambda ()
                     (setq grammatical-edit-mode 1)))
   )
 #+end_src
+
+#+RESULTS:
 
 * Autoload
 
@@ -2965,6 +2967,7 @@ a separator ' -> '."
 
 ** Rust
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+
 (after! rustic
   (setq racer-cmd "racer")
   (setq-default company-backends '(company-capf

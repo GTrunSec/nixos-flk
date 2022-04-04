@@ -8,6 +8,9 @@ bindkey -M emacs '^x' fzf-cd-widget
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
+bindkey "^[[1;5C" vi-forward-word
+bindkey "^[[1;5D" vi-backward-word
+
 bindkey '^Z' fzf-z-widget
 
 [[ -n "$key[Up]" ]] && bindkey -- "$key[Up]" up-line-or-beginning-search
