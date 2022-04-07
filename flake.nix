@@ -106,11 +106,6 @@
           fastConnect = true;
         };
       };
-
-      defaultTemplate = self.templates.flk;
-      templates.flk.path = ./.;
-      templates.flk.description = "flk template";
-
       ########################
       # # Builder Packages   #
       ########################
