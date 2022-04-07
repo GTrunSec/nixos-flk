@@ -3037,7 +3037,7 @@ a separator ' -> '."
   (use-package! emacs-tree-sitter
     :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode)  . tree-sitter-mode)
     :init
-    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/core")
+    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/.cask/28.0/elpa/tsc-20220212.1632")
     (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
     (require 'tree-sitter)
     (require 'tree-sitter-langs)

@@ -8,7 +8,10 @@
     ../pkgs/default.nix
     (
       final: prev: {
-        emacsNG = inputs.emacs-ng.defaultPackage.x86_64-linux;
+        inherit
+          (inputs.emacs-ng.packages.x86_64-linux)
+          emacsng
+          ;
         alejandra = inputs.alejandra.defaultPackage."${prev.stdenv.hostPlatform.system}";
         inherit
           (inputs.nixpkgs-hardenedlinux.packages."${prev.stdenv.hostPlatform.system}")
