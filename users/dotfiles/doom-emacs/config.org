@@ -630,6 +630,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
                'sh-mode-hook
                'julia-mode-hook
                'nix-mode-hook
+               'nickel-mode-hook
                'haskell-mode-hook
                'emacs-lisp-mode-hook
                ))
@@ -1121,8 +1122,10 @@ In that case, insert the number."
                         ruby-mode
                         rust-mode
                         rustic-mode
+                        nickel-mode
                         js-mode
                         css-mode
+                        nickel-mode
                         web-mode
                         nix-mode
                         json-mode
@@ -2708,20 +2711,19 @@ a separator ' -> '."
 
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-mode
-;;   :config
-;;   (add-hook 'terraform-mode-hook #'lsp)
-;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
-;; )
-;;   ;; (lsp-register-client
-;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-;;   ;;                   :major-modes '(nix-mode)
-;;   ;;                   :server-id 'nix))
-;;   (lsp-register-client
-;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
-;;                     :activation-fn (lsp-activate-on "nickel")
-;;                     :server-id 'nls))
-;;   )
+(use-package! lsp-mode
+  :config
+  (add-hook 'terraform-mode-hook #'lsp)
+  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
+  ;; (lsp-register-client
+  ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+  ;;                   :major-modes '(nix-mode)
+  ;;                   :server-id 'nix))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
+                    :activation-fn (lsp-activate-on "nickel")
+                    :server-id 'nls))
+  )
 #+end_src
 
 #+results:
@@ -2732,6 +2734,7 @@ a separator ' -> '."
  (use-package! eglot
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+  (add-to-list 'eglot-server-programs '(nickel-mode . ("nls")))
 )
 #+end_src
 
@@ -3035,7 +3038,9 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (when IS-LINUX
   (use-package! emacs-tree-sitter
-    :hook ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode)  . tree-sitter-mode)
+    :hook
+    ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode nickel-mode)  . tree-sitter-mode)
+    (tree-sitter-mode . tree-sitter-hl-mode)
     :init
     (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/.cask/28.0/elpa/tsc-20220212.1632")
     (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
@@ -3046,7 +3051,9 @@ a separator ' -> '."
     (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
     ;;nix
     (tree-sitter-load 'nix "nix")
+    (tree-sitter-load 'nickel "nickel")
     (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
+    (add-to-list 'tree-sitter-major-mode-language-alist '(nickel-mode . nickel))
     (add-to-list 'tree-sitter-major-mode-language-alist '(envrc-file-mode . bash))
     ;;elisp
     (tree-sitter-load 'elisp "elisp")
@@ -3055,10 +3062,11 @@ a separator ' -> '."
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
     (tree-sitter-require 'julia)
-    ;; load haskell
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   ))
 #+end_src
+
+#+RESULTS:
+| tree-sitter-hl-mode | emacs-tree-sitter | tree-sitter-mode-set-explicitly |
 
 
 * Visualization
