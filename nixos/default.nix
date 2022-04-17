@@ -6,7 +6,7 @@
 with inputs; {
   hostDefaults = {
     system = "x86_64-linux";
-    channelName = "nixpkgs";
+    channelName = "nixos";
     imports = [
       (digga.lib.importExportableModules ./modules)
     ];

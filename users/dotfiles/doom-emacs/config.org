@@ -1637,20 +1637,17 @@ FACE defaults to inheriting from default and highlight."
   :config
   (org-starter-def "~/Documents/org-notes"
     :files
-    ("posts/myself/love.org"         :key "l" :refile (:maxlevel . 5 ))
-    ("posts/myself/qing.org"         :key "q" :refile (:maxlevel . 5 ))
-    ("posts/myself/plan.org"         :key "p" :refile (:maxlevel . 5 ))
     ("braindump/" :agenda t)
-    ("braindump/myself/" :agenda t)
-    ("braindump/myself/GTD/gtd.org"    :key "g" :refile (:maxlevel . 5))
-    ("braindump/myself/GTD/notes.org"  :key "n" :refile (:maxlevel . 5 ))
-    ("braindump/myself/GTD/myself.org" :key "m" :refile (:maxlevel . 5 ))
-    ("braindump/myself/GTD/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
+    ("braindump/self/gtd.org"    :key "g" :refile (:maxlevel . 5))
+    ("braindump/self/notes.org"  :key "n" :refile (:maxlevel . 5 ))
+    ("braindump/self/myself.org" :key "m" :refile (:maxlevel . 5 ))
+    ("braindump/self/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
     ;;
     ("braindump/learning_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
     ("braindump/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
     ("braindump/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
+    ("braindump/self/" :agenda t)
     ("braindump/journals/" :agenda t)
     ("braindump/nix/" :agenda t)
     ("braindump/security/" :agenda t)
@@ -2733,7 +2730,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
  (use-package! eglot
   :config
-  (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+  (add-to-list 'eglot-server-programs '(nix-mode . ("/nix/store/sri2viq8rh9pxrcriysvj1yv4yvnjh41-nix-eval-lsp-0.1.0/bin/nix-eval-lsp")))
   (add-to-list 'eglot-server-programs '(nickel-mode . ("nls")))
 )
 #+end_src

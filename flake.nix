@@ -12,18 +12,18 @@
     ##################
     # Default Flakes #
     ##################
-    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
+    nixos.url = "github:NixOS/nixpkgs/nixos-21.11";
     latest.url = "github:NixOS/nixpkgs/master";
-    unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs_21_05.url = "github:NixOS/nixpkgs/release-21.05";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
 
     devshell.url = "github:numtide/devshell";
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
+    devshell.inputs.nixpkgs.follows = "nixos";
 
     # nix.url = "github:NixOS/nix";}
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
-    digga.inputs.nixpkgs.follows = "nixpkgs";
+    digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.deploy.follows = "deploy";
     digga.inputs.devshell.follows = "devshell";
     digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
@@ -51,15 +51,15 @@
     gomod2nix.url = "github:tweag/gomod2nix";
 
     nix-filter.url = "github:numtide/nix-filter";
-    nix-filter.inputs.nixpkgs.follows = "nixpkgs";
+    nix-filter.inputs.nixpkgs.follows = "nixos";
     #################
     # Custom Flakes #
     #################
     photoprism2nix.url = "github:GTrunSec/photoprism2nix";
-    photoprism2nix.inputs.nixpkgs.follows = "nixpkgs";
+    photoprism2nix.inputs.nixpkgs.follows = "nixos";
     tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
-    tenvideo.inputs.nixpkgs.follows = "nixpkgs";
-    emacs-ng.url = "github:emacs-ng/emacs-ng";
+    tenvideo.inputs.nixpkgs.follows = "nixos";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
@@ -89,7 +89,7 @@
 
       lib = import ./lib {lib = digga.lib // inputs.nixpkgs.lib;};
 
-      sharedOverlays = import ./overlays/share {inherit self inputs;};
+      sharedOverlays = import ./channels/overlays/common {inherit self inputs;};
 
       devshell = ./devshell;
 

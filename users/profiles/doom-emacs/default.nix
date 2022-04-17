@@ -48,11 +48,7 @@ in {
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = (pkgs.emacsng.override {}).overrideAttrs (
-    old: rec {
-      configureFlags = (old.configureFlags or []) ++ [];
-    }
-  );
+  programs.emacs.package = pkgs.emacsGcc;
 
   programs.emacs.extraPackages = epkgs:
     with epkgs; [

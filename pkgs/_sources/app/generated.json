@@ -4,10 +4,10 @@
         "cargoLock": null,
         "name": "logseq",
         "src": {
-            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.5+nightly.20220404.AppImage",
+            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.5+nightly.20220415.AppImage",
             "name": null,
             "type": "url",
-            "sha256": "sha256-l7ICyx2LWtAi5uMcDKCadP3tpJRvBffw9LcMJV8qr4U="
+            "sha256": "sha256-AWj06sQM6mX0iHhdfK8p7xuksHbsHapPt9wvBoIzyIU="
         },
         "version": "0.6.5",
         "passthru": null,

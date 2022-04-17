@@ -5,8 +5,8 @@
     pname = "logseq";
     version = "0.6.5";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.5+nightly.20220404.AppImage";
-      sha256 = "sha256-l7ICyx2LWtAi5uMcDKCadP3tpJRvBffw9LcMJV8qr4U=";
+      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.5+nightly.20220415.AppImage";
+      sha256 = "sha256-AWj06sQM6mX0iHhdfK8p7xuksHbsHapPt9wvBoIzyIU=";
     };
   };
   logseq-darwin = {
