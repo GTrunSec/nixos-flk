@@ -21,8 +21,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "latest";
     };
-    nixpkgs-hardenedliux = {url = "github:hardenedlinux/nixpkgs-hardenedlinux";};
-
     emacs.url = "github:cmacrae/emacs";
   };
 
@@ -34,7 +32,6 @@
     utils,
     nix-darwin,
     home,
-    nixpkgs-hardenedliux,
     emacs,
   }: let
     inherit (nixpkgs) lib;
@@ -49,11 +46,10 @@
         self.overlay
         emacs.overlay
 
-        (import ../../overlays/nixpkgs/my-node-packages.nix)
-        (import ../../overlays/nixpkgs/apps.nix)
+        (import ../../channels/overlays/nixos/my-node-packages.nix)
+        (import ../../channels/overlays/nixos/apps.nix)
         (
           final: prev: {
-            gst = nixpkgs-hardenedliux.packages.${final.system}.gst;
             lib = prev.lib.extend (
               lfinal: lprev: {
                 installApp = import ../../lib/installApp.nix prev;
@@ -123,7 +119,7 @@
         # Host specific configuration.
         modules = [
           ./.
-          ../../users/darwin/gtrun.nix
+          ../darwin/gtrun.nix
         ];
       };
 
