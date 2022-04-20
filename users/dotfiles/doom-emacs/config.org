@@ -1640,7 +1640,6 @@ FACE defaults to inheriting from default and highlight."
     ("braindump/" :agenda t)
     ("braindump/self/gtd.org"    :key "g" :refile (:maxlevel . 5))
     ("braindump/self/notes.org"  :key "n" :refile (:maxlevel . 5 ))
-    ("braindump/self/myself.org" :key "m" :refile (:maxlevel . 5 ))
     ("braindump/self/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
     ;;
     ("braindump/learning_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))

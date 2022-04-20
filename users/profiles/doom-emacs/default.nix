@@ -12,9 +12,10 @@
     $HOME/.emacs.d/bin/doom sync
   '';
 in {
+
   home.activation.linkEmacsPrivate = config.lib.dag.entryAfter ["writeBoundary"] ''
      if [ ! -d "$HOME/.emacs.d" ];then
-        ${pkgs.git}/bin/git clone https://github.com/GTrunSec/doom-emacs.git -b my-doom ~/.emacs.d
+        ${pkgs.git}/bin/git clone https://github.com/hlissner/doom-emacs/ ~/.emacs.d
      fi
 
     if [ ! -d "$HOME/.doom.d" ];then

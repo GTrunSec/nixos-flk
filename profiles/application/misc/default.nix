@@ -56,7 +56,7 @@
     #office
     #video
     tenvideo
-
+    zoom-us
     #git workflow manager
     gst
     ghq

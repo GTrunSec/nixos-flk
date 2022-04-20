@@ -4,7 +4,6 @@ channels: final: prev: {
   inherit
     (channels.latest)
     cachix
-    rnix-lsp
     dhall
     discord
     #element-desktop
@@ -18,11 +17,13 @@ channels: final: prev: {
     tree-sitter
     starship
     treefmt
+    appimage-run
     ;
 
   inherit
     (channels.unstable)
     brave
+    rnix-lsp
     signal-desktop
     tdesktop
     onlyoffice-bin
