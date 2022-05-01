@@ -409,9 +409,28 @@
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! major-mode-hydra
   :config
+  (major-mode-hydra-define emacs-lisp-mode nil
+    ("Eval"
+     (("b" eval-buffer "buffer")
+      ("e" eval-defun "defun")
+      ("r" eval-region "region"))
+     "REPL"
+     (("I" ielm "ielm"))
+     "Test"
+     (("t" ert "prompt")
+      ("T" (ert t) "all")
+      ("F" (ert :failed) "failed"))
+     "Doc"
+     (("d" describe-foo-at-point "thing-at-pt")
+      ("f" describe-function "function")
+      ("v" describe-variable "variable")
+      ("i" info-lookup-symbol "info lookup"))))
   :bind
   ("M-SPC" . major-mode-hydra))
 #+end_src
+
+#+RESULTS:
+: major-mode-hydra
 
 ** imenu-list
 
@@ -1778,15 +1797,66 @@ FACE defaults to inheriting from default and highlight."
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
 (use-package! zetteldesk
-  :after org-roam major-mode-hydra
+  :after org-roam
   :config
+  (setq zetteldesk-hydra-prefix (kbd "M-p"))
+  (zetteldesk-mode)
   (require 'zetteldesk-kb)
-  (zetteldesk-mode 1)
-  (setq zetteldesk-hydra-prefix (kbd "C-c z"))
-  )
+  (map! :prefix ("C-c z" . "zetteldesk")
+        :desc "Switch to zetteldesk buffer" "b" #'zetteldesk-switch-to-buffer
+        :desc "Find zetteldesk node"        "n" #'zetteldesk-node-find
+        :desc "Go to zetteldesk info node"  "I" #'zetteldesk-info-goto-node
+        (:prefix ("a" . "add")
+         :desc "Add node"                   "n" #'zetteldesk-add-node-to-desktop
+         :desc "Add node + backlinks"       "b" #'zetteldesk-add-backlinks-to-desktop
+         :desc "Add one POI/MOC backlink"   "p" #'zetteldesk-add-poi-or-moc-backlink-to-desktop
+         :desc "Add buffer"                 "a" #'zetteldesk-add-to-desktop
+         :desc "Add info node"              "i" #'zetteldesk-add-info-node-to-desktop)
+        (:prefix ("r" . "remove")
+         :desc "Remove node"                "n" #'zetteldesk-remove-node-from-desktop
+         :desc "Remove node + backlinks"    "b" #'zetteldesk-remove-backlinks-from-desktop
+         :desc "Remove buffer"              "r" #'zetteldesk-remove-from-desktop
+         :desc "Remove info node"           "i" #'zetteldesk-remove-info-node-from-desktop)
+        (:prefix ("i" . "insert")
+         :desc "Link to node + contents in *zetteldesk-scratch*"  "n" #'zetteldesk-insert-node-contents
+         :desc "Node contents in *zetteldesk-scratch*"            "N" #'zetteldesk-insert-node-contents-without-link
+         :desc "Link to node"                                     "i" #'zetteldesk-node-insert
+         :desc "Link to node - Menu sorted by backlinks"          "b" #'zetteldesk-node-insert-sort-backlinks
+         :desc "Links to all POIs/MOCs"                           "m" #'zetteldesk-node-insert-if-poi-or-moc
+         :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
+         :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
+         :desc "Info node contents + link to context"             "I" #'zetteldesk-insert-info-contents)
+        :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)
+  (map! :leader :prefix "n"
+        (:prefix ("z" . "zetteldesk")
+         :desc "Switch to zetteldesk buffer" "b" #'zetteldesk-switch-to-buffer
+         :desc "Find zetteldesk node"        "n" #'zetteldesk-node-find
+         :desc "Go to zetteldesk info node"  "I" #'zetteldesk-info-goto-node
+         (:prefix ("a" . "add")
+          :desc "Add node"                   "n" #'zetteldesk-add-node-to-desktop
+          :desc "Add node + backlinks"       "b" #'zetteldesk-add-backlinks-to-desktop
+          :desc "Add one POI/MOC backlink"   "p" #'zetteldesk-add-poi-or-moc-backlink-to-desktop
+          :desc "Add buffer"                 "a" #'zetteldesk-add-to-desktop
+          :desc "Add info node"              "i" #'zetteldesk-add-info-node-to-desktop)
+         (:prefix ("r" . "remove")
+          :desc "Remove node"                "n" #'zetteldesk-remove-node-from-desktop
+          :desc "Remove node + backlinks"    "b" #'zetteldesk-remove-backlinks-from-desktop
+          :desc "Remove buffer"              "r" #'zetteldesk-remove-from-desktop
+          :desc "Remove info node"           "i" #'zetteldesk-remove-info-node-from-desktop)
+         (:prefix ("i" . "insert")
+          :desc "Link to node + contents in *zetteldesk-scratch*"  "n" #'zetteldesk-insert-node-contents
+          :desc "Node contents in *zetteldesk-scratch*"            "N" #'zetteldesk-insert-node-contents-without-link
+          :desc "Link to node"                                     "i" #'zetteldesk-node-insert
+          :desc "Link to node - Menu sorted by backlinks"          "b" #'zetteldesk-node-insert-sort-backlinks
+          :desc "Links to all POIs/MOCs"                           "m" #'zetteldesk-node-insert-if-poi-or-moc
+          :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
+          :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
+          :desc "Info node contents + link to context"             "I" #'zetteldesk-insert-info-contents)
+         :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)))
 #+end_src
 
-
+#+RESULTS:
+: t
 
 ** Org Sync
 
