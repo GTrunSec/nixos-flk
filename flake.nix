@@ -13,8 +13,8 @@
     # Default Flakes #
     ##################
     nixos.url = "github:NixOS/nixpkgs/nixos-21.11";
-    latest.url = "github:NixOS/nixpkgs/master";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-latest.url = "github:NixOS/nixpkgs/master";
+    nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
 
     devshell.url = "github:numtide/devshell";
@@ -31,7 +31,7 @@
     deploy.url = "github:serokell/deploy-rs";
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
-    devos-ext-lib.inputs.nixpkgs.follows = "latest";
+    devos-ext-lib.inputs.nixpkgs.follows = "nixos-latest";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -41,7 +41,7 @@
     ####################
 
     home.url = "github:nix-community/home-manager";
-    home.inputs.nixpkgs.follows = "latest";
+    home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 

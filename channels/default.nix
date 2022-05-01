@@ -4,6 +4,6 @@
   ...
 }: {
   nixos = import ./nixos.nix {inherit self inputs;};
-  latest = {};
-  unstable = {};
+  nixos-latest = {};
+  nixos-unstable = {};
 }

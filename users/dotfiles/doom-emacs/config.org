@@ -13,31 +13,6 @@
 - [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
 - https://github.com/zzamboni/dot-doom/blob/master/doom.org
 
-#+begin_quote
-HTML them READ org
-#+end_quote
-
-- [[https://www.gtrun.org/custom/config.html][My Doom Emacs config]]
-
-- [Source Code] [[https://github.com/GTrunSec/my-profile/tree/master/dotfiles/doom-emacs][my-profile/dotfiles/doom-emacs at master · GTrunSec/my-profile]]
-
-
-
-* Emacs
-:PROPERTIES:
-:original-authors: David A. Moon, Guy L. Steele Jr.
-:developers: Various free/li"ibre software developers, including volunteers and commercial developers
-:initial-release: 1976; 44 years ago (1976)
-:stable-release: 27.1 (August 10, 2020; 2 months ago (2020-08-10))
-:written-in: Lisp, C
-:operating-system: Cross-platform
-:type:     Text editor
-:wikinfo-id: 18933234
-:URL:      https://en.wikipedia.org?curid=18933234
-:END:
-
-Emacs or EMACS (Editor MACroS) is a family of text editors that are characterized by their extensibility. The manual for the most widely used variant, GNU Emacs, describes it as "the extensible, customizable, self-documenting, real-time display editor". Development of the first Emacs began in the mid-1970s, and work on its direct descendant, GNU Emacs, continues actively as of 2020.
-
 * Init.el
 
 #+begin_src emacs-lisp :tangle "init.el"
@@ -199,7 +174,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
         +roam2
         +noter
         )
-               ; organize your plain life in plain text
+                                        ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -248,6 +223,109 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
        )
 #+end_src
 
+* Config.el
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;; config.el -*- lexical-binding: t; -*-
+(load! "show-parentheses.el")
+(load! "meow.el")
+#+end_src
+
+** Performance
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq gcmh-high-cons-threshold most-positive-fixnum)
+(setq max-specpdl-size 100000)
+#+end_src
+
+** Personal Information
+
+#+begin_src cemacs-lisp :tangle "config.el"
+(setq user-full-name "GuangTao Zhang"
+      user-mail-address "gtrunsec@hardenedlinux.org")
+#+end_src
+
+#+begin_src cemacs-lisp :tangle "config.el"
+;; (setq auth-sources '("~/.authinfo.gpg")
+;;       auth-source-cache-expiry nil) ; default is 7200 (2h)
+#+end_src
+** Global Setting
+
+#+begin_src cemacs-lisp :tangle "config.el"
+;; (setq browse-url-browser-function 'browse-url-Chrome)
+;; https://emacs.stackexchange.com/questions/5603/how-to-quickly-copy-move-file-in-emacs-dired
+(add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
+
+(defun gtrun/truncate-lines-hook ()
+  (setq-local truncate-lines nil)
+  )
+
+(add-hook! 'text-mode-hook 'gtrun/truncate-lines-hook)
+
+(setenv "XAPIAN_CJK_NGRAM" "1")
+(setenv "QT_DEBUG_PLUGINS" "1")
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
+#+end_src
+
+** Better Default Setting
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq-default 
+ dired-dwim-target t
+ history-length 1000
+ create-lockfiles nil
+ delete-by-moving-to-trash t                      ;; Delete files to trash
+ window-combination-resize t                      ;; take new window space from all other windows (not just current)
+ x-stretch-cursor t)                              ;; Stretch cursor to the glyph width
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      truncate-string-ellipsis "…"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
+      password-cache-expiry nil                   ; I can trust my computers ... can't I?
+      scroll-margin 2)                            ; It's nice to maintain a little margin
+
+(global-subword-mode 1)                           ; Iterate through CamelCase words
+#+end_src
+
+#+results:
+: t
+
+** Auto Save Buffer
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook! 'before-save-hook 'font-lock-flush)
+
+(use-package! auto-save
+  :config
+  (auto-save-enable)
+  (setq auto-save-silent t)   ; quietly save
+  ;; after foraml-buffer
+  (setq auto-save-idle 5)
+  (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+  (setq auto-save-disable-predicates
+        '((lambda ()
+            (string-suffix-p
+             "gpg"
+             (file-name-extension (buffer-name)) t))))
+  )
+#+end_src
+
+** Abbrev
+- https://emacs.stackexchange.com/questions/45462/use-a-single-abbrev-table-for-multiple-modes/45476#45476
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook 'doom-first-buffer-hook
+          (defun +abbrev-file-name ()
+            (setq-default abbrev-mode t)
+            (setq abbrev-file-name (expand-file-name "abbrev.el" doom-private-dir))))
+#+end_src
+
 * Packages.el
 
 - [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
@@ -282,7 +360,7 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   (setq create-lockfiles nil)
   (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
                                         /sshx:gtrun@10.220.170.112:~/.config/guangtao
-                                        /sshx:root192.168.122.236:/root/
+                                        /sshx:admin@192.168.122.126:
                                         /sshx:test@10.220.170.134:/home/test/))
 )
 #+end_src
@@ -317,6 +395,23 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 ** Hydra
 
 - https://github.com/abo-abo/hydra/wiki/Projectile
+
+** major-mode-hydra
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! major-mode-hydra :recipe (:host github
+                          :repo "jerrypnz/major-mode-hydra.el"
+                          :files ("*")
+                          ))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! major-mode-hydra
+  :config
+  :bind
+  ("M-SPC" . major-mode-hydra))
+#+end_src
 
 ** imenu-list
 
@@ -431,9 +526,9 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 #+end_src
 ** snails
 #+begin_src emacs-lisp :tangle "packages.el"
-  (package! snails :recipe (:host github
-                            :repo "manateelazycat/snails"
-                            :files ("*.el")))
+;; (package! snails :recipe (:host github
+;;                           :repo "manateelazycat/snails"
+;;                           :files ("*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -553,7 +648,6 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 - https://github.com/alexluigit/dirvish
 
 
-
   #+begin_src emacs-lisp :tangle "packages.el"
 (package! dirvish :recipe (:host github
                                    :repo "alexluigit/dirvish"
@@ -589,30 +683,39 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
 
 ** harpoon :bookmark:
 - https://github.com/otavioschwanck/harpoon.el
+** project-hercules :keymaps:
 
-* Config.el
+- https://github.com/akirak/project-hercules.el
 
-#+begin_src emacs-lisp :tangle "config.el"
-;;; config.el -*- lexical-binding: t; -*-
-(load! "show-parentheses.el")
-(load! "meow.el")
+
+  #+begin_src emacs-lisp :tangle "packages.el"
+(package! project-hercules :recipe (:host github
+                                   :repo "akirak/project-hercules.el"
+                                   )
+  )
 #+end_src
-- doom-theme
+
+
 #+begin_src emacs-lisp :tangle "config.el"
-;;(setq comp-async-jobs-number 24)
-(when (not (display-graphic-p))
-  (setq doom-theme 'doom-city-lights)
+(use-package! project-hercules
+  :config
+  ;; Load preconfigured maps
+  (require 'project-hercules-config)
 )
 #+end_src
+** which-key
 
-#+results:
-: doom-city-lights
-
-** Performance
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq gcmh-high-cons-threshold most-positive-fixnum)
-(setq max-specpdl-size 100000)
+#+begin_src emacs-lisp :tangle "packages.el"
+(use-package! which-key
+  :config
+  (setq which-key-idle-delay 0.5)
+  (after! which-key
+    (pushnew!
+     which-key-replacement-alist
+     '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
+     '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
+     ))
+)
 #+end_src
 
 * dolist mode hooks
@@ -640,7 +743,27 @@ Emacs or EMACS (Editor MACroS) is a family of text editors that are characterize
   )
 #+end_src
 
-#+RESULTS:
+* Visual Settings
+
+** Theme and modeline
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when (not (display-graphic-p))
+  (setq doom-theme 'doom-city-lights)
+)
+(remove-hook 'window-setup-hook #'doom-init-theme-h)
+(add-hook 'after-init-hook #'doom-init-theme-h 'append)
+(delq! t custom-theme-load-path)
+#+end_src
+
+** Line Number
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq display-line-numbers-type 'relative)
+
+(setq doom-fallback-buffer-name "► Doom"
+      +doom-dashboard-name "► Doom")
+#+end_src
 
 * Autoload
 
@@ -701,6 +824,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 #+end_src
 
 *** default
+
+
 #+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+default.el"
 ;;; ~/.doom.d/autoload/+default.el -*- lexical-binding: t; -*-
 ;;;###autoload
@@ -864,81 +989,6 @@ appropriate.  In tables, insert a new row or end the table."
   (with-local-quit
     (cl-loop while (call-interactively #'org-sort))))
 #+end_src
-
-* Default Setting
-
-** Global Setting
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq user-full-name "GuangTao Zhang"
-      user-mail-address "gtrunsec@hardenedlinux.org")
-;; (setq auth-sources '("~/.authinfo.gpg")
-;;       auth-source-cache-expiry nil) ; default is 7200 (2h)
-
-(setq-default history-length 1000)
-(setq create-lockfiles nil)
-;; (setq browse-url-browser-function 'browse-url-Chrome)
-;; https://emacs.stackexchange.com/questions/5603/how-to-quickly-copy-move-file-in-emacs-dired
-(setq dired-dwim-target t)
-
-(add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
-
-(defun gtrun/truncate-lines-hook ()
-  (setq-local truncate-lines nil)
-  )
-
-(add-hook! 'text-mode-hook 'gtrun/truncate-lines-hook)
-
-(setenv "XAPIAN_CJK_NGRAM" "1")
-(setenv "QT_DEBUG_PLUGINS" "1")
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(setq plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
-#+end_src
-
-#+RESULTS:
-: /home/gtrun/.myscript/plantuml
-
-** Better default Setting
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq-default
- delete-by-moving-to-trash t                      ;; Delete files to trash
- window-combination-resize t                      ;; take new window space from all other windows (not just current)
- x-stretch-cursor t)                              ;; Stretch cursor to the glyph width
-#+end_src
-
-#+results:
-: t
-
-** Auto Save Buffer
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(add-hook! 'before-save-hook 'font-lock-flush)
-
-(use-package! auto-save
-  :config
-  (auto-save-enable)
-  (setq auto-save-silent t)   ; quietly save
-  ;; after foraml-buffer
-  (setq auto-save-idle 5)
-  (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
-;;; custom predicates if you don't want auto save.
-;;; disable auto save mode when current filetype is an gpg file.
-  (setq auto-save-disable-predicates
-        '((lambda ()
-            (string-suffix-p
-             "gpg"
-             (file-name-extension (buffer-name)) t))))
-  )
-#+end_src
-
-#+results:
-: t
 
 * Completion
 
@@ -1107,6 +1157,7 @@ In that case, insert the number."
     :separate
     company-tabnine
     ))
+
 ;;  (set-company-backend! 'sh-mode nil) ; unsets backends for sh-mode
 (set-company-backend! '(c-mode
                         c++-mode
@@ -1717,6 +1768,24 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! helm-org-rifle)
 #+end_src
+
+** Zetteldesk
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! zetteldesk
+  :recipe (:host github :repo "Vidianos-Giannitsis/zetteldesk.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
+(use-package! zetteldesk
+  :after org-roam major-mode-hydra
+  :config
+  (require 'zetteldesk-kb)
+  (zetteldesk-mode 1)
+  (setq zetteldesk-hydra-prefix (kbd "C-c z"))
+  )
+#+end_src
+
 
 
 ** Org Sync
@@ -2574,9 +2643,11 @@ a separator ' -> '."
 
 - [[http://ergoemacs.org/emacs/elisp_parse_org_mode.html][Elisp: Parse Org Mode]]
 
-* My Langs
+* Langs
 
 ** Initialize packages
+
+*** Loading instructions
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 ;;; modules/private/my-code/packages/packages.el -*- lexical-binding: t; -*-
@@ -2585,6 +2656,8 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 ;;; config..el -*- lexical-binding: t; -*-
 #+end_src
+
+
 
 ** Latex
 
@@ -2709,19 +2782,19 @@ a separator ' -> '."
 
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! lsp-mode
-  :config
-  (add-hook 'terraform-mode-hook #'lsp)
-  (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
-  ;; (lsp-register-client
-  ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-  ;;                   :major-modes '(nix-mode)
-  ;;                   :server-id 'nix))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
-                    :activation-fn (lsp-activate-on "nickel")
-                    :server-id 'nls))
-  )
+;; (use-package! lsp-mode
+;;   :config
+;;   (add-hook 'terraform-mode-hook #'lsp)
+;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
+;;   ;; (lsp-register-client
+;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+;;   ;;                   :major-modes '(nix-mode)
+;;   ;;                   :server-id 'nix))
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
+;;                     :activation-fn (lsp-activate-on "nickel")
+;;                     :server-id 'nls))
+;;   )
 #+end_src
 
 #+results:

@@ -36,6 +36,7 @@
             cdgst = "cd $(gst --short | peco)";
             ##update Nixpkgs
             fp = "git fetch && git pull";
+            sshi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
             ag0 = "rg --max-depth=1";
             # so = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*usb/{if (a != \"\") print a;} {a=$NF}\\\')";
             # si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";

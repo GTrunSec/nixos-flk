@@ -2,7 +2,7 @@ channels: final: prev: {
   __dontExport = true;
   # overrides clutter up actual creations
   inherit
-    (channels.latest)
+    (channels.nixos-latest)
     cachix
     dhall
     discord
@@ -18,10 +18,11 @@ channels: final: prev: {
     starship
     treefmt
     appimage-run
+    zoom-us
     ;
 
   inherit
-    (channels.unstable)
+    (channels.nixos-unstable)
     brave
     rnix-lsp
     signal-desktop
@@ -35,7 +36,7 @@ channels: final: prev: {
     ;
 
   nixos-rebuild = prev.nixos-rebuild.override {
-    nix = channels.latest.nixUnstable;
+    nix = channels.nixos-latest.nixUnstable;
   };
 
   haskellPackages =
@@ -47,7 +48,7 @@ channels: final: prev: {
         in {
           # same for haskell packages, matching ghc versions
           inherit
-            (channels.latest.haskell.packages."ghc${version}")
+            (channels.nixos-unstable.haskell.packages."ghc${version}")
             ;
         });
       }
