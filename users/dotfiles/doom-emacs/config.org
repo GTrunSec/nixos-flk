@@ -724,7 +724,7 @@
 #+end_src
 ** which-key
 
-#+begin_src emacs-lisp :tangle "packages.el"
+#+begin_src emacs-lisp :tangle "config.el"
 (use-package! which-key
   :config
   (setq which-key-idle-delay 0.5)
@@ -3527,11 +3527,12 @@ a separator ' -> '."
 
 * Unload Packages & Unpin Packages
 
-** Disbale Packages
+** Disabled Packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (disable-packages! company-go)
 (disable-packages! lsp-python-ms)
+(disable-packages! lsp-ui)
 #+end_src
 
 ** Unpin Packages
