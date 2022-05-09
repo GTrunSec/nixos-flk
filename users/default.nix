@@ -14,32 +14,26 @@ with inputs; {
     suites = with profiles; rec {
       shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
       graphicalProfile = [cursor randr];
-      base =
-        [
-          shellProfile
-          home-services
+      base = [
+        shellProfile
 
-          graphicalProfile
+        link-home-file
+        home-packages
 
-          link-home-file
-          home-packages
-
-          git
-          feh
-          doom-emacs
-          alacritty
-
-          gpg
-        ]
-        ++ services;
-      services = [lorri];
+        git
+        alacritty
+        gpg
+      ];
+      services = [lorri dunst dropbox systemd];
+      nixos = [doom-emacs feh graphicalProfile] ++ base ++ services;
     };
   };
   users = {
     # digga.lib.importers.rakeLeaves ./users/hm;
     gtrun = {suites, ...}: {
-      imports = suites.base;
+      imports = suites.nixos;
       home.enableNixpkgsReleaseCheck = false;
     };
+    taoDarwin = {suites, ...}: {imports = suites.base;};
   };
 }

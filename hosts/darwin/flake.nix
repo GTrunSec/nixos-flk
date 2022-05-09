@@ -54,8 +54,10 @@
               }
             );
 
-            inherit (inputs.emacs.packages.${prev.system})
-              emacs;
+            inherit
+              (inputs.emacs.packages.${prev.system})
+              emacs
+              ;
           }
         )
       ];

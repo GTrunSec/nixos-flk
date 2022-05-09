@@ -23,8 +23,6 @@
 
   # sudo cp -r ~/.gnupg /var/lib/sops
   sops.gnupg.home = "/home/gtrun/.gnupg";
-  sops.gnupg.sshKeyPaths = [];
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
 
   i18n = {
     inputMethod = {

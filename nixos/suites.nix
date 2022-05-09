@@ -16,6 +16,7 @@ with inputs; rec {
       networking = digga.lib.rakeLeaves ../profiles/networking;
       searching = digga.lib.rakeLeaves ../profiles/searching;
       graphical = digga.lib.rakeLeaves ../profiles/graphical;
+      secrets = digga.lib.rakeLeaves ../profiles/secrets;
     };
   suites = with profiles; rec {
     base = [core users.gtrun users.root];
@@ -51,6 +52,8 @@ with inputs; rec {
         networking.common
         networking.adguardhome
         networking.adblocking
+
+        secrets.sops
 
         searching.hound
 

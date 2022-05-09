@@ -21,6 +21,14 @@
     devshell.inputs.nixpkgs.follows = "nixos";
 
     # nix.url = "github:NixOS/nix";}
+
+    home.url = "github:nix-community/home-manager";
+    home.inputs.nixpkgs.follows = "nixos-latest";
+
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+  };
+
+  inputs = {
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixos";
@@ -36,35 +44,38 @@
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
     qnr.url = "github:divnix/quick-nix-registry";
-    ####################
-    # Default Features #
-    ####################
+  };
 
-    home.url = "github:nix-community/home-manager";
-    home.inputs.nixpkgs.follows = "nixos-latest";
-
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-
+  ####################
+  # Default Features #
+  ####################
+  inputs = {
     nur.url = "github:nix-community/NUR";
     sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixos";
 
     gomod2nix.url = "github:tweag/gomod2nix";
 
-    nix-filter.url = "github:numtide/nix-filter";
-    nix-filter.inputs.nixpkgs.follows = "nixos";
-    #################
-    # Custom Flakes #
-    #################
-    photoprism2nix.url = "github:GTrunSec/photoprism2nix";
-    photoprism2nix.inputs.nixpkgs.follows = "nixos";
-    tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
-    tenvideo.inputs.nixpkgs.follows = "nixos";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixos";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+
     alejandra.url = "github:kamadorueda/alejandra";
+    alejandra.inputs.nixpkgs.follows = "nixos";
+  };
+
+  #################
+  # Custom Flakes #
+  #################
+  inputs = {
+    photoprism2nix.url = "github:GTrunSec/photoprism2nix";
+    photoprism2nix.inputs.nixpkgs.follows = "nixos";
+
+    tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
+    tenvideo.inputs.nixpkgs.follows = "nixos";
   };
 
   outputs = {
@@ -86,7 +97,7 @@
 
       channels = import ./channels {inherit self inputs;};
 
-      lib = import ./lib {lib = digga.lib // inputs.nixpkgs.lib;};
+      lib = import ./lib {lib = digga.lib // inputs.nixos.lib;};
 
       sharedOverlays = import ./channels/overlays/common {inherit self inputs;};
 

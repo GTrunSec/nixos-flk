@@ -6,9 +6,9 @@
 with inputs; {
   hostDefaults = import ./hostDefault.nix args;
 
-  imports = [(digga.lib.importHosts ../hosts/nixos)];
+  imports = [(digga.lib.importHosts ../hosts/darwin)];
 
-  # hosts = import ./hosts.nix args;
+  hosts = import ./hosts.nix args;
 
   importables = import ./suites.nix args;
 }
