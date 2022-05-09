@@ -44,8 +44,6 @@
       sharedOverlays = [
         # Overlay imported from `./overlays`. (Defined above)
         self.overlay
-        emacs.overlay
-
         (import ../../channels/overlays/nixos/my-node-packages.nix)
         (import ../../channels/overlays/nixos/apps.nix)
         (
@@ -55,6 +53,9 @@
                 installApp = import ../../lib/installApp.nix prev;
               }
             );
+
+            inherit (inputs.emacs.packages.${prev.system})
+              emacs;
           }
         )
       ];

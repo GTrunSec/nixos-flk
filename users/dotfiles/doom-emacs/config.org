@@ -3711,9 +3711,12 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "macos.el"
 (map! :map org-mode-map
-      "C-c l" 'org-mac-grab-link
+      "C-c l" 'org-mac-link-link
       )
 #+end_src
+
+#+RESULTS:
+
 *** Fonts Setting
 
 #+begin_src emacs-lisp :tangle "macos.el"
