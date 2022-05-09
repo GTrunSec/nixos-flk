@@ -3479,10 +3479,7 @@ a separator ' -> '."
 
 (set-popup-rule! "^\\*org-graph-view" :side 'right :size 70 :quit nil :select t :ttl 0)
 
-(after! julia
-(set-popup-rule! "^\\*julia"
-  :side 'bottom :size 0.3 :quit nil :select nil :ttl 0)
-)
+(set-popup-rule! "^\\*julia*" :side 'right :size 45 :quit nil :select nil :ttl 0)
 
 (set-popup-rule! "^\\*Org Src"
   :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)

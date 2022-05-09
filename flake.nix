@@ -65,7 +65,6 @@
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
     alejandra.url = "github:kamadorueda/alejandra";
-    cells-lab.url = "github:gtrunsec/DevSecOps-cells-lab";
   };
 
   outputs = {

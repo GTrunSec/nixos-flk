@@ -8,7 +8,8 @@
     mkMerge [
       (
         mkIf pkgs.stdenv.isLinux {
-          xsession.pointerCursor = {
+          home.pointerCursor = {
+            x11.enable = true;
             package = pkgs.gnome3.defaultIconTheme;
             name = "Adwaita";
             size = 130;

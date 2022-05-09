@@ -6,4 +6,4 @@ fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darw
 [logseq]
 src.github = "logseq/logseq"
 # src.manual = "0.5.4"
-fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-$ver+nightly.20220419.AppImage"
+fetch.url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-$ver+nightly.20220505.AppImage"

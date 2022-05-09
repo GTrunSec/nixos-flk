@@ -3,18 +3,18 @@
 {
   logseq = {
     pname = "logseq";
-    version = "0.6.6";
+    version = "0.6.7";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.6+nightly.20220419.AppImage";
-      sha256 = "sha256-zWIsMOvkRzRs4VusN0agueHpIbRZDqwAsP5ZbmZ61OE=";
+      url = "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.7+nightly.20220505.AppImage";
+      sha256 = "sha256-e6xnT4sJyEZkKhInTLAxy9i38pWEnT/40edu+57tiyY=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.6.6";
+    version = "0.6.7";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.6.6/logseq-darwin-x64-0.6.6.dmg";
-      sha256 = "sha256-d4W93yu2KLK06slGjnKl+gVXpIcIi8OJqHx6BdrXSpY=";
+      url = "https://github.com/logseq/logseq/releases/download/0.6.7/logseq-darwin-x64-0.6.7.dmg";
+      sha256 = "sha256-iY782AIg6hDJsDYQ7lT0DSISmvmfQLOMEcvGOK9LXOc=";
     };
   };
 }
