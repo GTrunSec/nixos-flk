@@ -28,6 +28,16 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
+  ###################
+  # Darwin Channels #
+  ###################
+  inputs = {
+    darwin.url = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
+    darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
+    darwin-emacs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
+  };
+
   inputs = {
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
