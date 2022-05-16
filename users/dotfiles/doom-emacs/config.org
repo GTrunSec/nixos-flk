@@ -157,7 +157,7 @@
        json              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
-       (julia             ; a better, faster MATLAB
+       (julia              ; a better, faster MATLAB
         +lsp)
        ;;kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
@@ -173,22 +173,18 @@
         +journal
         +roam2
         +noter
-        )
-                                        ; organize your plain life in plain text
+        ); organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python
-        +poetry
-        +pyright)            ; beautiful is better than ugly
+       python            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       (rust
-        +lsp) ;Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       rust                ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
@@ -471,6 +467,9 @@
                        :build (:not compile)))
 #+end_src
 
+#+RESULTS:
+| ein | :modules | (nil) | :recipe | (:host github :repo millejoh/emacs-ipython-notebook :files (lisp/*.el) :build (:not compile)) |
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! ein
   :config
@@ -734,6 +733,30 @@
      '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
      '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
      ))
+)
+#+end_src
+** corfu
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu
+  :recipe (:host github :repo "minad/corfu"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-info
+  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
 )
 #+end_src
 
@@ -1087,7 +1110,7 @@ In that case, insert the number."
 #+end_src
 
 
-** company-tabnine
+* company-tabnine
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! company-tabnine)
@@ -1160,43 +1183,17 @@ In that case, insert the number."
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(set-company-backend! '(org-mode)
+(set-company-backend! '(julia-mode org-mode)
   '(
     company-math-symbols-unicode
     company-files
     company-yasnippet
-    :separate
-    company-tabnine
-    ))
-(set-company-backend! '(julia-mode)
-  '(
-    company-math-symbols-unicode
-    company-files
-    company-yasnippet
-    :separate
     company-tabnine
     ))
 
 ;;  (set-company-backend! 'sh-mode nil) ; unsets backends for sh-mode
-(set-company-backend! '(c-mode
-                        c++-mode
-                        ess-mode
-                        haskell-mode
-                        ;;emacs-lisp-mode
+(set-company-backend! '(haskell-mode
                         conf-mode
-                        lisp-mode
-                        sh-mode
-                        php-mode
-                        python-mode
-                        go-mode
-                        ruby-mode
-                        rust-mode
-                        rustic-mode
-                        nickel-mode
-                        js-mode
-                        css-mode
-                        nickel-mode
-                        web-mode
                         nix-mode
                         json-mode
                         )
@@ -1204,21 +1201,11 @@ In that case, insert the number."
     company-capf
     company-files
     company-yasnippet
-    :separate
     company-tabnine
     ))
-
-(setq +lsp-company-backends '(company-capf
-                              company-files
-                              company-yasnippet
-                              :separate
-                              company-tabnine
-                              ))
-
 #+end_src
 
 #+results:
-| company-capf | company-files | company-yasnippet | :separate | company-tabnine |
 
 ** Ordless
 
@@ -1791,17 +1778,21 @@ FACE defaults to inheriting from default and highlight."
 ** Zetteldesk
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! zetteldesk
-  :recipe (:host github :repo "Vidianos-Giannitsis/zetteldesk.el"))
+(package! zetteldesk :recipe (:host github :repo "Vidianos-Giannitsis/zetteldesk.el"
+                              :files ("*"))
+          )
 #+end_src
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
 (use-package! zetteldesk
-  :after org-roam
+  :after (org-roam major-mode-hydra)
   :config
-  (setq zetteldesk-hydra-prefix (kbd "M-p"))
-  (zetteldesk-mode)
   (require 'zetteldesk-kb)
+  (require 'zetteldesk-ref)
+  (require 'zetteldesk-info)
+  (require 'zetteldesk-remark)
+  (setq zetteldesk-kb-hydra-prefix (kbd "M-s s"))
+  (zetteldesk-mode)
   (map! :prefix ("C-c z" . "zetteldesk")
         :desc "Switch to zetteldesk buffer" "b" #'zetteldesk-switch-to-buffer
         :desc "Find zetteldesk node"        "n" #'zetteldesk-node-find
@@ -1851,7 +1842,8 @@ FACE defaults to inheriting from default and highlight."
           :desc "Links to all POIs/MOCs"                           "m" #'zetteldesk-node-insert-if-poi-or-moc
           :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
           :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
-          :desc "Info node contents + link to context"             "I" #'zetteldesk-insert-info-contents)
+          :desc "Info node contents + link to context"             "I" #'
+zetteldesk-insert-info-contents)
          :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)))
 #+end_src
 
@@ -2840,16 +2832,6 @@ a separator ' -> '."
 
 ** Haskell
 
-*** Lsp Haskell
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-haskell
-;;   :config
-;;   (add-hook 'haskell-mode-hook #'lsp)
-;;   (add-hook 'haskell-literate-mode-hook #'lsp)
-;; )
-#+end_src
-
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 ;; (use-package! lsp-mode
@@ -2868,15 +2850,48 @@ a separator ' -> '."
 #+end_src
 
 #+results:
-: t
 
 ** Eglot
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
- (use-package! eglot
-  :config
-  (add-to-list 'eglot-server-programs '(nix-mode . ("/nix/store/sri2viq8rh9pxrcriysvj1yv4yvnjh41-nix-eval-lsp-0.1.0/bin/nix-eval-lsp")))
-  (add-to-list 'eglot-server-programs '(nickel-mode . ("nls")))
-)
+;;  (use-package! eglot
+;;   :config
+;;   (add-to-list 'eglot-server-programs '(nix-mode . ("/nix/store/sri2viq8rh9pxrcriysvj1yv4yvnjh41-nix-eval-lsp-0.1.0/bin/nix-eval-lsp")))
+;;   (add-to-list 'eglot-server-programs '(nickel-mode . ("nls")))
+;; )
+#+end_src
+
+** lsp-bridge
+:PROPERTIES:
+:ID:       4d5ec6f7-2008-458b-a1c9-cbcde1a2a913
+:END:
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! lsp-bridge
+;;     :recipe (:local-repo "/home/gtrun/ghq/github.com/manateelazycat/lsp-bridge"
+;;              :files ("*")
+;;              ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! lsp-bridge
+;;   :after corfu-info
+;;   :config
+;;   (global-corfu-mode)               ;; use corfu as completion ui
+;;   (require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
+;;   (require 'lsp-bridge-icon)        ;; show icon for completion items, optional
+
+;;   ;; Enable auto completion in elisp mode.
+;;   (dolist (hook (list
+;;                  'emacs-lisp-mode-hook
+;;                  ))
+;;     (add-hook hook (lambda ()
+;;                      (setq-local corfu-auto t)
+;;                      )))
+;;   ;; Enable lsp-bridge.
+;;     ;; (add-hook hook (lambda ()
+;;     ;;                  (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
+;;     ;;                  (lsp-bridge-mode 1)
+;;     ;;                  )))
+;;   )
 #+end_src
 
 #+RESULTS:
@@ -2944,32 +2959,12 @@ a separator ' -> '."
 
 *** [[https://github.com/gcv/julia-snail][julia-snail: An Emacs development environment for Julia]]
 
-*** lsp-julia
-
-  #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-  ;;(package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
-  #+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-julia
-;;   :config
-;;   ;;(add-hook 'julia-mode-hook #'lsp)
-;;   (setq lsp-julia-package-dir nil)
-;;   (setq lsp-enable-folding t)
-;;   (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
-;; )
-#+end_src
-
-#+RESULTS:
-: t
-
-
 *** eglot-julia
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(use-package! eglot-jl
-  :config
-  (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
-)
+;; (use-package! eglot-jl
+;;   :config
+;;   (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
+;; )
 #+end_src
 
 #+RESULTS:
@@ -3030,17 +3025,17 @@ a separator ' -> '."
 ** Python
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(package! lsp-pyright)
+;;(package! lsp-pyright)
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(setq flycheck-python-pylint-executable "pylint")
-(use-package! lsp-pyright
-  :config
-  (setq lsp-clients-python-command "pyright")
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp))))
+;; (use-package! lsp-pyright
+;;   :config
+;;   (setq flycheck-python-pylint-executable "pylint")
+;;   (setq lsp-clients-python-command "pyright")
+;;   :hook (python-mode . (lambda ()
+;;                          (require 'lsp-pyright)
+;;                          (lsp))))
 #+end_src
 
 ** Nox
@@ -3110,22 +3105,14 @@ a separator ' -> '."
 #+end_src
 
 ** Rust
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 
-(after! rustic
-  (setq racer-cmd "racer")
-  (setq-default company-backends '(company-capf
-                                   company-files
-                                   company-yasnippet
-                                   :separate
-                                   company-tabnine
-                                   )
-                )
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(set-company-backend! 'rustic-mode '(company-files
+                                     company-yasnippet
+                                     company-tabnine
+                                     )
   )
 #+end_src
-
-#+RESULTS:
-| company-capf | company-files | company-yasnippet | :separate | company-tabnine |
 
 ** separedit.el
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
@@ -3479,7 +3466,9 @@ a separator ' -> '."
 
 (set-popup-rule! "^\\*org-graph-view" :side 'right :size 70 :quit nil :select t :ttl 0)
 
-(set-popup-rule! "^\\*julia*" :side 'right :size 45 :quit nil :select nil :ttl 0)
+(after! julia-mode
+  (set-popup-rule! "^\\*julia*" :side 'right :size 45 :quit nil :select nil :ttl 0)
+)
 
 (set-popup-rule! "^\\*Org Src"
   :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)
@@ -3530,15 +3519,14 @@ a separator ' -> '."
 (disable-packages! company-go)
 (disable-packages! lsp-python-ms)
 (disable-packages! lsp-ui)
+(disable-packages! racer)
 #+end_src
 
 ** Unpin Packages
 #+begin_src emacs-lisp :tangle "packages.el"
-(unpin! magit)
 (unpin! nix-mode)
 (unpin! org-journal)
 ;;(unpin! lsp-mode)
-(unpin! github-review)
 #+end_src
 
 ** Pinned Packages

@@ -17,12 +17,3 @@ if [[ -n ${nix_files[@]} ]]; then
   nixpkgs-fmt "${nix_files[@]}" &&
     git add "${nix_files[@]}"
 fi
-
-# check editorconfig
-editorconfig-checker -- "${all_files[@]}"
-if [[ $? != '0' ]]; then
-  printf "%b\n" \
-    "\nCode is not aligned with .editorconfig" \
-    "Review the output and commit your fixes" >&2
-  exit 1
-fi
