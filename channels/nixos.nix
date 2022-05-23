@@ -12,7 +12,6 @@
         inherit
           (inputs.nixpkgs-hardenedlinux.packages."${prev.stdenv.hostPlatform.system}")
           brim
-          zeekscript
           ;
         # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
       }

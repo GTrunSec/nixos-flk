@@ -9,7 +9,6 @@
     gcc
     julia_17-bin
     shfmt
-    zeekscript
     terraform-lsp
     just
   ];
