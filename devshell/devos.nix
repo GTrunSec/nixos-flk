@@ -21,14 +21,7 @@ in {
 
   packages = with pkgs; [];
 
-  commands = with pkgs;
-    [
-      (devos nixUnstable)
-    ]
-    ++ lib.optional
-    (pkgs ? deploy-rs)
-    (devos deploy-rs.deploy-rs)
-    ++ lib.optional
-    (system != "i686-linux")
-    (devos cachix);
+  commands = with pkgs; [
+    (devos nixUnstable)
+  ];
 }

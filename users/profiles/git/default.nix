@@ -48,7 +48,7 @@
       core = {
         pager = [
           ''
-            delta --plus-color="#012800" --minus-color="#340001"
+            delta --plus-style="#012800" --minus-color="#340001"
           ''
         ];
       };

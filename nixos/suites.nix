@@ -33,7 +33,7 @@ with inputs; rec {
         application.misc
 
         data.promnesia
-        data.nextcloud
+        # data.nextcloud
         data.miniflux
         data.syncthing
         #data.database

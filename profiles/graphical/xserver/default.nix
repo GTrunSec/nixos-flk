@@ -32,14 +32,13 @@
       dzen2
       ffmpeg-full
       gsettings-desktop-schemas
-      gnome3.adwaita-icon-theme
-      gnome3.networkmanagerapplet
+      networkmanagerapplet
       gnome-themes-extra
       imagemagick
       imlib2
       librsvg
       libsForQt5.qtstyleplugins
-      manpages
+      man-pages
       papirus-icon-theme
       pulsemixer
       qt5.qtgraphicaleffects

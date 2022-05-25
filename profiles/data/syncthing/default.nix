@@ -10,7 +10,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    syncthing-gtk
+    # syncthing-gtk
   ];
 
   services.syncthing = {

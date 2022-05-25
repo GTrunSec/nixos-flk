@@ -18,8 +18,8 @@
     hunspell
     #search eng
     xapian
-    ncat
-    ag
+    nmap
+    silver-searcher
   ];
 
   # Configure aspell system wide

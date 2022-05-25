@@ -22,7 +22,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud22;
+    package = pkgs.nextcloud24;
     home = "/DATABASE-4TB/nextcloud";
     # Auto-update Nextcloud Apps
     autoUpdateApps.enable = true;

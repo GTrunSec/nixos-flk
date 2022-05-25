@@ -15,6 +15,8 @@
 
   #networking.nameservers = [ "10.220.170.94" ];
 
+  system.stateVersion = "22.05";
+
   ## ssd
   services.fstrim.enable = true;
 

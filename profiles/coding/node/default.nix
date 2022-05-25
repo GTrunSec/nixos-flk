@@ -8,19 +8,10 @@
     ]
     ++ (
       with nodePackages; [
-        mermaid-cli
-        create-react-app
+        # mermaid-cli
         mathjax
-        mathjax-node-cli
-        typescript
+        # mathjax-node-cli
         # TOML formater
-        (
-          pkgs.writeShellScriptBin "prettier" ''
-            ${prettier}/bin/prettier \
-            --plugin-search-dir "${prettier-plugin-toml}/lib" \
-            "$@"
-          ''
-        )
       ]
     );
 }

@@ -12,7 +12,7 @@
     ##################
     # Default Flakes #
     ##################
-    nixos.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
@@ -42,11 +42,8 @@
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixos";
-    digga.inputs.deploy.follows = "deploy";
     digga.inputs.devshell.follows = "devshell";
     digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
-
-    deploy.url = "github:serokell/deploy-rs";
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
     devos-ext-lib.inputs.nixpkgs.follows = "nixos-latest";
@@ -119,13 +116,6 @@
 
       homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
-        NixOS = {
-          hostname = "10.220.170.112";
-          sshUser = "root";
-          fastConnect = true;
-        };
-      };
       ########################
       # # Builder Packages   #
       ########################
