@@ -1,32 +1,30 @@
 {
     "logseq": {
-        "pinned": false,
-        "cargoLock": null,
-        "name": "logseq",
-        "src": {
-            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.6.7+nightly.20220505.AppImage",
-            "name": null,
-            "type": "url",
-            "sha256": "sha256-e6xnT4sJyEZkKhInTLAxy9i38pWEnT/40edu+57tiyY="
-        },
-        "version": "0.6.7",
-        "passthru": null,
+        "cargoLocks": null,
         "extract": null,
-        "rustGitDeps": null
+        "name": "logseq",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ga3zsFH0zoXzBLpdxMXpUipGkAK9AaNUPeUJX0folnE=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.7.0+nightly.20220525.AppImage"
+        },
+        "version": "0.7.0"
     },
     "logseq-darwin": {
-        "pinned": false,
-        "cargoLock": null,
-        "name": "logseq-darwin",
-        "src": {
-            "url": "https://github.com/logseq/logseq/releases/download/0.6.7/logseq-darwin-x64-0.6.7.dmg",
-            "name": null,
-            "type": "url",
-            "sha256": "sha256-iY782AIg6hDJsDYQ7lT0DSISmvmfQLOMEcvGOK9LXOc="
-        },
-        "version": "0.6.7",
-        "passthru": null,
+        "cargoLocks": null,
         "extract": null,
-        "rustGitDeps": null
+        "name": "logseq-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-qKm2mm6569R/xeDW1doPtwCJbj7v1POCmkIOHeXcIR4=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/0.7.0/logseq-darwin-x64-0.7.0.dmg"
+        },
+        "version": "0.7.0"
     }
 }

@@ -112,6 +112,8 @@
 
       nixos = ./nixos;
 
+      darwin = ./darwin;
+
       home = ./users;
 
       homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;

@@ -10,6 +10,12 @@ command = '''
 help = "darwin-MacBook rebuild"
 
 [[commands]]
+name = "nvfetcher"
+category = "Update"
+command = "nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --command nvfetcher $@"
+help = "run nvfetcher"
+
+[[commands]]
 name = "nvfetcher-default"
 category = "Update"
 command = "nvfetcher -c $PRJ_ROOT/pkgs/sources.toml -o $PRJ_ROOT/pkgs/_sources/default"
