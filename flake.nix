@@ -20,8 +20,6 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
 
-    # nix.url = "github:NixOS/nix";}
-
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos-latest";
 

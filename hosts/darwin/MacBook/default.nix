@@ -1,6 +1,5 @@
 { config, pkgs, suites, ... }:
 
 {
-  imports = with suites;
-    base;
+  imports = suites.base;
 }

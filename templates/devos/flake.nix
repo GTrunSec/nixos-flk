@@ -20,12 +20,11 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
 
-    # nix.url = "github:NixOS/nix";}
-
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-generators.url = "github:nix-community/nixos-generators";
   };
 
   ###################
@@ -106,7 +105,7 @@
 
       sharedOverlays = import ./overlays/shared inputs;
 
-      devshell = ./shell;
+      devshell = ./devshell;
 
       nixos = ./nixos;
 
