@@ -37,12 +37,12 @@ in {
   '';
   # editors
   home.file.".doom.d/config.org" = {
-    source = ../../dotfiles/doom-emacs/config.org;
+    source = ../../../dotfiles/doom-emacs/config.org;
     inherit onChange;
   };
 
   home.file.".doom.d/meow.org" = {
-    source = ../../dotfiles/doom-emacs/meow.org;
+    source = ../../../dotfiles/doom-emacs/meow.org;
     inherit onChange;
   };
 

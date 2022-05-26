@@ -19,7 +19,7 @@
         inherit
           (inputs.darwin-emacs.packages.${prev.system})
           emacs
-        ;
+          ;
       }
     )
   ];
