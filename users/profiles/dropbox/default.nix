@@ -4,7 +4,12 @@
   pkgs,
   ...
 }: {
-  services.dropbox = {
-    enable = true;
-  };
+  config = with lib;
+    mkMerge [
+      (mkIf pkgs.stdenv.isLinux {
+        services.dropbox = {
+          enable = true;
+        };
+      })
+    ];
 }

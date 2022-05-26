@@ -24,6 +24,7 @@
     home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-generators.url = "github:nix-community/nixos-generators";
   };
 
   ###################
@@ -56,8 +57,12 @@
   ####################
   inputs = {
     nur.url = "github:nix-community/NUR";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixos";
+
+    ragenix.url = "github:yaxitech/ragenix";
+    ragenix.inputs.nixpkgs.follows = "nixos";
 
     gomod2nix.url = "github:tweag/gomod2nix";
 
@@ -92,7 +97,7 @@
     {
       inherit self inputs;
 
-      supportedSystems = ["x86_64-linux"];
+      supportedSystems = ["x86_64-linux" "x86_64-darwin"];
 
       channelsConfig = {allowUnfree = true;};
 
@@ -106,23 +111,18 @@
 
       nixos = ./nixos;
 
-      # darwin = ./darwin;
+      darwin = ./darwin;
 
-      home = import ./home inputs;
+      home = ./home;
 
-
-      homeConfigurations = (digga.lib.mkHomeConfigurations self.nixosConfigurations);
+      homeConfigurations =
+        digga.lib.mergeAny
+        (digga.lib.mkHomeConfigurations self.darwinConfigurations)
+        (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       ########################
       # # Builder Packages   #
       ########################
       outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
-
-      templates = {
-        devos = {
-          description = "DevOS default template";
-          path = ./templates/devos;
-        };
-      };
     };
 }

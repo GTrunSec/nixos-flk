@@ -1,8 +1,4 @@
-{
-  self,
-  ...
-}:
-[
+{self, ...}: [
   (final: prev: {
     __dontExport = true;
     lib = prev.lib.extend (

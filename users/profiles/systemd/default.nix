@@ -4,5 +4,10 @@
   pkgs,
   ...
 }: {
-  systemd.user.startServices = true;
+  config = with lib;
+    mkMerge [
+      (mkIf pkgs.stdenv.isLinux {
+        systemd.user.startServices = true;
+      })
+    ];
 }

@@ -8,9 +8,10 @@
     ../pkgs/default.nix
     (
       final: prev: {
+        __dontExport = true;
         alejandra = inputs.alejandra.defaultPackage."${prev.stdenv.hostPlatform.system}";
         inherit
-          (inputs.nixpkgs-hardenedlinux.packages."${prev.stdenv.hostPlatform.system}")
+          (inputs.nixpkgs-hardenedlinux.packages."${prev.system}")
           brim
           ;
         # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";

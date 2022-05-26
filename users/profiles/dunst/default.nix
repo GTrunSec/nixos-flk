@@ -4,7 +4,12 @@
   pkgs,
   ...
 }: {
-  services.dunst = {
-    enable = true;
-  };
+  config = with lib;
+    mkMerge [
+      (mkIf pkgs.stdenv.isLinux {
+        services.dunst = {
+          enable = true;
+        };
+      })
+    ];
 }

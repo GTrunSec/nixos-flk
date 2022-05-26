@@ -11,5 +11,6 @@ with inputs; {
     {lib.our = self.lib;}
     digga.darwinModules.nixConfig
     home.darwinModules.home-manager
+    ragenix.nixosModules.age
   ];
 }

@@ -1,10 +1,14 @@
-{hmUsers, ...}: {
-  home-manager.users = {inherit (hmUsers) nixos;};
+{
+  self,
+  inputs,
+  ...
+} @ args:
+with inputs; {
+  hostDefaults = import ./hostDefault.nix args;
 
-  users.users.nixos = {
-    password = "nixos";
-    description = "default";
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-  };
+  imports = [(digga.lib.importHosts ../hosts/nixos)];
+
+  hosts = import ./hosts.nix args;
+
+  importables = import ./suites.nix args;
 }

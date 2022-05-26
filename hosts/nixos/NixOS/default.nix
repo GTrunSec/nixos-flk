@@ -13,8 +13,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  #networking.nameservers = [ "10.220.170.94" ];
-
   system.stateVersion = "22.05";
 
   ## ssd

@@ -115,8 +115,8 @@
 
       homeConfigurations =
         digga.lib.mergeAny
-          (digga.lib.mkHomeConfigurations self.darwinConfigurations)
-          (digga.lib.mkHomeConfigurations self.nixosConfigurations);
+        (digga.lib.mkHomeConfigurations self.darwinConfigurations)
+        (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       ########################
       # # Builder Packages   #

@@ -1,6 +1,7 @@
 let
   lock = builtins.fromJSON (builtins.readFile ../../flake.lock);
-  flake = (import
+  flake =
+    import
     (
       fetchTarball {
         url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
@@ -9,6 +10,6 @@ let
     )
     {
       src = ../../.;
-    });
+    };
 in
-flake
+  flake

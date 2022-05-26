@@ -4,5 +4,5 @@
   suites,
   ...
 }: {
-  imports = suites.base;
+  imports = with suites; base;
 }
