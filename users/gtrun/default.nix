@@ -38,5 +38,4 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDI2uDp51HMggnfz4Zn5ky4gb/XVdQiJR7pZyb/LcCLx macOSdeMBP.attlocal.net-gtrun-14-05-2021"
     ];
   };
-  services.lorri.enable = true;
 }

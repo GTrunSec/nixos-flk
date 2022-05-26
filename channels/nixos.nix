@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  imports = [(inputs.digga.lib.importOverlays ./overlays/nixos)];
+  imports = [(inputs.digga.lib.importOverlays ../overlays/nixos)];
   overlays = [
     ../pkgs/default.nix
     (

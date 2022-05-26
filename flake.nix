@@ -96,31 +96,35 @@
 
       supportedSystems = ["x86_64-linux"];
 
-      channelsConfig = {
-        allowUnfree = true;
-        allowBroken = true;
-        allowUnsupportedSystem = true;
-      };
+      channelsConfig = {allowUnfree = true;};
 
       channels = import ./channels {inherit self inputs;};
 
       lib = import ./lib {lib = digga.lib // inputs.nixos.lib;};
 
-      sharedOverlays = import ./channels/overlays/common {inherit self inputs;};
+      sharedOverlays = import ./overlays/shared inputs;
 
       devshell = ./devshell;
 
       nixos = ./nixos;
 
-      darwin = ./darwin;
+      # darwin = ./darwin;
 
-      home = ./users;
+      home = import ./home inputs;
 
-      homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
+
+      homeConfigurations = (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       ########################
       # # Builder Packages   #
       ########################
       outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
+
+      templates = {
+        devos = {
+          description = "DevOS default template";
+          path = ./templates/devos;
+        };
+      };
     };
 }

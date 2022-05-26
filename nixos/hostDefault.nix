@@ -7,7 +7,8 @@ with inputs; {
   system = "x86_64-linux";
   channelName = "nixos";
   imports = [
-    (digga.lib.importExportableModules ./modules)
+    (digga.lib.importExportableModules ../modules/nixos)
+    (digga.lib.importExportableModules ../modules/shared)
   ];
   modules = [
     {lib.our = self.lib;}

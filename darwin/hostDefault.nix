@@ -6,14 +6,10 @@
 with inputs; {
   system = "x86_64-darwin";
   channelName = "darwin-nixpkgs";
-  imports = [
-    ../nixos/modules/hm-system-defaults.nix
-    ../nixos/modules/nix-path.nix
-  ];
+  imports = [(digga.lib.importExportableModules ../modules/shared)];
   modules = [
     {lib.our = self.lib;}
     digga.darwinModules.nixConfig
     home.darwinModules.home-manager
-    agenix.nixosModules.age
   ];
 }

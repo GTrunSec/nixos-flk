@@ -2,4 +2,6 @@
   self,
   inputs,
   ...
-}: {}
+}: {
+  MacBook = {};
+}

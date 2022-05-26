@@ -8,6 +8,7 @@ with inputs; rec {
     digga.lib.rakeLeaves ../profiles
     // {
       users = digga.lib.rakeLeaves ../users;
+      core = digga.lib.rakeLeaves ../profiles/core;
       virtualisation = digga.lib.rakeLeaves ../profiles/virtualisation;
       registry = digga.lib.rakeLeaves ../profiles/registry;
       application = digga.lib.rakeLeaves ../profiles/application;
@@ -19,7 +20,7 @@ with inputs; rec {
       secrets = digga.lib.rakeLeaves ../profiles/secrets;
     };
   suites = with profiles; rec {
-    base = [core users.gtrun users.root];
+    base = [core.nixos users.gtrun users.root];
     nixos =
       base
       ++ [
