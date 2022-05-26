@@ -8,29 +8,27 @@
     [
       #customVscode
       #nixFlakes
-      nixpkgs-fmt
-      shfmt
-    ]
+     shfmt
+	]
     ++ [
       imagemagick
       #library
       libnotify
-      ffmpegthumbnailer
+      #ffmpegthumbnailer
     ]
     ++ [
       coreutils
       #misc
       ghq
       git
-      fd
-      wget
+      # fdet
       reattach-to-user-namespace
       ispell
       gron
       exa
       pet
       ripgrep
-      ag
+      silver-searcher
       gitAndTools.delta
       (
         bundler.overrideAttrs (
@@ -56,15 +54,11 @@
     ]
     ++ [
       graphviz
-      nodePackages.mathjax-node-cli
-      nodePackages.mathjax
+      #nodePackages.mathjax-node-cli
+      #nodePackages.mathjax
     ]
     ++ [
       #go packages
-      gocode
-      gopls
-      hugo
-      go
     ]
     ++ [
       (

@@ -12,7 +12,7 @@
 
         lib = prev.lib.extend (
           lfinal: lprev: {
-            installApp = import ../../lib/installApp.nix prev;
+            installApp = import ../lib/installApp.nix prev;
           }
         );
 

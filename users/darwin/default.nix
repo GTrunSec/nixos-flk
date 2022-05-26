@@ -1,7 +1,7 @@
 {hmUsers, ...}: {
-  home-manager.users = {inherit (hmUsers) darwin;};
+  home-manager.users = { gtrun = hmUsers.darwin;};
 
-  users.users.darwin = {
+  users.users.gtrun = {
     description = "default";
   };
 }

@@ -13,11 +13,12 @@
       digga.lib.rakeLeaves ../users/profiles
       // {
         doom-emacs = digga.lib.rakeLeaves ../users/profiles/doom-emacs;
+        home-packages = digga.lib.rakeLeaves ../users/profiles/home-packages;
       };
 
     suites = with profiles; rec {
 
-      base = [direnv git gpg alacritty shellProfile link-home-file home-packages];
+      base = [direnv git gpg alacritty shellProfile link-home-file ];
 
       shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
 
@@ -25,11 +26,11 @@
 
       serviceProfile = [lorri dunst dropbox systemd];
 
-      gtrun = [graphicalProfile serviceProfile doom-emacs.nixos] ++ base;
+      gtrun = [graphicalProfile serviceProfile doom-emacs.nixos home-packages.nixos] ++ base;
 
       darwinProfile = [doom-emacs.darwin];
 
-      darwin = [base shellProfile];
+      darwin = [base shellProfile home-packages.darwin ];
     };
   };
   users = {
