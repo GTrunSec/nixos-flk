@@ -8,7 +8,6 @@
   modules = [];
 
   importables = with inputs; rec {
-
     profiles =
       digga.lib.rakeLeaves ../users/profiles
       // {
@@ -17,8 +16,7 @@
       };
 
     suites = with profiles; rec {
-
-      base = [direnv git gpg alacritty shellProfile link-home-file ];
+      base = [direnv git gpg alacritty shellProfile link-home-file];
 
       shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
 
@@ -30,7 +28,7 @@
 
       darwinProfile = [doom-emacs.darwin];
 
-      darwin = [base shellProfile home-packages.darwin ];
+      darwin = [base shellProfile home-packages.darwin darwinProfile];
     };
   };
   users = {

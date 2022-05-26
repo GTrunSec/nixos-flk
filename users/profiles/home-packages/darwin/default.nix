@@ -8,8 +8,8 @@
     [
       #customVscode
       #nixFlakes
-     shfmt
-	]
+      shfmt
+    ]
     ++ [
       imagemagick
       #library
