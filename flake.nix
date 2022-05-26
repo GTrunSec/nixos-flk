@@ -3,15 +3,18 @@
 
   nixConfig.extra-substituters = [
     "https://nix-community.cachix.org"
+    "https://emacs.cachix.org"
   ];
   nixConfig.extra-trusted-public-keys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    "emacs.cachix.org-1:b1SMJNLY/mZF6GxQE+eDBeps7WnkT0Po55TAyzwOxTY="
   ];
 
   inputs = {
     ##################
     # Default Flakes #
     ##################
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -33,8 +36,9 @@
   inputs = {
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
-    darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
-    darwin-emacs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
+    darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
+
+    darwin-emacs.url = "github:cmacrae/emacs/12e55b55cba2648a53bdcde12e9ecc397a130507";
   };
 
   inputs = {
