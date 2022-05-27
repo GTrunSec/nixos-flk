@@ -5,14 +5,14 @@
   ...
 }: let
   clean-nix-store = pkgs.writeScriptBin "clean-nix-store" (
-    import ../bin-scripts/clean-nix-store.nix {
+    import ../../bin-scripts/clean-nix-store.nix {
       home-manager = pkgs.home-manager;
     }
   );
 
-  et = pkgs.writeScriptBin "et" (builtins.readFile ../bin-scripts/et.sh);
+  et = pkgs.writeScriptBin "et" (builtins.readFile ../../bin-scripts/et.sh);
 
-  lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../bin-scripts/lsyncd-rsync.nix {});
+  lsyncd-rsync = pkgs.writeScriptBin "lsyncd-rsync" (import ../../bin-scripts/lsyncd-rsync.nix {});
 
   LS_COLORS = pkgs.fetchgit {
     url = "https://github.com/trapd00r/LS_COLORS";
@@ -55,6 +55,7 @@ in {
               yarn2nix
             ]
             ++ [
+              pandoc
               #misc
               poetry
               fdupes

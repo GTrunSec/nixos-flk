@@ -47,6 +47,7 @@
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.devshell.follows = "devshell";
     digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
+    digga.inputs.home-manager.follows = "home";
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
     devos-ext-lib.inputs.nixpkgs.follows = "nixos-latest";
