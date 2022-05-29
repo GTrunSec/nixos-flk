@@ -38,7 +38,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
+       ;; (company
+       ;;  +childframe)    ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -111,8 +112,8 @@
        ;;(eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       (lsp
-        +eglot)
+       ;; (lsp
+       ;;  +eglot)
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -157,8 +158,7 @@
        json              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
-       (julia              ; a better, faster MATLAB
-        +lsp)
+       julia              ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
@@ -735,31 +735,6 @@
      ))
 )
 #+end_src
-** corfu
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu
-  :recipe (:host github :repo "minad/corfu"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu)
-#+end_src
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-info
-  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-info
-  :after corfu
-  :config
-  (require 'corfu-info)
-  (require 'corfu-indexed)
-)
-#+end_src
-
 * dolist mode hooks
 :PROPERTIES:
 :ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
@@ -1034,49 +1009,168 @@ appropriate.  In tables, insert a new row or end the table."
 
 * Completion
 
-** Company
+** Customize completion-at-point
+
+- [[https://with-emacs.com/posts/tutorials/customize-completion-at-point/][with-emacs · Customize completion-at-point]]
+
 #+begin_src emacs-lisp :tangle "config.el"
-(after! company
-  (setq company-idle-delay 0.5
-        company-minimum-prefix-length 2
-        company-transformers nil
-        company-show-numbers t)
+;; First try to indent the current line, and if the line
+;; was already indented, then try `completion-at-point'
+(setq tab-always-indent 'complete)
+(setq completion-cycle-threshold 4)
+#+end_src
+
+#+RESULTS:
+: 4
+
+** corfu
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu
+  :custom
+  (corfu-separator ?\s)          ;; Orderless field separator
+  (corfu-preview-current nil)    ;; Disable current candidate preview
+  (corfu-auto t)
+  (corfu-cycle t)
+  :hook
+  (doom-first-buffer . global-corfu-mode)
+  :config
+  :bind (:map corfu-map
+         ("SPC" . corfu-insert-separator)
+         ("TAB" . corfu-next)
+         ([tab] . corfu-next)
+         ("S-TAB" . corfu-previous)
+         ([backtab] . corfu-previous))
+  )
+#+end_src
+
+#+RESULTS:
+: t
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-info
+  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
+)
+#+end_src
 
 
-  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
-  (define-key company-active-map (kbd "C-j") 'company-select-previous-or-abort)
+** corfu-doc
 
-  (defun ora-company-number ()
-  "Forward to `company-complete-number'.
-Unless the number is potentially part of the candidate.
-In that case, insert the number."
-  (interactive)
-  (let* ((k (this-command-keys))
-         (re (concat "^" company-prefix k)))
-    (if (or (cl-find-if (lambda (s) (string-match re s))
-                        company-candidates)
-            (> (string-to-number k)
-               (length company-candidates))
-            (looking-back "[0-9]+\\.[0-9]*" (line-beginning-position)))
-        (self-insert-command 1)
-      (company-complete-number
-       (if (equal k "0")
-           10
-         (string-to-number k))))))
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
+#+end_src
 
-(defun ora--company-good-prefix-p (orig-fn prefix)
-  (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
-    (funcall orig-fn prefix)))
-(advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-doc
+  :hook
+  (corfu-mode . corfu-doc-mode)
+  :bind (:map corfu-map
+         ("M-n" . corfu-doc-scroll-down)
+         ("M-p" . corfu-doc-scroll-up)
+         ("M-d" . corfu-doc-toggle))
+  )
+#+end_src
 
-(let ((map company-active-map))
-  (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
-        (number-sequence 0 9))
-  (define-key map " " (lambda ()
-                        (interactive)
-                        (company-abort)
-                        (self-insert-command 1)))
-  (define-key map (kbd "<return>") nil)))
+#+RESULTS:
+: t
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-info
+  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
+)
+#+end_src
+
+* popon
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! popon :recipe (:host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package popon)
+#+end_src
+
+** corfu-terminal
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-terminal
+  :after popon
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+)
+#+end_src
+
+#+RESULTS:
+: t
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-info
+  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
+)
+#+end_src
+
+** [[https://github.com/minad/corfu][kind-icon]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! kind-icon :recipe (:host github :repo "jdtsmith/kind-icon"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! kind-icon
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+#+end_src
+
+** orderless
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! orderless :recipe (:host github :repo "oantolin/orderless"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package orderless
+  :init
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
+  ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
 #+end_src
 
 ** selectrum
@@ -1099,113 +1193,59 @@ In that case, insert the number."
 ;;   ;;(prescient-persist-mode +1)
 ;;   )
 #+end_src
-** Customize completion-at-point
-
-- [[https://with-emacs.com/posts/tutorials/customize-completion-at-point/][with-emacs · Customize completion-at-point]]
-
-#+begin_src emacs-lisp :tangle "config.el"
-;; First try to indent the current line, and if the line
-;; was already indented, then try `completion-at-point'
-(setq tab-always-indent 'complete)
-#+end_src
-
-
-* company-tabnine
+** [[https://github.com/minad/cape][Cape]]
+:PROPERTIES:
+:ID:       f16cc9cf-91fd-4b0b-a2bb-cf01b27464be
+:END:
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! company-tabnine)
+(package! cape :recipe (:host github :repo "minad/cape"
+                   :files ("*.el")))
+
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! company-tabnine
-  :when (featurep! :completion company)
-  :config
-  (setq company-tabnine--disable-next-transform nil)
-  (defun my-company--transform-candidates (func &rest args)
-    (if (not company-tabnine--disable-next-transform)
-        (apply func args)
-      (setq company-tabnine--disable-next-transform nil)
-      (car args)))
-
-  (defun my-company-tabnine (func &rest args)
-    (when (eq (car args) 'candidates)
-      (setq company-tabnine--disable-next-transform t))
-    (apply func args))
-
-  (advice-add #'company--transform-candidates :around #'my-company--transform-candidates)
-  (advice-add #'company-tabnine :around #'my-company-tabnine)
-  ;; Trigger completion immediately.
-  (setq company-idle-delay 0.6)
-
-  ;; Number the candidates (use M-1, M-2 etc to select completions).
-  (setq company-show-numbers t)
-
-  ;; Use the tab-and-go frontend.
-  ;; Allows TAB to select and complete at the same time.
-  (company-tng-configure-default)
-  (setq company-frontends
-        '(company-tng-frontend
-          company-pseudo-tooltip-frontend
-          company-echo-metadata-frontend))
+(use-package! cape
+  :after corfu
+  :init
+  ;; Add `completion-at-point-functions', used by `completion-at-point'.
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-keyword)
+  :bind (("C-c p p" . completion-at-point) ;; capf
+         ("C-c p t" . complete-tag)        ;; etags
+         ("C-c p d" . cape-dabbrev)        ;; or dabbrev-completion
+         ("C-c p h" . cape-history)
+         ("C-c p f" . cape-file)
+         ("C-c p k" . cape-keyword)
+         ("C-c p s" . cape-symbol)
+         ("C-c p a" . cape-abbrev)
+         ("C-c p i" . cape-ispell)
+         ("C-c p l" . cape-line)
+         ("C-c p w" . cape-dict)
+         ("C-c p \\" . cape-tex)
+         ("C-c p _" . cape-tex)
+         ("C-c p ^" . cape-tex)
+         ("C-c p &" . cape-sgml)
+         ("C-c p r" . cape-rfc1345))
   )
 #+end_src
 
-** company-math
+** tabnine-capf
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
+                   :files ("*.el" "*.sh")))
+
+#+end_src
+
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! company-math
-  :config
-  (defun my-latex-mode-setup ()
-  (setq-local company-backends
-              (append '((company-math-symbols-latex company-latex-commands))
-                      company-backends)))
+(use-package! tabnine-capf
+  :after cape
+  :hook (kill-emacs . tabnine-capf-kill-process)
+  :init
+  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
   )
 #+end_src
-
-** company-posframe
-
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! company-posframe :recipe (:host github :repo "tumashu/company-posframe"))
-#+end_src
-
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! company-posframe
-  :config
-  (company-posframe-mode)
-)
-#+end_src
-
-#+RESULTS:
-: t
-
-** company-backend
-
-
-#+begin_src emacs-lisp :tangle "config.el"
-(set-company-backend! '(julia-mode org-mode)
-  '(
-    company-math-symbols-unicode
-    company-files
-    company-yasnippet
-    company-tabnine
-    ))
-
-;;  (set-company-backend! 'sh-mode nil) ; unsets backends for sh-mode
-(set-company-backend! '(haskell-mode
-                        conf-mode
-                        nix-mode
-                        json-mode
-                        )
-  '(
-    company-capf
-    company-files
-    company-yasnippet
-    company-tabnine
-    ))
-#+end_src
-
-#+results:
 
 ** Ordless
 
@@ -2851,51 +2891,26 @@ a separator ' -> '."
 
 #+results:
 
-** Eglot
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;;  (use-package! eglot
-;;   :config
-;;   (add-to-list 'eglot-server-programs '(nix-mode . ("/nix/store/sri2viq8rh9pxrcriysvj1yv4yvnjh41-nix-eval-lsp-0.1.0/bin/nix-eval-lsp")))
-;;   (add-to-list 'eglot-server-programs '(nickel-mode . ("nls")))
-;; )
-#+end_src
-
 ** lsp-bridge
 :PROPERTIES:
 :ID:       4d5ec6f7-2008-458b-a1c9-cbcde1a2a913
 :END:
 #+begin_src emacs-lisp :tangle "packages.el"
-;; (package! lsp-bridge
-;;     :recipe (:local-repo "/home/gtrun/ghq/github.com/manateelazycat/lsp-bridge"
-;;              :files ("*")
-;;              ))
+(package! lsp-bridge :recipe (:host github :repo "jadestrong/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! lsp-bridge
-;;   :after corfu-info
-;;   :config
-;;   (global-corfu-mode)               ;; use corfu as completion ui
-;;   (require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
-;;   (require 'lsp-bridge-icon)        ;; show icon for completion items, optional
-
-;;   ;; Enable auto completion in elisp mode.
-;;   (dolist (hook (list
-;;                  'emacs-lisp-mode-hook
-;;                  ))
-;;     (add-hook hook (lambda ()
-;;                      (setq-local corfu-auto t)
-;;                      )))
-;;   ;; Enable lsp-bridge.
-;;     ;; (add-hook hook (lambda ()
-;;     ;;                  (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
-;;     ;;                  (lsp-bridge-mode 1)
-;;     ;;                  )))
-;;   )
+(use-package! lsp-bridge
+  :after corfu-info
+  :config
+  (require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
+  (require 'lsp-bridge-icon)        ;; show icon for completion items, &optional
+  (corfu-history-mode t)
+  (global-lsp-bridge-mode)
+  (setq lsp-bridge-completion-provider 'corfu)
+  (when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))  ;; adjust default font height when running in HiDPI screen.
+  )
 #+end_src
-
-#+RESULTS:
-: t
 
 ** Poly Mode
 
@@ -3087,9 +3102,6 @@ a separator ' -> '."
 (use-package! zeek-mode
   :config
   (setq default-tab-width 4)
-  (defun add-company-tabnine ()
-    (add-to-list (make-local-variable 'company-backends) 'company-tabnine))
-  (add-hook 'zeek-mode-hook #'add-company-tabnine)
   (add-hook 'zeek-mode-hook #'doom/toggle-line-numbers)
   (add-hook 'zeek-mode-hook #'highlight-indent-guides-mode)
   )
@@ -3101,16 +3113,6 @@ a separator ' -> '."
   :config
   (setq nix-nixfmt-bin "nixpkgs-fmt")
   (setq-hook! 'nix-mode-hook company-idle-delay t)
-  )
-#+end_src
-
-** Rust
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(set-company-backend! 'rustic-mode '(company-files
-                                     company-yasnippet
-                                     company-tabnine
-                                     )
   )
 #+end_src
 
@@ -3147,6 +3149,16 @@ a separator ' -> '."
 
 #+RESULTS:
 : justl
+
+* Rust
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(set-company-backend! 'rustic-mode '(company-files
+                                     company-yasnippet
+                                     company-capf
+                                     )
+  )
+#+end_src
 
 ** Tree Sitter
 :PROPERTIES:
@@ -3516,7 +3528,6 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 (disable-packages! company-go)
 (disable-packages! lsp-python-ms)
-(disable-packages! lsp-ui)
 (disable-packages! racer)
 #+end_src
 
