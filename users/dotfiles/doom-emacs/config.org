@@ -3324,6 +3324,21 @@ a separator ' -> '."
   :init (golden-ratio-mode 1))
 #+end_src
 
+*** ace-window
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ace-window)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package ace-window
+  :bind (("C-x o" . ace-window))
+  :config
+  (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s)))
+#+end_src
+
+
 ** Themes
 
 *** [[https://github.com/vbuzin/berrys-theme][vbuzin/berrys-theme: A light, clean and elegant Emacs theme]]

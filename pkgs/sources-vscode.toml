@@ -62,3 +62,8 @@ passthru = { license = "mit", homepage = "none", description = "none" }
 src.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
 fetch.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
 passthru = { license = "mit", homepage = "none", description = "none" }
+
+[vscode-extensions-vscode-direnv]
+src.vsmarketplace = "cab404.vscode-direnv"
+fetch.vsmarketplace = "cab404.vscode-direnv"
+passthru = { license = "mit", homepage = "none", description = "none" }
