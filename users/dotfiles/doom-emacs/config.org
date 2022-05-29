@@ -2872,6 +2872,9 @@ a separator ' -> '."
 
 ** Haskell
 
+#+begin_src emacs-lisp :tangle "config.el"
+(setq haskell-mode-local-vars-hook nil)
+#+end_src
 ** Lsp Mode
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 ;; (use-package! lsp-mode
@@ -3330,6 +3333,8 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! ace-window)
 #+end_src
+
+#+RESULTS:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package ace-window
