@@ -33,8 +33,8 @@
   inputs = {
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
-    darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
-    darwin-emacs.url = "github:NixOS/nixpkgs/nixpkgs-21.11-darwin";
+    darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
+    darwin-emacs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
   };
 
   inputs = {

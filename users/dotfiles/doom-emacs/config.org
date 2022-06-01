@@ -1740,10 +1740,9 @@ FACE defaults to inheriting from default and highlight."
     ("braindump/self/notes.org"  :key "n" :refile (:maxlevel . 5 ))
     ("braindump/self/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
 
-
-    ("braindump/learning_music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
-    ("braindump/guangtao_library.org" :key "b" :refile (:maxlevel . 5 ))
-    ("braindump/guangtao_feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ("braindump/learning-music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao-library.org" :key "b" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao-feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
     ;;
     ("braindump/self/" :agenda t)
     ("braindump/journals/" :agenda t)
@@ -2899,7 +2898,7 @@ a separator ' -> '."
 :ID:       4d5ec6f7-2008-458b-a1c9-cbcde1a2a913
 :END:
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! lsp-bridge :recipe (:host github :repo "jadestrong/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json")))
+(package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"

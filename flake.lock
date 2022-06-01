@@ -267,9 +267,7 @@
           "devshell"
         ],
         "flake-compat": "flake-compat_2",
-        "flake-utils-plus": [
-          "flake-utils-plus"
-        ],
+        "flake-utils-plus": "flake-utils-plus",
         "home-manager": [
           "home"
         ],
@@ -917,11 +915,11 @@
     },
     "nixos-latest": {
       "locked": {
-        "lastModified": 1653540294,
-        "narHash": "sha256-724QXDZvPnusUO/pnY/2G5ETuc+VktPr5Z0nLXcXMMM=",
+        "lastModified": 1653894687,
+        "narHash": "sha256-LJLCwzEU1U9EBOhy40Fjd9vCwFK5KXfz+tPVe54kFq4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "41e3072c81afd17c7f932289048346a2ef1d2c61",
+        "rev": "fd523bfe803c5f8272d4162b7648e7e39b0e291e",
         "type": "github"
       },
       "original": {
@@ -1370,7 +1368,6 @@
         "digga": "digga",
         "emacs-overlay": "emacs-overlay",
         "flake-compat": "flake-compat_3",
-        "flake-utils-plus": "flake-utils-plus",
         "gomod2nix": "gomod2nix",
         "home": "home",
         "nixos": "nixos",

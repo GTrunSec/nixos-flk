@@ -42,11 +42,9 @@
   };
 
   inputs = {
-    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.devshell.follows = "devshell";
-    digga.inputs.flake-utils-plus.follows = "flake-utils-plus";
     digga.inputs.home-manager.follows = "home";
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/d8f43e823955c7005c09427d2bbc9ef6a9a59051";
@@ -129,5 +127,11 @@
       # # Builder Packages   #
       ########################
       outputsBuilder = channels: import ./pkgs/output-builder channels inputs;
+      templates = {
+        devos = {
+          description = "devos default template";
+          path = ./templates/devos;
+        };
+      };
     };
 }

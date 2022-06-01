@@ -27,6 +27,7 @@ channels: final: prev: {
     rnix-lsp
     signal-desktop
     tdesktop
+    alacritty
     onlyoffice-bin
     i3-gaps
     tmux
