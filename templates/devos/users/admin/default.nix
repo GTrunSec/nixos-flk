@@ -6,7 +6,7 @@
 }: let
   user = builtins.baseNameOf ./.;
 in {
-  home-manager.users = {inherit (hmUsers) guangtao;};
+  home-manager.users = {inherit (hmUsers) admin;};
 
   networking.firewall = {
     allowedTCPPorts = [8888 8889];
@@ -18,8 +18,8 @@ in {
   #Unstbale issue
   security.sudo.wheelNeedsPassword = false;
 
-  users.users.gtrun = {
-    home = "/home/gtrun";
+  users.users.admin = {
+    home = "/home/admin";
     passwordFile = config.sops.secrets."users/${user}".path;
     isNormalUser = true;
     extraGroups = [
@@ -34,9 +34,6 @@ in {
     # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     uid = 1000;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDI2uDp51HMggnfz4Zn5ky4gb/XVdQiJR7pZyb/LcCLx macOSdeMBP.attlocal.net-gtrun-14-05-2021"
-    ];
+    openssh.authorizedKeys.keys = [];
   };
-  services.lorri.enable = true;
 }

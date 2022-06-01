@@ -12,7 +12,7 @@
     };
   };
   users = {
-    guangtao = {suites, ...}: {imports = suites.base;};
+    admin = {suites, ...}: {imports = suites.base;};
     darwin = {suites, ...}: {imports = suites.base;};
     nixos = {suites, ...}: {imports = suites.base;};
   };

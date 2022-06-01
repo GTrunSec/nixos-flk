@@ -15,8 +15,7 @@ with inputs; {
     digga.nixosModules.bootstrapIso
     home.nixosModules.home-manager
     sops-nix.nixosModules.sops
-    qnr.nixosModules.local-registry
+    ragenix.nixosModules.age
     #User's custom modules
-    photoprism2nix.nixosModules.photoprism
   ];
 }
