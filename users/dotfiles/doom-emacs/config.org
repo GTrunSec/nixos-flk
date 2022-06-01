@@ -3562,6 +3562,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;https://github.com/hlissner/doom-emacs/issues/5637
 ;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
+(package! helm :pin "d5e9fbc8ab3339d0d19f1e6649f0aceda129f468")
 #+end_src
 
 * Linux & MacOS
