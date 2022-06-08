@@ -3,7 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     #home
-    sudo-pair
+    #sudo-pair
     #btest
     brim
     tcpdump
