@@ -1,4 +1,18 @@
 {
+    "kitty-darwin": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "kitty-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-oalkqxAP+Sy8XOUMY2mRmQUFckdMKx80vshN5nPTGn8=",
+            "type": "url",
+            "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.25.2/kitty-0.25.2.dmg"
+        },
+        "version": "0.25.2"
+    },
     "logseq": {
         "cargoLocks": null,
         "extract": null,
@@ -7,11 +21,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ga3zsFH0zoXzBLpdxMXpUipGkAK9AaNUPeUJX0folnE=",
+            "sha256": "sha256-g5yWnDHIpaN8CkXy4IPoiF2wJIfUXIhsmqkIvOqybP4=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/nightly/logseq-linux-x64-0.7.0+nightly.20220525.AppImage"
+            "url": "https://github.com/logseq/logseq/releases/download/0.7.3/logseq-linux-x64-0.7.3.AppImage"
         },
-        "version": "0.7.0"
+        "version": "0.7.3"
     },
     "logseq-darwin": {
         "cargoLocks": null,
@@ -21,10 +35,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-qKm2mm6569R/xeDW1doPtwCJbj7v1POCmkIOHeXcIR4=",
+            "sha256": "sha256-VjdXLPFpO7phDXAwt2gVVI5fctf1PpBtNAkXH6ILLxo=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/0.7.0/logseq-darwin-x64-0.7.0.dmg"
+            "url": "https://github.com/logseq/logseq/releases/download/0.7.3/logseq-darwin-x64-0.7.3.dmg"
         },
-        "version": "0.7.0"
+        "version": "0.7.3"
     }
 }

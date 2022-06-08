@@ -6,4 +6,7 @@ with final.lib; {
   polar-darwin = installApp rec {
     inherit (final.sources.polar-darwin) pname version src;
   };
+  kitty-darwin = installApp rec {
+    inherit (final.sources.kitty-darwin) pname version src;
+  };
 }
