@@ -11,5 +11,6 @@
     shfmt
     terraform-lsp
     just
+    yaml-language-server
   ];
 }

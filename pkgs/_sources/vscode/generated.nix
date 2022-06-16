@@ -99,11 +99,11 @@
   };
   vscode-extensions-tabnine-vscode = {
     pname = "vscode-extensions-tabnine-vscode";
-    version = "3.5.51";
+    version = "3.5.55";
     src = fetchurl {
-      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.5.51/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tabnine-vscode-3.5.51.zip";
-      sha256 = "sha256-aK9hpRxObD0Ddj7etfhT+47xqpV/O5Y+k7Ujs+vpzYw=";
+      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.5.55/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tabnine-vscode-3.5.55.zip";
+      sha256 = "sha256-HVwEB1wYH3nBbeZkNgcLU9b4UA96VJSUZLnhlWmW8sg=";
     };
     license = "mit";
     homepage = "none";
