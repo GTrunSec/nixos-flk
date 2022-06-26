@@ -16,7 +16,7 @@
       };
 
     suites = with profiles; rec {
-      base = [direnv git gpg alacritty shellProfile link-home-file];
+      base = [ common direnv git gpg alacritty shellProfile link-home-file];
 
       shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
 

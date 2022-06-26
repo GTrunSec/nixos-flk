@@ -13,6 +13,7 @@
         inherit
           (inputs.nixpkgs-hardenedlinux.packages."${prev.system}")
           brim
+          feishu
           ;
         # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
       }

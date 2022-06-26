@@ -2202,12 +2202,12 @@ zetteldesk-insert-info-contents)
   ;;(setq notdeft-secondary-extensions '("md" "org" "scrbl"))
   (setq notdeft-allow-org-property-drawers t)
   (setq notdeft-xapian-program "notdeft-xapian")
+
   (setq notdeft-directories '("~/Documents/org-notes/post/myself"
                               "~/Documents/org-notes/dailies"
                               "~/Documents/org-notes/post/traveling"
                               "~/Documents/org-notes/post/agenda"
                               "~/Documents/org-notes/post/game"
-                              "~/Dropbox/project/my-learning-list"
                               "~/Documents/org-notes/GTD"
                               "~/Documents/org-notes/art"
                               "~/Documents/org-notes/braindump"
@@ -2216,6 +2216,7 @@ zetteldesk-insert-info-contents)
   :bind (:map notdeft-mode-map
          ("C-q" . notdeft-quit)
          ("C-r" . notdeft-refresh)
+         ("C-i" . notdeft-reindex)
          )
   )
 #+end_src
