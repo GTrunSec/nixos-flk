@@ -7,11 +7,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-7wDO/nFSGM7sbFhNTDhdx8ned/hCEWEJQNUL7phearQ=",
+            "sha256": "sha256-GME0Z+TH/6U+smFkuk1sT8UBzlySv5/yGhb42Kiaj8w=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/H/HPI/HPI-0.3.20220503.tar.gz"
+            "url": "https://pypi.io/packages/source/H/HPI/HPI-0.3.20220607.tar.gz"
         },
-        "version": "0.3.20220503"
+        "version": "0.3.20220607"
     },
     "StevenBlack-hosts": {
         "cargoLocks": null,
@@ -26,11 +26,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "c8ed1f1f0bbd59eb5e152406541e9813feed4873",
-            "sha256": "sha256-Lyw7A9ElYkGHLvTgB2QzDJ+Jwpqy20OUIv14XUEWZ0k=",
+            "rev": "1a293025de415dd8127557bdd0bb3fb7f9ad0cce",
+            "sha256": "sha256-UmrjsvO8nSxQTnbW+OhXamgZ7TPUjK8xqeQE3gm9VwU=",
             "type": "github"
         },
-        "version": "c8ed1f1f0bbd59eb5e152406541e9813feed4873"
+        "version": "1a293025de415dd8127557bdd0bb3fb7f9ad0cce"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -40,11 +40,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-nPcqAk0m1e9izkylBuNcatHESgvSewR+MKmVdz+HBec=",
+            "sha256": "sha256-cbTlVBlGdFgEz2b6pb0SJ7yUf4wFXnZwLCkmvX75FzU=",
             "type": "url",
-            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.6/AdGuardHome_linux_amd64.tar.gz"
+            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.7/AdGuardHome_linux_amd64.tar.gz"
         },
-        "version": "v0.107.6"
+        "version": "v0.107.7"
     },
     "chord": {
         "cargoLocks": null,
@@ -68,11 +68,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-k50j9F+CvEl4/zy10V0Jb4r5ZY+5+SEdOEmZj2oL06k=",
+            "sha256": "sha256-vkVtOWoZ3LiIGtS/8xUZcwauBcyl5HMyoeWtVylIYU4=",
             "type": "url",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v18.0.6/drawio-x86_64-18.0.6.rpm"
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v19.0.3/drawio-x86_64-19.0.3.rpm"
         },
-        "version": "18.0.6"
+        "version": "19.0.3"
     },
     "hug": {
         "cargoLocks": null,
@@ -190,11 +190,11 @@
             "name": null,
             "owner": "karlicoss",
             "repo": "promnesia",
-            "rev": "bc1a798386d3cd3b362b3c2d362498a2df2daae6",
-            "sha256": "sha256-/jwcogGRjJFaBqELZh30Nk0yE+0uX+htC1hod83wCms=",
+            "rev": "346b2e08e04604adffb17ae51244cd1b1ec9015f",
+            "sha256": "sha256-GcLPJZQaHqPUGvcZMNlofwqTizh5/PywA4vY9N3Ih7s=",
             "type": "github"
         },
-        "version": "bc1a798386d3cd3b362b3c2d362498a2df2daae6"
+        "version": "346b2e08e04604adffb17ae51244cd1b1ec9015f"
     },
     "spaceship-prompt": {
         "cargoLocks": null,

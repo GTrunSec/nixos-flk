@@ -1,3 +1,8 @@
+[vscode-extensions-copilot]
+src.vsmarketplace = "GitHub.copilot"
+fetch.vsmarketplace = "GitHub.copilot"
+passthru = { license = "mit", homepage = "none", description = "none" }
+
 [vscode-extensions-nickel-syntax]
 src.vsmarketplace = "kubukoz.nickel-syntax"
 fetch.vsmarketplace = "kubukoz.nickel-syntax"

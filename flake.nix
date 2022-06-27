@@ -42,7 +42,7 @@
   };
 
   inputs = {
-    digga.url = "github:divnix/digga";
+    digga.url = "github:divnix/digga/?ref=refs/pull/472/head";
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.devshell.follows = "devshell";
     digga.inputs.home-manager.follows = "home";

@@ -20,6 +20,8 @@ pkgs.vscode-with-extensions.override {
       vscode-markdownlint
       markdown-preview-enhanced
       vscode-direnv
+
+      copilot
     ]
     # Concise version from the vscode market place when not available in the default set.
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [];
