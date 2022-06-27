@@ -28,6 +28,8 @@ with inputs; rec {
         graphical.i3
         graphical.xserver
         graphical.xdg
+        graphical.dbus
+        graphical.misc
 
         application.base
         application.chat
