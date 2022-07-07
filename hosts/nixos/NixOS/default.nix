@@ -24,6 +24,11 @@
   # sudo cp -r ~/.gnupg /var/lib/sops
   sops.gnupg.home = "/home/gtrun/.gnupg";
 
+  networking.firewall = {
+    allowedTCPPorts = [8888];
+    allowedUDPPorts = [8888];
+  };
+
   i18n = {
     inputMethod = {
       enabled = "fcitx5";

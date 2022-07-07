@@ -12,5 +12,6 @@
     terraform-lsp
     just
     yaml-language-server
+    nodePackages.bash-language-server
   ];
 }
