@@ -14,11 +14,9 @@
     ##################
     # Default Flakes #
     ##################
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos_21_05.url = "github:NixOS/nixpkgs/nixos-21.05";
 
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
