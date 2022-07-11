@@ -25,8 +25,8 @@
             pytest
             #voila
             pygments
-            #orgbabelhelper
-            jupyterlab
+            # orgbabelhelper
+            # jupyterlab
             pdftotext
           ]
       )

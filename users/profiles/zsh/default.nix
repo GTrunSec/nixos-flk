@@ -15,7 +15,7 @@
           enableCompletion = true;
           enableSyntaxHighlighting = true;
           history = {
-            path = config.programs.zsh.dotDir + "/.zsh_history";
+            path = "$HOME/" + config.programs.zsh.dotDir + "/.zsh_history";
             share = true;
             save = 10000000;
             ignoreDups = true;
@@ -49,7 +49,12 @@
             + builtins.readFile ./init-bindkey.zsh
             + builtins.readFile ./autoload.zsh;
 
-          plugins = [];
+          plugins = [
+            {
+              name = "zsh-history-substring-search";
+              src = pkgs.zsh-history-substring-search;
+            }
+          ];
         };
       }
       (
