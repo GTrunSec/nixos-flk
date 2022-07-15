@@ -25,8 +25,8 @@
   sops.gnupg.home = "/home/gtrun/.gnupg";
 
   networking.firewall = {
-    allowedTCPPorts = [8888];
-    allowedUDPPorts = [8888];
+    allowedTCPPorts = [8888 8889];
+    allowedUDPPorts = [8888 8889];
   };
 
   i18n = {

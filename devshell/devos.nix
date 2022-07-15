@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   extraModulesPath,
   ...
 }: let
@@ -15,12 +16,18 @@ in {
   imports = ["${extraModulesPath}/git/hooks.nix"];
   git = {inherit hooks;};
 
-  devshell.startup.nodejs-setuphook = pkgs.lib.stringsWithDeps.noDepEntry ''
-    export NODE_PATH=${pkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
-  '';
-
-  packages = with pkgs; [];
-
+  packages = with pkgs; [
+    # formatters
+    alejandra
+    nodePackages.prettier
+    nodePackages.prettier-plugin-toml
+    shfmt
+  ];
+  devshell.startup.nodejs-setuphook =
+    lib.stringsWithDeps.noDepEntry
+    ''
+      export NODE_PATH=${pkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
+    '';
   commands = with pkgs; [
     (devos nixUnstable)
   ];

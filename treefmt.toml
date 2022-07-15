@@ -3,11 +3,11 @@ command = "alejandra"
 includes = ["*.nix"]
 excludes = ["./pkgs/_sources/*"]
 
-[formatter.prettier]
-command = "prettier"
-options = ["--plugin", "prettier-plugin-toml", "--write"]
-includes = ["*.md", "*.yaml", "*.toml", "*.json"]
-excludes = ["./pkgs/_sources/*"]
+# [formatter.prettier]
+# command = "prettier"
+# options = ["--plugin", "prettier-plugin-toml", "--write"]
+# includes = ["*.md", "*.yaml", "*.toml", "*.json"]
+# excludes = ["./pkgs/_sources/*"]
 
 [formatter.black]
 command = "black"
