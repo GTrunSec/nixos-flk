@@ -21,11 +21,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uMlvpEEzanJ3zTEZKNE2zEfqvGC4IWL97b0AkTfwZeU=",
+            "sha256": "sha256-3YCO0pQT5vUkscQEE4+XrfEkQJro8DpQ5xDLglfqJjI=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/0.7.5/logseq-linux-x64-0.7.5.AppImage"
+            "url": "https://github.com/logseq/logseq/releases/download/0.7.6/logseq-linux-x64-0.7.6.AppImage"
         },
-        "version": "0.7.5"
+        "version": "0.7.6"
     },
     "logseq-darwin": {
         "cargoLocks": null,
@@ -35,10 +35,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-64y5p0ZpRuziaWGdYOM0jQzs2844WNTpvuZH3PHINa8=",
+            "sha256": "sha256-H26JLomquXcT1TAdwT5LI2TuRLm3VokoFDTDMt/+ByM=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/0.7.5/logseq-darwin-x64-0.7.5.dmg"
+            "url": "https://github.com/logseq/logseq/releases/download/0.7.6/logseq-darwin-x64-0.7.6.dmg"
         },
-        "version": "0.7.5"
+        "version": "0.7.6"
     }
 }
