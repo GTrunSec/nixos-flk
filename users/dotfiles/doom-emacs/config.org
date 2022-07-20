@@ -1911,15 +1911,20 @@ zetteldesk-insert-info-contents)
 
 - https://github.com/mclear-tools/consult-notes
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package consult-notes
+(use-package! consult-notes
   :commands (consult-notes
              consult-notes-search-in-all-notes
              consult-notes-org-roam-find-node
              consult-notes-org-roam-find-node-relation)
   :config
-  (setq consult-notes-sources '(("Org Brain"  ?o  "~/Documents/org-notes/braindump")) ;; Set notes dir(s), see below
-  (consult-notes-org-roam-mode)) ;; Set org-roam integration
+  (setq consult-notes-sources '(("Org Braindump"  ?b  "~/Documents/org-notes/braindump"))) ;; Set notes dir(s), see below
+  (consult-notes-org-roam-mode)
+)
+
 #+end_src
+
+#+RESULTS:
+: t
 
 
 ** Org Book
@@ -3531,7 +3536,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;https://github.com/hlissner/doom-emacs/issues/5637
 ;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
-(package! helm :pin "d5e9fbc8ab3339d0d19f1e6649f0aceda129f468")
+;;(package! helm :pin "d5e9fbc8ab3339d0d19f1e6649f0aceda129f468")
 #+end_src
 
 * Linux & MacOS
