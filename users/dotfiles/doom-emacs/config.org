@@ -1903,6 +1903,24 @@ zetteldesk-insert-info-contents)
 #+results:
 : org-sync
 
+** consult-notes
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! consult-notes :recipe (:host github :repo "mclear-tools/consult-notes"))
+#+end_src
+
+- https://github.com/mclear-tools/consult-notes
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package consult-notes
+  :commands (consult-notes
+             consult-notes-search-in-all-notes
+             consult-notes-org-roam-find-node
+             consult-notes-org-roam-find-node-relation)
+  :config
+  (setq consult-notes-sources '(("Org Brain"  ?o  "~/Documents/org-notes/braindump")) ;; Set notes dir(s), see below
+  (consult-notes-org-roam-mode)) ;; Set org-roam integration
+#+end_src
+
 
 ** Org Book
 
@@ -2183,52 +2201,6 @@ zetteldesk-insert-info-contents)
 #+end_src
 
 #+results:
-
-** Org Notdeft
-
-- [[https://jingsi.space/post/2017/04/05/organizing-a-complex-directory-for-emacs-org-mode-and-deft/#configuring-deft][Organizing a Complex Directory for Emacs Org Mode and Deft]]
-
-- [[https://tero.hasu.is/notdeft/#org7b25462][NotDeft | Tero Hasu]]
-
-- [[https://github.com/EFLS/zetteldeft][EFLS/zetteldeft: A Zettelkasten system! Or rather, some functions on top of the emacs deft package.]]
-
-#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! notdeft :recipe (:host github :repo "hasu/notdeft"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! notdeft
-  :config
-  (setq notdeft-extension "org")
-  ;;(setq notdeft-secondary-extensions '("md" "org" "scrbl"))
-  (setq notdeft-allow-org-property-drawers t)
-  (setq notdeft-xapian-program "notdeft-xapian")
-
-  (setq notdeft-directories '("~/Documents/org-notes/post/myself"
-                              "~/Documents/org-notes/dailies"
-                              "~/Documents/org-notes/post/traveling"
-                              "~/Documents/org-notes/post/agenda"
-                              "~/Documents/org-notes/post/game"
-                              "~/Documents/org-notes/GTD"
-                              "~/Documents/org-notes/art"
-                              "~/Documents/org-notes/braindump"
-                              ))
-
-  :bind (:map notdeft-mode-map
-         ("C-q" . notdeft-quit)
-         ("C-r" . notdeft-refresh)
-         ("C-i" . notdeft-reindex)
-         )
-  )
-#+end_src
-
-#+results:
-
-- build
-
-cd ~/.emacs.d/.local/straight/repos/notdeft/xapian
-make
-
 
 ** Org Protocol
 
