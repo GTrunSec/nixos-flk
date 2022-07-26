@@ -3136,6 +3136,17 @@ a separator ' -> '."
   )
 #+end_src
 
+** default
+
+#+begin_src emacs-lisp :tangle yes
+(after! rustic
+  (setq rustic-indent-offset 4)
+)
+#+end_src
+
+#+RESULTS:
+: 4
+
 ** Tree Sitter
 :PROPERTIES:
 :ID:       4bfe18f0-70f6-4f5d-9188-01c19c7a6304
@@ -3183,7 +3194,6 @@ a separator ' -> '."
 
 #+RESULTS:
 | tree-sitter-hl-mode | emacs-tree-sitter | tree-sitter-mode-set-explicitly |
-
 
 * Visualization
 
