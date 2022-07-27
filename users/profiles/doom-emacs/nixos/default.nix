@@ -48,7 +48,7 @@ in {
 
   programs.emacs.enable = true;
 
-  programs.emacs.package = pkgs.emacsGcc;
+  programs.emacs.package = pkgs.emacsGitNativeComp;
 
   programs.emacs.extraPackages = epkgs:
     with epkgs; [
