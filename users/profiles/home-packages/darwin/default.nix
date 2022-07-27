@@ -90,6 +90,6 @@
       # darwin Applications
       # logseq-darwin
       polar-darwin
-      kitty-darwin
+      # kitty-darwin FIXME: fhs issue
     ];
 }

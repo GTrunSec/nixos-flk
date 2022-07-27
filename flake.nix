@@ -14,6 +14,7 @@
     ##################
     # Default Flakes #
     ##################
+    nixpkgs.follows = "nixos";
     nixos.url = "github:NixOS/nixpkgs/release-22.05";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -36,7 +37,7 @@
     darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
     darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
 
-    darwin-emacs.url = "github:cmacrae/emacs/12e55b55cba2648a53bdcde12e9ecc397a130507";
+    darwin-emacs.url = "github:cmacrae/emacs";
   };
 
   inputs = {

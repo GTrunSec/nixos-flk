@@ -2643,6 +2643,19 @@ a separator ' -> '."
 #+end_src
 
 
+*** Org remark
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-remark :recipe (:host github :repo "nobiot/org-remark"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-remark
+  :init
+  (require 'org-remark-global-tracking)
+  :hook (org-mode . org-remark-global-tracking-mode)
+  )
+#+end_src
+
 ** [[https://github.com/stardiviner/org-link-beautify][stardiviner/org-link-beautify: Beautify org links with colors and icons.]]
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
