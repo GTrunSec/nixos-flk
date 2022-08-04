@@ -9,8 +9,13 @@
 in {
   imports = [./base.nix ./nix.nix ./sysctl.nix ./shell.nix];
 
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
-
+  boot.kernelPackages = pkgs.linuxPackages_latest.extend (_: super: {
+    # kernel = super.kernel.override {
+    #   extraConfig = ''
+    #     NETFILTER y
+    #   '';
+    # };
+  });
   environment = {
     systemPackages = with pkgs; [
       binutils

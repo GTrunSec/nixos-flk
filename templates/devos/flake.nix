@@ -38,7 +38,7 @@
   };
 
   inputs = {
-    digga.url = "github:divnix/digga";
+    digga.url = "github:divnix/digga/?ref=refs/pull/472/head";
     digga.inputs.nixpkgs.follows = "nixos";
     digga.inputs.devshell.follows = "devshell";
     digga.inputs.home-manager.follows = "home";
@@ -59,7 +59,7 @@
     ragenix.url = "github:yaxitech/ragenix";
     ragenix.inputs.nixpkgs.follows = "nixos";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay/27fea646189ff7572453e1e3a4d1eb9dc5887fb2";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   #################
@@ -72,6 +72,7 @@
     digga,
     ...
   } @ inputs:
+
     digga.lib.mkFlake
     {
       inherit self inputs;
@@ -86,16 +87,17 @@
 
       devshell = ./devshell;
 
-      nixos = ./nixos;
+      # nixos = ./nixos;
+      nixos = { hostDefaults.channelName = "nixos"; };
 
       darwin = ./darwin;
 
       home = ./home;
 
-      homeConfigurations =
-        digga.lib.mergeAny
-        (digga.lib.mkHomeConfigurations self.darwinConfigurations)
-        (digga.lib.mkHomeConfigurations self.nixosConfigurations);
+      # homeConfigurations =
+      #   digga.lib.mergeAny
+      #   (digga.lib.mkHomeConfigurations self.darwinConfigurations)
+      #   (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       ########################
       # # Builder Packages   #

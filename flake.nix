@@ -69,7 +69,6 @@
     gomod2nix.url = "github:tweag/gomod2nix";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.flake = false;
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixos";
@@ -95,18 +94,7 @@
     self,
     digga,
     ...
-  } @ inputs': let
-    # TODO https://github.com/divnix/digga/issues/464
-    inputs =
-      inputs'
-      // {
-        emacs-overlay =
-          inputs'.emacs-overlay
-          // {
-            overlay = self.lib.overlayNullProtector inputs'.emacs-overlay.overlay;
-          };
-      };
-  in
+  } @ inputs:
     digga.lib.mkFlake
     {
       inherit self inputs;

@@ -2891,6 +2891,8 @@ a separator ' -> '."
 :END:
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json" "acm/*")))
+;; (package! lsp-bridge :recipe (:local-repo "~/ghq/github.com/manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json" "acm/*")
+;; ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
