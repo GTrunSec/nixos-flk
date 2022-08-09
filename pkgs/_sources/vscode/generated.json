@@ -10,12 +10,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "copilot-1.36.6340.zip",
-            "sha256": "sha256-dyjvD8mcK1KSwbRTmxGno9GGqcLwT2ikSobc/7FZbA0=",
+            "name": "copilot-1.39.6432.zip",
+            "sha256": "sha256-dm2Uph3qZ9VC+Mq8mkTK6CZ9hbatuG+s8B8S4qxccxw=",
             "type": "url",
-            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.36.6340/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.39.6432/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.36.6340"
+        "version": "1.39.6432"
     },
     "vscode-extensions-indent-rainbow": {
         "cargoLocks": null,
@@ -64,12 +64,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "language-julia-1.6.28.zip",
-            "sha256": "sha256-axchmTLGOEy/Fu8gO+y6p/gjj9m6+H1V9znzCdZsvxA=",
+            "name": "language-julia-1.6.30.zip",
+            "sha256": "sha256-HZaltck0cKSBSPGCByLaIgui2tUf+aLmR56vyi60YUQ=",
             "type": "url",
-            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.28/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.30/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.6.28"
+        "version": "1.6.30"
     },
     "vscode-extensions-markdown-preview-enhanced": {
         "cargoLocks": null,
@@ -172,12 +172,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "tabnine-vscode-3.6.6.zip",
-            "sha256": "sha256-kqm679mD7VqmO2XNXAUAkX2NVsE0L2JyG5LoRdIiAdI=",
+            "name": "tabnine-vscode-3.6.11.zip",
+            "sha256": "sha256-vVQpPVrJgXl0iYYQh552wo00G/bocLj90STjeIsGrKI=",
             "type": "url",
-            "url": "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.11/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "3.6.6"
+        "version": "3.6.11"
     },
     "vscode-extensions-tokyo-night": {
         "cargoLocks": null,

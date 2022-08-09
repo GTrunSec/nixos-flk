@@ -15,12 +15,16 @@
           brim
           feishu
           ;
+        inherit
+          (inputs.nil.packages."${prev.system}")
+          nil
+          ;
         # nixUnstable = inputs.nix.defaultPackage."${prev.stdenv.hostPlatform.system}";
       }
     )
     inputs.nur.overlay
     inputs.tenvideo.overlay
-    inputs.rust-overlay.overlay
+    inputs.rust-overlay.overlays.default
     inputs.sops-nix.overlay
     inputs.devos-ext-lib.overlay.vscode
     inputs.gomod2nix.overlays.default

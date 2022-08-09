@@ -22,7 +22,7 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
 
-    home.url = "github:nix-community/home-manager";
+    home.url = "github:nix-community/home-manager/release-22.05";
     home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -72,6 +72,8 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixos";
+
+    nil.url = "github:oxalica/nil";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
 

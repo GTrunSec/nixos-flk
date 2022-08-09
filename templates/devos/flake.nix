@@ -72,7 +72,6 @@
     digga,
     ...
   } @ inputs:
-
     digga.lib.mkFlake
     {
       inherit self inputs;
@@ -88,16 +87,16 @@
       devshell = ./devshell;
 
       # nixos = ./nixos;
-      nixos = { hostDefaults.channelName = "nixos"; };
+      nixos = {hostDefaults.channelName = "nixos";};
 
       darwin = ./darwin;
 
       home = ./home;
 
-      # homeConfigurations =
-      #   digga.lib.mergeAny
-      #   (digga.lib.mkHomeConfigurations self.darwinConfigurations)
-      #   (digga.lib.mkHomeConfigurations self.nixosConfigurations);
+      homeConfigurations =
+        digga.lib.mergeAny
+        (digga.lib.mkHomeConfigurations self.darwinConfigurations)
+        (digga.lib.mkHomeConfigurations self.nixosConfigurations);
 
       ########################
       # # Builder Packages   #

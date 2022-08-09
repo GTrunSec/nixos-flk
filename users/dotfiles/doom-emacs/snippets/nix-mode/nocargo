@@ -29,7 +29,7 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ rust-overlay.overlay nocargo.overlay ];
+          overlays = [ rust-overlay.overlays.default nocargo.overlay ];
         };
 
         rustc = pkgs.rust-bin.stable.latest.minimal;

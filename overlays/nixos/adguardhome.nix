@@ -4,4 +4,6 @@ final: prev: {
       inherit (prev.sources.adguardhome) pname version src;
     }
   );
-} #// prev.lib.optionalAttrs true {}
+}
+#// prev.lib.optionalAttrs true {}
+

@@ -3,11 +3,11 @@
 {
   vscode-extensions-copilot = {
     pname = "vscode-extensions-copilot";
-    version = "1.36.6340";
+    version = "1.39.6432";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.36.6340/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.36.6340.zip";
-      sha256 = "sha256-dyjvD8mcK1KSwbRTmxGno9GGqcLwT2ikSobc/7FZbA0=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.39.6432/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.39.6432.zip";
+      sha256 = "sha256-dm2Uph3qZ9VC+Mq8mkTK6CZ9hbatuG+s8B8S4qxccxw=";
     };
     license = "mit";
     homepage = "none";
@@ -39,11 +39,11 @@
   };
   vscode-extensions-language-julia = {
     pname = "vscode-extensions-language-julia";
-    version = "1.6.28";
+    version = "1.6.30";
     src = fetchurl {
-      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.28/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "language-julia-1.6.28.zip";
-      sha256 = "sha256-axchmTLGOEy/Fu8gO+y6p/gjj9m6+H1V9znzCdZsvxA=";
+      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.30/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "language-julia-1.6.30.zip";
+      sha256 = "sha256-HZaltck0cKSBSPGCByLaIgui2tUf+aLmR56vyi60YUQ=";
     };
     license = "mit";
     homepage = "none";
@@ -111,11 +111,11 @@
   };
   vscode-extensions-tabnine-vscode = {
     pname = "vscode-extensions-tabnine-vscode";
-    version = "3.6.6";
+    version = "3.6.11";
     src = fetchurl {
-      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tabnine-vscode-3.6.6.zip";
-      sha256 = "sha256-kqm679mD7VqmO2XNXAUAkX2NVsE0L2JyG5LoRdIiAdI=";
+      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.11/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tabnine-vscode-3.6.11.zip";
+      sha256 = "sha256-vVQpPVrJgXl0iYYQh552wo00G/bocLj90STjeIsGrKI=";
     };
     license = "mit";
     homepage = "none";

@@ -7,7 +7,8 @@
   imports = [];
 
   environment.systemPackages = with pkgs; [
-    rnix-lsp
+    # rnix-lsp
+    nil
     (
       pkgs.writeShellScriptBin "repl" ''
         export PATH=${pkgs.coreutils}/bin:${pkgs.nixUnstable}/bin:$PATH
