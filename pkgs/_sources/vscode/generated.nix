@@ -3,11 +3,11 @@
 {
   vscode-extensions-copilot = {
     pname = "vscode-extensions-copilot";
-    version = "1.39.6432";
+    version = "1.40.6471";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.39.6432/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.39.6432.zip";
-      sha256 = "sha256-dm2Uph3qZ9VC+Mq8mkTK6CZ9hbatuG+s8B8S4qxccxw=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.40.6471/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.40.6471.zip";
+      sha256 = "sha256-x/IAaRVgkOPkdrfOzTwidTQiSCDYJA/o/L5yVi5KE6U=";
     };
     license = "mit";
     homepage = "none";
@@ -39,11 +39,11 @@
   };
   vscode-extensions-language-julia = {
     pname = "vscode-extensions-language-julia";
-    version = "1.6.30";
+    version = "1.6.31";
     src = fetchurl {
-      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.30/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "language-julia-1.6.30.zip";
-      sha256 = "sha256-HZaltck0cKSBSPGCByLaIgui2tUf+aLmR56vyi60YUQ=";
+      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.31/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "language-julia-1.6.31.zip";
+      sha256 = "sha256-pKLnIx2GAMwPPpjmU0xz0NTO6ykhisHIoYpyt8QuhhA=";
     };
     license = "mit";
     homepage = "none";
@@ -111,11 +111,11 @@
   };
   vscode-extensions-tabnine-vscode = {
     pname = "vscode-extensions-tabnine-vscode";
-    version = "3.6.11";
+    version = "3.6.12";
     src = fetchurl {
-      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.11/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tabnine-vscode-3.6.11.zip";
-      sha256 = "sha256-vVQpPVrJgXl0iYYQh552wo00G/bocLj90STjeIsGrKI=";
+      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.12/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tabnine-vscode-3.6.12.zip";
+      sha256 = "sha256-lw9km2WEO0c50XaBICZIs3SOjqEblktXvIy/MPNzUAQ=";
     };
     license = "mit";
     homepage = "none";
@@ -123,11 +123,11 @@
   };
   vscode-extensions-tokyo-night = {
     pname = "vscode-extensions-tokyo-night";
-    version = "0.9.2";
+    version = "0.9.4";
     src = fetchurl {
-      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tokyo-night-0.9.2.zip";
-      sha256 = "sha256-lHRVo0BFNlivVuNsGaA617cwVn3DcWPXNzaff6PxeSk=";
+      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.4/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tokyo-night-0.9.4.zip";
+      sha256 = "sha256-pKokB6446SR6LsTHyJtQ+FEA07A0W9UAI+byqtGeMGw=";
     };
     license = "mit";
     homepage = "none";

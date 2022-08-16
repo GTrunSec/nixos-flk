@@ -19,6 +19,7 @@
             feedparser
             retrying
             epc
+            orjson
             ###
             pytest
             #orgparse
