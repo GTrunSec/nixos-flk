@@ -1220,10 +1220,11 @@ appropriate.  In tables, insert a new row or end the table."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
-  :bind (("TAB" . 'copilot-accept-completion-by-word)
-         ("<tab>" . 'copilot-accept-completion-by-word)
+  :bind (
          :map copilot-completion-map
          ("C-e" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion-by-word)
+         ("<tab>" . 'copilot-accept-completion-by-word)
          ;;("LEFT" . 'copilot-accept-completion)
          ))
 #+end_src
@@ -3122,7 +3123,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! nix-mode
   :config
-  (setq nix-nixfmt-bin "nixpkgs-fmt")
+  (setq nix-nixfmt-bin "alejandra")
   (setq-hook! 'nix-mode-hook company-idle-delay t)
   )
 #+end_src
