@@ -1220,13 +1220,12 @@ appropriate.  In tables, insert a new row or end the table."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
-  :bind (
-         :map copilot-completion-map
+  :bind ((:map copilot-completion-map
          ("C-e" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion-by-word)
          ("<tab>" . 'copilot-accept-completion-by-word)
          ;;("LEFT" . 'copilot-accept-completion)
-         ))
+         )))
 #+end_src
 
 #+RESULTS:
