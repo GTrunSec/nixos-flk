@@ -921,11 +921,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1660216264,
-        "narHash": "sha256-96VKj3Wk2MvoWnH0WIPAFFNwcZYHj8NN7s1TZ6oEVAA=",
+        "lastModified": 1660755227,
+        "narHash": "sha256-gLSHTuh+2pbuKtOjkETzuAqfuYBL604swDscDUQ661M=",
         "owner": "oxalica",
         "repo": "nil",
-        "rev": "c5ff7b1d04391a70015a3a5fc10ba1f889af235f",
+        "rev": "b2128038c245089aae1b3c8cdfa624231a6d5804",
         "type": "github"
       },
       "original": {

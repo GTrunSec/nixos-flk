@@ -39,8 +39,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       ;; (company
-       ;;  +childframe)    ; the ultimate code completion backend
+       (company
+        +childframe)    ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -1027,121 +1027,83 @@ appropriate.  In tables, insert a new row or end the table."
 ** corfu
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
+;; (package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu
-  :custom
-  (corfu-separator ?\s)          ;; Orderless field separator
-  (corfu-preview-current nil)    ;; Disable current candidate preview
-  (corfu-auto t)
-  (corfu-cycle t)
-  :hook
-  (doom-first-buffer . global-corfu-mode)
-  :config
-  :bind (:map corfu-map
-         ("SPC" . corfu-insert-separator)
-         ("TAB" . corfu-next)
-         ([tab] . corfu-next)
-         ("S-TAB" . corfu-previous)
-         ([backtab] . corfu-previous))
-  )
+;; (use-package! corfu
+;;   :custom
+;;   (corfu-separator ?\s)          ;; Orderless field separator
+;;   (corfu-preview-current nil)    ;; Disable current candidate preview
+;;   (corfu-auto t)
+;;   (corfu-cycle t)
+;;   :hook
+;;   (doom-first-buffer . global-corfu-mode)
+;;   :config
+;;   :bind (:map corfu-map
+;;          ("SPC" . corfu-insert-separator)
+;;          ("TAB" . corfu-next)
+;;          ([tab] . corfu-next)
+;;          ("S-TAB" . corfu-previous)
+;;          ([backtab] . corfu-previous))
+;;   )
 #+end_src
 
 #+RESULTS:
 : t
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-info
-  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+;; (package! corfu-info
+;;   :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-info
-  :after corfu
-  :config
-  (require 'corfu-info)
-  (require 'corfu-indexed)
-)
+;; (use-package! corfu-info
+;;   :after corfu
+;;   :config
+;;   (require 'corfu-info)
+;;   (require 'corfu-indexed)
+;; )
 #+end_src
 
 
 ** corfu-doc
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
+;;(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-doc
-  :hook
-  (corfu-mode . corfu-doc-mode)
-  :bind (:map corfu-map
-         ("M-n" . corfu-doc-scroll-down)
-         ("M-p" . corfu-doc-scroll-up)
-         ("M-d" . corfu-doc-toggle))
-  )
+;; (use-package! corfu-doc
+;;   :hook
+;;   (corfu-mode . corfu-doc-mode)
+;;   :bind (:map corfu-map
+;;          ("M-n" . corfu-doc-scroll-down)
+;;          ("M-p" . corfu-doc-scroll-up)
+;;          ("M-d" . corfu-doc-toggle))
+;;   )
 #+end_src
 
 #+RESULTS:
 : t
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-info
-  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-info
-  :after corfu
-  :config
-  (require 'corfu-info)
-  (require 'corfu-indexed)
-)
-#+end_src
-
-* popon
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! popon :recipe (:host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package popon)
-#+end_src
 
 ** corfu-terminal
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
+;; (package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-terminal
-  :after popon
-  :config
-  (unless (display-graphic-p)
-    (corfu-terminal-mode +1))
-)
+;; (use-package! corfu-terminal
+;;   :after popon
+;;   :config
+;;   (unless (display-graphic-p)
+;;     (corfu-terminal-mode +1))
+;; )
 #+end_src
 
 #+RESULTS:
 : t
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-info
-  :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-info
-  :after corfu
-  :config
-  (require 'corfu-info)
-  (require 'corfu-indexed)
-)
-#+end_src
 
 ** [[https://github.com/minad/corfu][kind-icon]]
 
@@ -1234,19 +1196,40 @@ appropriate.  In tables, insert a new row or end the table."
 
 ** tabnine-capf
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
-                   :files ("*.el" "*.sh")))
+;; (package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
+;;                    :files ("*.el" "*.sh")))
 
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! tabnine-capf
-  :after cape
-  :hook (kill-emacs . tabnine-capf-kill-process)
-  :init
-  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
-  )
+;; (use-package! tabnine-capf
+;;   :after cape
+;;   :hook (kill-emacs . tabnine-capf-kill-process)
+;;   :init
+;;   (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
+;;   )
 #+end_src
+
+** copilot
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (("TAB" . 'copilot-accept-completion-by-word)
+         ("<tab>" . 'copilot-accept-completion-by-word)
+         :map copilot-completion-map
+         ("C-e" . 'copilot-accept-completion)
+         ;;("LEFT" . 'copilot-accept-completion)
+         ))
+#+end_src
+
+#+RESULTS:
+: copilot-accept-completion
 
 ** Ordless
 
@@ -1615,6 +1598,16 @@ FACE defaults to inheriting from default and highlight."
 
 ** [[https://github.com/ROCKTAKEY/grugru][ROCKTAKEY/grugru: Rotate text at point in Emacs.]]
 
+* popon
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! popon :recipe (:host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package popon)
+#+end_src
+
 * Org Mode
 
 ** Load Basic Config
@@ -1778,16 +1771,35 @@ FACE defaults to inheriting from default and highlight."
 ** Org Superstar
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
-(package! org-superstar)
+;;(package! org-superstar)
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(use-package! org-superstar
-  :hook
-  (org-mode . org-superstar-mode)
+;; (use-package! org-superstar
+;;   :hook
+;;   (org-mode . org-superstar-mode)
+;;   :config
+;;   (setq org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
+;; )
+#+end_src
+
+** Org Modern :theme:
+
+- https://github.com/minad/org-modern
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-modern :recipe (:host github :repo "minad/org-modern"
+                         :files ("*.el")
+                         ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-modern
   :config
-  (setq org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
-)
+  ;; (add-hook 'org-mode-hook #'org-modern-mode)
+  ;; (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+  (global-org-modern-mode)
+  )
 #+end_src
 
 ** Org Ql
