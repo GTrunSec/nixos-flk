@@ -22,7 +22,7 @@
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
 
-    home.url = "github:nix-community/home-manager/release-22.05";
+    home.url = "github:nix-community/home-manager/f26946858e07384860bf288f20e39a8d32ed5b71";
     home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
