@@ -3,11 +3,11 @@
 {
   vscode-extensions-copilot = {
     pname = "vscode-extensions-copilot";
-    version = "1.40.6471";
+    version = "1.42.6544";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.40.6471/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.40.6471.zip";
-      sha256 = "sha256-x/IAaRVgkOPkdrfOzTwidTQiSCDYJA/o/L5yVi5KE6U=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.42.6544/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.42.6544.zip";
+      sha256 = "sha256-5YXz+lGD+HT8c+iAXL5NLKxYqqUJjgyHSccZULdilAE=";
     };
     license = "mit";
     homepage = "none";
@@ -39,11 +39,23 @@
   };
   vscode-extensions-language-julia = {
     pname = "vscode-extensions-language-julia";
-    version = "1.6.31";
+    version = "1.7.5";
     src = fetchurl {
-      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.6.31/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "language-julia-1.6.31.zip";
-      sha256 = "sha256-pKLnIx2GAMwPPpjmU0xz0NTO6ykhisHIoYpyt8QuhhA=";
+      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.7.5/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "language-julia-1.7.5.zip";
+      sha256 = "sha256-VcNXv8uVx6hmYZ0a41Bmr52oL8YMg+RZffN6+yDfBFQ=";
+    };
+    license = "mit";
+    homepage = "none";
+    description = "none";
+  };
+  vscode-extensions-language-rust = {
+    pname = "vscode-extensions-language-rust";
+    version = "0.7.8";
+    src = fetchurl {
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust/0.7.8/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-0.7.8.zip";
+      sha256 = "sha256-Y33agSNMVmaVCQdYd5mzwjiK5JTZTtzTkmSGTQrSNg0=";
     };
     license = "mit";
     homepage = "none";
@@ -109,13 +121,13 @@
     homepage = "none";
     description = "none";
   };
-  vscode-extensions-tabnine-vscode = {
-    pname = "vscode-extensions-tabnine-vscode";
-    version = "3.6.12";
+  vscode-extensions-rust-analyzer = {
+    pname = "vscode-extensions-rust-analyzer";
+    version = "0.4.1176";
     src = fetchurl {
-      url = "https://TabNine.gallery.vsassets.io/_apis/public/gallery/publisher/TabNine/extension/tabnine-vscode/3.6.12/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tabnine-vscode-3.6.12.zip";
-      sha256 = "sha256-lw9km2WEO0c50XaBICZIs3SOjqEblktXvIy/MPNzUAQ=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1176/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1176.zip";
+      sha256 = "sha256-wUQU+OIo3jHAREijREt613qpcrPREfrTgvOTYJpLWGE=";
     };
     license = "mit";
     homepage = "none";
@@ -135,11 +147,11 @@
   };
   vscode-extensions-vscode-direnv = {
     pname = "vscode-extensions-vscode-direnv";
-    version = "1.0.0";
+    version = "0.6.1";
     src = fetchurl {
-      url = "https://cab404.gallery.vsassets.io/_apis/public/gallery/publisher/cab404/extension/vscode-direnv/1.0.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "vscode-direnv-1.0.0.zip";
-      sha256 = "sha256-+nLH+T9v6TQCqKZw6HPN/ZevQ65FVm2SAo2V9RecM3Y=";
+      url = "https://mkhl.gallery.vsassets.io/_apis/public/gallery/publisher/mkhl/extension/direnv/0.6.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "direnv-0.6.1.zip";
+      sha256 = "sha256-5/Tqpn/7byl+z2ATflgKV1+rhdqj+XMEZNbGwDmGwLQ=";
     };
     license = "mit";
     homepage = "none";

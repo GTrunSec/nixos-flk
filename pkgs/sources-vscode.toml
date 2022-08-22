@@ -38,15 +38,21 @@ src.vsmarketplace = "oderwat.indent-rainbow"
 fetch.vsmarketplace = "oderwat.indent-rainbow"
 passthru = { license = "mit", homepage = "none", description = "none" }
 
-[vscode-extensions-tabnine-vscode]
-src.vsmarketplace = "TabNine.tabnine-vscode"
-fetch.vsmarketplace = "TabNine.tabnine-vscode"
-passthru = { license = "mit", homepage = "none", description = "none" }
-
 [vscode-extensions-pdf]
 src.vsmarketplace = "tomoki1207.pdf"
 fetch.vsmarketplace = "tomoki1207.pdf"
 passthru = { license = "mit", homepage = "none", description = "none" }
+
+[vscode-extensions-language-rust]
+src.vsmarketplace = "rust-lang.rust"
+fetch.vsmarketplace = "rust-lang.rust"
+passthru = { license = "mit", homepage = "none", description = "none" }
+
+[vscode-extensions-rust-analyzer]
+src.vsmarketplace = "rust-lang.rust-analyzer"
+fetch.vsmarketplace = "rust-lang.rust-analyzer"
+passthru = { license = "mit", homepage = "none", description = "none" }
+
 
 [vscode-extensions-language-julia]
 src.vsmarketplace = "julialang.language-julia"
@@ -69,6 +75,6 @@ fetch.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
 passthru = { license = "mit", homepage = "none", description = "none" }
 
 [vscode-extensions-vscode-direnv]
-src.vsmarketplace = "cab404.vscode-direnv"
-fetch.vsmarketplace = "cab404.vscode-direnv"
+src.vsmarketplace = "mkhl.direnv"
+fetch.vsmarketplace = "mkhl.direnv"
 passthru = { license = "mit", homepage = "none", description = "none" }

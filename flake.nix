@@ -86,7 +86,7 @@
   #################
   inputs = {
     photoprism2nix.url = "github:GTrunSec/photoprism2nix";
-    photoprism2nix.inputs.nixpkgs.follows = "nixos";
+    photoprism2nix.inputs.nixpkgs.follows = "nixos-unstable";
 
     tenvideo.url = "github:GTrunSec/Tenvideo-nix-flake";
     tenvideo.inputs.nixpkgs.follows = "nixos";

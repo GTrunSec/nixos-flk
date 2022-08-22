@@ -10,7 +10,6 @@ pkgs.vscode-with-extensions.override {
       tokyo-night
       vscode-emacs-friendly
       zeek
-      tabnine-vscode
       indent-rainbow
       readable-indent
       # Julia
@@ -22,6 +21,8 @@ pkgs.vscode-with-extensions.override {
       vscode-direnv
 
       copilot
+      language-rust
+      rust-analyzer
     ]
     # Concise version from the vscode market place when not available in the default set.
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [];
