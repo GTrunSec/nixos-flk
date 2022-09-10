@@ -39,8 +39,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company
-        +childframe)    ; the ultimate code completion backend
+       ;; (company
+       ;;  +childframe)    ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -1027,39 +1027,39 @@ appropriate.  In tables, insert a new row or end the table."
 ** company
 
 #+begin_src emacs-lisp :tangle "config.el"
-(after! company
-  (defun ora-company-number ()
-    "Forward to `company-complete-number'.
-Unless the number is potentially part of the candidate.
-In that case, insert the number."
-    (interactive)
-    (let* ((k (this-command-keys))
-           (re (concat "^" company-prefix k)))
-      (if (or (cl-find-if (lambda (s) (string-match re s))
-                          company-candidates)
-              (> (string-to-number k)
-                 (length company-candidates))
-              (looking-back "[0-9]+\\.[0-9]*" (line-beginning-position)))
-          (self-insert-command 1)
-        (company-complete-number
-         (if (equal k "0")
-             10
-           (string-to-number k))))))
+;; (after! company
+;;   (defun ora-company-number ()
+;;     "Forward to `company-complete-number'.
+;; Unless the number is potentially part of the candidate.
+;; In that case, insert the number."
+;;     (interactive)
+;;     (let* ((k (this-command-keys))
+;;            (re (concat "^" company-prefix k)))
+;;       (if (or (cl-find-if (lambda (s) (string-match re s))
+;;                           company-candidates)
+;;               (> (string-to-number k)
+;;                  (length company-candidates))
+;;               (looking-back "[0-9]+\\.[0-9]*" (line-beginning-position)))
+;;           (self-insert-command 1)
+;;         (company-complete-number
+;;          (if (equal k "0")
+;;              10
+;;            (string-to-number k))))))
 
-  (defun ora--company-good-prefix-p (orig-fn prefix)
-    (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
-      (funcall orig-fn prefix)))
-  (advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
+;;   (defun ora--company-good-prefix-p (orig-fn prefix)
+;;     (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
+;;       (funcall orig-fn prefix)))
+;;   (advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
 
-  (let ((map company-active-map))
-                       (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
-                             (number-sequence 0 9))
-                       (define-key map " " (lambda ()
-                                             (interactive)
-                                             (company-abort)
-                                             (self-insert-command 1)))
-                       (define-key map (kbd "<return>") nil))
-  )
+;;   (let ((map company-active-map))
+;;                        (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
+;;                              (number-sequence 0 9))
+;;                        (define-key map " " (lambda ()
+;;                                              (interactive)
+;;                                              (company-abort)
+;;                                              (self-insert-command 1)))
+;;                        (define-key map (kbd "<return>") nil))
+;;   )
 #+end_src
 
 #+RESULTS:
@@ -1067,26 +1067,26 @@ In that case, insert the number."
 ** corfu
 
 #+begin_src emacs-lisp :tangle "packages.el"
-;; (package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
+(package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! corfu
-;;   :custom
-;;   (corfu-separator ?\s)          ;; Orderless field separator
-;;   (corfu-preview-current nil)    ;; Disable current candidate preview
-;;   (corfu-auto t)
-;;   (corfu-cycle t)
-;;   :hook
-;;   (doom-first-buffer . global-corfu-mode)
-;;   :config
-;;   :bind (:map corfu-map
-;;          ("SPC" . corfu-insert-separator)
-;;          ("TAB" . corfu-next)
-;;          ([tab] . corfu-next)
-;;          ("S-TAB" . corfu-previous)
-;;          ([backtab] . corfu-previous))
-;;   )
+(use-package! corfu
+  :custom
+  (corfu-separator ?\s)          ;; Orderless field separator
+  (corfu-preview-current nil)    ;; Disable current candidate preview
+  (corfu-auto t)
+  (corfu-cycle t)
+  :hook
+  (doom-first-buffer . global-corfu-mode)
+  :config
+  :bind (:map corfu-map
+         ("SPC" . corfu-insert-separator)
+         ("TAB" . corfu-next)
+         ([tab] . corfu-next)
+         ("S-TAB" . corfu-previous)
+         ([backtab] . corfu-previous))
+  )
 #+end_src
 
 #+RESULTS:
@@ -1098,30 +1098,30 @@ In that case, insert the number."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! corfu-info
-;;   :after corfu
-;;   :config
-;;   (require 'corfu-info)
-;;   (require 'corfu-indexed)
-;; )
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
+)
 #+end_src
 
 
 ** corfu-doc
 
 #+begin_src emacs-lisp :tangle "packages.el"
-;;(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
+(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! corfu-doc
-;;   :hook
-;;   (corfu-mode . corfu-doc-mode)
-;;   :bind (:map corfu-map
-;;          ("M-n" . corfu-doc-scroll-down)
-;;          ("M-p" . corfu-doc-scroll-up)
-;;          ("M-d" . corfu-doc-toggle))
-;;   )
+(use-package! corfu-doc
+  :hook
+  (corfu-mode . corfu-doc-mode)
+  :bind (:map corfu-map
+         ("M-n" . corfu-doc-scroll-down)
+         ("M-p" . corfu-doc-scroll-up)
+         ("M-d" . corfu-doc-toggle))
+  )
 #+end_src
 
 #+RESULTS:
@@ -1130,16 +1130,16 @@ In that case, insert the number."
 ** corfu-terminal
 
 #+begin_src emacs-lisp :tangle "packages.el"
-;; (package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
+(package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! corfu-terminal
-;;   :after popon
-;;   :config
-;;   (unless (display-graphic-p)
-;;     (corfu-terminal-mode +1))
-;; )
+(use-package! corfu-terminal
+  :after popon
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+)
 #+end_src
 
 #+RESULTS:

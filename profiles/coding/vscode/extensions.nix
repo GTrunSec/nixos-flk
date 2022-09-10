@@ -21,7 +21,7 @@ pkgs.vscode-with-extensions.override {
       vscode-direnv
 
       copilot
-      language-rust
+      # language-rust
       rust-analyzer
     ]
     # Concise version from the vscode market place when not available in the default set.

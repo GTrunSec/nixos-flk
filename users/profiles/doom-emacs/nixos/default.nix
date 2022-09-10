@@ -54,6 +54,9 @@ in {
     with epkgs; [
       vterm
       grab-x-link
+      dash
+      f
+      pkg-info
     ];
 
   # services.emacs.enable = true;
