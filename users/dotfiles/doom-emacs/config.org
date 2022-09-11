@@ -2955,9 +2955,12 @@ a separator ' -> '."
 
   (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
   (when (display-graphic-p)
-    (add-hook 'lsp-mode-hook (lambda () (corfu-mode -1)))
+    (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
+    (setq acm-enable-tabnine-helper t)
     )
   )
+
+
 #+end_src
 
 #+RESULTS:
