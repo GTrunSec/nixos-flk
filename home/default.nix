@@ -20,7 +20,7 @@
 
       shellProfile = [zsh zoxide fzf starship dircolors direnv tmux lsd];
 
-      graphicalProfile = [cursor randr feh];
+      graphicalProfile = [cursor randr feh picom];
 
       serviceProfile = [lorri dunst dropbox systemd];
 

@@ -169,8 +169,7 @@ exec_always --no-startup-id autorandr home-1
 exec_always --no-startup-id lsyncd-rsync
 
 exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
-# Compton
-exec_always --no-startup-id bash $HOME/.config/guangtao/nixos-flk/users/dotfiles/polybar/compton.sh
+
 # adguard-home
 #exec --no-startup-id bash $HOME/.config/guangtao/sh/adguard-home.sh
 

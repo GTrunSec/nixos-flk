@@ -13,8 +13,6 @@
 
           #polyar
           home.file.".config/polybar/".source = ../../dotfiles/polybar;
-          # compton
-          home.file.".compton.conf".source = ../../dotfiles/.compton.conf;
           # rofi
           home.file.".config/rofi".source = ../../dotfiles/rofi;
           # termite

@@ -10,6 +10,7 @@
         programs.alacritty = {
           enable = true;
           settings = {
+            opacity = 0.7;
             env.TERM = "xterm-256color";
             font.normal.style = "Regular";
             cursor.style = "Beam";
