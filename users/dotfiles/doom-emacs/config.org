@@ -769,9 +769,9 @@
 (when (not (display-graphic-p))
   (setq doom-theme 'doom-city-lights)
 )
-(remove-hook 'window-setup-hook #'doom-init-theme-h)
-(add-hook 'after-init-hook #'doom-init-theme-h 'append)
-(delq! t custom-theme-load-path)
+;; (remove-hook 'window-setup-hook #'doom-init-theme-h)
+;; (add-hook 'after-init-hook #'doom-init-theme-h 'append)
+;; (delq! t custom-theme-load-path)
 #+end_src
 
 ** Line Number
@@ -1434,40 +1434,40 @@ FACE defaults to inheriting from default and highlight."
 - [2021-11-26 Fri 12:52] -> https://github.com/manateelazycat/grammatical-edit
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when IS-LINUX
-(use-package! grammatical-edit
-  :config
-  (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
-  (define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
-  (define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
-  (define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
-  (define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
-  (define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
-  (define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
+;; (when IS-LINUX
+;; (use-package! grammatical-edit
+;;   :config
+;;   (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
+;;   (define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
+;;   (define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
+;;   (define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
+;;   (define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
+;;   (define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
+;;   (define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
 
-  (define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
-  (define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
+;;   (define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
+;;   (define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
 
-  (define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
-  (define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
+;;   (define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
+;;   (define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
 
-  (define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
-  (define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
-  (define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
+;;   (define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
+;;   (define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
+;;   (define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
 
-  (define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
-  (define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
-  (define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
-  (define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
+;;   (define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
+;;   (define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
+;;   (define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
+;;   (define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
 
-  (define-key grammatical-edit-mode-map (kbd "M-<left>") 'drag-stuff-left)
-  (define-key grammatical-edit-mode-map (kbd "M-<right>") 'drag-stuff-right)
+;;   (define-key grammatical-edit-mode-map (kbd "M-<left>") 'drag-stuff-left)
+;;   (define-key grammatical-edit-mode-map (kbd "M-<right>") 'drag-stuff-right)
 
-  (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-right)
-  (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-left)
-  (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
-  )
-)
+;;   (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-right)
+;;   (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-left)
+;;   (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
+;;   )
+;; )
 #+end_src
 
 #+RESULTS:
@@ -2952,6 +2952,8 @@ a separator ' -> '."
   :config
   (require 'lsp-bridge-jdtls)
   (global-lsp-bridge-mode)
+  (setq lsp-bridge-flash-line-delay 1)
+  (setq lsp-bridge-ref-flash-line-delay 1)
 
   (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
   (when (display-graphic-p)
@@ -3655,7 +3657,7 @@ a separator ' -> '."
 - bookmark
 
 #+begin_src emacs-lisp :tangle "linux.el"
-(setq bm-repository-file (f-join doom-private-dir "etc/bm-linux-data"))
+(setq bm-repository-file (concat doom-private-dir "etc/bm-linux-data"))
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-linux-default.el"))
 (bookmark-load bookmark-default-file t)
@@ -3767,7 +3769,7 @@ a separator ' -> '."
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-macos-default.el"))
 (bookmark-load bookmark-default-file t)
-(setq bm-repository-file (f-join doom-private-dir "etc/bm-macos-data"))
+(setq bm-repository-file (concat doom-private-dir "etc/bm-macos-data"))
 #+end_src
 
 - variables

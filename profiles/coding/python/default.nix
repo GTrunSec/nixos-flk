@@ -1,4 +1,10 @@
 {pkgs, ...}: let
+  wenls = pkgs.fetchFromGitHub {
+    owner = "metaescape";
+    repo = "Wen";
+    rev = "25a815217d5234e9e28c18e740e1aa5e74690208";
+    sha256 = "sha256-2kFiaPZnc5Y7jaCJTG50bgFWhs6mejKqeumqwg44XP8=";
+  };
   my-python-packages =
     (
       pkgs.python3.withPackages (
@@ -29,6 +35,8 @@
             # orgbabelhelper
             # jupyterlab
             pdftotext
+            pypinyin
+            pygls
           ]
       )
     )
@@ -39,5 +47,10 @@ in {
     nodePackages.pyright
     promnesia
     orgparse
+    (
+      pkgs.writeShellScriptBin "wenls" ''
+        ${my-python-packages}/bin/python3 ${wenls}/server.py
+      ''
+    )
   ];
 }
