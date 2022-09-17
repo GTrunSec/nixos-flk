@@ -2954,7 +2954,6 @@ a separator ' -> '."
   (global-lsp-bridge-mode)
   (setq lsp-bridge-flash-line-delay 1)
   (setq lsp-bridge-ref-flash-line-delay 1)
-
   (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
   (when (display-graphic-p)
     (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))

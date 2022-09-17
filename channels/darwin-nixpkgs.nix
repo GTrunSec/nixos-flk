@@ -22,5 +22,6 @@
           ;
       }
     )
+    inputs.rust-overlay.overlays.default
   ];
 }

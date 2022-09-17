@@ -4,7 +4,7 @@
   suites,
   ...
 }: {
-  imports = suites.base;
+  imports = suites.MacBook;
 
   system.build.applications = pkgs.lib.mkForce (
     pkgs.buildEnv {
