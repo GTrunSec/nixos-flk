@@ -1236,18 +1236,17 @@ appropriate.  In tables, insert a new row or end the table."
 
 ** tabnine-capf
 #+begin_src emacs-lisp :tangle "packages.el"
-;; (package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
-;;                    :files ("*.el" "*.sh")))
-
+(package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
+                   :files ("*.el" "*.sh")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; (use-package! tabnine-capf
-;;   :after cape
-;;   :hook (kill-emacs . tabnine-capf-kill-process)
-;;   :init
-;;   (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
-;;   )
+(use-package! tabnine-capf
+  :after cape
+  :hook (kill-emacs . tabnine-capf-kill-process)
+  :init
+  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
+  )
 #+end_src
 
 ** copilot
@@ -2090,7 +2089,7 @@ zetteldesk-insert-info-contents)
                        '((:name "Today List"
                                 :time-grid t
                                 :date today
-                                :todo "⚔ DOING"
+                                :todo "DOING"
                                 :scheduled today
                                 :order 1)))))
           (alltodo "" ((org-agenda-overriding-header "")
@@ -2126,7 +2125,7 @@ zetteldesk-insert-info-contents)
                                  :tag ("BOOK" "READ")
                                  :order 30)
                           (:name "Waiting"
-                                 :todo "⚑ WAITING"
+                                 :todo "WAITING"
                                  :order 18)
                           (:name "trivial"
                                  :priority<= "C"
@@ -2140,16 +2139,18 @@ zetteldesk-insert-info-contents)
          search "+{:book\\|books:}")
 
         ("bd" "BOOK TODO List"
-         search "+{^\\*+\\s-+\\(⚔ DOING\\|TODO\\|⚑ WAITING\\)\\s-} +{:book\\|books:}")
+         search "+{^\\*+\\s-+\\(DOING\\|TODO\\|WAITING\\)\\s-} +{:book\\|books:}")
 
         ("d" "ALL DONE OF TASKS"
-         search "+{^\\*+\\s-+\\(✔ DONE\\|✘ CANCELED\\)\\s-}")
+         search "+{^\\*+\\s-+\\(DONE\\|CANCELED\\)\\s-}")
 
         ("i" "ALL DOING OF TASKS"
-         search "+{^\\*+\\s-+\\(⚔ DOING\\)\\s-}")
-
+         search "+{^\\*+\\s-+\\(DOING\\)\\s-}")
         ))
 #+end_src
+
+#+RESULTS:
+: ((z GtruN Agenda ((agenda  ((org-agenda-span 2) (org-agenda-start-day -1d) (org-super-agenda-groups '((:name Today List :time-grid t :date today :todo DOING :scheduled today :order 1))))) (alltodo  ((org-agenda-overriding-header ) (org-super-agenda-groups '((:name Next to do :priority>= B :order 2) (:name Important :todo ✰ Important :order 6) (:name Due Today :deadline today :order 3) (:name Due Soon :deadline future :order 8) (:name Overdue :deadline past :order 20) (:name Issues :tag Issue :order 12) (:name Projects :tag Project :order 14) (:name Emacs :tag Emacs :order 13) (:name Research :tag Research :order 15) (:name To read :tag (BOOK READ) :order 30) (:name Waiting :todo WAITING :order 18) (:name trivial :priority<= C :todo (SOMEDAY) :order 90) (:discard (:tag (Chore Routine Daily))))))))) (b . BOOK) (bb Search tags in todo, note, and archives search +{:book\|books:}) (bd BOOK TODO List search +{^\*+\s-+\(DOING\|TODO\|WAITING\)\s-} +{:book\|books:}) (d ALL DONE OF TASKS search +{^\*+\s-+\(DONE\|CANCELED\)\s-}) (i ALL DOING OF TASKS search +{^\*+\s-+\(DOING\)\s-}))
 
 
 *** ✰ IMPORTANT [[https://www.nongnu.org/org-edna-el/#org2421cd7][Org Edna]]
@@ -3455,14 +3456,19 @@ a separator ' -> '."
   :hook
   (org-mode . writeroom-mode)
   (w3m-mode . writeroom-mode)
+  (markdown-mode . writeroom-mode)
   :config
   (advice-add 'text-scale-adjust :after
               #'visual-fill-column-adjust)
 
   ;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
   (setq writeroom-fullscreen-effect 'maximized)
+  (setq writeroom-width 75)
 )
 #+end_src
+
+#+RESULTS:
+| writeroom-mode | doom--setq-fill-nobreak-predicate-for-markdown-mode-h | +lookup--init-markdown-mode-handlers-h |
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;; (use-package! writegood-mode

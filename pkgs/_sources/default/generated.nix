@@ -11,21 +11,21 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "1a293025de415dd8127557bdd0bb3fb7f9ad0cce";
+    version = "4b00782ca09da629ea343a3c24c46442ce38f770";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "1a293025de415dd8127557bdd0bb3fb7f9ad0cce";
+      rev = "4b00782ca09da629ea343a3c24c46442ce38f770";
       fetchSubmodules = false;
-      sha256 = "sha256-UmrjsvO8nSxQTnbW+OhXamgZ7TPUjK8xqeQE3gm9VwU=";
+      sha256 = "sha256-MJPWv8Cg9zpHqe5jSy21VA1HPkVo4qLjVRbmncQ58SA=";
     });
   };
   adguardhome = {
     pname = "adguardhome";
-    version = "v0.107.7";
+    version = "v0.107.13";
     src = fetchurl {
-      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.7/AdGuardHome_linux_amd64.tar.gz";
-      sha256 = "sha256-cbTlVBlGdFgEz2b6pb0SJ7yUf4wFXnZwLCkmvX75FzU=";
+      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.13/AdGuardHome_linux_amd64.tar.gz";
+      sha256 = "sha256-gAH5wE0rTaEhWxHdL41e2juNDaVJycREXNgc0VdjBlg=";
     };
   };
   chord = {
@@ -38,10 +38,10 @@
   };
   drawio = {
     pname = "drawio";
-    version = "19.0.3";
+    version = "20.3.0";
     src = fetchurl {
-      url = "https://github.com/jgraph/drawio-desktop/releases/download/v19.0.3/drawio-x86_64-19.0.3.rpm";
-      sha256 = "sha256-vkVtOWoZ3LiIGtS/8xUZcwauBcyl5HMyoeWtVylIYU4=";
+      url = "https://github.com/jgraph/drawio-desktop/releases/download/v20.3.0/drawio-x86_64-20.3.0.rpm";
+      sha256 = "sha256-v802P1Sc6NwTriKHzsUJnkvx0NS2+N7vQKgSefeIF+E=";
     };
   };
   hug = {
@@ -87,6 +87,17 @@
       sha256 = "sha256-hg5vu5pnt0K6p5LmD4zBhSLpeJwGXSaCHAIoXV/BBK8=";
     };
   };
+  picom = {
+    pname = "picom";
+    version = "f2970bc697bdf20d398d1be05ff72d50df911e64";
+    src = fetchFromGitHub ({
+      owner = "yshui";
+      repo = "picom";
+      rev = "f2970bc697bdf20d398d1be05ff72d50df911e64";
+      fetchSubmodules = false;
+      sha256 = "sha256-aeAXMKwjQv/kRd7lTeIrcJmqT1vAUkRUOM8VrEJpd8M=";
+    });
+  };
   polar-bookshelf = {
     pname = "polar-bookshelf";
     version = "2.0.103";
@@ -116,13 +127,13 @@
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "b3be570a8166d824c4b1e84f1fb3a21444338ff9";
+    version = "2d7df31c5fada5d8ca3c18e2de31084ca5cc4d5f";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "b3be570a8166d824c4b1e84f1fb3a21444338ff9";
+      rev = "2d7df31c5fada5d8ca3c18e2de31084ca5cc4d5f";
       fetchSubmodules = false;
-      sha256 = "sha256-WzECATaDst4xO4vCaYP+DL8t+9gm2sor1Q8OCzKHmKE=";
+      sha256 = "sha256-+Gmi4KTi/viaD17kaiM2J8EBziAxA4QabQPog01mWJ0=";
     });
   };
 }

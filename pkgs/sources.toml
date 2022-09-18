@@ -47,6 +47,10 @@ fetch.github = "spaceship-prompt/spaceship-prompt"
 src.git = "https://github.com/karlicoss/promnesia"
 fetch.github = "karlicoss/promnesia"
 
+[picom]
+src.git = "https://github.com/yshui/picom"
+fetch.github = "yshui/picom"
+
 [HPI]
 src.pypi = "HPI"
 fetch.pypi = "HPI"

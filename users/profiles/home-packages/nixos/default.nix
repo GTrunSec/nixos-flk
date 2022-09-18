@@ -89,7 +89,6 @@ in {
             dive
             clojure
             lsyncd
-            compton
             lsyncd-rsync
             #clj2nix
             ffmpegthumbnailer

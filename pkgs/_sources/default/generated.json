@@ -26,11 +26,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "1a293025de415dd8127557bdd0bb3fb7f9ad0cce",
-            "sha256": "sha256-UmrjsvO8nSxQTnbW+OhXamgZ7TPUjK8xqeQE3gm9VwU=",
+            "rev": "4b00782ca09da629ea343a3c24c46442ce38f770",
+            "sha256": "sha256-MJPWv8Cg9zpHqe5jSy21VA1HPkVo4qLjVRbmncQ58SA=",
             "type": "github"
         },
-        "version": "1a293025de415dd8127557bdd0bb3fb7f9ad0cce"
+        "version": "4b00782ca09da629ea343a3c24c46442ce38f770"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -40,11 +40,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cbTlVBlGdFgEz2b6pb0SJ7yUf4wFXnZwLCkmvX75FzU=",
+            "sha256": "sha256-gAH5wE0rTaEhWxHdL41e2juNDaVJycREXNgc0VdjBlg=",
             "type": "url",
-            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.7/AdGuardHome_linux_amd64.tar.gz"
+            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.13/AdGuardHome_linux_amd64.tar.gz"
         },
-        "version": "v0.107.7"
+        "version": "v0.107.13"
     },
     "chord": {
         "cargoLocks": null,
@@ -68,11 +68,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-vkVtOWoZ3LiIGtS/8xUZcwauBcyl5HMyoeWtVylIYU4=",
+            "sha256": "sha256-v802P1Sc6NwTriKHzsUJnkvx0NS2+N7vQKgSefeIF+E=",
             "type": "url",
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v19.0.3/drawio-x86_64-19.0.3.rpm"
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v20.3.0/drawio-x86_64-20.3.0.rpm"
         },
-        "version": "19.0.3"
+        "version": "20.3.0"
     },
     "hug": {
         "cargoLocks": null,
@@ -149,6 +149,25 @@
         },
         "version": "0.3.1"
     },
+    "picom": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "picom",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yshui",
+            "repo": "picom",
+            "rev": "f2970bc697bdf20d398d1be05ff72d50df911e64",
+            "sha256": "sha256-aeAXMKwjQv/kRd7lTeIrcJmqT1vAUkRUOM8VrEJpd8M=",
+            "type": "github"
+        },
+        "version": "f2970bc697bdf20d398d1be05ff72d50df911e64"
+    },
     "polar-bookshelf": {
         "cargoLocks": null,
         "extract": null,
@@ -209,10 +228,10 @@
             "name": null,
             "owner": "spaceship-prompt",
             "repo": "spaceship-prompt",
-            "rev": "b3be570a8166d824c4b1e84f1fb3a21444338ff9",
-            "sha256": "sha256-WzECATaDst4xO4vCaYP+DL8t+9gm2sor1Q8OCzKHmKE=",
+            "rev": "2d7df31c5fada5d8ca3c18e2de31084ca5cc4d5f",
+            "sha256": "sha256-+Gmi4KTi/viaD17kaiM2J8EBziAxA4QabQPog01mWJ0=",
             "type": "github"
         },
-        "version": "b3be570a8166d824c4b1e84f1fb3a21444338ff9"
+        "version": "2d7df31c5fada5d8ca3c18e2de31084ca5cc4d5f"
     }
 }
