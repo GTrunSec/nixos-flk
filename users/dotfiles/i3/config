@@ -229,7 +229,7 @@ for_window [class="feh"] floating enable, border normal
 #for_window [class=""] fullscreen enable
 
 # Wallpaper
-exec_always --no-startup-id feh --randomize --bg-fill ~/Nextcloud/sync-photoprism/wallpaper/.attach/8f/59b01b-0a09-4249-af00-50e283e34c8c/20210216_002250screenshot.png
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpaper/tyler-smith-ue5-temple04-02.jpg
 
 exec --no-startup-id fcitx5 -d
 

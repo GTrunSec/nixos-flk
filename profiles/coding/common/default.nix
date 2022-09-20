@@ -7,7 +7,7 @@
     cue
     clang_11
     gcc
-    julia_17-bin
+    julia_18-bin
     shfmt
     terraform-lsp
     just

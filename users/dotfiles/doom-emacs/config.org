@@ -1805,6 +1805,21 @@ FACE defaults to inheriting from default and highlight."
 #+results:
 : org-starter-select-file
 
+** Org Attach
+
+*** org-attach-extra
+
+- https://github.com/lucasvreis/org-attach-extra
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-attach-extra :recipe (:host github :repo "lucasvreis/org-attach-extra"
+                         :files ("*.el")
+                         ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-attach-extra)
+#+end_src
 
 
 ** Org Superstar

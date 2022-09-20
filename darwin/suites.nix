@@ -12,7 +12,7 @@ with inputs; rec {
       coding = digga.lib.rakeLeaves ../profiles/coding;
     };
   suites = with profiles; rec {
-    base = [core.darwin users.darwin ];
+    base = [core.darwin users.darwin];
     MacBook =
       base
       ++ [

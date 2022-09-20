@@ -31,7 +31,7 @@ channels: final: prev: {
     onlyoffice-bin
     i3-gaps
     tmux
-    julia_17-bin
+    julia_18-bin
     texmacs
     podman
     ;

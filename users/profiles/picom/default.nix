@@ -18,8 +18,8 @@
     menuOpacity = "0.9";
     opacityRule = [
       "95:class_g *?= 'brave'"
-      "75:class_g *?= 'emacs' && focused"
-      "60:class_g *?= 'emacs' && !focused"
+      "80:class_g *?= 'emacs' && focused"
+      "75:class_g *?= 'emacs' && !focused"
     ];
     extraOptions = ''
       corner-radius = 10;

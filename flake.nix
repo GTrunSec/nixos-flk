@@ -103,9 +103,10 @@
 
       supportedSystems = ["x86_64-linux" "x86_64-darwin"];
 
-      channelsConfig = {allowUnfree = true;
-                        allowUnsupportedSystem = true;
-                       };
+      channelsConfig = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+      };
 
       channels = import ./channels {inherit self inputs;};
 
