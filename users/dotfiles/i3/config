@@ -220,7 +220,7 @@ smart_borders on
 
 #Screenshot
 
-bindsym Mod4+r exec --no-startup-id flameshot gui -p ~/Dropbox/Pictures/snap
+bindsym Mod4+r exec --no-startup-id flameshot gui
 #bindsym Mod4+r exec --no-startup-id spectacle -r
 #bindsym Mod4+t exec --no-startup-id deepin-screenshot
 ## floatings

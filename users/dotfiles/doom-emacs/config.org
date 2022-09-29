@@ -1779,8 +1779,6 @@ FACE defaults to inheriting from default and highlight."
     ;;
     ("braindump/self/" :agenda t)
     ("braindump/journals/" :agenda t)
-    ("braindump/nix/" :agenda t)
-    ("braindump/security/" :agenda t)
     )
   (org-starter-def "~/.config/guangtao/nixos-flk/users/dotfiles/doom-emacs/"
     :files

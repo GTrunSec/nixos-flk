@@ -3,26 +3,26 @@
 {
   kitty-darwin = {
     pname = "kitty-darwin";
-    version = "0.26.2";
+    version = "0.26.3";
     src = fetchurl {
-      url = "https://github.com/kovidgoyal/kitty/releases/download/v0.26.2/kitty-0.26.2.dmg";
-      sha256 = "sha256-7AIGT6rm469yl/c6kEdsWjSb6f/oLM7xW1bDh2NehMo=";
+      url = "https://github.com/kovidgoyal/kitty/releases/download/v0.26.3/kitty-0.26.3.dmg";
+      sha256 = "sha256-slgdXB8I1cZxjcSFDM/DA1RYjdkPeoG8RsVDacxyXVA=";
     };
   };
   logseq = {
     pname = "logseq";
-    version = "0.8.5";
+    version = "0.8.7";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.5/logseq-linux-x64-0.8.5.AppImage";
-      sha256 = "sha256-1nvkjucMRAwpqg2LI+1UrICMLzSd6t0yGnYdCUNQslU=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.7/logseq-linux-x64-0.8.7.AppImage";
+      sha256 = "sha256-FMGNaA/a1IzF2T0k9LGCOvLK26SlxX2cCOn7dLD/o7c=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.8.5";
+    version = "0.8.7";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.5/logseq-darwin-x64-0.8.5.dmg";
-      sha256 = "sha256-YV4aQj1lU5EsOxumf4hU3euZkM/U4PzlC4A2X92qbnU=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.7/logseq-darwin-x64-0.8.7.dmg";
+      sha256 = "sha256-l/ey7DJL2e7HuH3g+cFMGdWFxCRgoibDC57XJr8/KV4=";
     };
   };
 }

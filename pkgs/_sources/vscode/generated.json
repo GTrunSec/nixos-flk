@@ -10,12 +10,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "copilot-1.43.6621.zip",
-            "sha256": "sha256-JrD0t8wSvz8Z1j6n0wfkG6pfIjt2DNZmfAbaLdj8olQ=",
+            "name": "copilot-1.47.6882.zip",
+            "sha256": "sha256-YCPmaovacK6HwYtigWLeH6jNFMYZnxplHor3tZ/qdzU=",
             "type": "url",
-            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.43.6621/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.47.6882/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.43.6621"
+        "version": "1.47.6882"
     },
     "vscode-extensions-indent-rainbow": {
         "cargoLocks": null,
@@ -64,12 +64,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "language-julia-1.7.6.zip",
-            "sha256": "sha256-AQtKRsBbSbAO1jphs3ytFI4MnbafWSX2RxJtI89Z6dU=",
+            "name": "language-julia-1.7.12.zip",
+            "sha256": "sha256-g6os6ktSWzUSCnLzMkGRoOhCEvU3gXcGGj2cq1NKkaE=",
             "type": "url",
-            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.7.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.7.12/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.7.6"
+        "version": "1.7.12"
     },
     "vscode-extensions-language-rust": {
         "cargoLocks": null,
@@ -190,12 +190,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "rust-analyzer-0.4.1185.zip",
-            "sha256": "sha256-LA+EIJMuJE40ISoq5g9X9pa58dfljxJIb6xJSojKVwU=",
+            "name": "rust-analyzer-0.4.1222.zip",
+            "sha256": "sha256-n2cfnutDRrK/qGI5bDAeOlabm7wQNlbtqH6WjoVkagk=",
             "type": "url",
-            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1185/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1222/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.4.1185"
+        "version": "0.4.1222"
     },
     "vscode-extensions-tokyo-night": {
         "cargoLocks": null,
