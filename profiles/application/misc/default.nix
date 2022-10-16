@@ -58,7 +58,7 @@
     tenvideo
     zoom-us
     jitsi-meet-electron
-    feishu
+    # feishu
     #git workflow manager
     gst
     ghq

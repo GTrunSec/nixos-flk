@@ -22,7 +22,7 @@ pkgs.vscode-with-extensions.override {
 
       copilot
       # language-rust
-      rust-analyzer
+      # rust-analyzer
     ]
     # Concise version from the vscode market place when not available in the default set.
     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [];

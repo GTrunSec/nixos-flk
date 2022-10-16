@@ -5,7 +5,6 @@
     horcrux
     govet
     #######
-    gotools
     go-langserver
     gocode
     go-outline

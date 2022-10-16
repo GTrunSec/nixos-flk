@@ -106,7 +106,7 @@
    '("&" . meow-query-replace)
    '("%" . meow-query-replace-regexp)
    '("<escape>" . meow-last-buffer)))
-  (meow-setup)
+(meow-setup)
 #+end_src
 
 * Meow Define Leader Key
@@ -140,13 +140,12 @@
 :PROPERTIES:
 :ID:       1fe04d86-bcaa-4236-93b2-7eac1de6e05f
 :END:
- - [2021-08-16 Mon 00:20] -> [[id:1849e2c7-d7d1-4a2c-a913-c4d34857d666][consult-dir]]
+- [2021-08-16 Mon 00:20] -> [[id:1849e2c7-d7d1-4a2c-a913-c4d34857d666][consult-dir]]
 
 #+begin_src emacs-lisp :tangle "meow.el"
 (global-set-key (kbd "<f2>") 'hydra/org-roam/body)
 (global-set-key (kbd "<f4>") 'org-starter-find-file-by-key)
 (global-set-key (kbd "<f5>") 'org-agenda)
-(global-set-key (kbd "<f3>") 'notdeft)
 (global-set-key (kbd "C-s") '+vertico/search-symbol-at-point)
 (global-set-key (kbd "<f9>") 'save-buffer)
 ;;(global-set-key (kbd "C-c s") 'doom/save-and-kill-buffer)
@@ -239,5 +238,5 @@
 
 * end line of meow setting
 #+begin_src emacs-lisp :tangle "meow.el"
- )
+)
 #+end_src

@@ -1,6 +1,6 @@
 :PROPERTIES:
 :ID:       995c6482-f615-4319-b1b5-118d08629f7b
-:public: true
+:public:   true
 :END:
 #+title: GuangTao's Doom Emacs Config
 #+email: gtrunsec@hardenedlinux.org
@@ -248,7 +248,7 @@
 #+end_src
 ** Global Setting
 
-#+begin_src cemacs-lisp :tangle "config.el"
+#+begin_src emacs-lisp :tangle "config.el"
 ;; (setq browse-url-browser-function 'browse-url-Chrome)
 ;; https://emacs.stackexchange.com/questions/5603/how-to-quickly-copy-move-file-in-emacs-dired
 (add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
@@ -359,7 +359,7 @@
                                         /sshx:gtrun@10.220.170.112:~/.config/guangtao
                                         /sshx:admin@192.168.122.126:
                                         /sshx:test@10.220.170.134:/home/test/))
-)
+  )
 #+end_src
 
 #+results:
@@ -370,6 +370,7 @@
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! pinyin-search)
 #+end_src
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! pinyin-search)
 #+end_src
@@ -386,7 +387,7 @@
   (require 'vlf-setup)
   (custom-set-variables
    '(vlf-application 'dont-ask))
-)
+  )
 #+end_src
 
 ** Hydra
@@ -397,9 +398,9 @@
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! major-mode-hydra :recipe (:host github
-                          :repo "jerrypnz/major-mode-hydra.el"
-                          :files ("*")
-                          ))
+                                    :repo "jerrypnz/major-mode-hydra.el"
+                                    :files ("*")
+                                    ))
 
 #+end_src
 
@@ -442,7 +443,7 @@
   (setq imenu-list-focus-after-activation t)
   (setq imenu-list-after-jump-hook nil)
   (add-hook 'menu-list-after-jump-hook #'recenter-top-bottom)
-)
+  )
 #+end_src
 
 ** w3m
@@ -456,7 +457,7 @@
   :commands (w3m)
   :config
   (setq w3m-use-tab-line nil)
-)
+  )
 #+end_src
 
 ** ein
@@ -475,13 +476,13 @@
 (use-package! ein
   :config
   (setq ob-ein-languages
-   (quote
-    (("ein-python" . python)
-     ("ein-R" . R)
-     ("ein-r" . R)
-     ("ein-rust" . rust)
-     ("ein-haskell" . haskell)
-     ("ein-julia" . julia))))
+        (quote
+         (("ein-python" . python)
+          ("ein-R" . R)
+          ("ein-r" . R)
+          ("ein-rust" . rust)
+          ("ein-haskell" . haskell)
+          ("ein-julia" . julia))))
   )
 
 (after! ein:ipynb-mode                  ;
@@ -516,7 +517,7 @@
               map)
     :init-value nil
     :global t)
-)
+  )
 #+end_src
 
 ** vundo
@@ -540,7 +541,7 @@
                                    )
   :bind
   (:map isearch-mode-map
-   ("M-s M-s" . isearch-toggle-color-rg))
+        ("M-s M-s" . isearch-toggle-color-rg))
   )
 #+end_src
 ** snails
@@ -562,7 +563,7 @@
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! iscroll :recipe (:host github
-                                 :repo "casouri/iscroll"))
+                           :repo "casouri/iscroll"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -588,7 +589,7 @@
 ** fd-dired
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! fd-dired :recipe (:host github
-                                 :repo "yqrashawn/fd-dired"))
+                            :repo "yqrashawn/fd-dired"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -598,7 +599,7 @@
 ** find-dupes-dired
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! find-dupes-dired :recipe (:host github
-                                 :repo "ShuguangSun/find-dupes-dired"))
+                                    :repo "ShuguangSun/find-dupes-dired"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -615,13 +616,13 @@
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! dogears :recipe (:host github
-                                 :repo "alphapapa/dogears.el"))
+                           :repo "alphapapa/dogears.el"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! dogears
-:hook (text-mode . dogears-mode)
-:config
+  :hook (text-mode . dogears-mode)
+  :config
   :bind (:map global-map
               ("M-g d" . dogears-go)
               ("M-g M-b" . dogears-back)
@@ -652,9 +653,9 @@
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! session-async :recipe (:host nil
-                                   :repo "https://codeberg.org/FelipeLema/session-async.el.git"
-                                   :files ("*")
-                                   )
+                                 :repo "https://codeberg.org/FelipeLema/session-async.el.git"
+                                 :files ("*")
+                                 )
   )
 #+end_src
 
@@ -667,10 +668,10 @@
 - https://github.com/alexluigit/dirvish
 
 
-  #+begin_src emacs-lisp :tangle "packages.el"
+#+begin_src emacs-lisp :tangle "packages.el"
 (package! dirvish :recipe (:host github
-                                   :repo "alexluigit/dirvish"
-                                   )
+                           :repo "alexluigit/dirvish"
+                           )
   )
 #+end_src
 
@@ -707,10 +708,10 @@
 - https://github.com/akirak/project-hercules.el
 
 
-  #+begin_src emacs-lisp :tangle "packages.el"
+#+begin_src emacs-lisp :tangle "packages.el"
 (package! project-hercules :recipe (:host github
-                                   :repo "akirak/project-hercules.el"
-                                   )
+                                    :repo "akirak/project-hercules.el"
+                                    )
   )
 #+end_src
 
@@ -720,7 +721,7 @@
   :config
   ;; Load preconfigured maps
   (require 'project-hercules-config)
-)
+  )
 #+end_src
 ** which-key
 
@@ -734,7 +735,7 @@
      '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
      '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
      ))
-)
+  )
 #+end_src
 * dolist mode hooks
 :PROPERTIES:
@@ -768,7 +769,7 @@
 #+begin_src emacs-lisp :tangle "config.el"
 (when (not (display-graphic-p))
   (setq doom-theme 'doom-city-lights)
-)
+  )
 ;; (remove-hook 'window-setup-hook #'doom-init-theme-h)
 ;; (add-hook 'after-init-hook #'doom-init-theme-h 'append)
 ;; (delq! t custom-theme-load-path)
@@ -800,11 +801,11 @@ See help of `format-time-string' for possible replacements")
 (defun insert-current-date-time ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
-       (interactive)
-       ;;(insert "==========\n")
-;       (insert (let () (comment-start)))
-       (insert (format-time-string current-date-time-format (current-time)))
-       )
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format (current-time)))
+  )
 
 (defvar current-date-time-format-inactive "[%Y-%m-%d %a %H:%M]"
 
@@ -813,15 +814,15 @@ See help of `format-time-string' for possible replacements")
 
 ;;;###autoload
 (defun insert-current-date-time-inactive
- ()
+    ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
-       (interactive)
-       ;;(insert "==========\n")
-;       (insert (let () (comment-start)))
-       (insert (format-time-string current-date-time-format-inactive (current-time)))
-       ;;(insert "\n")
-       )
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-inactive (current-time)))
+  ;;(insert "\n")
+  )
 
 (defvar current-date-time-format-active "<%Y-%m-%d %a %H:%M>"
 
@@ -830,15 +831,15 @@ See help of `format-time-string' for possible replacements")
 
 ;;;###autoload
 (defun insert-current-date-time-active
- ()
+    ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
-       (interactive)
-       ;;(insert "==========\n")
-;       (insert (let () (comment-start)))
-       (insert (format-time-string current-date-time-format-active (current-time)))
-       ;;(insert "\n")
-       )
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-active (current-time)))
+  ;;(insert "\n")
+  )
 #+end_src
 
 *** default
@@ -1081,11 +1082,11 @@ appropriate.  In tables, insert a new row or end the table."
   (doom-first-buffer . global-corfu-mode)
   :config
   :bind (:map corfu-map
-         ("SPC" . corfu-insert-separator)
-         ("TAB" . corfu-next)
-         ([tab] . corfu-next)
-         ("S-TAB" . corfu-previous)
-         ([backtab] . corfu-previous))
+              ("SPC" . corfu-insert-separator)
+              ("TAB" . corfu-next)
+              ([tab] . corfu-next)
+              ("S-TAB" . corfu-previous)
+              ([backtab] . corfu-previous))
   )
 #+end_src
 
@@ -1103,7 +1104,7 @@ appropriate.  In tables, insert a new row or end the table."
   :config
   (require 'corfu-info)
   (require 'corfu-indexed)
-)
+  )
 #+end_src
 
 
@@ -1118,9 +1119,9 @@ appropriate.  In tables, insert a new row or end the table."
   :hook
   (corfu-mode . corfu-doc-mode)
   :bind (:map corfu-map
-         ("M-n" . corfu-doc-scroll-down)
-         ("M-p" . corfu-doc-scroll-up)
-         ("M-d" . corfu-doc-toggle))
+              ("M-n" . corfu-doc-scroll-down)
+              ("M-p" . corfu-doc-scroll-up)
+              ("M-d" . corfu-doc-toggle))
   )
 #+end_src
 
@@ -1139,7 +1140,7 @@ appropriate.  In tables, insert a new row or end the table."
   :config
   (unless (display-graphic-p)
     (corfu-terminal-mode +1))
-)
+  )
 #+end_src
 
 #+RESULTS:
@@ -1203,7 +1204,7 @@ appropriate.  In tables, insert a new row or end the table."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! cape :recipe (:host github :repo "minad/cape"
-                   :files ("*.el")))
+                        :files ("*.el")))
 
 #+end_src
 
@@ -1237,7 +1238,7 @@ appropriate.  In tables, insert a new row or end the table."
 ** tabnine-capf
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
-                   :files ("*.el" "*.sh")))
+                                :files ("*.el" "*.sh")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -1260,11 +1261,11 @@ appropriate.  In tables, insert a new row or end the table."
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind ((:map copilot-completion-map
-         ("C-e" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion-by-word)
-         ("<tab>" . 'copilot-accept-completion-by-word)
-         ;;("LEFT" . 'copilot-accept-completion)
-         )))
+               ("C-e" . 'copilot-accept-completion)
+               ("TAB" . 'copilot-accept-completion-by-word)
+               ("<tab>" . 'copilot-accept-completion-by-word)
+               ;;("LEFT" . 'copilot-accept-completion)
+               )))
 #+end_src
 
 #+RESULTS:
@@ -1315,15 +1316,15 @@ appropriate.  In tables, insert a new row or end the table."
   (delete-selection-mode t)
   (setq maple-iedit-ignore-case t)
   :bind (:map maple-iedit-mode-keymap
-         ("C-n" . maple-iedit-match-next)
-         ("C-m" . maple-iedit-match-previous)
-         ("<down>" . maple-iedit-match-next)
-         ("<up>" . maple-iedit-match-previous)
-         ("C-," . maple-iedit-skip-and-match-next)
-         ("C-." . maple-iedit-skip-and-match-previous)
-         ("<right>" . maple-iedit-skip-and-match-next)
-         ("<left>" . maple-iedit-skip-and-match-previous)
-         )
+              ("C-n" . maple-iedit-match-next)
+              ("C-m" . maple-iedit-match-previous)
+              ("<down>" . maple-iedit-match-next)
+              ("<up>" . maple-iedit-match-previous)
+              ("C-," . maple-iedit-skip-and-match-next)
+              ("C-." . maple-iedit-skip-and-match-previous)
+              ("<right>" . maple-iedit-skip-and-match-next)
+              ("<left>" . maple-iedit-skip-and-match-previous)
+              )
 
   )
 (defhydra maple/iedit (:color blue)
@@ -1343,12 +1344,12 @@ appropriate.  In tables, insert a new row or end the table."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! highlight-indent-guides
-:config
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-enabled nil)
-(set-face-background 'highlight-indent-guides-even-face "dimgray")
-(set-face-foreground 'highlight-indent-guides-character-face "dimgray")
-)
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-auto-enabled nil)
+  (set-face-background 'highlight-indent-guides-even-face "dimgray")
+  (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
+  )
 #+end_src
 
 *** parentheses
@@ -1370,33 +1371,33 @@ appropriate.  In tables, insert a new row or end the table."
   (advice-add
    #'show-paren-function
    :after
-    (defun show-paren--off-screen+ (&rest _args)
-      "Display matching line for off-screen paren."
-      (when (overlayp ov)
-        (delete-overlay ov))
-      ;; check if it's appropriate to show match info,
-      ;; see `blink-paren-post-self-insert-function'
-      (when (and (overlay-buffer show-paren--overlay)
-                 (not (or cursor-in-echo-area
-                          executing-kbd-macro
-                          noninteractive
-                          (minibufferp)
-                          this-command))
-                 (and (not (bobp))
-                      (memq (char-syntax (char-before)) '(?\) ?\$)))
-                 (= 1 (logand 1 (- (point)
-                                   (save-excursion
-                                     (forward-char -1)
-                                     (skip-syntax-backward "/\\")
-                                     (point))))))
-        ;; rebind `minibuffer-message' called by
-        ;; `blink-matching-open' to handle the overlay display
-        (cl-letf (((symbol-function #'minibuffer-message)
-                   (lambda (msg &rest args)
-                     (let ((msg (apply #'format-message msg args)))
-                       (setq ov (display-line-overlay+
-                                 (window-start) msg ))))))
-          (blink-matching-open))))))
+   (defun show-paren--off-screen+ (&rest _args)
+     "Display matching line for off-screen paren."
+     (when (overlayp ov)
+       (delete-overlay ov))
+     ;; check if it's appropriate to show match info,
+     ;; see `blink-paren-post-self-insert-function'
+     (when (and (overlay-buffer show-paren--overlay)
+                (not (or cursor-in-echo-area
+                         executing-kbd-macro
+                         noninteractive
+                         (minibufferp)
+                         this-command))
+                (and (not (bobp))
+                     (memq (char-syntax (char-before)) '(?\) ?\$)))
+                (= 1 (logand 1 (- (point)
+                                  (save-excursion
+                                    (forward-char -1)
+                                    (skip-syntax-backward "/\\")
+                                    (point))))))
+       ;; rebind `minibuffer-message' called by
+       ;; `blink-matching-open' to handle the overlay display
+       (cl-letf (((symbol-function #'minibuffer-message)
+                  (lambda (msg &rest args)
+                    (let ((msg (apply #'format-message msg args)))
+                      (setq ov (display-line-overlay+
+                                (window-start) msg ))))))
+         (blink-matching-open))))))
 
 (defun display-line-overlay+ (pos str &optional face)
   "Display line at POS as STR with FACE.
@@ -1423,12 +1424,12 @@ FACE defaults to inheriting from default and highlight."
 :PROPERTIES:
 :ID:       05534ff6-447b-4497-b170-5626edc8bacf
 :END:
- - [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
- - [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
+- [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
+- [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-LINUX
   (package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
-)
+  )
 #+end_src
 - [2021-11-26 Fri 12:52] -> https://github.com/manateelazycat/grammatical-edit
 
@@ -1482,14 +1483,14 @@ FACE defaults to inheriting from default and highlight."
 (use-package! hungry-delete
   :config
   (add-hook! 'after-init-hook #'global-hungry-delete-mode)
-)
+  )
 #+end_src
 
 *** format-all
 :PROPERTIES:
 :ID:       b7b76dc7-dbd9-42be-a22c-71eea6e12f7d
 :END:
- - [2021-11-26 Fri 12:27] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
+- [2021-11-26 Fri 12:27] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! format-all)
 #+end_src
@@ -1523,23 +1524,23 @@ FACE defaults to inheriting from default and highlight."
   (blamer-min-offset 70)
   :custom-face
   (blamer-face ((t :foreground "#7a88cf"
-                    :background nil
-                    :height 140
-                    :italic t)))
+                   :background nil
+                   :height 140
+                   :italic t)))
   :config
   ;;(global-blamer-mode 1)
-)
+  )
 #+end_src
 
 *** aggressive-ident
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! aggressive-indent)
+;;(package! aggressive-indent)
 #+end_src
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! aggressive-indent)
+;;(use-package! aggressive-indent)
 #+end_src
 
 
@@ -1566,8 +1567,8 @@ FACE defaults to inheriting from default and highlight."
   (setq bm-restore-repository-on-load t)
   :bind
   (:map bm-show-mode-map
-   ("j" . next-line)
-   ("k" . previous-line))
+        ("j" . next-line)
+        ("k" . previous-line))
   :config
 
   (setq bm-cycle-all-buffers t
@@ -1584,7 +1585,7 @@ FACE defaults to inheriting from default and highlight."
             (lambda ()
               (bm-buffer-save-all)
               (bm-repository-save)))
-)
+  )
 #+end_src
 
 #+results:
@@ -1612,7 +1613,7 @@ FACE defaults to inheriting from default and highlight."
   :config
   (global-set-key [remap scroll-up-command] #'scrollkeeper-contents-up)
   (global-set-key [remap scroll-down-command] #'scrollkeeper-contents-down)
-)
+  )
 #+end_src
 
 
@@ -1728,7 +1729,7 @@ FACE defaults to inheriting from default and highlight."
   (eval-after-load "org"
     '(require 'ox-md nil t))
 
-;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+  ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
   (defun org-only-show-headings ()
     (interactive)
     (org-content -1))
@@ -1738,7 +1739,7 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 #+results:
-: ~/.myscript/plantuml
+: org-babel-nix-command
 
 *** Org Mode Hook!
 
@@ -1811,8 +1812,8 @@ FACE defaults to inheriting from default and highlight."
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-attach-extra :recipe (:host github :repo "lucasvreis/org-attach-extra"
-                         :files ("*.el")
-                         ))
+                                    :files ("*.el")
+                                    ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -1841,8 +1842,8 @@ FACE defaults to inheriting from default and highlight."
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-modern :recipe (:host github :repo "minad/org-modern"
-                         :files ("*.el")
-                         ))
+                              :files ("*.el")
+                              ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -1850,9 +1851,31 @@ FACE defaults to inheriting from default and highlight."
   :config
   ;; (add-hook 'org-mode-hook #'org-modern-mode)
   ;; (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-  (global-org-modern-mode)
+  :hook
+  (org-mode . org-modern-mode)
+  (org-agenda-finalize . org-modern-agenda)
+  :custom
+  (org-modern-hide-stars nil) ; adds extra indentation
   )
 #+end_src
+
+*** org-modern-indent
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-modern-indent :recipe (:host github :repo "jdtsmith/org-modern-indent"
+                                     :files ("*.el")
+                                     ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-modern-indent
+  :hook
+  (org-indent-mode . org-modern-indent-mode)
+  )
+#+end_src
+
+
 
 ** Org Ql
 :PROPERTIES:
@@ -1863,8 +1886,8 @@ FACE defaults to inheriting from default and highlight."
 - [[https://github.com/tpeacock19/org-ql-config][tpeacock19/org-ql-config]]
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-ql :recipe (:host github :repo "alphapapa/org-ql"
-                         :files ("*.el")
-                         ))
+                          :files ("*.el")
+                          ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -1884,7 +1907,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! zetteldesk :recipe (:host github :repo "Vidianos-Giannitsis/zetteldesk.el"
                               :files ("*"))
-          )
+  )
 #+end_src
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
@@ -1947,7 +1970,7 @@ FACE defaults to inheriting from default and highlight."
           :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
           :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
           :desc "Info node contents + link to context"             "I" #'
-zetteldesk-insert-info-contents)
+          zetteldesk-insert-info-contents)
          :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)))
 #+end_src
 
@@ -1983,7 +2006,7 @@ zetteldesk-insert-info-contents)
   :config
   (setq consult-notes-sources '(("Org Braindump"  ?b  "~/Documents/org-notes/braindump"))) ;; Set notes dir(s), see below
   (consult-notes-org-roam-mode)
-)
+  )
 
 #+end_src
 
@@ -2047,43 +2070,43 @@ zetteldesk-insert-info-contents)
 *** org-todo-keywords
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-    (setq org-todo-keywords
-     '((sequence
-           "TODO(t)"  ; A task that needs doing & is ready to do
-           "PROJ(p)"  ; An ongoing project that cannot be completed in one step
-           "DOING(s)"  ; A task that is in progress
-           "⚑ WAITING(w)"  ; Something is holding up this task; or it is paused
-           "|"
-           "☟ NEXT(n)"
-           "✰ IMPORTANT(i)"
-           "DONE(d)"  ; Task successfully completed
-           "✘ CANCELED(c@)") ; Task was cancelled, aborted or is no longer applicable
-          (sequence
-           "✍ NOTE(N)"
-           "FIXME(f)"
-           "☕ BREAK(b)"
-           "❤ LOVE(l)"
-           "REVIEW(r)"
-           )) ; Task was completed
-        org-todo-keyword-faces
-        '(
-          ("TODO" . (:foreground "#ff39a3" :weight bold))
-          ("DOING"  . "orangered")
-          ("✘ CANCELED" . (:foreground "white" :background "#4d4d4d" :weight bold))
-          ("⚑ WAITING" . "pink")
-          ("☕ BREAK" . "gray")
-          ("❤ LOVE" . (:foreground "VioletRed4"
-                                   ;; :background "#7A586A"
-                                   :weight bold))
-          ("☟ NEXT" . (:foreground "DeepSkyBlue"
-                                   ;; :background "#7A586A"
-                                      :weight bold))
-          ("✰ IMPORTANT" . (:foreground "greenyellow"
-                                      ;; :background "#7A586A"
-                                      :weight bold))
-          ("DONE" . "#008080")
-          ("FIXME" . "IndianRed")
-          ))
+(setq org-todo-keywords
+      '((sequence
+         "TODO(t)"  ; A task that needs doing & is ready to do
+         "PROJ(p)"  ; An ongoing project that cannot be completed in one step
+         "DOING(s)"  ; A task that is in progress
+         "⚑ WAITING(w)"  ; Something is holding up this task; or it is paused
+         "|"
+         "☟ NEXT(n)"
+         "✰ IMPORTANT(i)"
+         "DONE(d)"  ; Task successfully completed
+         "✘ CANCELED(c@)") ; Task was cancelled, aborted or is no longer applicable
+        (sequence
+         "✍ NOTE(N)"
+         "FIXME(f)"
+         "☕ BREAK(b)"
+         "❤ LOVE(l)"
+         "REVIEW(r)"
+         )) ; Task was completed
+      org-todo-keyword-faces
+      '(
+        ("TODO" . (:foreground "#ff39a3" :weight bold))
+        ("DOING"  . "orangered")
+        ("✘ CANCELED" . (:foreground "white" :background "#4d4d4d" :weight bold))
+        ("⚑ WAITING" . "pink")
+        ("☕ BREAK" . "gray")
+        ("❤ LOVE" . (:foreground "VioletRed4"
+                     ;; :background "#7A586A"
+                     :weight bold))
+        ("☟ NEXT" . (:foreground "DeepSkyBlue"
+                     ;; :background "#7A586A"
+                     :weight bold))
+        ("✰ IMPORTANT" . (:foreground "greenyellow"
+                          ;; :background "#7A586A"
+                          :weight bold))
+        ("DONE" . "#008080")
+        ("FIXME" . "IndianRed")
+        ))
 #+end_src
 
 #+results:
@@ -2100,50 +2123,50 @@ zetteldesk-insert-info-contents)
                       (org-agenda-start-day "-1d")
                       (org-super-agenda-groups
                        '((:name "Today List"
-                                :time-grid t
-                                :date today
-                                :todo "DOING"
-                                :scheduled today
-                                :order 1)))))
+                          :time-grid t
+                          :date today
+                          :todo "DOING"
+                          :scheduled today
+                          :order 1)))))
           (alltodo "" ((org-agenda-overriding-header "")
                        (org-super-agenda-groups
                         '((:name "Next to do"
-                                 :priority>= "B"
-                                 :order 2)
+                           :priority>= "B"
+                           :order 2)
                           (:name "Important"
-                                 :todo "✰ Important"
-                                 :order 6)
+                           :todo "✰ Important"
+                           :order 6)
                           (:name "Due Today"
-                                 :deadline today
-                                 :order 3)
+                           :deadline today
+                           :order 3)
                           (:name "Due Soon"
-                                 :deadline future
-                                 :order 8)
+                           :deadline future
+                           :order 8)
                           (:name "Overdue"
-                                 :deadline past
-                                 :order 20)
+                           :deadline past
+                           :order 20)
                           (:name "Issues"
-                                 :tag "Issue"
-                                 :order 12)
+                           :tag "Issue"
+                           :order 12)
                           (:name "Projects"
-                                 :tag "Project"
-                                 :order 14)
+                           :tag "Project"
+                           :order 14)
                           (:name "Emacs"
-                                 :tag "Emacs"
-                                 :order 13)
+                           :tag "Emacs"
+                           :order 13)
                           (:name "Research"
-                                 :tag "Research"
-                                 :order 15)
+                           :tag "Research"
+                           :order 15)
                           (:name "To read"
-                                 :tag ("BOOK" "READ")
-                                 :order 30)
+                           :tag ("BOOK" "READ")
+                           :order 30)
                           (:name "Waiting"
-                                 :todo "WAITING"
-                                 :order 18)
+                           :todo "WAITING"
+                           :order 18)
                           (:name "trivial"
-                                 :priority<= "C"
-                                 :todo ("SOMEDAY")
-                                 :order 90)
+                           :priority<= "C"
+                           :todo ("SOMEDAY")
+                           :order 90)
                           (:discard (:tag ("Chore" "Routine" "Daily")))))))))
 
         ("b" . "BOOK")
@@ -2183,7 +2206,7 @@ zetteldesk-insert-info-contents)
 (use-package! org-edna
   :config
   (add-hook! 'after-init-hook 'org-edna-mode)
-)
+  )
 #+end_src
 
 
@@ -2200,7 +2223,7 @@ zetteldesk-insert-info-contents)
   :config
   (add-hook! 'after-init-hook 'org-wild-notifier-mode)
   (setq ;;org-wild-notifier-alert-time 15
-        alert-default-style (if IS-MAC 'osx-notifier 'libnotify)))
+   alert-default-style (if IS-MAC 'osx-notifier 'libnotify)))
 #+end_src
 
 
@@ -2237,7 +2260,7 @@ zetteldesk-insert-info-contents)
 #+end_src
 
 #+results:
-: gcc-9
+: clang
 
 
 ** Org Publish
@@ -2259,16 +2282,16 @@ zetteldesk-insert-info-contents)
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 ;; 當被加密的部份要存入硬碟時，自動加密回去
-  ;; 設定要加密的 tag 標籤為 secret
-  (setq org-crypt-tag-matcher "secret")
+;; 設定要加密的 tag 標籤為 secret
+(setq org-crypt-tag-matcher "secret")
 
-  ;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
-  ;; (但是子項目還是會被加密喔)
-  (setq org-tags-exclude-from-inheritance (quote ("secret")))
+;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
+;; (但是子項目還是會被加密喔)
+(setq org-tags-exclude-from-inheritance (quote ("secret")))
 
-  ;; 用於加密的 GPG 金鑰
-  ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
-  (setq org-crypt-key nil)
+;; 用於加密的 GPG 金鑰
+;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
+(setq org-crypt-key nil)
 #+end_src
 
 #+results:
@@ -2319,15 +2342,15 @@ easy way to display org-ref with tree view instead of org-mode ?
 (use-package! org-roam
   :config
   (setq org-roam-directory (concat org-directory "/braindump"))
-)
+  )
 ;;  (setq org-roam-index-file "~/Documents/org-notes/braindump/pages/contents.org")
-  ;;https://github.com/zaeph/.emacs.d/blob/0f4bf9a500ef6397b93c41cb51602bea9ab9a4c3/init.el#L3804
-  ;; [[https://copingmechanism.com/2020/keeping-org-roam-daily-notes-in-a-separate-folder/][Keeping Org-roam Daily Notes in a separate folder – Coping Mechanism]]
-  ;; (setq org-roam-dailies-capture-templates '(("d" "daily" org-roam-capture--get-point) ""
-  ;;                                             :immediate-finish t
-  ;;                                             :file-name "dailies/%<%Y-%m-%d>-${slug}"
-  ;;                                             :head "#+TITLE: %<%Y-%m-%d>-${slug}\n#+created: %u\n#+last_modified: %U\n\n")))
-  ;;)
+;;https://github.com/zaeph/.emacs.d/blob/0f4bf9a500ef6397b93c41cb51602bea9ab9a4c3/init.el#L3804
+;; [[https://copingmechanism.com/2020/keeping-org-roam-daily-notes-in-a-separate-folder/][Keeping Org-roam Daily Notes in a separate folder – Coping Mechanism]]
+;; (setq org-roam-dailies-capture-templates '(("d" "daily" org-roam-capture--get-point) ""
+;;                                             :immediate-finish t
+;;                                             :file-name "dailies/%<%Y-%m-%d>-${slug}"
+;;                                             :head "#+TITLE: %<%Y-%m-%d>-${slug}\n#+created: %u\n#+last_modified: %U\n\n")))
+;;)
 #+end_src
 
 #+results:
@@ -2382,11 +2405,11 @@ easy way to display org-ref with tree view instead of org-mode ?
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-ref
-    :after org
-    :config
-    (setq org-ref-default-bibliography '("~/Documents/org-notes/braindump/bibliography/myBibliography.bib"))
-    (setq bibtex-completion-bibliography "~/Documents/org-notes/braindump/bibliography/myBibliography.bib")
-)
+  :after org
+  :config
+  (setq org-ref-default-bibliography '("~/Documents/org-notes/braindump/bibliography/myBibliography.bib"))
+  (setq bibtex-completion-bibliography "~/Documents/org-notes/braindump/bibliography/myBibliography.bib")
+  )
 #+end_src
 
 
@@ -2573,49 +2596,49 @@ title."
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-super-links :recipe (:host github
-                       :repo "toshism/org-super-links"
-                       :files ("*.el")
-                       ))
+                                   :repo "toshism/org-super-links"
+                                   :files ("*.el")
+                                   ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-super-links
   :config
   (defun org-super-links-backlink-prefix-timestamp ()
-  "Return the default prefix string for a backlink.
+    "Return the default prefix string for a backlink.
 Inactive timestamp formatted according to `org-time-stamp-formats' and
 a separator ' <- '."
-  (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
-	 (time-stamp (format-time-string time-format (current-time))))
-    (format " - [%s] <- "
-	    time-stamp)))
+    (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
+	   (time-stamp (format-time-string time-format (current-time))))
+      (format " - [%s] <- "
+	      time-stamp)))
 
-(defun org-super-links-link-prefix-timestamp ()
-  "Return the default prefix string for a backlink.
+  (defun org-super-links-link-prefix-timestamp ()
+    "Return the default prefix string for a backlink.
 Inactive timestamp formatted according to `org-time-stamp-formats' and
 a separator ' -> '."
-  (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
-	 (time-stamp (format-time-string time-format (current-time))))
-    (format " - [%s] -> "
-	    time-stamp)))
+    (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
+	   (time-stamp (format-time-string time-format (current-time))))
+      (format " - [%s] -> "
+	      time-stamp)))
 
-(defun org-super-links-quick-insert-inline-link ()
-  "Insert inline link regardless of variable `org-super-links-related-into-drawer' value."
-  (interactive)
-  ;; how to handle prefix here?
-  (let ((org-super-links-related-into-drawer nil)
-	(org-super-links-link-prefix 'org-super-links-link-prefix-timestamp))
-    (org-super-links-link)))
+  (defun org-super-links-quick-insert-inline-link ()
+    "Insert inline link regardless of variable `org-super-links-related-into-drawer' value."
+    (interactive)
+    ;; how to handle prefix here?
+    (let ((org-super-links-related-into-drawer nil)
+	  (org-super-links-link-prefix 'org-super-links-link-prefix-timestamp))
+      (org-super-links-link)))
 
-(defun org-super-links-quick-insert-drawer-link ()
-  "Insert link into drawer regardless of variable `org-super-links-related-into-drawer' value."
-  (interactive)
-  ;; how to handle prefix here?
-  (let ((org-super-links-related-into-drawer (or org-super-links-related-into-drawer nil))
-	(org-super-links-link-prefix 'org-super-links-backlink-prefix-timestamp))
-    (org-super-links-link)))
+  (defun org-super-links-quick-insert-drawer-link ()
+    "Insert link into drawer regardless of variable `org-super-links-related-into-drawer' value."
+    (interactive)
+    ;; how to handle prefix here?
+    (let ((org-super-links-related-into-drawer (or org-super-links-related-into-drawer nil))
+	  (org-super-links-link-prefix 'org-super-links-backlink-prefix-timestamp))
+      (org-super-links-link)))
 
-(setq org-id-link-to-org-use-id
+  (setq org-id-link-to-org-use-id
         'create-if-interactive-and-no-custom-id)
 
   (setq org-super-links-related-into-drawer nil
@@ -2636,7 +2659,7 @@ a separator ' -> '."
   :commands (org-noter-plus--follow-nov-link)
   :config
   (setq org-noter-plus-image-dir "~/Dropbox/org-notes/braindump/.attach")
-)
+  )
 (after! nov
   (org-link-set-parameters "nov"
                            ;; Replace the default nov link to work better with org-noter
@@ -2742,7 +2765,7 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
 (package! org-working-set
-)
+  )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
@@ -2831,74 +2854,74 @@ a separator ' -> '."
 
 "./modules/private/my-code/my-latex.el"
 (after! latex
-      (add-to-list 'org-latex-classes '("article" "\\documentclass[a4paper,11pt]{article}
-        [NO-DEFAULT-PACKAGES]
-          \\usepackage[utf8]{inputenc}
-          \\usepackage[T1]{fontenc}
-          \\usepackage{fixltx2e}
-          \\usepackage{graphicx}
-          \\usepackage{longtable}
-          \\usepackage{float}
-          \\usepackage{wrapfig}
-          \\usepackage{rotating}
-          \\usepackage[normalem]{ulem}
-          \\usepackage{amsmath}
-          \\usepackage{textcomp}
-          \\usepackage{marvosym}
-          \\usepackage{wasysym}
-          \\usepackage{amssymb}
-          \\usepackage{booktabs}
-          \\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
-          \\tolerance=1000
-          \\usepackage{listings}
-          \\usepackage{xcolor}
-          \\usepackage{fontspec}
-          \\usepackage{xeCJK}
-          \\setCJKmainfont{Weibei SC}
-          \\setmainfont{Fantasque Sans Mono}
-          \\lstset{
-          %行号
-          numbers=left,
-          %背景框
-          framexleftmargin=10mm,
-          frame=none,
-          %背景色
-          %backgroundcolor=\\color[rgb]{1,1,0.76},
-          backgroundcolor=\\color[RGB]{245,245,244},
-          %样式
-          keywordstyle=\\bf\\color{blue},
-          identifierstyle=\\bf,
-          numberstyle=\\color[RGB]{0,192,192},
-          commentstyle=\\it\\color[RGB]{0,96,96},
-          stringstyle=\\rmfamily\\slshape\\color[RGB]{128,0,0},
-          %显示空格
-          showstringspaces=false
-          }
-          "
-                                        ("\\section{%s}" . "\\section*{%s}")
-                                        ("\\subsection{%s}" . "\\subsection*{%s}")
-                                        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                                        ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                                        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+(add-to-list 'org-latex-classes '("article" "\\documentclass[a4paper,11pt]{article}
+[NO-DEFAULT-PACKAGES]
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{fixltx2e}
+\\usepackage{graphicx}
+\\usepackage{longtable}
+\\usepackage{float}
+\\usepackage{wrapfig}
+\\usepackage{rotating}
+\\usepackage[normalem]{ulem}
+\\usepackage{amsmath}
+\\usepackage{textcomp}
+\\usepackage{marvosym}
+\\usepackage{wasysym}
+\\usepackage{amssymb}
+\\usepackage{booktabs}
+\\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\\tolerance=1000
+\\usepackage{listings}
+\\usepackage{xcolor}
+\\usepackage{fontspec}
+\\usepackage{xeCJK}
+\\setCJKmainfont{Weibei SC}
+\\setmainfont{Fantasque Sans Mono}
+\\lstset{
+%行号
+numbers=left,
+%背景框
+framexleftmargin=10mm,
+frame=none,
+%背景色
+%backgroundcolor=\\color[rgb]{1,1,0.76},
+backgroundcolor=\\color[RGB]{245,245,244},
+%样式
+keywordstyle=\\bf\\color{blue},
+identifierstyle=\\bf,
+numberstyle=\\color[RGB]{0,192,192},
+commentstyle=\\it\\color[RGB]{0,96,96},
+stringstyle=\\rmfamily\\slshape\\color[RGB]{128,0,0},
+%显示空格
+showstringspaces=false
+}
+"
+("\\section{%s}" . "\\section*{%s}")
+("\\subsection{%s}" . "\\subsection*{%s}")
+("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+("\\paragraph{%s}" . "\\paragraph*{%s}")
+("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-      ;; {{ export org-mode in Chinese into PDF
-      ;; @see http://freizl.github.io/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html
-      ;; and you need install texlive-xetex on different platforms
-      ;; To install texlive-xetex:
-      ;;    `sudo USE="cjk" emerge texlive-xetex` on Gentoo Linux
-      ;; }}
-      ;;(setq org-latex-default-class "ctexart")
-    (add-to-list 'org-latex-packages-alist '("" "minted"))
-    (setq org-latex-listings 'minted)
-    (setq org-src-fontify-natively t)
-    (setq org-latex-pdf-process
-            '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-              "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-              "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-              "xelatex -interaction nonstopmode -output-directory %o %f"
-              "xelatex -interaction nonstopmode -output-directory %o %f"
-              "xelatex -interaction nonstopmode -output-directory %o %f"
-              "rm -fr %b.out %b.log %b.tex auto"))
+;; {{ export org-mode in Chinese into PDF
+;; @see http://freizl.github.io/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html
+;; and you need install texlive-xetex on different platforms
+;; To install texlive-xetex:
+;;    `sudo USE="cjk" emerge texlive-xetex` on Gentoo Linux
+;; }}
+;;(setq org-latex-default-class "ctexart")
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted)
+(setq org-src-fontify-natively t)
+(setq org-latex-pdf-process
+'("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+"xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+"xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+"xelatex -interaction nonstopmode -output-directory %o %f"
+"xelatex -interaction nonstopmode -output-directory %o %f"
+"xelatex -interaction nonstopmode -output-directory %o %f"
+"rm -fr %b.out %b.log %b.tex auto"))
 )
 #+end_src
 
@@ -2958,24 +2981,22 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;(package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json" "acm/*")))
 (package! lsp-bridge :recipe (:local-repo "~/ghq/github.com/manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core" "langserver" "acm")
-))
+                                          ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! lsp-bridge
-  :config
-  (require 'lsp-bridge-jdtls)
-  (global-lsp-bridge-mode)
-  (setq lsp-bridge-flash-line-delay 1)
-  (setq lsp-bridge-ref-flash-line-delay 1)
-  (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
-  (when (display-graphic-p)
+(when (display-graphic-p)
+  (use-package! lsp-bridge
+    :config
+    (require 'lsp-bridge-jdtls)
+    (global-lsp-bridge-mode)
+    (setq lsp-bridge-flash-line-delay 1)
+    (setq lsp-bridge-ref-flash-line-delay 1)
+    (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
     (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
     (setq acm-enable-tabnine-helper t)
     )
   )
-
-
 #+end_src
 
 #+RESULTS:
@@ -2993,9 +3014,9 @@ a separator ' -> '."
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! polymode
-:config
+  :config
   (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
-)
+  )
 #+end_src
 
 *** Poly Mode Markdown
@@ -3009,7 +3030,7 @@ a separator ' -> '."
 (use-package! poly-markdown
   :config
   (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown-mode))
-)
+  )
 #+end_src
 
 ** Nickel
@@ -3018,8 +3039,8 @@ a separator ' -> '."
 (when IS-LINUX
   (package! nickel-mode
     :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
-             ))
-)
+                         ))
+  )
 #+end_src
 
 
@@ -3029,7 +3050,7 @@ a separator ' -> '."
     :config
     (add-hook 'nickel-mode-hook #'electric-align-mode)
     )
-)
+  )
 #+end_src
 
 ** Elisp
@@ -3059,9 +3080,9 @@ a separator ' -> '."
 *** [[https://github.com/gcv/julia-snail][gcv/julia-snail: An Emacs development environment for Julia]]
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 (package! julia-snail :recipe (:host github
-                                   :repo "gcv/julia-snail"
-                                   :files ("*")
-                                   ))
+                               :repo "gcv/julia-snail"
+                               :files ("*")
+                               ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
@@ -3082,13 +3103,13 @@ a separator ' -> '."
 
 *** julia formatter
 
-  #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 (package! julia-formatter :recipe (:host nil
                                    :repo "https://codeberg.org/FelipeLema/julia-formatter.el.git"
                                    :files ("*")
                                    )
   )
-  #+end_src
+#+end_src
 
 - Pkg.add("JuliaFormatter")
 
@@ -3132,21 +3153,21 @@ a separator ' -> '."
 ;; (use-package! nox
 ;;   :config
 ;;   (add-to-list 'nox-server-programs '(haskell-mode . ("ghcide" "--lsp")))
-  ;; (dolist (hook (list
-  ;;                'js-mode-hook
-  ;;                'rust-mode-hook
-  ;;                'python-mode-hook
-  ;;                'ruby-mode-hook
-  ;;                'java-mode-hook
-  ;;                'sh-mode-hook
-  ;;                'php-mode-hook
-  ;;                'c-mode-common-hook
-  ;;                'c-mode-hook
-  ;;                'c++-mode-hook
-  ;;                'haskell-mode-hook
-  ;;                ))
-  ;;   (add-hook hook '(lambda () (nox-ensure))))
-  ;; )
+;; (dolist (hook (list
+;;                'js-mode-hook
+;;                'rust-mode-hook
+;;                'python-mode-hook
+;;                'ruby-mode-hook
+;;                'java-mode-hook
+;;                'sh-mode-hook
+;;                'php-mode-hook
+;;                'c-mode-common-hook
+;;                'c-mode-hook
+;;                'c++-mode-hook
+;;                'haskell-mode-hook
+;;                ))
+;;   (add-hook hook '(lambda () (nox-ensure))))
+;; )
 #+end_src
 
 ** CUE
@@ -3182,8 +3203,34 @@ a separator ' -> '."
   :config
   (setq nix-nixfmt-bin "alejandra")
   (setq-hook! 'nix-mode-hook company-idle-delay t)
+  :init
+  ;; https://github.com/aakropotkin/doomconf/blob/70f083942df203ae618892bdb4d5d4a749bad102/config.el#L170
+  (defun org-babel-execute:nix (body params)  ;; FIXME: params
+  "Execute a block of Template code with org-babel. This function is called
+by `org-babel-execute-src-block'"
+  (message "executing Nix source block")
+  (let* ((tmp-src-file (org-babel-temp-file "nix-src-" ".nix"))
+          ;(processed-params (org-babel-process-params params))
+          (coding-system-for-read 'utf-8)
+          (coding-system-for-write 'utf-8))
+    (with-temp-file tmp-src-file (insert body))
+    (let ((results (org-babel-eval
+                    (format "%s eval -f %s"
+                            org-babel-nix-command
+                            (org-babel-process-file-name tmp-src-file))
+                    "")))
+      (if results
+          (org-babel-read (org-babel-trim results) t)
+        (message "fuck")))))
+
+  (after! org
+    (defvar org-babel-nix-command "nix")
+    )
   )
 #+end_src
+
+#+RESULTS:
+: t
 
 ** separedit.el
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
@@ -3226,7 +3273,7 @@ a separator ' -> '."
                                      company-yasnippet
                                      company-capf
                                      )
-  )
+                      )
 #+end_src
 
 ** default
@@ -3234,7 +3281,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle yes
 (after! rustic
   (setq rustic-indent-offset 4)
-)
+  )
 #+end_src
 
 #+RESULTS:
@@ -3251,8 +3298,8 @@ a separator ' -> '."
 #+begin_src elisp :tangle "./modules/private/my-code/packages.el"
 (when IS-LINUX
   (package! emacs-tree-sitter :recipe (:local-repo "~/ghq/github.com/GTrunSec/emacs-tree-sitter"
-))
-)
+                                                   ))
+  )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
@@ -3282,7 +3329,7 @@ a separator ' -> '."
     (tree-sitter-require 'rust)
     (tree-sitter-require 'python)
     (tree-sitter-require 'julia)
-  ))
+    ))
 #+end_src
 
 #+RESULTS:
@@ -3308,7 +3355,7 @@ a separator ' -> '."
    '(show-paren-match ((t (:foreground "white" :background "green" :weight bold))))
    '(show-paren-mismatch ((t (:foreground "white" :background "red" :weight bold)))))
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-;; highlight brackets
+  ;; highlight brackets
   )
 #+end_src
 
@@ -3328,7 +3375,7 @@ a separator ' -> '."
   (define-key eyebrowse-mode-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
   (define-key eyebrowse-mode-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
   (setq eyebrowse-new-workspace t)
-)
+  )
 #+end_src
 *** vertico-posframe
 - [2021-10-24 Sun 23:00] -> https://github.com/tumashu/vertico-posframe
@@ -3477,7 +3524,7 @@ a separator ' -> '."
   ;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
   (setq writeroom-fullscreen-effect 'maximized)
   (setq writeroom-width 75)
-)
+  )
 #+end_src
 
 #+RESULTS:
@@ -3594,9 +3641,9 @@ a separator ' -> '."
   (set-popup-rule! "^\\*helm" :size 0.5))
 
 (after! maple-explorer-imenu
-(set-popup-rule! "^\\*maple-explorer-imenu"
-  :side 'right :size 35 :quit nil :select nil :ttl 0)
-)
+  (set-popup-rule! "^\\*maple-explorer-imenu"
+    :side 'right :size 35 :quit nil :select nil :ttl 0)
+  )
 #+end_src
 
 #+results:
@@ -3652,10 +3699,10 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "config.el"
 (when IS-LINUX
   (load! "linux.el")
-)
+  )
 (when IS-MAC
   (load! "macos.el")
-)
+  )
 #+end_src
 
 ** Linux only
@@ -3709,9 +3756,9 @@ a separator ' -> '."
 (when IS-LINUX
   (package! epc :recipe (:build (:not compile)))
   (package! eaf :recipe (:host github
-                            :repo "manateelazycat/emacs-application-framework"
-                            :files ("*")
-                            :build (:not compile)))
+                         :repo "manateelazycat/emacs-application-framework"
+                         :files ("*")
+                         :build (:not compile)))
   )
 #+end_src
 
@@ -3777,9 +3824,9 @@ a separator ' -> '."
 - cursor
 
   #+begin_src emacs-lisp :tangle "macos.el"
-    (setq-default cursor-type 'box)
-    (blink-cursor-mode -1)
-    (set-cursor-color "yellow1")
+(setq-default cursor-type 'box)
+(blink-cursor-mode -1)
+(set-cursor-color "yellow1")
   #+end_src
 
   - bookmark
@@ -3838,7 +3885,7 @@ a separator ' -> '."
 (when IS-MAC
   (package! exec-path-from-shell)
   (package! org-mac-link :recipe (:host gitlab :repo "aimebertrand/org-mac-link"))
-)
+  )
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"

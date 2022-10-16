@@ -3,11 +3,11 @@
 {
   vscode-extensions-copilot = {
     pname = "vscode-extensions-copilot";
-    version = "1.47.6882";
+    version = "1.49.6911";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.47.6882/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.47.6882.zip";
-      sha256 = "sha256-YCPmaovacK6HwYtigWLeH6jNFMYZnxplHor3tZ/qdzU=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.49.6911/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.49.6911.zip";
+      sha256 = "sha256-1wuUFvlet+BtXQtTXZbigfqh9hsAA4Yqr0yCA8CVw5o=";
     };
     license = "mit";
     homepage = "none";
@@ -123,11 +123,11 @@
   };
   vscode-extensions-rust-analyzer = {
     pname = "vscode-extensions-rust-analyzer";
-    version = "0.4.1222";
+    version = "0.4.1232";
     src = fetchurl {
-      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1222/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "rust-analyzer-0.4.1222.zip";
-      sha256 = "sha256-n2cfnutDRrK/qGI5bDAeOlabm7wQNlbtqH6WjoVkagk=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1232/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1232.zip";
+      sha256 = "sha256-1+hgt/HIu3tAuPC8+cGNFw7yfxAOjsdYhNGBR3gMvpM=";
     };
     license = "mit";
     homepage = "none";

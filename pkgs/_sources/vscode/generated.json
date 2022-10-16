@@ -1,6 +1,7 @@
 {
     "vscode-extensions-copilot": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-copilot",
         "passthru": {
@@ -10,15 +11,16 @@
         },
         "pinned": false,
         "src": {
-            "name": "copilot-1.47.6882.zip",
-            "sha256": "sha256-YCPmaovacK6HwYtigWLeH6jNFMYZnxplHor3tZ/qdzU=",
+            "name": "copilot-1.49.6911.zip",
+            "sha256": "sha256-1wuUFvlet+BtXQtTXZbigfqh9hsAA4Yqr0yCA8CVw5o=",
             "type": "url",
-            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.47.6882/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.49.6911/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.47.6882"
+        "version": "1.49.6911"
     },
     "vscode-extensions-indent-rainbow": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-indent-rainbow",
         "passthru": {
@@ -37,6 +39,7 @@
     },
     "vscode-extensions-julia-color-themes": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-julia-color-themes",
         "passthru": {
@@ -55,6 +58,7 @@
     },
     "vscode-extensions-language-julia": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-language-julia",
         "passthru": {
@@ -73,6 +77,7 @@
     },
     "vscode-extensions-language-rust": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-language-rust",
         "passthru": {
@@ -91,6 +96,7 @@
     },
     "vscode-extensions-markdown-preview-enhanced": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-markdown-preview-enhanced",
         "passthru": {
@@ -109,6 +115,7 @@
     },
     "vscode-extensions-multi-cursor-case-preserve": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-multi-cursor-case-preserve",
         "passthru": {
@@ -127,6 +134,7 @@
     },
     "vscode-extensions-nickel-syntax": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-nickel-syntax",
         "passthru": {
@@ -145,6 +153,7 @@
     },
     "vscode-extensions-pdf": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-pdf",
         "passthru": {
@@ -163,6 +172,7 @@
     },
     "vscode-extensions-readable-indent": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-readable-indent",
         "passthru": {
@@ -181,6 +191,7 @@
     },
     "vscode-extensions-rust-analyzer": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-rust-analyzer",
         "passthru": {
@@ -190,15 +201,16 @@
         },
         "pinned": false,
         "src": {
-            "name": "rust-analyzer-0.4.1222.zip",
-            "sha256": "sha256-n2cfnutDRrK/qGI5bDAeOlabm7wQNlbtqH6WjoVkagk=",
+            "name": "rust-analyzer-0.4.1232.zip",
+            "sha256": "sha256-1+hgt/HIu3tAuPC8+cGNFw7yfxAOjsdYhNGBR3gMvpM=",
             "type": "url",
-            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1222/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1232/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.4.1222"
+        "version": "0.4.1232"
     },
     "vscode-extensions-tokyo-night": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-tokyo-night",
         "passthru": {
@@ -217,6 +229,7 @@
     },
     "vscode-extensions-vscode-direnv": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-vscode-direnv",
         "passthru": {
@@ -235,6 +248,7 @@
     },
     "vscode-extensions-vscode-emacs-friendly": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-vscode-emacs-friendly",
         "passthru": {
@@ -253,6 +267,7 @@
     },
     "vscode-extensions-vscode-markdownlint": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-vscode-markdownlint",
         "passthru": {
@@ -271,6 +286,7 @@
     },
     "vscode-extensions-zeek": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-extensions-zeek",
         "passthru": {

@@ -6,7 +6,7 @@
     brave
 
     #book
-    polar-bookshelf
+    # polar-bookshelf
 
     elementary-planner
   ];
