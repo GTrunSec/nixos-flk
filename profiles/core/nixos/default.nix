@@ -11,7 +11,7 @@ in {
 
   programs.nix-ld.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest.extend (_: super: {
+  boot.kernelPackages = pkgs.linuxPackages_5_19.extend (_: super: {
     # kernel = super.kernel.override {
     #   extraConfig = ''
     #     NETFILTER y

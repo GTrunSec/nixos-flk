@@ -7,20 +7,22 @@
   };
   my-python-packages =
     (
-      pkgs.python3.withPackages (
+      pkgs.python3Override.withPackages (
         ps:
           with ps; [
             #emacs-eaf
             shapely
             dbus-python
             qrcode
-            pyqt5
             pymupdf
             xlib
             grip
             black
             pyinotify
+            pyqt5
             pyqtwebengine
+            pyqt6
+            pyqt6-webengine
             markdown
             feedparser
             retrying
@@ -42,6 +44,10 @@
     )
     .override (args: {ignoreCollisions = true;});
 in {
+  environment.variables = {
+     QT_QPA_PLATFORM_PLUGIN_PATH = "${pkgs.qt6.qtbase.outPath}/lib/qt-${pkgs.qt6.qtbase.version}/plugins";
+   };
+
   environment.systemPackages = with pkgs; [
     my-python-packages
     nodePackages.pyright

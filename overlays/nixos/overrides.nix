@@ -7,7 +7,7 @@ channels: final: prev: {
     dhall
     discord
     #element-desktop
-    
+
     _1password-gui
     _1password
     manix
@@ -19,6 +19,7 @@ channels: final: prev: {
     treefmt
     appimage-run
     zoom-us
+    qt6
     ;
 
   inherit
@@ -54,4 +55,17 @@ channels: final: prev: {
         });
       }
     );
+
+  # python3 =
+  #   prev.python3.override
+  #   (
+  #     old: {
+  #       packageOverrides = prev.lib.composeExtensions (old.packageOverrides or (_: _: {})) (selfPythonPackages: pythonPackages: let
+  #       in {
+  #         pyqt6 = channels.nixos-unstable.python39Packages.pyqt6;
+  #         pyqt6-webengine = channels.nixos-unstable.python39Packages.pyqt6-webengine;
+  #       });
+  #     }
+  #   );
+  python3Override = channels.nixos-latest.python3;
 }
