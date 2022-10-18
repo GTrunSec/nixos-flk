@@ -22,7 +22,7 @@ in {
   got = callPackage ./go/got {};
 
   #python
-  promnesia = python3Packages.callPackage ./python/promnesia {
+  promnesia = pythonPackages.callPackage ./python/promnesia {
     orgparse = final.orgparse;
     hpi = final.hpi;
   };

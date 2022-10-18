@@ -44,10 +44,6 @@
     )
     .override (args: {ignoreCollisions = true;});
 in {
-  environment.variables = {
-     QT_QPA_PLATFORM_PLUGIN_PATH = "${pkgs.qt6.qtbase.outPath}/lib/qt-${pkgs.qt6.qtbase.version}/plugins";
-   };
-
   environment.systemPackages = with pkgs; [
     my-python-packages
     nodePackages.pyright
