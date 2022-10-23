@@ -21,8 +21,6 @@
             pyinotify
             pyqt5
             pyqtwebengine
-            pyqt6
-            pyqt6-webengine
             markdown
             feedparser
             retrying
@@ -39,6 +37,9 @@
             pdftotext
             pypinyin
             pygls
+          ] ++ lib.optional pkgs.stdenv.isLinux [
+            pyqt6
+            pyqt6-webengine
           ]
       )
     )

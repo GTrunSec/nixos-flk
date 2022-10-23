@@ -67,5 +67,5 @@ channels: final: prev: {
   #       });
   #     }
   #   );
-  python3Override = channels.nixos-latest.python3;
+  python3Override = channels.nixos-unstable.python3;
 }
