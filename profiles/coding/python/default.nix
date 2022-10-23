@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   wenls = pkgs.fetchFromGitHub {
     owner = "metaescape";
     repo = "Wen";
