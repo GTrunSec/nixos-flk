@@ -106,6 +106,7 @@
       channelsConfig = {
         allowUnfree = true;
         allowUnsupportedSystem = true;
+	allowBroken = true; 
       };
 
       channels = import ./channels {inherit self inputs;};

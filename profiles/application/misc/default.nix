@@ -11,7 +11,7 @@
     magnetw
     got
     aria2
-    motrix
+    # motrix
     #VPN
     shadowsocks-libev
     # manager password

@@ -14,13 +14,11 @@
             shapely
             dbus-python
             qrcode
-            pymupdf
             xlib
             grip
             black
-            pyinotify
-            pyqt5
-            pyqtwebengine
+            # pyqt5
+            # pyqtwebengine
             markdown
             feedparser
             retrying
@@ -40,6 +38,8 @@
           ] ++ lib.optional pkgs.stdenv.isLinux [
             pyqt6
             pyqt6-webengine
+	    pyinotify
+	    pymupdf
           ]
       )
     )
