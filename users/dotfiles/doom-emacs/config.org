@@ -703,26 +703,6 @@
 
 ** harpoon :bookmark:
 - https://github.com/otavioschwanck/harpoon.el
-** project-hercules :keymaps:
-
-- https://github.com/akirak/project-hercules.el
-
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! project-hercules :recipe (:host github
-                                    :repo "akirak/project-hercules.el"
-                                    )
-  )
-#+end_src
-
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! project-hercules
-  :config
-  ;; Load preconfigured maps
-  (require 'project-hercules-config)
-  )
-#+end_src
 ** which-key
 
 #+begin_src emacs-lisp :tangle "config.el"
