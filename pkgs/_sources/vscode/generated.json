@@ -11,12 +11,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "copilot-1.49.6911.zip",
-            "sha256": "sha256-1wuUFvlet+BtXQtTXZbigfqh9hsAA4Yqr0yCA8CVw5o=",
+            "name": "copilot-1.57.7193.zip",
+            "sha256": "sha256-DdR5RqkJWlJvAhY7Rs51GDo+blBAMYmzGaoplHn3vso=",
             "type": "url",
-            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.49.6911/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.57.7193/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.49.6911"
+        "version": "1.57.7193"
     },
     "vscode-extensions-indent-rainbow": {
         "cargoLocks": null,
@@ -68,12 +68,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "language-julia-1.7.12.zip",
-            "sha256": "sha256-g6os6ktSWzUSCnLzMkGRoOhCEvU3gXcGGj2cq1NKkaE=",
+            "name": "language-julia-1.38.2.zip",
+            "sha256": "sha256-B7jIdI+F39maX/I+rffIjmS59+B9atsr5rzX+c++Wqk=",
             "type": "url",
-            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.7.12/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.38.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.7.12"
+        "version": "1.38.2"
     },
     "vscode-extensions-language-rust": {
         "cargoLocks": null,
@@ -106,12 +106,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "markdown-preview-enhanced-0.6.3.zip",
-            "sha256": "sha256-dCWERQ5rHnmYLtYl12gJ+dXLnpMu55WnmF1VfdP0x34=",
+            "name": "markdown-preview-enhanced-0.6.5.zip",
+            "sha256": "sha256-Aw41V1hCZ3reZRptfqFDdBef9spHjkfMngVotF2ptek=",
             "type": "url",
-            "url": "https://shd101wyy.gallery.vsassets.io/_apis/public/gallery/publisher/shd101wyy/extension/markdown-preview-enhanced/0.6.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://shd101wyy.gallery.vsassets.io/_apis/public/gallery/publisher/shd101wyy/extension/markdown-preview-enhanced/0.6.5/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.6.3"
+        "version": "0.6.5"
     },
     "vscode-extensions-multi-cursor-case-preserve": {
         "cargoLocks": null,
@@ -144,12 +144,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "nickel-syntax-0.0.1.zip",
-            "sha256": "sha256-eti0BGhehQJIdKwwsY/lNxQdlffe0dqvFKvNJFGxHwQ=",
+            "name": "nickel-syntax-0.0.2.zip",
+            "sha256": "sha256-ffPZd717Y2OF4d9MWE6zKwcsGWS90ZJvhWkqP831tVM=",
             "type": "url",
-            "url": "https://kubukoz.gallery.vsassets.io/_apis/public/gallery/publisher/kubukoz/extension/nickel-syntax/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://kubukoz.gallery.vsassets.io/_apis/public/gallery/publisher/kubukoz/extension/nickel-syntax/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.0.1"
+        "version": "0.0.2"
     },
     "vscode-extensions-pdf": {
         "cargoLocks": null,
@@ -201,12 +201,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "rust-analyzer-0.4.1232.zip",
-            "sha256": "sha256-1+hgt/HIu3tAuPC8+cGNFw7yfxAOjsdYhNGBR3gMvpM=",
+            "name": "rust-analyzer-0.4.1274.zip",
+            "sha256": "sha256-U+FKFX+3IuaOCyFafzI+kqW0ueKouCn4VX+mB01x5dk=",
             "type": "url",
-            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1232/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1274/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.4.1232"
+        "version": "0.4.1274"
     },
     "vscode-extensions-tokyo-night": {
         "cargoLocks": null,
@@ -239,12 +239,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "direnv-0.6.1.zip",
-            "sha256": "sha256-5/Tqpn/7byl+z2ATflgKV1+rhdqj+XMEZNbGwDmGwLQ=",
+            "name": "direnv-0.7.0.zip",
+            "sha256": "sha256-MLBPhDBU8vPVvbde3fdwhxKvQa8orUMKAAXoOfNrbh4=",
             "type": "url",
-            "url": "https://mkhl.gallery.vsassets.io/_apis/public/gallery/publisher/mkhl/extension/direnv/0.6.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://mkhl.gallery.vsassets.io/_apis/public/gallery/publisher/mkhl/extension/direnv/0.7.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.6.1"
+        "version": "0.7.0"
     },
     "vscode-extensions-vscode-emacs-friendly": {
         "cargoLocks": null,

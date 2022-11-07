@@ -6,6 +6,10 @@
       runAsRoot = false;
     };
   };
+  # nsjail
+  # https://systemd.io/CGROUP_DELEGATION/
+  systemd.services."user@".serviceConfig.Delegate = true;
+  systemd.services."user@".serviceConfig.LimitNOFILE = 9001;
   # virtualisation = {
   #   virtualbox = {
   #     host = {

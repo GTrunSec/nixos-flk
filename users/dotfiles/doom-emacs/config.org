@@ -2965,22 +2965,26 @@ showstringspaces=false
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when (display-graphic-p)
-  (use-package! lsp-bridge
-    :config
-    (require 'lsp-bridge-jdtls)
-    (global-lsp-bridge-mode)
-    (setq lsp-bridge-flash-line-delay 1)
-    (setq lsp-bridge-ref-flash-line-delay 1)
-    (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
-    (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
-    (setq acm-enable-tabnine-helper t)
-    )
+(use-package! lsp-bridge
+  :config
+  (require 'lsp-bridge-jdtls)
+  (global-lsp-bridge-mode)
+  (setq lsp-bridge-flash-line-delay 1)
+  (setq lsp-bridge-ref-flash-line-delay 1)
+  (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
+  (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
+  (setq acm-enable-tabnine-helper t)
   )
 #+end_src
 
-#+RESULTS:
-: t
+
+#+begin_src emacs-lisp :tangle "config.el"
+(unless (display-graphic-p)
+  (after! acm
+    (use-package! acm-terminal
+      :load-path "/home/gtrun/ghq/github.com/twlz0ne/acm-terminal"
+      )))
+#+end_src
 
 ** Poly Mode
 
@@ -3756,7 +3760,6 @@ by `org-babel-execute-src-block'"
       (eaf-browser-enable-adblocker t)
       (browse-url-browser-function 'eaf-open-browser)
       :config
-      (require 'eaf-markdown-previewer)
       (setq eaf-webengine-default-zoom 2.0)
       ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
       ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
