@@ -67,8 +67,10 @@
     ragenix.inputs.nixpkgs.follows = "nixos";
 
     gomod2nix.url = "github:tweag/gomod2nix";
+    gomod2nix.inputs.nixpkgs.follows = "nixos";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixos";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixos";

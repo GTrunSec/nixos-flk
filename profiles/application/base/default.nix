@@ -7,7 +7,7 @@
 
     #book
     # polar-bookshelf
-
+    foliate
     elementary-planner
   ];
 }

@@ -323,6 +323,8 @@
             (setq abbrev-file-name (expand-file-name "abbrev.el" doom-private-dir))))
 #+end_src
 
+** Search Backend
+
 * Packages.el
 
 - [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
@@ -1618,7 +1620,7 @@ FACE defaults to inheriting from default and highlight."
 
 ** [[https://github.com/ROCKTAKEY/grugru][ROCKTAKEY/grugru: Rotate text at point in Emacs.]]
 
-* popon
+** popon
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! popon :recipe (:host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
@@ -1627,6 +1629,41 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package popon)
 #+end_src
+
+* Search Backend
+**  blink-search
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! blink-search :recipe (:host github :repo "manateelazycat/blink-search"
+                                :build (:not compile)
+                                :files ("*")))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when (display-graphic-p)
+  (use-package! blink-search))
+#+end_src
+**  symbol-overlay
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! symbol-overlay)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! symbol-overlay
+  :config
+  :bind (:map symbol-overlay-mode-map
+              ("M-i" . symbol-overlay-put)
+              ("M-N" . symbol-overlay-switch-forward)
+              ("M-P" . symbol-overlay-switch-backward)
+              ("M-n" . symbol-overlay-jump-next)
+              ("M-p" . symbol-overlay-jump-prev)
+              ("M-r" . symbol-overlay-query-replace)
+              ("M-R" . symbol-overlay-rename)))
+#+end_src
+
+#+RESULTS:
+: symbol-overlay-rename
 
 * Org Mode
 
