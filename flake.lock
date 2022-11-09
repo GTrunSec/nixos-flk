@@ -123,11 +123,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1657835815,
-        "narHash": "sha256-CnZszAYpNKydh6N7+xg+eRtWNVoAAGqc6bg+Lpgq1xc=",
+        "lastModified": 1667419884,
+        "narHash": "sha256-oLNw87ZI5NxTMlNQBv1wG2N27CUzo9admaFlnmavpiY=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "54a24f042f93c79f5679f133faddedec61955cf2",
+        "rev": "cfc0125eafadc9569d3d6a16ee928375b77e3100",
         "type": "github"
       },
       "original": {
@@ -143,16 +143,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1667956545,
-        "narHash": "sha256-2z0+Q4Mm4JUw+9rexkoP4egSv6xlKxz6BKEeFNyni7k=",
+        "lastModified": 1665194557,
+        "narHash": "sha256-w0cG1OhwIzBUCxOmImA1HYTPATNNGFpuBbC5g8mgipw=",
         "owner": "bromanko",
         "repo": "emacs-overlay-darwin",
-        "rev": "31afc71da3199ceb7cd76a4e14fe7d70723b8b7a",
+        "rev": "f079c68dc3e31b123178c36b24e82998db8f7446",
         "type": "github"
       },
       "original": {
         "owner": "bromanko",
         "repo": "emacs-overlay-darwin",
+        "rev": "f079c68dc3e31b123178c36b24e82998db8f7446",
         "type": "github"
       }
     },

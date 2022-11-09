@@ -37,7 +37,7 @@
     darwin.inputs.nixpkgs.follows = "darwin-nixpkgs";
     darwin-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
 
-    darwin-emacs.url = "github:bromanko/emacs-overlay-darwin";
+    darwin-emacs.url = "github:bromanko/emacs-overlay-darwin/f079c68dc3e31b123178c36b24e82998db8f7446";
   };
 
   inputs = {
