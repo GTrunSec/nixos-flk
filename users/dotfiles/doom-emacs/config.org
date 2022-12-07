@@ -1090,26 +1090,6 @@ appropriate.  In tables, insert a new row or end the table."
 #+end_src
 
 
-** corfu-doc
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! corfu-doc :recipe (:host github :repo "galeo/corfu-doc"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! corfu-doc
-  :hook
-  (corfu-mode . corfu-doc-mode)
-  :bind (:map corfu-map
-              ("M-n" . corfu-doc-scroll-down)
-              ("M-p" . corfu-doc-scroll-up)
-              ("M-d" . corfu-doc-toggle))
-  )
-#+end_src
-
-#+RESULTS:
-: t
-
 ** corfu-terminal
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -3339,7 +3319,7 @@ by `org-babel-execute-src-block'"
     (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
     ;;nix
     (tree-sitter-load 'nix "nix")
-    (tree-sitter-load 'nickel "nickel")
+    ;;(tree-sitter-load 'nickel "nickel")
     (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
     (add-to-list 'tree-sitter-major-mode-language-alist '(nickel-mode . nickel))
     (add-to-list 'tree-sitter-major-mode-language-alist '(envrc-file-mode . bash))

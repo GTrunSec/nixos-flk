@@ -8,6 +8,6 @@
     #book
     # polar-bookshelf
     foliate
-    elementary-planner
+    # elementary-planner
   ];
 }

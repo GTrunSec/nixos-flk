@@ -11,13 +11,8 @@ in {
 
   programs.nix-ld.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_5_19.extend (_: super: {
-    # kernel = super.kernel.override {
-    #   extraConfig = ''
-    #     NETFILTER y
-    #   '';
-    # };
-  });
+  # boot.kernelPackages = pkgs.linuxPackages_6_0.extend (_: super: {});
+
   environment = {
     systemPackages = with pkgs; [
       binutils
@@ -33,7 +28,7 @@ in {
       gptfdisk
       iputils
       jq
-      manix
+      # manix
       moreutils
       nix-index
       nmap

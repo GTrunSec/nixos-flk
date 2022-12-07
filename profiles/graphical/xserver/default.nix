@@ -38,11 +38,10 @@
       imlib2
       librsvg
       libsForQt5.qtstyleplugins
-      man-pages
       papirus-icon-theme
       pulsemixer
       qt5.qtgraphicaleffects
-      stdmanpages
+      # stdmanpages
       xsel
       zathura
       xdotool

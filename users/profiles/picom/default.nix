@@ -14,19 +14,19 @@
     fadeDelta = 5;
     vSync = true;
     shadow = true;
-    shadowOpacity = "0.16";
-    menuOpacity = "0.9";
-    opacityRule = [
+    shadowOpacity = 0.16;
+    menuOpacity = 0.9;
+    opacityRules = [
       "95:class_g *?= 'brave'"
       "80:class_g *?= 'emacs' && focused"
       "75:class_g *?= 'emacs' && !focused"
     ];
-    extraOptions = ''
-      corner-radius = 10;
-      # blur-method = "dual_kawase";
-      blur-strength = "10";
-      xinerama-shadow-crop = true;
-    '';
+    # extraOptions = ''
+    #   corner-radius = 10;
+    #   # blur-method = "dual_kawase";
+    #   blur-strength = "10";
+    #   xinerama-shadow-crop = true;
+    # '';
     shadowExclude = [
       "class_g = 'eww-bar'"
       "name = 'Picture-in-Picture'"

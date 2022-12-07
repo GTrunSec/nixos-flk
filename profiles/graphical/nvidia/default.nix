@@ -8,7 +8,7 @@
     videoDrivers = ["nvidia" "intel"];
   };
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   hardware.nvidia.modesetting.enable = true;
 

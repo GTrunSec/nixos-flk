@@ -17,7 +17,13 @@
       noGlobalRegistry = false;
     };
 
-    autoOptimiseStore = true;
+    settings = {
+      auto-optimise-store = true;
+      max-jobs = lib.mkDefault 12;
+      allowed-users = ["@wheel"];
+      trusted-users = ["root" "@wheel"];
+      system-features = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+    };
 
     gc = {
       automatic = true;
@@ -27,12 +33,6 @@
 
     optimise.automatic = true;
 
-    useSandbox = true;
-
-    allowedUsers = ["@wheel"];
-
-    trustedUsers = ["root" "@wheel"];
-
     extraOptions = ''
       min-free = 536870912
       accept-flake-config = true
@@ -41,7 +41,6 @@
       fallback = true
     '';
 
-    systemFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
   };
 
   #systemd.services.sync-nixpkgs.serviceConfig.TimeoutSec = lib.mkForce 500;

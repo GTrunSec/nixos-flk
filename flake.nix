@@ -15,14 +15,14 @@
     # Default Flakes #
     ##################
     nixpkgs.follows = "nixos";
-    nixos.url = "github:NixOS/nixpkgs/release-22.05";
+    nixos.url = "github:NixOS/nixpkgs/release-22.11";
     nixos-latest.url = "github:NixOS/nixpkgs/master";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixos";
 
-    home.url = "github:nix-community/home-manager/f26946858e07384860bf288f20e39a8d32ed5b71";
+    home.url = "github:nix-community/home-manager/release-22.11";
     home.inputs.nixpkgs.follows = "nixos-latest";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -106,9 +106,12 @@
       supportedSystems = ["x86_64-linux" "x86_64-darwin"];
 
       channelsConfig = {
+        permittedInsecurePackages = [
+          "qtwebkit-5.212.0-alpha4"
+        ];
         allowUnfree = true;
         allowUnsupportedSystem = true;
-	allowBroken = true; 
+        allowBroken = true;
       };
 
       channels = import ./channels {inherit self inputs;};
